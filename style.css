@@ -1,5 +1,10 @@
 /* SOE stylesheet */
 
+@font-face {
+  font-family:helvetica_serif;
+  src:url("OSP_helvetica_serif.ttf");
+}
+
 *{
 	border:none;
 	margin:0;
