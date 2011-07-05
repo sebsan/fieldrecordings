@@ -11,3 +11,8 @@
 	border:1px solid #000;
 	padding:10px;
 	}
+	
+#content .title{
+	font-family:helvetica_serif;
+	font-size:12pt;
+	}
