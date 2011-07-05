@@ -1,18 +1,80 @@
-#content_outer{
-	position:absolute;
-	top:30px;
-	left:30px;
-	width:300px;
-	background-color:#FFF;
-	border:1px solid #000;
-	}
-#content{
-	margin:2px;
-	border:1px solid #000;
-	padding:10px;
-	}
-	
-#content .title{
-	font-family:helvetica_serif;
-	font-size:12pt;
-	}
+#content_outer {
+     background-color: #FFFFFF;
+     border: 1px solid #000000;
+     left: 30px;
+     position: absolute;
+     top: 30px;
+     width: 350px;
+}
+
+#content {
+     border: 1px solid #000000;
+     margin: 2px;
+     padding: 0px;
+}
+
+#content .title {
+     border-bottom: 1px solid #000000;
+     font-family: helvetica_serif;
+     font-size: 18pt;
+     padding: 10px 10px 5px;
+}
+
+#content .location {
+     font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
+     padding: 5px 10px;
+}
+
+#content .picture {
+     background-color: #000000;
+     height: 250px;
+     margin: 10px;
+     width: 323px;
+}
+
+#content .section .section_title {
+     font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
+     padding: 5px 10px;
+}
+
+#content .section .section_par {
+     font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
+     padding: 5px 10px;
+}
+
+#content .section .artist_url {
+     padding: 5px 10px;
+}
+
+#content .section .artist_url a {
+     color: black;
+     font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
+     text-decoration: none;
+}
+
+#content .tags_box .tags {
+     padding: 5px 10px;
+}
+
+#content .tags_box .tags a {
+     color: black;
+     font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
+}
+
+#content .artist_track {
+     border-top: 1px solid #000000;
+     font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
+     padding: 5px 10px;
+}
