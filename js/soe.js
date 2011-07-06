@@ -5,6 +5,8 @@ requires: jQuery, Raphael
 
 */
 
+var SOE_debug = false;
+
 var raf = undefined;
 var p = undefined;
 
@@ -18,7 +20,7 @@ function Path(R, p)
 		this._pdata = p;
 	
 	this._stroke = "#000";
-	this._fill = "#fff";
+	this._fill = "transparent";
 	this._path =  R.path(this._pdata).attr(
 	{
 		stroke : this._stroke,
@@ -26,6 +28,9 @@ function Path(R, p)
 		path : this._pdata
 	});
 	this._path.hide();
+	this._scale = "1 1";
+	this._rotation = "0";
+	this._translation = "0 0";
 }
 
 Path.prototype._updateAttrs = function()
@@ -34,7 +39,10 @@ Path.prototype._updateAttrs = function()
 	{
 		stroke : this._stroke,
 		fill : this._fill,
-		path : this._pdata
+		path : this._pdata,
+		rotation : this._rotation,
+		translation : this._translation,
+		scale : this._scale
 	});
 }
 
@@ -88,6 +96,27 @@ Path.prototype.fill = function(color)
 	}
 }
 
+Path.prototype.scale = function(sx, sy)
+{
+	var gsx = sy;
+	if(sy == undefined)
+		gsx = sx
+	this._scale = sx + " " + gsx;
+	this._updateAttrs();
+}
+
+Path.prototype.translate = function(dx, dy)
+{
+	this._translation = dx + " " + dy;
+	this._updateAttrs();
+}
+
+Path.prototype.rotate = function(r)
+{
+	this._rotation = r;
+	this._updateAttrs();
+}
+
 Path.prototype.reset = function(p)
 {
 	if(p == undefined)
@@ -112,26 +141,42 @@ Path.prototype.element = function()
 function initSOE()
 {
 	raph = Raphael(document.getElementById("carte"), 1000,1000 );
-	var i = 200;
+// 	raph.safari();
+	var line = new Path(raph);
+	var content = $('#content_outer');
+	if(curPoint.x < ($(window).width() / 2))
+	{
+		var leftVal = (($(window).width() / 2) + 28) + "px";
+// 		alert(leftVal);
+		content.css("left", leftVal);
+		line.moveTo(content.offset().left, content.offset().top )
+	}
+	else
+		line.moveTo(content.offset().left + content.width(), content.offset().top);
+	
+	line.lineTo(curPoint.x, curPoint.y);
+	line.draw();
+	
+	
+	var i = 1;
 	for(var id = 4051; id < 5126; id += 2)
 	{
-		$.get("http://localhost/~pierre/fieldrecordings/svg_path.php", { svg : "europe.svg", id: "path" + id },
+		$.get("svg_path.php", { svg : "europe.svg", id: "path" + id },
 		      function(data)
 		      {
 			      try
 			      {
 // 			      var d = $.parseJSON(data);
-		var d = json_parse(data);
-			      var idx = map_path.push(new Path(raph, d.p));
-			      map_path[idx - 1].stroke("rgb("+i+","+i+","+i+")");
-			      i--;
-			      if(i == 1)
-				      i = 200;
-			      map_path[idx - 1].draw();
+				var d = json_parse(data);
+				var idx = map_path.push(new Path(raph, d.p));
+// 				map_path[idx - 1].scale(i);
+// 				i -= 0.01;
+				map_path[idx - 1].draw();
 			      }
 			      catch(e)
 			      {
-				      alert("ouch: <" + data +">");
+				      if(SOE_debug == true)
+					alert("ouch: Unable to parse JSON data");
 			      }
 		      });
 	}
