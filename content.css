@@ -193,4 +193,33 @@
      text-decoration: none;
 }
 
+#closedBox_outer {
+     background-color: #FFFFFF;
+     border: 1px solid #000000;
+     left: 30px;
+     position: absolute;
+     top: 30px;
+     width: 200px;
+}
+
+#closedBox {
+     border: 1px solid #000000;
+     margin: 2px;
+     padding: 0px;
+}
+
+#closedBox .closedBox_title {
+     font-family: helvetica_serif;
+     font-size: 8pt;
+     padding: 0px 10px 5px;
+}
+
+#closedBox .closedBox_category {
+     font-family: free_sansBold;
+     font-size: 6pt;
+     padding: 4px 10px 0px 10px;
+     text-align:center;
+     border:1px solid #000000;
+     margin:-1px -1px 0px 130px
+}
 
