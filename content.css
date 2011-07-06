@@ -1,3 +1,5 @@
+/* content.css */
+
 #content_outer {
      background-color: #FFFFFF;
      border: 1px solid #000000;
@@ -14,10 +16,10 @@
 }
 
 #content .content_category {
-//     border-bottom: 1px solid #000000;
+/*     border-bottom: 1px solid #000000; */
      font-family: free_sans;
      font-size: 8pt;
-//     line-height: 30pt;
+/*     line-height: 30pt; */
      padding: 4px 10px 0px 10px;
      text-align:center;
      border:1px solid #000000;
@@ -49,7 +51,7 @@
 #content .section .section_title {
      font-family: free_sansBold;
      font-size: 10pt;
-//     line-height: 16pt;
+/*     line-height: 16pt; */
      padding: 5px 10px 0px 10px;
 }
 
@@ -69,7 +71,7 @@
      font-family: helvetica_serif;
      font-size: 10pt;
      line-height: 16pt;
-//     text-decoration: none;
+/*      text-decoration: none; */
 }
 
 #content .tags_box .tags {
@@ -87,9 +89,12 @@
      border-top: 1px solid #000000;
      font-family: free_sansBold;
      font-size: 10pt;
-     vertical-align: middle;
      line-height: 16pt;
      padding: 5px 10px;
+}
+
+#content .section .artist_track img{
+	vertical-align: middle;
 }
 
 #content .agenda_title {
@@ -109,21 +114,21 @@
 #content .section .section_eventCategory {
      font-family: free_sans;
      font-size: 8pt;
-//     line-height: 30pt;
+/*      line-height: 30pt; */
      padding: 10px 10px 0px 10px;
 }
 
 #content .section .section_eventName {
      font-family: free_sans;
      font-size: 18pt;
-//     line-height: 0pt;
+/*     line-height: 0pt; */
      padding: 0px 10px 0px 10px;
 }
 
 #content .section .section_eventDate {
      font-family: free_sansBold;
      font-size: 10pt;
-//     line-height: 0pt;
+/*      line-height: 0pt; */
      padding: 5px 10px 0px 10px;
 }
 
@@ -152,13 +157,13 @@
      padding: 5px 10px 15px 10px;
 }
 
-//#content .section .event_url a {
-//     color: black;
-//     font-family: helvetica_serif;
-//     font-size: 10pt;
-//     line-height: 16pt;
-//     text-decoration: none;
-//}
+/*#content .section .event_url a {
+     color: black;
+     font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
+     text-decoration: none;
+}*/
 
 
 #content .section .nextPage_link {
