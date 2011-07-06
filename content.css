@@ -63,7 +63,7 @@
 }
 
 #content .section .general_url {
-     padding: 5px 10px 10px 10px;
+     padding: 5px 10px 0px 10px;
 }
 
 #content .section .general_url a {
@@ -71,11 +71,21 @@
      font-family: helvetica_serif;
      font-size: 10pt;
      line-height: 16pt;
-/*      text-decoration: none; */
+}
+
+#content .section .agenda_url {
+     padding: 5px 10px 15px 10px;
+}
+
+#content .section .agenda_url a {
+     color: black;
+     font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
 }
 
 #content .tags_box .tags {
-     padding: 5px 10px;
+     padding: 5px 10px 15px 10px;
 }
 
 #content .tags_box .tags a {
@@ -94,7 +104,7 @@
 }
 
 #content .section .artist_track img{
-	vertical-align: middle;
+	vertical-align: text-top;
 }
 
 #content .agenda_title {
