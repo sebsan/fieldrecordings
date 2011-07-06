@@ -35,10 +35,10 @@
 }
 
 #content .section .section_title {
-     font-family: helvetica_serif;
+     font-family: free_sansBold;
      font-size: 10pt;
-     line-height: 16pt;
-     padding: 5px 10px;
+//     line-height: 16pt;
+     padding: 5px 10px 0px 10px;
 }
 
 #content .section .section_par {
@@ -48,16 +48,16 @@
      padding: 5px 10px;
 }
 
-#content .section .artist_url {
+#content .section .general_url {
      padding: 5px 10px;
 }
 
-#content .section .artist_url a {
+#content .section .general_url a {
      color: black;
      font-family: helvetica_serif;
      font-size: 10pt;
      line-height: 16pt;
-     text-decoration: none;
+//     text-decoration: none;
 }
 
 #content .tags_box .tags {
@@ -73,7 +73,7 @@
 
 #content .artist_track {
      border-top: 1px solid #000000;
-     font-family: helvetica_serif;
+     font-family: free_sansBold;
      font-size: 10pt;
      line-height: 16pt;
      padding: 5px 10px;
@@ -82,7 +82,7 @@
 #content .agenda_title {
      font-family: helvetica_serif;
      font-size: 18pt;
-     padding: 10px 10px 5px;
+     padding: 10px 10px 0px 10px;
 }
 
 #content .agenda_date{
@@ -94,36 +94,75 @@
 	}
 	
 #content .section .section_eventCategory {
-     font-family: helvetica_serif;
+     font-family: free_sans;
      font-size: 8pt;
 //     line-height: 30pt;
      padding: 10px 10px 0px 10px;
 }
 
 #content .section .section_eventName {
-     font-family: helvetica_serif;
+     font-family: free_sans;
      font-size: 18pt;
 //     line-height: 0pt;
      padding: 0px 10px 0px 10px;
 }
 
 #content .section .section_eventDate {
-     font-family: helvetica_serif;
+     font-family: free_sansBold;
      font-size: 10pt;
 //     line-height: 0pt;
-     padding: 0px 10px 0px 10px;
+     padding: 5px 10px 0px 10px;
 }
 
 #content .section .section_eventHour {
-     font-family: helvetica_serif;
+     font-family: free_sansBold;
      font-size: 10pt;
-//     line-height: 0pt;
+     line-height: 10pt;
      padding: 0px 10px 0px 10px;
 }
 
 #content .section .section_eventPlace {
-     font-family: helvetica_serif;
+     font-family: free_sansBold;
      font-size: 10pt;
-//     line-height: 0pt;
+     line-height: 10pt;
      padding: 0px 10px 0px 10px;
 }
+
+#content .section .section_eventPar {
+     font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
+     padding: 10px 10px 0px 10px;
+}
+
+#content .section .event_url {
+     padding: 5px 10px 15px 10px;
+}
+
+//#content .section .event_url a {
+//     color: black;
+//     font-family: helvetica_serif;
+//     font-size: 10pt;
+//     line-height: 16pt;
+//     text-decoration: none;
+//}
+
+
+#content .section .nextPage_link {
+	 text-align:right;
+     padding: 0px 4px 0px 0px;
+     border-top: 1px solid #000000;
+
+}
+
+#content .section .nextPage_link a{
+	 border: 1px solid #000000;
+	 padding: 3px 5px 3px 7px;
+	 color: black;
+     font-family: free_sans;
+     font-size: 8pt;
+     line-height: 16pt;
+     text-decoration: none;
+}
+
+

@@ -5,6 +5,16 @@
   src:url("OSP_helvetica_serif.ttf");
 }
 
+@font-face {
+  font-family:free_sans;
+  src:url("FreeSans.ttf");
+}
+
+@font-face {
+  font-family:free_sansBold;
+  src:url("FreeSansBold.ttf");
+}
+
 *{
 	border:none;
 	margin:0;
