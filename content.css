@@ -65,6 +65,11 @@
 }
 
 #content .tags_box .tags a {
+//	 display:block;
+//	 background-color:#98bf21;
+//	 width:50px;
+//	 text-align:center;
+//	 padding:4px;
      color: black;
      font-family: helvetica_serif;
      font-size: 10pt;
