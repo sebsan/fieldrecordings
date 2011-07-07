@@ -1,0 +1,290 @@
+/* content.css */
+
+#content_outer {
+     background-color: #FFFFFF;
+     border: 1px solid #000000;
+     left: 30px;
+     position: absolute;
+     top: 30px;
+     width: 350px;
+}
+
+#content {
+     border: 1px solid #000000;
+     margin: 2px;
+     padding: 0px;
+}
+
+#content .content_category {
+/*     border-bottom: 1px solid #000000; */
+     font-family: free_sans;
+     font-size: 8pt;
+/*     line-height: 30pt; */
+     padding: 4px 10px 0px 10px;
+     text-align:center;
+     border:1px solid #000000;
+     margin:-1px -1px 0px 255px
+}
+
+
+#content .title {
+     border-bottom: 1px solid #000000;
+     font-family: helvetica_serif;
+     font-size: 18pt;
+     padding: 0px 10px 5px;
+}
+
+#content .location {
+     font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
+     padding: 5px 10px;
+}
+
+#content .picture {
+     background-color: #000000;
+     height: 250px;
+     margin: 10px;
+     width: 323px;
+}
+
+#content .section .section_title {
+     font-family: free_sansBold;
+     font-size: 10pt;
+/*     line-height: 16pt; */
+     padding: 5px 10px 0px 10px;
+}
+
+#content .section .section_par {
+     font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
+     padding: 5px 10px;
+}
+
+#content .section .general_url {
+     padding: 5px 10px 0px 10px;
+}
+
+#content .section .general_url a {
+     color: black;
+     font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
+}
+
+#content .section .agenda_url {
+     padding: 5px 10px 15px 10px;
+}
+
+#content .section .agenda_url a {
+     color: black;
+     font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
+}
+
+#content .tags_box .tags {
+     padding: 5px 10px 15px 10px;
+}
+
+#content .tags_box .tags a {
+     color: black;
+     font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
+}
+
+#content .section .artist_track {
+     border-top: 1px solid #000000;
+     font-family: free_sansBold;
+     font-size: 10pt;
+     line-height: 16pt;
+     padding: 5px 10px;
+}
+
+#content .section .artist_track img{
+	vertical-align: text-top;
+}
+
+#content .agenda_title {
+     font-family: helvetica_serif;
+     font-size: 18pt;
+     padding: 0px 10px 0px 10px;
+}
+
+#content .agenda_date{
+	 border-bottom: 1px solid #000000;
+	 font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
+     padding: 5px 10px;
+	}
+	
+#content .section .section_eventCategory {
+     font-family: free_sans;
+     font-size: 8pt;
+/*      line-height: 30pt; */
+     padding: 10px 10px 0px 10px;
+}
+
+#content .section .section_eventName {
+     font-family: free_sans;
+     font-size: 18pt;
+/*     line-height: 0pt; */
+     padding: 0px 10px 0px 10px;
+}
+
+#content .section .section_eventDate {
+     font-family: free_sansBold;
+     font-size: 10pt;
+/*      line-height: 0pt; */
+     padding: 5px 10px 0px 10px;
+}
+
+#content .section .section_eventHour {
+     font-family: free_sansBold;
+     font-size: 10pt;
+     line-height: 10pt;
+     padding: 0px 10px 0px 10px;
+}
+
+#content .section .section_eventPlace {
+     font-family: free_sansBold;
+     font-size: 10pt;
+     line-height: 10pt;
+     padding: 0px 10px 0px 10px;
+}
+
+#content .section .section_eventPar {
+     font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
+     padding: 10px 10px 0px 10px;
+}
+
+#content .section .event_url {
+     padding: 5px 10px 15px 10px;
+}
+
+/*#content .section .event_url a {
+     color: black;
+     font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
+     text-decoration: none;
+}*/
+
+
+#content .section .nextPage_link {
+	 text-align:center;
+     padding: 0px 4px 0px 0px;
+     border-top: 1px solid #000000;
+
+}
+
+#content .section .nextPage_link a{
+	 border: 1px solid #000000;
+	 padding: 3px 5px 3px 7px;
+	 color: black;
+     font-family: free_sans;
+     font-size: 8pt;
+     line-height: 16pt;
+     text-decoration: none;
+}
+
+#closedBox_outer {
+     background-color: #FFFFFF;
+     border: 1px solid #000000;
+     left: 30px;
+     position: absolute;
+     top: 30px;
+     width: 200px;
+}
+
+#closedBox {
+     border: 1px solid #000000;
+     margin: 2px;
+     padding: 0px;
+}
+
+#closedBox .closedBox_title {
+     font-family: helvetica_serif;
+     font-size: 8pt;
+     padding: 0px 10px 5px;
+}
+
+#closedBox .closedBox_category {
+     font-family: free_sansBold;
+     font-size: 6pt;
+     padding: 4px 10px 0px 10px;
+     text-align:center;
+     border:1px solid #000000;
+     margin:-1px -1px 0px 130px
+}
+
+#content .blog_title{
+     font-family: helvetica_serif;
+     font-size: 18pt;
+     padding: 0px 10px 5px;
+	}
+
+#menu_top .menu_item{
+	 font-family: helvetica_serif;
+     font-size: 9pt;
+     line-height: 16pt;
+     letter-spacing: 0.09em;
+     text-transform:uppercase;
+     padding: 5px 15px;
+	}
+	
+#menu_top .menu_item span{
+     padding: 30px 20px;
+	}
+	
+#menu_index {
+	position: absolute;
+	top: 30px;
+	left: 15px;
+	font-family: helvetica_serif;
+	font-size: 5pt;
+	line-height: 16pt;
+	letter-spacing: 0.09em;
+	padding: 5px 15px;
+	}
+	
+#menu_index div.index_col{
+	font-family: helvetica_serif;
+	font-size: 5pt;
+	line-height: 16pt;
+	letter-spacing: 0.09em;
+	padding: 5px 15px;
+}	
+#colonne_1 {
+	float:left;
+	width:120px;
+	}
+	
+#colonne_2 {
+	float:left;
+	width:120px;	
+}
+#colonne_3 {
+	float:left;
+	width:120px;	
+}
+#colonne_4 {
+	float:left;
+	width:120px;
+	}
+#colonne_5 {
+	float:left;
+	width:120px;
+	}
+#colonne_6 {
+	float:left;
+	width:120px;
+	}
+	
+	
+	
