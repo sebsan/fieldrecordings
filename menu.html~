@@ -3,11 +3,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 <title>SOE - PROJECT</title>
 <style media="screen" type="text/css">
+@import url("menu_top.css");
 @import url("style.css");
-@import url("map.css");
-@import url("menu_map.css");
-@import url("menu_nomap.css");
-@import url("content.css");
 </style>
 
 <script type='text/javascript' src='JSON-js/json_parse.js'></script>
@@ -25,77 +22,84 @@ curPoint.y = 500;
 <body>
 
 <div id="menu_index">
+	<span>
 	<div id="colonne_1" class="index_col">
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
+	<a href="#">El blablo</a>
+	<a href="#">La cumparsita</a>
+	<a href="#">3 miettes et un oiseau</a>
+	<a href="#">Mexico</a>
+	<a href="#">Sebi</a>
+	<a href="#">C'est parti les boucis</a>
+	<a href="#">Hopladi Hoplada</a>
+	<a href="#">Loubini</a>
 	</div>
+	</span>
+	<span>
 	<div id="colonne_2" class="index_col">
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
+	<a href="#">Londres</a>
+	<a href="#">Le nouveau Mexique</a>
+	<a href="#">L'Arizona</a>
+	<a href="#">Un hippopodame</a>
+	<a href="#">Les ratons</a>
+	<a href="#">El sunito</a>
+	<a href="#">Jack White</a>
+	<a href="#">Boubini</a>
 	</div>
+	</span>
+	<span>
 	<div id="colonne_3" class="index_col">
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
+	<a href="#">Yaka</a>
+	<a href="#">Prince et les grenouilles</a>
+	<a href="#">Crapaud</a>
+	<a href="#">Soleil</a>
+	<a href="#">Vert et bleu</a>
+	<a href="#">Rouge</a>
+	<a href="#">Blanc</a>
+	<a href="#">Chachatchu</a>
 	</div>
+	</span>
+	<span>
 	<div id="colonne_4" class="index_col">
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
+	<a href="#">Wonki</a>
+	<a href="#">Raisin</a>
+	<a href="#">Banane</a>
+	<a href="#">Barnabé</a>
+	<a href="#">Yacinthe</a>
+	<a href="#">Zack</a>
+	<a href="#">Kelly</a>
+	<a href="#">Le Portugal</a>
 	</div>
+	</span>
+	<span>
 	<div id="colonne_5" class="index_col">
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
+	<a href="#">Dans les choux</a>
+	<a href="#">Yahourt</a>
+	<a href="#">Fleur d'oranger</a>
+	<a href="#">Martien</a>
+	<a href="#">Pourtant</a>
+	<a href="#">C'est ainsi</a>
+	<a href="#">Osthéopathe</a>
+	<a href="#">Marin</a>
 	</div>
+	</span>
+	<span>
 	<div id="colonne_6" class="index_col">
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
-	<span>XXXXXXXX</span>
+	<a href="#">Concert de rock</a>
+	<a href="#">Jazzi</a>
+	<a href="#">Noisy</a>
+	
 	</div>
 </div>
 
 <div id="menu_top">
 	<div class="menu_item">
-	<span>Blog</span>
-	<span>Cities</span>
-	<span>Artists</span>
-	<span>Events</span>
-	<span>Institutions</span>
-	<span>Writings</span>
-	<span>Time line</span>
+	<span><a href="#" target = "blank">Blog</a></span>
+	<span><a href="#" target = "blank">Cities</a></span>
+	<span><a href="#" target = "blank">Artists</a></span>
+	<span><a href="#" target = "blank">Events</a></span>
+	<span><a href="#" target = "blank">Institutions</a></span>
+	<span><a href="#" target = "blank">Writings</a></span>
+	<span><a href="#" target = "blank">Time line</a></span>
 </div>
 
 

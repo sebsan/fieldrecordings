@@ -230,8 +230,8 @@
 	}
 
 #menu_top .menu_item{
-	 font-family: helvetica_serif;
-     font-size: 9pt;
+     font-family: helvetica_serif;
+     font-size: 10pt;
      line-height: 16pt;
      letter-spacing: 0.09em;
      text-transform:uppercase;
@@ -245,7 +245,7 @@
 #menu_index {
 	position: absolute;
 	top: 30px;
-	left: 15px;
+	left: 5px;
 	font-family: helvetica_serif;
 	font-size: 5pt;
 	line-height: 16pt;
@@ -254,12 +254,17 @@
 	}
 	
 #menu_index div.index_col{
-	font-family: helvetica_serif;
-	font-size: 5pt;
+	font-family: free_sans;
+	font-size: 9pt;
 	line-height: 16pt;
 	letter-spacing: 0.09em;
 	padding: 5px 15px;
 }	
+
+#menu_index div.index_col a{
+    display:block;
+}
+
 #colonne_1 {
 	float:left;
 	width:120px;
