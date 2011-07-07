@@ -223,6 +223,12 @@
      margin:-1px -1px 0px 130px
 }
 
+#content .blog_title{
+     font-family: helvetica_serif;
+     font-size: 18pt;
+     padding: 0px 10px 5px;
+	}
+
 #menu_top .menu_item{
 	 font-family: helvetica_serif;
      font-size: 9pt;
