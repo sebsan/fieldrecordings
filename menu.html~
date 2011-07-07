@@ -3,7 +3,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 <title>SOE - PROJECT</title>
 <style media="screen" type="text/css">
-@import url("menu_top.css");
+@import url("style.css");
+@import url("map.css");
+@import url("menu_map.css");
+@import url("menu_nomap.css");
+@import url("content.css");
 </style>
 
 <script type='text/javascript' src='JSON-js/json_parse.js'></script>
@@ -21,7 +25,6 @@ curPoint.y = 500;
 <body>
 
 <div id="menu_index">
-	<span>
 	<div id="colonne_1" class="index_col">
 	<span>XXXXXXXX</span>
 	<span>XXXXXXXX</span>
@@ -32,8 +35,6 @@ curPoint.y = 500;
 	<span>XXXXXXXX</span>
 	<span>XXXXXXXX</span>
 	</div>
-	</span>
-	<span>
 	<div id="colonne_2" class="index_col">
 	<span>XXXXXXXX</span>
 	<span>XXXXXXXX</span>
@@ -44,8 +45,6 @@ curPoint.y = 500;
 	<span>XXXXXXXX</span>
 	<span>XXXXXXXX</span>
 	</div>
-	</span>
-	<span>
 	<div id="colonne_3" class="index_col">
 	<span>XXXXXXXX</span>
 	<span>XXXXXXXX</span>
@@ -56,8 +55,6 @@ curPoint.y = 500;
 	<span>XXXXXXXX</span>
 	<span>XXXXXXXX</span>
 	</div>
-	</span>
-	<span>
 	<div id="colonne_4" class="index_col">
 	<span>XXXXXXXX</span>
 	<span>XXXXXXXX</span>
@@ -68,8 +65,6 @@ curPoint.y = 500;
 	<span>XXXXXXXX</span>
 	<span>XXXXXXXX</span>
 	</div>
-	</span>
-	<span>
 	<div id="colonne_5" class="index_col">
 	<span>XXXXXXXX</span>
 	<span>XXXXXXXX</span>
@@ -80,8 +75,6 @@ curPoint.y = 500;
 	<span>XXXXXXXX</span>
 	<span>XXXXXXXX</span>
 	</div>
-	</span>
-	<span>
 	<div id="colonne_6" class="index_col">
 	<span>XXXXXXXX</span>
 	<span>XXXXXXXX</span>
