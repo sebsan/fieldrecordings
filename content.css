@@ -16,10 +16,8 @@
 }
 
 #content .content_category {
-/*     border-bottom: 1px solid #000000; */
      font-family: free_sans;
      font-size: 8pt;
-/*     line-height: 30pt; */
      padding: 4px 10px 0px 10px;
      text-align:center;
      border:1px solid #000000;
@@ -124,21 +122,18 @@
 #content .section .section_eventCategory {
      font-family: free_sans;
      font-size: 8pt;
-/*      line-height: 30pt; */
      padding: 10px 10px 0px 10px;
 }
 
 #content .section .section_eventName {
      font-family: free_sans;
      font-size: 18pt;
-/*     line-height: 0pt; */
      padding: 0px 10px 0px 10px;
 }
 
 #content .section .section_eventDate {
      font-family: free_sansBold;
      font-size: 10pt;
-/*      line-height: 0pt; */
      padding: 5px 10px 0px 10px;
 }
 
@@ -166,14 +161,6 @@
 #content .section .event_url {
      padding: 5px 10px 15px 10px;
 }
-
-/*#content .section .event_url a {
-     color: black;
-     font-family: helvetica_serif;
-     font-size: 10pt;
-     line-height: 16pt;
-     text-decoration: none;
-}*/
 
 
 #content .section .nextPage_link {
@@ -226,7 +213,36 @@
 #content .blog_title{
      font-family: helvetica_serif;
      font-size: 18pt;
-     padding: 0px 10px 5px;
+     padding: 10px 10px 5px 10px;
+	}
+	
+#content .blog_details{
+	 font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
+     padding: 5px 10px;
+	}
+	
+#content .blog_details a{
+	 color:black;
+	 text-decoration:none;
+	 font-family: helvetica_serif;
+     font-size: 10pt;
+     line-height: 16pt;
+	}
+	
+#content .pagination{
+	 font-family: free_sansBold;
+     font-size: 8pt;
+     padding: 5px 10px 15px 10px;
+	}
+	
+#content .pagination a{
+	 color:black;
+	 text-decoration:none;
+	 font-family: free_sansBold;
+     font-size: 8pt;
+     padding: 5px 5px 15px 5px;
 	}
 
 #menu_top .menu_item{
