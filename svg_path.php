@@ -16,6 +16,23 @@ class SVGPath
 			$this->loadStatus = 0;
 	}
 	
+	public function getIDs()
+	{
+		$p = array();
+		$status = $this->loadStatus;
+		if($this->loadStatus == 0)
+		{
+			// 			$elem = $this->svg->getElementById ( $id );
+			$xpath = new DOMXPath($this->svg);
+			$res =  $xpath->query("//*[@d]");
+			foreach($res as $elem)
+			{
+				$p[] = $elem->getAttribute("id");
+			}
+		}
+		return json_encode(array("status" => $status, "p" => $p));
+	}
+	
 	public function getPath($id)
 	{
 		$p = "";
@@ -38,15 +55,24 @@ class SVGPath
 	}
 }
 
+function get($p, $default = "")
+{
+	$ret = isset($_GET[$p]) ? $_GET[$p] : $default;
+	return $ret;
+}
 
-$file = $_GET["svg"];
-$id = $_GET["id"];
+$file = get("svg");
+$id = get("id");
+$p = get("get", NULL);
 
 $sp = new SVGPath($file);
 // header('Content-Type: text/javascript; charset=utf8');
 header('Content-Type: text/plain; charset=utf8');
 // header('Content-Type: application/json; charset=utf8');
 // echo '('. $sp->getPath($id) .')';
-echo  $sp->getPath($id) ;
+if($p != NULL)
+	echo $sp->getIDs();
+else
+	echo  $sp->getPath($id) ;
 
 ?>

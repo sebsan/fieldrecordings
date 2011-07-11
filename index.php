@@ -16,7 +16,7 @@
 <script type='text/javascript' src='js/soe.js'></script>
 
 <script type='text/javascript'>
-var theCity = "paris";
+var theCity = "<?php echo $_GET["city"] ?>";
 </script>
 
 </head>

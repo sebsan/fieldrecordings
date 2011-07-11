@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   style="display:inline"
+   sodipodi:docname="cities.svg"
+   inkscape:version="0.47 r22583"
+   version="1.1"
+   id="svg3656"
+   height="1862"
+   width="2160">
+  <defs
+     id="defs3658">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 931 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="2160 : 931 : 1"
+       inkscape:persp3d-origin="1080 : 620.66667 : 1"
+       id="perspective567" />
+    <inkscape:perspective
+       id="perspective9550"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.385468"
+     inkscape:cx="2073.4182"
+     inkscape:cy="1220.951"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer3"
+     showgrid="false"
+     borderlayer="true"
+     inkscape:showpageshadow="false"
+     inkscape:window-width="1440"
+     inkscape:window-height="854"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3661">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="r">
+    <image
+       y="254.10075"
+       x="437.59518"
+       id="image9552"
+       height="1539.5111"
+       width="1791.3107"
+       xlink:href="file:///home/pierre/Bureau/europe.png"
+       transform="matrix(0.99774534,0.06711366,-0.06711366,0.99774534,0,0)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="c">
+    <path
+       style="fill:#800000;fill-opacity:1;stroke:none"
+       d="m 748.2735,1707.1482 c 0.0518,3.3821 -2.64795,6.1658 -6.03002,6.2175 -3.38206,0.052 -6.16574,-2.6479 -6.21752,-6.03 -0.0518,-3.382 2.64796,-6.1656 6.03002,-6.2174 3.38207,-0.052 6.16574,2.6479 6.21752,6.0299 z"
+       id="madrid" />
+    <path
+       style="fill:#800000;fill-opacity:1;stroke:none"
+       d="m 918.37907,1415.6385 c 0.0518,3.3821 -2.64795,6.1658 -6.03002,6.2175 -3.38206,0.052 -6.16574,-2.6479 -6.21752,-6.03 -0.0518,-3.382 2.64796,-6.1656 6.03002,-6.2174 3.38207,-0.052 6.16574,2.6479 6.21752,6.0299 z"
+       id="paris" />
+    <path
+       style="fill:#800000;fill-opacity:1;stroke:none"
+       d="m 599.74613,1741.0689 c 0.0518,3.3821 -2.64795,6.1658 -6.03001,6.2176 -3.38207,0.052 -6.16575,-2.648 -6.21752,-6.0301 -0.0518,-3.382 2.64796,-6.1656 6.03002,-6.2174 3.38206,-0.052 6.16574,2.6479 6.21751,6.0299 z"
+       id="lisboa" />
+    <path
+       style="fill:#800000;fill-opacity:1;stroke:none"
+       d="m 1008.0231,1603.1266 c 0.052,3.3821 -2.648,6.1658 -6.03,6.2176 -3.38208,0.052 -6.16576,-2.648 -6.21754,-6.0301 -0.0518,-3.382 2.64796,-6.1656 6.03004,-6.2174 3.3821,-0.052 6.1657,2.6479 6.2175,6.0299 z"
+       id="marseille" />
+    <path
+       style="fill:#800000;fill-opacity:1;stroke:none"
+       d="m 978.41363,1336.1126 c 0.0518,3.3821 -2.64794,6.1658 -6.03001,6.2176 -3.38206,0.052 -6.16574,-2.648 -6.21752,-6.0301 -0.0518,-3.382 2.64796,-6.1656 6.03002,-6.2174 3.38207,-0.052 6.16574,2.6479 6.21751,6.0299 z"
+       id="bruxelles" />
+    <path
+       style="fill:#800000;fill-opacity:1;stroke:none"
+       d="m 865.58202,1301.0888 c 0.0518,3.3821 -2.64795,6.1657 -6.03001,6.2175 -3.38207,0.052 -6.16575,-2.6479 -6.21753,-6.03 -0.0518,-3.3821 2.64796,-6.1657 6.03003,-6.2175 3.38206,-0.052 6.16573,2.6479 6.21751,6.03 z"
+       id="london" />
+    <path
+       style="fill:#800000;fill-opacity:1;stroke:none"
+       d="m 1174.3168,1262.6736 c 0.052,3.3821 -2.648,6.1658 -6.03,6.2176 -3.3821,0.052 -6.1658,-2.648 -6.2175,-6.0301 -0.052,-3.382 2.6479,-6.1656 6.03,-6.2174 3.382,-0.052 6.1657,2.6479 6.2175,6.0299 z"
+       id="berlin" />
+    <path
+       style="fill:#800000;fill-opacity:1;stroke:none"
+       d="m 1218.0175,1649.9343 c 0.052,3.3821 -2.6479,6.1657 -6.03,6.2175 -3.382,0.052 -6.1657,-2.6479 -6.2175,-6.03 -0.052,-3.382 2.648,-6.1657 6.03,-6.2175 3.3821,-0.052 6.1658,2.648 6.2175,6.03 z"
+       id="roma" />
+    <path
+       id="oslo"
+       d="m 1207.099,921.23004 c 0.052,3.3821 -2.648,6.1658 -6.03,6.2176 -3.3821,0.052 -6.1658,-2.648 -6.2175,-6.0301 -0.052,-3.382 2.6479,-6.1656 6.03,-6.2174 3.382,-0.052 6.1657,2.6479 6.2175,6.0299 z"
+       style="fill:#800000;fill-opacity:1;stroke:none"
+       inkscape:label="#path4641" />
+    <path
+       inkscape:label="#path4641"
+       style="fill:#800000;fill-opacity:1;stroke:none"
+       d="m 1565.8226,927.72604 c 0.052,3.3821 -2.648,6.1658 -6.03,6.2176 -3.3821,0.052 -6.1658,-2.648 -6.2175,-6.0301 -0.052,-3.382 2.6479,-6.1656 6.03,-6.2174 3.382,-0.052 6.1657,2.6479 6.2175,6.0299 z"
+       id="helsinki" />
+    <path
+       id="minsk"
+       d="m 1613.4599,1232.3163 c 0.052,3.3821 -2.648,6.1658 -6.03,6.2176 -3.3821,0.052 -6.1658,-2.648 -6.2175,-6.0301 -0.052,-3.382 2.6479,-6.1656 6.03,-6.2174 3.382,-0.052 6.1657,2.6479 6.2175,6.0299 z"
+       style="fill:#800000;fill-opacity:1;stroke:none"
+       inkscape:label="#path4641" />
+  </g>
+</svg>
