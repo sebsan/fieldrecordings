@@ -288,7 +288,7 @@ function initSOE()
 						    curPoint = new Point(bb0.x + (bb0.width / 2),bb0.y + (bb0.height / 2));
 // 						    alert('curpoint: ' + curPoint.toString());
 						    ///  We must wait for curPoint to be defined
-						    for(var id = 38; id < 1000; id += 2)
+						    for(var id = 38; id < 1113; id += 2)
 						    {
 							    $.get("svg_path.php", { svg : "europe_simple.svg", id: "path" + id },
 								function(gdata)
