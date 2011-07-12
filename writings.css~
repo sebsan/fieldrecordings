@@ -1,20 +1,17 @@
-/* menu_top.css */
+/* writings.css */
 
 #menu_navigation{
 	 position: absolute;
-	 top:10;
+	 top:400;
 	 left:40;
 }
 
 #menu_navigation a{
-    position: absolute;
-	 top: 400px;
-	 left: 5px;
-    color:grey;
-    font-family: free_sans;
-    font-size: 12pt;
-    line-height: 16pt;
-    padding: 0px 0px 0px 0px;
+	 color:grey;
+	 font-family: free_sansBold;
+     font-size: 12pt;
+     line-height: 16pt;
+	 padding: 0px 0px 0px 0px;
 	}
 
 #menu_top .menu_item{
@@ -25,9 +22,6 @@
      font-size: 10pt;
      line-height: 16pt;
      letter-spacing: 0.09em;
-     text-align: center;
-     margin-left: auto; 
-     margin-right: auto;
      text-transform:uppercase;
      padding: 5px 15px;
 	}
@@ -42,7 +36,7 @@
 	left: 15px;
 	font-family: helvetica_serif;
 	font-size: 8pt;
-	line-height: 10pt;
+	line-height: 11pt;
 	letter-spacing: 0.09em;
 	padding: 5px 25px;
 	}
@@ -55,7 +49,7 @@
 #menu_index div.index_col a{
 	color:grey;
 	font-family: free_sans;
-	padding: 5px 25px 5px 0px;
+	padding: 5px 25px 0px 0px;
 	
 	} 
 #menu_index div.index_col a:link { 
@@ -76,36 +70,30 @@
     text-decoration:underline;
 } 
 
-#menu_index .index_col .menu_category{
+#menu_index .index_col .writings_titre{
 	 color:grey;
 	 font-family: free_sansBold;
-     font-size: 10pt;
-     line-height: 16pt;
+     font-size: 18pt;
+     line-height: 21pt;
 	 padding: 0px 0px 0px 0px;
 	}
 
 
 #colonne_1 {
 	float:left;
-	width:190px;
+	width:400px;
+	padding: 0px 30px 0px 0px;
 	}
 	
 #colonne_2 {
 	float:left;
-	width:190px;	
+	width:400px;
+	padding: 0px 30px 0px 0px;
 }
 #colonne_3 {
 	float:left;
-	width:190px;	
+	width:400px;
+	padding: 0px 30px 0px 0px;
 }
-#colonne_4 {
-	float:left;
-	width:190px;
-	}
-#colonne_5 {
-	float:left;
-	width:190px;
-	}
-	
-	
+
 	
