@@ -54,7 +54,7 @@ var theCity = "<?php echo $_GET["city"] ?>";
 		<div class="content_category">ARTISTS</div>
 		<div class="title">Jan Vandam</div>
 		<div class="location">Brussels - Belgium</div>
-		<div class="picture"></div>
+		<div class="picture"><img src="img/BeritGreinke_SHHH_11.jpg" width="80%"></div>
 		<div class="section">
 			<div class="section_title">Biography</div>
 			<div class="section_par">
