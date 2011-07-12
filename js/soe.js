@@ -246,24 +246,29 @@ function line(paper, p0, p1)
 }
 
 
+var svgHeight = 1862;
+var svgWidth = 2160;
+
 function initSOE()
 {
 	var ww = $(window).width();
 	var wh = $(window).height();
-	raph = Raphael(document.getElementById("carte"), 2160, 1862 );
-	var minimap_stroke = new Color(100,100,100);
-	var minimap_fill = new Color(255,0,0);
+	svgWidth = ww;
+	svgHeight = wh;
+	raph = Raphael(document.getElementById("carte"), svgWidth, svgHeight );
+	var minimap_stroke = new Color(0,0,254);
+	var minimap_fill = new Color(0,0,254);
 	var country_stroke = new Color(255,0,0);
 	
 	var bscale = 0.4;
 	var btrans = ww / (4 * bscale) ;
 // 	var select = "path220";
 
-	var scale = 0.07;
+	var scale = 0.1;
 	var trh = ww * 0.8 * (1/scale);
 	var trv = 20 * (1/scale);
 	// draw circle
-	var c = circle(raph, 80);
+	var c = circle(raph, 110);
 	c.stroke("red");
 	c.translate((ww * 0.8) + 20 , 20);
 	c.draw();
@@ -294,41 +299,68 @@ function initSOE()
 								function(gdata)
 								{
 									var d = json_parse(gdata);
-									var np = new Path(raph, d.p);
-									if(np.contains(curPoint) == true)
+									if(d.status == 0)
 									{
-										np.close();
-										np.fill(minimap_fill.toString());
-										
-										$.get("svg_path.php", { svg : "europe.svg", id: d.id },
-											function(sdata)
-											{
-												var dd = json_parse(sdata);
-												var sp = new Path(raph, dd.p);
-												var bb = sp.bbox();
-												// 						sp.translate((ww/2) - bb.x - bb.width , (wh/2) - bb.y - bb.height )
-												sp.scale(bscale)
-												.translate(btrans, 0)
-												.attr("stroke-dasharray", "-")
-												.stroke(country_stroke.toString())
-												.draw();
-											});
-								
+										var np = new Path(raph, d.p);
+										if(np.contains(curPoint) == true)
+										{
+											np.close();
+											np.fill(minimap_fill.toString());
+											
+											$.get("svg_path.php", { svg : "europe.svg", id: d.id },
+												function(sdata)
+												{
+													var dd = json_parse(sdata);
+													var sp = new Path(raph, dd.p);
+													var bb = sp.bbox();
+													// 						sp.translate((ww/2) - bb.x - bb.width , (wh/2) - bb.y - bb.height )
+													sp.scale(bscale)
+													.translate(btrans, 0)
+													.attr("stroke-dasharray", "-")
+													.stroke(country_stroke.toString())
+													.draw();
+												});
+									
+										}
+										// 				var pp = np.bbox();
+										np.scale(scale);
+										np.translate(trh , trv);
+										np.stroke(minimap_stroke.toString());
+										np.attr("stroke-width", "0.2");
+										np.draw();
 									}
-									// 				var pp = np.bbox();
-									np.scale(scale);
-									np.translate(trh , trv);
-									np.stroke(minimap_stroke.toString());
-									np.attr("stroke-width", "0.2");
-									np.draw();
 								});
 					    }
 					     ///   
 						       
 					    }
 					    city.scale(bscale).translate(btrans, 0).draw();
+					    $(city.element()).click(function()
+					    {
+						    $.get(document.location.href, {city : cd.id});
+					    });
 					    var bb = city.bbox();
-					    line(raph, new Point(bb.x + (bb.width / 2), 0), new Point(bb.x + (bb.width / 2), bb.y));
+					    if(cd.id == theCity)
+					    {
+						    var slidX = bb.x + (bb.width / 2);
+						    line(raph, new Point(slidX, 0), new Point(slidX, bb.y));
+						    line(raph, new Point(slidX, svgHeight), new Point(slidX, bb.y));
+						    var tc = 20;
+						    var triangle = new Path(raph);
+						    triangle.moveTo(slidX + (tc /2), 0)
+							.lineTo(slidX, tc)
+							.lineTo(slidX - (tc /2), 0)
+							.close()
+							.fill(new Color(0,0,0).toString())
+							.draw();
+						var triangle1 = new Path(raph);
+							triangle1.moveTo(slidX + (tc /2), svgHeight)
+							.lineTo(slidX, svgHeight - tc)
+							.lineTo(slidX - (tc /2), svgHeight)
+							.close()
+							.fill(new Color(0,0,0).toString())
+							.draw();
+					    }
 // 					    line(raph, new Point(0 , bb.y), new Point(bb.x , bb.y));
 					    raph.text(bb.x  , bb.y + (bb.height * 2 ), cd.id);
 					    
