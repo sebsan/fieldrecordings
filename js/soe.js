@@ -215,7 +215,7 @@ Path.prototype.contains = function(point)
 function circle(paper, r)
 {
 	var c = new Path(paper);
-	var r_half = r / 2;
+	var r_half = r * 0.5522847498;
 	var r_double = r * 2;
 	c.moveTo(r, 0);
 	c.cubicTo(r + r_half, 0, r_double, r_half, r_double, r);
@@ -249,8 +249,25 @@ function line(paper, p0, p1)
 var svgHeight = 1862;
 var svgWidth = 2160;
 
+
+function toggleMenu()
+{
+	if($('#menu_index').hasClass('menu_closed'))
+	{
+		$('#menu_index').show();
+		$('#menu_index').removeClass('menu_closed');
+	}
+	else
+	{
+		$('#menu_index').hide();
+		$('#menu_index').addClass('menu_closed');
+	}
+	return false;
+}
+
 function initSOE()
 {
+	$('#menu_index').hide();
 	var ww = $(window).width();
 	var wh = $(window).height();
 	svgWidth = ww;
@@ -274,109 +291,113 @@ function initSOE()
 	c.draw();
 	
 	var curPoint = undefined;
-	
-	$.get("svg_path.php", { svg : "cities.svg", get: 1 },
-	      function(data)
-	      {
-		      var d = json_parse(data);
-		      for(var ci = 0; ci < d.p.length ; ci++)
-		      {
-			      $.get("svg_path.php", { svg : "cities.svg", id: d.p[ci] },
-				    function(cdata)
-				    {
-					    var cd = json_parse(cdata);
-					    var city = new Path(raph, cd.p);
-					    var bb0 = city.bbox();
-					    if(cd.id == theCity)
-					    {
-						    city.fill(new Color(0,0,255));
-						    curPoint = new Point(bb0.x + (bb0.width / 2),bb0.y + (bb0.height / 2));
-// 						    alert('curpoint: ' + curPoint.toString());
-						    ///  We must wait for curPoint to be defined
-						    for(var id = 38; id < 1113; id += 2)
-						    {
-							    $.get("svg_path.php", { svg : "europe_simple.svg", id: "path" + id },
-								function(gdata)
-								{
-									var d = json_parse(gdata);
-									if(d.status == 0)
+	if(theCity != undefined)
+	{
+		$.get("svg_path.php", { svg : "cities.svg", get: 1 },
+		function(data)
+		{
+			var d = json_parse(data);
+			for(var ci = 0; ci < d.p.length ; ci++)
+			{
+				$.get("svg_path.php", { svg : "cities.svg", id: d.p[ci] },
+					function(cdata)
+					{
+						var cd = json_parse(cdata);
+						var city = new Path(raph, cd.p);
+						var bb0 = city.bbox();
+						if(cd.id == theCity)
+						{
+							city.fill(new Color(0,0,255));
+							curPoint = new Point(bb0.x + (bb0.width / 2),bb0.y + (bb0.height / 2));
+	// 						    alert('curpoint: ' + curPoint.toString());
+							///  We must wait for curPoint to be defined
+							for(var id = 38; id < 1113; id += 2)
+							{
+								$.get("svg_path.php", { svg : "europe_simple.svg", id: "path" + id },
+									function(gdata)
 									{
-										var np = new Path(raph, d.p);
-										if(np.contains(curPoint) == true)
+										var d = json_parse(gdata);
+										if(d.status == 0)
 										{
-											np.close();
-											np.fill(minimap_fill.toString());
-											
-											$.get("svg_path.php", { svg : "europe.svg", id: d.id },
-												function(sdata)
-												{
-													var dd = json_parse(sdata);
-													var sp = new Path(raph, dd.p);
-													var bb = sp.bbox();
-													// 						sp.translate((ww/2) - bb.x - bb.width , (wh/2) - bb.y - bb.height )
-													sp.scale(bscale)
-													.translate(btrans, 0)
-													.attr("stroke-dasharray", "-")
-													.stroke(country_stroke.toString())
-													.draw();
-												});
-									
+											var np = new Path(raph, d.p);
+											if(np.contains(curPoint) == true)
+											{
+												np.close();
+												np.fill(minimap_fill.toString());
+												
+												$.get("svg_path.php", { svg : "europe.svg", id: d.id },
+													function(sdata)
+													{
+														var dd = json_parse(sdata);
+														var sp = new Path(raph, dd.p);
+														var bb = sp.bbox();
+														// 						sp.translate((ww/2) - bb.x - bb.width , (wh/2) - bb.y - bb.height )
+														sp.scale(bscale)
+														.translate(btrans, 0)
+														.attr("stroke-dasharray", "-")
+														.stroke(country_stroke.toString())
+														.draw();
+													});
+										
+											}
+											// 				var pp = np.bbox();
+											np.scale(scale);
+											np.translate(trh , trv);
+											np.stroke(minimap_stroke.toString());
+											np.attr("stroke-width", "0.2");
+											np.draw();
 										}
-										// 				var pp = np.bbox();
-										np.scale(scale);
-										np.translate(trh , trv);
-										np.stroke(minimap_stroke.toString());
-										np.attr("stroke-width", "0.2");
-										np.draw();
-									}
-								});
-					    }
-					     ///   
-						       
-					    }
-					    city.scale(bscale).translate(btrans, 0).draw();
-					    $(city.element()).click(function()
-					    {
-						    $.get(document.location.href, {city : cd.id});
-					    });
-					    var bb = city.bbox();
-					    if(cd.id == theCity)
-					    {
-						    var slidX = bb.x + (bb.width / 2);
-						    line(raph, new Point(slidX, 0), new Point(slidX, bb.y));
-						    line(raph, new Point(slidX, svgHeight), new Point(slidX, bb.y));
-						    var tc = 20;
-						    var triangle = new Path(raph);
-						    triangle.moveTo(slidX + (tc /2), 0)
-							.lineTo(slidX, tc)
-							.lineTo(slidX - (tc /2), 0)
-							.close()
-							.fill(new Color(0,0,0).toString())
-							.draw();
-						var triangle1 = new Path(raph);
-							triangle1.moveTo(slidX + (tc /2), svgHeight)
-							.lineTo(slidX, svgHeight - tc)
-							.lineTo(slidX - (tc /2), svgHeight)
-							.close()
-							.fill(new Color(0,0,0).toString())
-							.draw();
-					    }
-// 					    line(raph, new Point(0 , bb.y), new Point(bb.x , bb.y));
-					    raph.text(bb.x  , bb.y + (bb.height * 2 ), cd.id);
-					    
-// 					    alert("Pos: " + d.id);
-					    
-				    });
-		      }
-	      });
-	      
+									});
+						}
+						///   
+							
+						}
+						city.scale(bscale).translate(btrans, 0).draw();
+						$(city.element()).click(function()
+						{
+							$.get(document.location.href, {city : cd.id});
+						});
+						var bb = city.bbox();
+						if(cd.id == theCity)
+						{
+							var slidX = bb.x + (bb.width / 2);
+							line(raph, new Point(slidX, 0), new Point(slidX, bb.y));
+							line(raph, new Point(slidX, svgHeight), new Point(slidX, bb.y));
+							var tc = 20;
+							var triangle = new Path(raph);
+							triangle.moveTo(slidX + (tc /2), 0)
+								.lineTo(slidX, tc)
+								.lineTo(slidX - (tc /2), 0)
+								.close()
+								.fill(new Color(0,0,0).toString())
+								.draw();
+							var triangle1 = new Path(raph);
+								triangle1.moveTo(slidX + (tc /2), svgHeight)
+								.lineTo(slidX, svgHeight - tc)
+								.lineTo(slidX - (tc /2), svgHeight)
+								.close()
+								.fill(new Color(0,0,0).toString())
+								.draw();
+						}
+	// 					    line(raph, new Point(0 , bb.y), new Point(bb.x , bb.y));
+						raph.text(bb.x  , bb.y + (bb.height * 2 ), cd.id);
+						
+	// 					    alert("Pos: " + d.id);
+						
+					});
+			}
+		});
+	} 
 // 	      return;
 
-	var bpoint = new Point(curPoint);
-	bpoint.scale(bscale);
-	lineConnect(raph, 'content_outer', bpoint.x, bpoint.y);
+// 	var bpoint = new Point(curPoint);
+// 	bpoint.scale(bscale);
+// 	lineConnect(raph, 'content_outer', bpoint.x, bpoint.y);
 
-	var i = 1;
+	
+	
+	/// Menu
+	$('#menu_item span').click(toggleMenu);
 	
 	
 }
