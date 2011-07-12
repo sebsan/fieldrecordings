@@ -16,9 +16,7 @@
 <script type='text/javascript' src='js/soe.js'></script>
 
 <script type='text/javascript'>
-var curPoint = new Object();
-curPoint.x = 1000;
-curPoint.y = 500;
+var theCity = "<?php echo $_GET["city"] ?>";
 </script>
 
 </head>
@@ -53,19 +51,24 @@ curPoint.y = 500;
 
 <div id="content_outer">
 	<div id="content">
-		<div class="content_category">BLOG</div>
-		<div class="blog_title">Surrending on Social Security?</div>
-		<div class="blog_details">June 28th, 2011 · <a href="#">Jan Vandam</a></div>
-		<div class="picture"><img src="img/limited_edition_frontcover.jpg" width="80%"></div>
+		<div class="content_category">ARTISTS</div>
+		<div class="title">Jan Vandam</div>
+		<div class="location">Brussels - Belgium</div>
+		<div class="picture"></div>
 		<div class="section">
 			<div class="section_title">Biography</div>
 			<div class="section_par">
-			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
 			</div>
+			<div class="section_title">Use of fieldrecordings</div>
+			<div class="section_par">
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</div>
 		
-			<div class="pagination"><a href="#">&#8592;</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">&#8594;</a></div>
+		<div class="general_url"><a href="#">www.janvandam.com</a></div>
+		<div class="tags_box">
+			<div class="tags"><a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">tag 3</a></div>
 		
-		<div class="nextPage_link"><a href="#">PREVIOUS ENTRY</a> <a href="#">NEXT ENTRY</a></div>
+		<div class="artist_track">Listen to <img src="img/arrow_sound.png"/> Title of Sound</div>
 	</div> <!-- content -->
 </div> <!-- content_outer  -->
 

@@ -23,14 +23,16 @@
 
 /* Liens */ 
 a { 
-  text-decoration: underline; 
+  text-decoration: none; 
 } 
 a:link { 
-  color: red; 
+  color: black; 
+
 } 
 a:visited { 
-  color: red; 
+  color: black; 
 } 
 a:hover { 
-  color: blue; 
+  color: grey; 
+
 } 
