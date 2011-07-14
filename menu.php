@@ -124,7 +124,7 @@ var theCity = "<?php echo $_GET["city"] ?>";
 	</span>
 	
 	<div id="menu_navigation">
-		<a class="menu_base" href="#">&#8592;</a><a class="menu_base" href="#">&#8594;</a>
+	<a class="arrows" href="#">&#8592;</a> <a class="arrows" href="#">&#8594;</a>
 	</div>
 </div><!-- menu_index  -->
 
@@ -135,6 +135,8 @@ var theCity = "<?php echo $_GET["city"] ?>";
 	<span><a href="#" target = "blank">Institutions</a></span>
 	<span><a href="#" target = "blank">Writings</a></span>
 	<span><a href="#" target = "blank">Events</a></span>
+	<span><a href="#" target = "blank">About us</a></span>
+
 </div>
 
 
