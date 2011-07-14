@@ -14,51 +14,54 @@
 }
 
 #menu_navigation a{
-    position: absolute;
-	 top: 400px;
-	 left: 5px;
-    color:grey;
-    font-family: free_sans;
-    font-size: 12pt;
-    line-height: 16pt;
-    padding: 0px 0px 0px 0px;
+	position: absolute;
+	top: 400px;
+	left: 5px;
+	color:grey;
+	font-family: free_sans;
+	font-size: 12pt;
+	line-height: 16pt;
+	padding: 0px 0px 0px 0px;
 	}
 
 #menu_item{
-	 position: absolute;
-	 top: 0;
-	 left: 5px;
-     font-family: helvetica_serif;
-     font-size: 10pt;
-     line-height: 16pt;
-     letter-spacing: 0.09em;
-     text-align: center;
-     margin-left: auto; 
-     margin-right: auto;
-     text-transform:uppercase;
-     padding: 10px 15px;
-     background-color:white;
+	position: absolute;
+	top: 0;
+	left: 0px;
+	font-family: helvetica_serif;
+	font-size: 10pt;
+	line-height: 16pt;
+	letter-spacing: 0.09em;
+	text-align: left;
+	width: 100%;
+	margin-left: auto; 
+	margin-right: auto;
+	text-transform:uppercase;
+	padding: 5px 15px;
+	background-color:white;
+	border-bottom: 1px solid black;
 	}
 	
 #menu_item span{
-     padding: 30px 20px;
+	padding: 0px 20px;
+	margin: 10px 0px 5px 0px;
 	}
 	
 #menu_index {
 	position: absolute;
-	top: 50px;
+	top: 42px;
 	left: 15px;
 	font-family: helvetica_serif;
 	font-size: 8pt;
 	line-height: 10pt;
 	letter-spacing: 0.09em;
-	padding: 5px 25px;
+	padding: 5px 20px;
 	background-color:white;
 	}
 	
 	
 #menu_index div.index_col a{
-    display:block;
+	display:block;
 }
 	
 #menu_index div.index_col a{
@@ -67,30 +70,25 @@
 	padding: 5px 25px 5px 0px;
 	
 	} 
-#menu_index div.index_col a:link { 
-    color:grey;
-	font-family: free_sans;
-	padding: 5px 25px 5px 0px;
 
-} 
 #menu_index div.index_col a:visited { 
-    color:grey;
+	color:grey;
 	font-family: free_sans;
 	padding: 5px 25px 5px 0px;
 } 
 #menu_index div.index_col a:hover { 
-    color:grey;
+	color:grey;
 	font-family: free_sans;
 	padding: 5px 25px 5px 0px;
-    text-decoration:underline;
+	text-decoration:underline;
 } 
 
 #menu_index .index_col .menu_category{
-	 color:grey;
-	 font-family: free_sansBold;
-     font-size: 10pt;
-     line-height: 16pt;
-	 padding: 0px 0px 0px 0px;
+	color:grey;
+	font-family: free_sansBold;
+	font-size: 10pt;
+	line-height: 16pt;
+	padding: 0px 0px 0px 0px;
 	}
 
 

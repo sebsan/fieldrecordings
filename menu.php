@@ -130,12 +130,11 @@ var theCity = "<?php echo $_GET["city"] ?>";
 
 <div id="menu_item">
 	<span><a href="#" target = "blank">Blog</a></span>
-	<span><a href="#" target = "blank">Cities</a></span>
 	<span><a href="#" target = "blank">Artists</a></span>
 	<span><a href="#" target = "blank">Events</a></span>
 	<span><a href="#" target = "blank">Institutions</a></span>
 	<span><a href="#" target = "blank">Writings</a></span>
-	<span><a href="#" target = "blank">Time line</a></span>
+	<span><a href="#" target = "blank">Events</a></span>
 </div>
 
 
