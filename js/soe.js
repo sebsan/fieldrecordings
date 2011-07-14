@@ -281,6 +281,51 @@ function svgloadComplete(id, maxid)
 		follow($(document));
 }
 
+
+function toggleSats()
+{
+	var visible = undefined;
+	if($('.visible_loc_obj').length > 0)
+		visible = $('.visible_loc_obj').first();
+	
+	$('.located_object').hide();
+	
+	var that = $(this);
+	var t = undefined;
+	var types = new Array('artist','event','organization');
+	for(var i = 0; i < types.length; i++)
+	{
+		var tt = types[i];
+		if(that.hasClass('type_' + tt))
+		{
+			t = tt;
+			break;
+		}
+	}
+	if(t != undefined)
+	{
+		var lo = $('#located_object_' + t);
+		if(visible != undefined)
+		{
+			visible.hide();
+			visible.removeClass('visible_loc_obj');
+			if(visible.attr('id') != lo.attr('id'))
+			{
+				lo.addClass('visible_loc_obj');
+				lo.show();
+			}
+		}
+		else
+		{
+			lo.show();
+			lo.addClass('visible_loc_obj');
+		}
+		
+		
+	}
+}
+
+
 function initSOE()
 {
 	$('#menu_index').hide();
@@ -373,8 +418,10 @@ function initSOE()
 						}
 						city.scale(bscale).translate(btrans, 0).draw();
 						var bb = city.bbox();
+						var CurCityClass = "";
 						if(cd.id == theCity)
 						{
+							CurCityClass = " city_current";
 							var slidX = bb.x + (bb.width / 2);
 							line(raph, new Point(slidX, 0), new Point(slidX, bb.y));
 							line(raph, new Point(slidX, svgHeight), new Point(slidX, bb.y));
@@ -395,7 +442,9 @@ function initSOE()
 								.draw();
 						}
 						
-						var citylink = $('<div class="city_label" style="position:absolute;top:'
+						var citylink = $('<div class="city_label'
+									+ CurCityClass
+									+'" style="position:absolute;top:'
 									+(bb.y + (bb.height * 2 ))
 									+'px;left:'+bb.x+'px;"><a href="'
 									+ loc.pathname +'?city='
@@ -409,13 +458,10 @@ function initSOE()
 			}
 		});
 	} 
-// 	      return;
-
-// 	var bpoint = new Point(curPoint);
-// 	bpoint.scale(bscale);
-// 	lineConnect(raph, 'content_outer', bpoint.x, bpoint.y);
-
 	
+	// satellites
+	$('.located_object').hide();
+	$('.located_type_item').click(toggleSats);
 	
 	/// Menu
 	$('#menu_item span').click(toggleMenu);
