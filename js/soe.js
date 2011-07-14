@@ -305,7 +305,7 @@ function initSOE()
 	c.stroke("red");
 	c.translate((ww * 0.8) + 20 , 20);
 	c.draw();
-	
+	var loc = window.location;
 	var curPoint = undefined;
 	if(theCity != undefined)
 	{
@@ -372,12 +372,6 @@ function initSOE()
 							
 						}
 						city.scale(bscale).translate(btrans, 0).draw();
-// 						var jcity = $(city.element());
-// 						jcity.click(function()
-						city.element().onclick = function()
-						{
-							$.get(document.location.href, {city : cd.id});
-						};
 						var bb = city.bbox();
 						if(cd.id == theCity)
 						{
@@ -400,10 +394,16 @@ function initSOE()
 								.fill(new Color(0,0,0).toString())
 								.draw();
 						}
-	// 					    line(raph, new Point(0 , bb.y), new Point(bb.x , bb.y));
-						raph.text(bb.x  , bb.y + (bb.height * 2 ), cd.id);
 						
-	// 					    alert("Pos: " + d.id);
+						var citylink = $('<div class="city_label" style="position:absolute;top:'
+									+(bb.y + (bb.height * 2 ))
+									+'px;left:'+bb.x+'px;"><a href="'
+									+ loc.pathname +'?city='
+									+ cd.id 
+									+'">'
+									+cd.id
+									+'</a></div>');
+						$('#carte').append(citylink);
 						
 					});
 			}
