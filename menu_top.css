@@ -37,14 +37,13 @@
 	margin-left: auto; 
 	margin-right: auto;
 	text-transform:uppercase;
-	padding: 5px 15px;
+	padding: 15px 15px 5px 15px;
 	background-color:white;
 	border-bottom: 1px solid black;
 	}
 	
 #menu_item span{
 	padding: 0px 20px;
-	margin: 10px 0px 5px 0px;
 	}
 	
 #menu_index {
@@ -55,28 +54,25 @@
 	font-size: 8pt;
 	line-height: 10pt;
 	letter-spacing: 0.09em;
-	padding: 5px 20px;
+	padding: 10px 20px;
 	background-color:white;
 	}
 	
 	
-#menu_index div.index_col a{
+#menu_index  a.menu_base{
 	display:block;
-}
-	
-#menu_index div.index_col a{
 	color:grey;
 	font-family: free_sans;
 	padding: 5px 25px 5px 0px;
 	
 	} 
 
-#menu_index div.index_col a:visited { 
+#menu_index a.menu_base:visited { 
 	color:grey;
 	font-family: free_sans;
 	padding: 5px 25px 5px 0px;
 } 
-#menu_index div.index_col a:hover { 
+#menu_index a.menu_base:hover { 
 	color:grey;
 	font-family: free_sans;
 	padding: 5px 25px 5px 0px;
@@ -87,7 +83,7 @@
 	color:grey;
 	font-family: free_sansBold;
 	font-size: 10pt;
-	line-height: 16pt;
+	line-height: 15pt;
 	padding: 0px 0px 0px 0px;
 	}
 
