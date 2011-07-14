@@ -185,9 +185,6 @@
 #closedBox_outer {
      background-color: #FFFFFF;
      border: 1px solid #000000;
-     left: 30px;
-     position: absolute;
-     top: 30px;
      width: 200px;
 }
 
@@ -248,3 +245,19 @@
      padding: 5px 5px 15px 5px;
 	}
 
+
+#located_type{
+	position:absolute;
+	top:60px;
+	left:400px;
+	width:60px;
+}
+.located_type_item{
+	cursor:pointer;
+}
+
+.located_object{
+	position:absolute;
+	top:60px;
+	left:470px;
+}
