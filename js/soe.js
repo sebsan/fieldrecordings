@@ -218,10 +218,10 @@ function circle(paper, r)
 	var r_half = r * 0.5522847498;
 	var r_double = r * 2;
 	c.moveTo(r, 0);
-	c.cubicTo(r + r_half, 0, r_double, r_half, r_double, r);
+	c.cubicTo(r + r_half, 0, r_double, r - r_half, r_double, r);
 	c.cubicTo(r_double, r + r_half, r + r_half, r_double, r, r_double);
-	c.cubicTo(r_half, r_double,0, r + r_half, 0, r);
-	c.cubicTo(0, r_half, r_half, 0, r, 0);
+	c.cubicTo(r - r_half, r_double,0, r + r_half, 0, r);
+	c.cubicTo(0, r - r_half, r - r_half, 0, r, 0);
 	
 	return c;
 }
@@ -263,6 +263,22 @@ function toggleMenu()
 		$('#menu_index').addClass('menu_closed');
 	}
 	return false;
+}
+
+
+function follow(e)
+{
+	var c = e.children();
+	c.each(function()
+	{
+		follow($(this));
+	});
+}
+
+function svgloadComplete(id, maxid)
+{
+	if(id == maxid)
+		follow($(document));
 }
 
 function initSOE()
@@ -311,7 +327,8 @@ function initSOE()
 							curPoint = new Point(bb0.x + (bb0.width / 2),bb0.y + (bb0.height / 2));
 	// 						    alert('curpoint: ' + curPoint.toString());
 							///  We must wait for curPoint to be defined
-							for(var id = 38; id < 1113; id += 2)
+							var maxID = 1113;
+							for(var id = 38; id < maxID; id += 2)
 							{
 								$.get("svg_path.php", { svg : "europe_simple.svg", id: "path" + id },
 									function(gdata)
@@ -337,6 +354,7 @@ function initSOE()
 														.attr("stroke-dasharray", "-")
 														.stroke(country_stroke.toString())
 														.draw();
+														
 													});
 										
 											}
@@ -346,6 +364,7 @@ function initSOE()
 											np.stroke(minimap_stroke.toString());
 											np.attr("stroke-width", "0.2");
 											np.draw();
+// 											svgloadComplete(d.id, 'path' + (maxID - 1));
 										}
 									});
 						}
@@ -353,10 +372,12 @@ function initSOE()
 							
 						}
 						city.scale(bscale).translate(btrans, 0).draw();
-						$(city.element()).click(function()
+// 						var jcity = $(city.element());
+// 						jcity.click(function()
+						city.element().onclick = function()
 						{
 							$.get(document.location.href, {city : cd.id});
-						});
+						};
 						var bb = city.bbox();
 						if(cd.id == theCity)
 						{
