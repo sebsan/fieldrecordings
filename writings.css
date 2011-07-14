@@ -1,99 +1,106 @@
 /* writings.css */
 
-#menu_navigation{
-	 position: absolute;
-	 top:400;
-	 left:40;
-}
 
-#menu_navigation a{
-	 color:grey;
-	 font-family: free_sansBold;
-     font-size: 12pt;
-     line-height: 16pt;
-	 padding: 0px 0px 0px 0px;
+ .writings_titre{
+	font-family: free_sansBold;
+	font-size: 18pt;
+	line-height: 20pt;
+	padding: 15px 0px 5px 0px;
 	}
 
-#menu_top .menu_item{
-	 position: absolute;
-	 top: 15px;
-	 left: 5px;
-     font-family: helvetica_serif;
-     font-size: 10pt;
-     line-height: 16pt;
-     letter-spacing: 0.09em;
-     text-transform:uppercase;
-     padding: 5px 15px;
+#writing_outer  .writings_titre{
+	font-size: 28pt;
+	line-height: 20pt;
+	padding: 15px 0px 5px 0px;
 	}
 	
-#menu_top .menu_item span{
-     padding: 30px 20px;
-	}
-	
-#menu_index {
-	position: absolute;
-	top: 50px;
-	left: 15px;
+ .writings_author{
+	color: black;
 	font-family: helvetica_serif;
-	font-size: 8pt;
-	line-height: 11pt;
-	letter-spacing: 0.09em;
-	padding: 5px 25px;
+	font-size: 11pt;
+	padding: 0px 0px 10px 15px;
 	}
 	
-	
-#menu_index div.index_col a{
-    display:block;
+#menu_index a.menu_writings{
 }
 	
-#menu_index div.index_col a{
-	color:grey;
-	font-family: free_sans;
-	padding: 5px 25px 0px 0px;
-	
-	} 
-#menu_index div.index_col a:link { 
-    color:grey;
-	font-family: free_sans;
-	padding: 5px 25px 5px 0px;
-
-} 
-#menu_index div.index_col a:visited { 
-    color:grey;
-	font-family: free_sans;
-	padding: 5px 25px 5px 0px;
-} 
-#menu_index div.index_col a:hover { 
-    color:grey;
-	font-family: free_sans;
-	padding: 5px 25px 5px 0px;
-    text-decoration:underline;
-} 
-
-#menu_index .index_col .writings_titre{
-	 color:grey;
-	 font-family: free_sansBold;
-     font-size: 18pt;
-     line-height: 21pt;
-	 padding: 0px 0px 0px 0px;
+#menu_index .writings_titre > a.menu_writings{
+	color: grey;
 	}
-
+	
+#menu_index .writings_titre > a.menu_writings:hover{
+	color: red;
+	text-decoration: none;
+	}
+	
+#menu_index .writings_author > a.menu_writings{
+	color: black;
+	}
+	
+#menu_index .writings_author > a.menu_writings:hover{
+	text-decoration:underline;
+	}
+	
+	
+#menu_index .menu_writings_wrapper:hover .writings_excerpt{
+	color: red;
+	}
+#menu_index .menu_writings_wrapper:hover .writings_titre a{
+	color: red;
+	}
+	
+.writings_excerpt{
+	color:black;
+	font-family: free_sans;
+	font-size: 10pt;
+	line-height: 12pt;
+	padding: 0px 0px 0px 0px;
+	}
+	
+.writings_day{
+	color: grey;
+	font-family: free_sans;
+	font-size: 11pt;
+	padding: 0px 0px 5px 0px;
+	}
+	
+.writings_txt{
+	color: black;
+	font-family: free_sans;
+	font-size: 15pt;
+	padding: 0px 0px 5px 0px;
+	}
 
 #colonne_1 {
 	float:left;
-	width:400px;
+	width:300px;
 	padding: 0px 30px 0px 0px;
 	}
 	
 #colonne_2 {
 	float:left;
-	width:400px;
+	width:300px;
 	padding: 0px 30px 0px 0px;
 }
 #colonne_3 {
 	float:left;
-	width:400px;
+	width:300px;
 	padding: 0px 30px 0px 0px;
 }
 
+	
+#writing_outer {
+     background-color: #FFFFFF;
+     border: none;
+     left: 50px;
+     position: absolute;
+     top: 60px;
+     width: 600px;
+}
+
+#writing {
+     margin: 2px;
+     padding: 0px;
+}
+	
 	
