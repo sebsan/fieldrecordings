@@ -58,148 +58,12 @@ var theCity = "<?php echo $_GET["city"] ?>";
 	</div> <!-- content -->
 </div> <!-- content_outer  -->
 
-
-
-<!-- located objects -->
-<div id="located_type">
-	<div class="located_type_item type_artist">
-		ARTISTS
-	</div>
-	<div class="located_type_item type_event">
-		EVENTS
-	</div>
-	<div class="located_type_item type_organization">
-		ORGANIZATIONS
-	</div>
-</div>
-
-<div id="located_object_artist" class="located_object">
-
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">ARTISTS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
-
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">ARTISTS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
-
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">ARTISTS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
-
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">ARTISTS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
-
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">ARTISTS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
-
-</div><!-- located_object -->
-
-<div id="located_object_event" class="located_object">
-
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">EVENTS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
-
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">EVENTS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
-
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">EVENTS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
-
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">EVENTS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
-
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">EVENTS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
-
-</div><!-- located_object -->
-
-
-<div id="located_object_organization" class="located_object">
-
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">ORGANIZATIONS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
-
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">ORGANIZATIONS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
-
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">ORGANIZATIONS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
-
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">ORGANIZATIONS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
-
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">ORGANIZATIONS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
-
-</div><!-- located_object -->
-
-
-
-
 <div id="menu_index" class="menu_closed">
 	<span>
 		<div id="colonne_1" class="index_col">
-			<div class="menu_category">
-			Brussels
-			</div>
+				<div class="menu_category">
+				Brussels
+				</div>
 			<a class="menu_base" href="#">Berlusconi Claims He Won't Seek Re-Election</a>
 			<a class="menu_base" href="#">British Gas Announces Energy Price Hike</a>
 			<a class="menu_base" href="#">Humanitarian Emergency In East Africa</a>
@@ -233,9 +97,9 @@ var theCity = "<?php echo $_GET["city"] ?>";
 	</span>
 	<span>
 		<div id="colonne_4" class="index_col">
-			<div class="menu_category">
-			Madrid
-			</div>
+				<div class="menu_category">
+				Madrid
+				</div>
 			<a class="menu_base" href="#">A Complaint From Palin In Newly-Released Email</a>
 			<a class="menu_base" href="#">New Twist In Casey Anthony Release Date</a>
 			<a class="menu_base" href="#">Guess Which Bank May Soon Become The Biggest In The U.S.</a>
