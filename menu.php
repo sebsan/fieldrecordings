@@ -260,7 +260,7 @@ Madrid
 </span>
 
 <div id="menu_navigation">
-<a class="menu_base" href="#">&#8592;</a><a class="menu_base" href="#">&#8594;</a>
+<a class="arrows" href="#">&#8592;</a><a class="arrows" href="#">&#8594;</a>
 </div>
 </div><!-- menu_index  -->
 
