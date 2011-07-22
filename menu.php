@@ -62,53 +62,47 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula 
 
 <!-- located objects -->
 <div id="located_type">
-<div class="located_type_item type_artist">
-ARTISTS
-</div>
-<div class="located_type_item type_event">
-EVENTS
-</div>
-<div class="located_type_item type_organization">
-ORGANIZATIONS
-</div>
-</div>
+	<div class="located_type_item type_artist"><span>ARTISTS</span></div>
+	<div class="located_type_item type_event"><span>EVENTS</span></div>
+	<div class="located_type_item type_organization"><span>INSTITUTIONS</span></div>
+</div><!-- located_type -->
 
 <div id="located_object_artist" class="located_object">
 
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">ARTISTS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
+	<div id="closedBox_outer">
+		<div id="closedBox">
+			<div class="closedBox_category">ARTISTS</div>
+			<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
+		</div> 
+	</div><!-- fin -->
 
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">ARTISTS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
+	<div id="closedBox_outer">
+		<div id="closedBox">
+			<div class="closedBox_category">ARTISTS</div>
+			<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
+		</div> 
+	</div><!-- fin -->
 
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">ARTISTS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
+	<div id="closedBox_outer">
+		<div id="closedBox">
+			<div class="closedBox_category">ARTISTS</div>
+			<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
+		</div> 
+	</div><!-- fin -->
 
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">ARTISTS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
+	<div id="closedBox_outer">
+		<div id="closedBox">
+			<div class="closedBox_category">ARTISTS</div>
+			<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
+		</div> 
+	</div><!-- fin -->
 
-<div id="closedBox_outer">
-<div id="closedBox">
-<div class="closedBox_category">ARTISTS</div>
-<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
-</div> 
-</div><!-- fin -->
+	<div id="closedBox_outer">
+		<div id="closedBox">
+			<div class="closedBox_category">ARTISTS</div>
+			<div class="closedBox_title"><a href="#">Jan Vandam</a></div>
+		</div> 
+	</div><!-- fin -->
 
 </div><!-- located_object -->
 
