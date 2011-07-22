@@ -55,20 +55,23 @@ var theCity = "<?php echo $_GET["city"] ?>";
 		<div class="title">Jan Vandam</div>
 		<div class="location">Brussels - Belgium</div>
 		<div class="picture"><img src="img/BeritGreinke_SHHH_11.jpg" width="80%"></div>
-		<div class="section">
-			<div class="section_title">Biography</div>
-			<div class="section_par">
-			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-			</div>
-			<div class="section_title">Use of fieldrecordings</div>
-			<div class="section_par">
-			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</div>
-		
-		<div class="general_url"><a href="#">www.janvandam.com</a></div>
-		<div class="tags_box">
-			<div class="tags"><a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">tag 3</a></div>
-		
-		<div class="artist_track">Listen to <img src="img/arrow_sound.png"/> Title of Sound</div>
+			<div class="section">
+				<div class="section_title">Biography</div>
+				<div class="section_par">
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+				</div>
+				<div class="section_title">Use of fieldrecordings</div>
+				<div class="section_par">
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+				</div>
+			
+			<div class="general_url"><a href="#">www.janvandam.com</a></div>
+				<div class="tags_box">
+					<div class="tags"><a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">tag 3</a>
+					</div>
+				</div>
+			<div class="artist_track">Listen to <img src="img/arrow_sound.png"/> Title of Sound</div>
+		</div>
 	</div> <!-- content -->
 </div> <!-- content_outer  -->
 
