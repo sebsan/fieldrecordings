@@ -22,7 +22,7 @@
 </script>
   <script type='text/javascript' src='js/raphael.js'>
 </script>
-  <script type='text/javascript' src='js/soe.js'>
+<!--   <script type='text/javascript' src='js/soe.js'> -->
 </script>
   <script type='text/javascript'>
 var theCity = "<?php echo $_GET["city"] ?>";
@@ -299,20 +299,20 @@ var theCity = "<?php echo $_GET["city"] ?>";
 	  <table class="sample" >
 		  <tr class="month_row">
 			  <td background=img/chevron.png class="month_column">October</td>
-			  <td class="month_column">November</td>
-			  <td class="month_column">December</td>
+			  <td background=img/chevron.png class="month_column">November</td>
+			  <td background=img/chevron.png class="month_column">December</td>
 		  </tr>
 		  <tr class="workshop_row">
-			  <td class="workshop_column">Workshop + Residencies</td>
+			  <td background=img/chevron.png class="workshop_column">Workshop + Residencies</td>
 		  </tr>
 		  <tr class="webproject_row">
-			  <td class="webproject_column">Webproject around europe</td>
+			  <td background=img/chevron.png class="webproject_column">Webproject around europe</td>
 		  </tr>
 		  <tr class="cities_row">
-			  <td class="cities_column">Brussels</td>
+			  <td background=img/chevron.png class="cities_column">Brussels</td>
 		  </tr>
 		  <tr class="event_name_row">
-			  <td class="event_name_column">Festival Opening</td>
+			  <td background=img/chevron.png class="event_name_column">Festival Opening</td>
 		  </tr>
 		  
 	  </table> 	
