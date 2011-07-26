@@ -306,7 +306,7 @@ var theCity = "<?php echo $_GET["city"] ?>";
 			  <td background=img/vignette-2.png class="workshop_column">Workshop + Residencies</td>
 		  </tr>
 		  <tr class="webproject_row">
-			  <td background=img/vignette-1.png class="webproject_column">Webproject around europe</td>
+			  <td background=img/vignette-3.png class="webproject_column">Webproject around europe</td>
 		  </tr>
 		  <tr class="cities_row">
 			  <td background=img/vignette-1.png class="cities_column">Brussels</td>

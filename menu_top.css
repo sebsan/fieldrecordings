@@ -135,11 +135,12 @@ table.sample td{
 	font-family: free_sansBold;
 	letter-spacing: 0.09em;
 	font-size: 8pt;
-	text-transform: capitalize;
+	text-transform: uppercase;
+	color:white;
 }
 
 .webproject_column {
-	background-color: #CCFFFF;
+	background-color: #686868;
 }
 
 .cities_row {
