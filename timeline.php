@@ -298,7 +298,7 @@ var theCity = "<?php echo $_GET["city"] ?>";
   <div id="menu_index" class="menu_closed">
 	  <table class="sample" >
 		  <tr class="month_row">
-			  <td background=img/chevron.png class="month_column">October</td>
+			  <td background=img/vignette-1.png class="month_column">October</td>
 			  <td background=img/chevron.png class="month_column">November</td>
 			  <td background=img/chevron.png class="month_column">December</td>
 		  </tr>
