@@ -229,7 +229,7 @@ function circle(paper, r)
 
 function lineConnect(paper, id, x, y)
 {
-	var e = $("#" + id);
+	var e = jQuery("#" + id);
 	var o = e.offset();
 	var sx = o.left + Math.floor(e.width() / 2);
 	var sy = o.top + Math.floor(e.height() / 2);
@@ -252,15 +252,15 @@ var svgWidth = 2160;
 
 function toggleMenu()
 {
-	if($('#menu_index').hasClass('menu_closed'))
+	if(jQuery('#menu_index').hasClass('menu_closed'))
 	{
-		$('#menu_index').show();
-		$('#menu_index').removeClass('menu_closed');
+		jQuery('#menu_index').show();
+		jQuery('#menu_index').removeClass('menu_closed');
 	}
 	else
 	{
-		$('#menu_index').hide();
-		$('#menu_index').addClass('menu_closed');
+		jQuery('#menu_index').hide();
+		jQuery('#menu_index').addClass('menu_closed');
 	}
 	return false;
 }
@@ -271,26 +271,26 @@ function follow(e)
 	var c = e.children();
 	c.each(function()
 	{
-		follow($(this));
+		follow(jQuery(this));
 	});
 }
 
 function svgloadComplete(id, maxid)
 {
 	if(id == maxid)
-		follow($(document));
+		follow(jQuery(document));
 }
 
 
 function toggleSats()
 {
 	var visible = undefined;
-	if($('.visible_loc_obj').length > 0)
-		visible = $('.visible_loc_obj').first();
+	if(jQuery('.visible_loc_obj').length > 0)
+		visible = jQuery('.visible_loc_obj').first();
 	
-	$('.located_object').hide();
+	jQuery('.located_object').hide();
 	
-	var that = $(this);
+	var that = jQuery(this);
 	var t = undefined;
 	var types = new Array('artist','event','organization');
 	for(var i = 0; i < types.length; i++)
@@ -304,7 +304,7 @@ function toggleSats()
 	}
 	if(t != undefined)
 	{
-		var lo = $('#located_object_' + t);
+		var lo = jQuery('#located_object_' + t);
 		if(visible != undefined)
 		{
 			visible.hide();
@@ -328,9 +328,9 @@ function toggleSats()
 
 function initSOE()
 {
-	$('#menu_index').hide();
-	var ww = $(window).width();
-	var wh = $(window).height();
+	jQuery('#menu_index').hide();
+	var ww = jQuery(window).width();
+	var wh = jQuery(window).height();
 	svgWidth = ww;
 	svgHeight = wh;
 	raph = Raphael(document.getElementById("carte"), svgWidth, svgHeight );
@@ -354,13 +354,13 @@ function initSOE()
 	var curPoint = undefined;
 	if(theCity != undefined)
 	{
-		$.get("svg_path.php", { svg : "cities.svg", get: 1 },
+		jQuery.get(rootUrl + "svg_path.php", { svg : "cities.svg", get: 1 },
 		function(data)
 		{
 			var d = json_parse(data);
 			for(var ci = 0; ci < d.p.length ; ci++)
 			{
-				$.get("svg_path.php", { svg : "cities.svg", id: d.p[ci] },
+				jQuery.get(rootUrl + "svg_path.php", { svg : "cities.svg", id: d.p[ci] },
 					function(cdata)
 					{
 						var cd = json_parse(cdata);
@@ -375,7 +375,7 @@ function initSOE()
 							var maxID = 1113;
 							for(var id = 38; id < maxID; id += 2)
 							{
-								$.get("svg_path.php", { svg : "europe_simple.svg", id: "path" + id },
+								jQuery.get(rootUrl + "svg_path.php", { svg : "europe_simple.svg", id: "path" + id },
 									function(gdata)
 									{
 										var d = json_parse(gdata);
@@ -387,7 +387,7 @@ function initSOE()
 												np.close();
 												np.fill(minimap_fill.toString());
 												
-												$.get("svg_path.php", { svg : "europe.svg", id: d.id },
+												jQuery.get(rootUrl + "svg_path.php", { svg : "europe.svg", id: d.id },
 													function(sdata)
 													{
 														var dd = json_parse(sdata);
@@ -442,7 +442,7 @@ function initSOE()
 								.draw();
 						}
 						
-						var citylink = $('<div class="city_label'
+						var citylink = jQuery('<div class="city_label'
 									+ CurCityClass
 									+'" style="position:absolute;top:'
 									+(bb.y + (bb.height * 2 ))
@@ -452,7 +452,7 @@ function initSOE()
 									+'">'
 									+cd.id
 									+'</a></div>');
-						$('#carte').append(citylink);
+						jQuery('#carte').append(citylink);
 						
 					});
 			}
@@ -460,14 +460,14 @@ function initSOE()
 	} 
 	
 	// satellites
-	$('.located_object').hide();
-	$('.located_type_item').click(toggleSats);
+	jQuery('.located_object').hide();
+	jQuery('.located_type_item').click(toggleSats);
 	
 	/// Menu
-	$('#menu_item span').click(toggleMenu);
+	jQuery('#menu_item span').click(toggleMenu);
 	
 	
 }
 
 
-$(document).ready(initSOE);
+jQuery(document).ready(initSOE);
