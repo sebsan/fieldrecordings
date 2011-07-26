@@ -123,11 +123,12 @@ table.sample td{
 	font-family: free_sansBold;
 	letter-spacing: 0.09em;
 	font-size: 8pt;
-	text-transform: capitalize;
+	text-transform: uppercase;
+	color:white;
 }
 
 .workshop_column {
-	background-color: #00CCCC;
+	background-color: #686868;
 }
 
 .webproject_row{
