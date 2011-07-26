@@ -99,5 +99,66 @@
 	width:190px;
 	}
 	
+
+table.sample td{	
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	padding: 5px 20px;
+}
+
+.month_row {
+	font-family: free_sansBold;
+	letter-spacing: 0.09em;
+	font-size: 8pt;
+	text-transform: uppercase;
+	color:white;
+	text-align:center;
+}
+
+.month_column {
+	background-color: #686868;
+}
 	
-	
+.workshop_row {
+	font-family: free_sansBold;
+	letter-spacing: 0.09em;
+	font-size: 8pt;
+	text-transform: capitalize;
+}
+
+.workshop_column {
+	background-color: #00CCCC;
+}
+
+.webproject_row{
+	font-family: free_sansBold;
+	letter-spacing: 0.09em;
+	font-size: 8pt;
+	text-transform: capitalize;
+}
+
+.webproject_column {
+	background-color: #CCFFFF;
+}
+
+.cities_row {
+	font-family: free_sansBold;
+	letter-spacing: 0.09em;
+	font-size: 8pt;
+	text-transform: capitalize;
+}
+
+.cities_column {
+	background-color: #FF9900;
+}
+
+.event_name_row {
+	font-family: free_sansBold;
+	letter-spacing: 0.09em;
+	font-size: 8pt;
+	text-transform: capitalize;
+}
+
+.event_name_column {
+	background-color: #FFFF00;
+}
