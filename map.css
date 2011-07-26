@@ -1,1 +1,21 @@
 /* map.css */
+
+.city_label {
+	
+}
+
+.city_label a{
+	padding:3px 10px 3px 10px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	background-color: #0000FF;
+	font-family: free_sansBold;
+	letter-spacing: 0.09em;
+	font-size: 8pt;
+	color: white;
+	text-transform: capitalize;
+}
+
+.city_label a:hover{
+	background-color: #0033FF;
+}

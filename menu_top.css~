@@ -1,7 +1,7 @@
 /* menu_top.css */
 
 #menu_navigation{
-	 position: absolute;
+	 display:inline;
 	 top:10;
 	 left:40;
 }
