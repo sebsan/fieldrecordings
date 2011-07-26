@@ -109,7 +109,7 @@ table.sample td{
 .month_row {
 	font-family: free_sansBold;
 	letter-spacing: 0.09em;
-	font-size: 8pt;
+	font-size: 10pt;
 	text-transform: uppercase;
 	color:white;
 	text-align:center;
@@ -122,7 +122,7 @@ table.sample td{
 .workshop_row {
 	font-family: free_sansBold;
 	letter-spacing: 0.09em;
-	font-size: 8pt;
+	font-size: 10pt;
 	text-transform: uppercase;
 	color:white;
 }
@@ -134,7 +134,7 @@ table.sample td{
 .webproject_row{
 	font-family: free_sansBold;
 	letter-spacing: 0.09em;
-	font-size: 8pt;
+	font-size: 10pt;
 	text-transform: uppercase;
 	color:white;
 }
@@ -146,21 +146,23 @@ table.sample td{
 .cities_row {
 	font-family: free_sansBold;
 	letter-spacing: 0.09em;
-	font-size: 8pt;
-	text-transform: capitalize;
+	font-size: 10pt;
+	text-transform: uppercase;
+	color:white;
 }
 
 .cities_column {
-	background-color: #FF9900;
+	background-color: #686868;
 }
 
 .event_name_row {
 	font-family: free_sansBold;
 	letter-spacing: 0.09em;
-	font-size: 8pt;
-	text-transform: capitalize;
+	font-size: 10pt;
+	text-transform: uppercase;
+	color:white;
 }
 
 .event_name_column {
-	background-color: #FFFF00;
+	background-color: #686868;
 }
