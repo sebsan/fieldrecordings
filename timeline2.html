@@ -9,6 +9,8 @@
 @import url("menu_nomap.css");
 @import url("content.css");
 @import url("writings.css");
+@import url("menu_top.css");
+
 </style>
 
 <script type='text/javascript' src='JSON-js/json_parse.js'></script>
@@ -24,42 +26,41 @@ var theCity = "<?php echo $_GET["city"] ?>";
 <body>
 
 
+  <div id="timeline"1>
 
- <div id="menu_index" class="menu_closed">
-	  <table class="sample" >
-		  <tr class="month_row">
-			  <td background=img/vignette-1.png class="month_column">October</td>
-			  <td background=img/vignette-1.png class="month_column">November</td>
-			  <td background=img/vignette-1.png class="month_column">December</td>
-		  </tr>
-		  <tr class="workshop_row">
-			  <td background=img/vignette-2.png class="workshop_column">Workshop + Residencies</td>
-		  </tr>
-		  <tr class="webproject_row">
-			  <td background=img/vignette-3.png class="webproject_column">Webproject around europe</td>
-		  </tr>
-		  <tr class="cities_row">
-			  <td background=img/vignette-4.png class="cities_column">Brussels</td>
-		  </tr>
-		  <tr class="event_name_row">
-			  <td background=img/vignette-5.png class="event_name_column">Festival Opening</td>
-		  </tr>
-		  
-	  </table> 	
-  </div><!-- menu_index  -->
+	<table class="sample" border="1">
+		<tr>
+			<th class="writings_titre">Timeline overview</th>	
+		</tr>
+		<tr>
+			<td colspan="48" class="year_row">2011</td>
+			<td colspan="12" class="year_row">2012</td>
+		</tr>
+		<tr>
+			<td colspan="6" class="month_row">May</td>
+			<td colspan="6" class="month_row">June</td>
+			<td colspan="6" class="month_row">July</td>
+			<td colspan="6" class="month_row">August</td>
+			<td colspan="6" class="month_row">September</td>
+			<td colspan="6" class="month_row">October</td>
+			<td colspan="6" class="month_row">November</td>
+			<td colspan="6" class="month_row">December</td>
+			<td colspan="6" class="month_row">January</td>
+			<td colspan="6" class="month_row">February</td>
 
+		</tr>
+		<tr>
+			<td class="event_name_row"></td>
+			<td colspan="6" class="event_name_row">event 1</td>
+			<td class="event_name_row"></td>
+			<td class="event_name_row"></td>
+			<td class="event_name_row"></td>
+			<td class="event_name_row"></td>
 
-
-
-
-
-
-
-
-
-
-
-
+			<td class="event_name_row">event 2</td>
+		</tr>
+	</table> 
+  </div>
 
 
 </body>

@@ -252,15 +252,47 @@ var svgWidth = 2160;
 
 function toggleMenu()
 {
-	if(jQuery('#menu_index').hasClass('menu_closed'))
+	var that = jQuery(this);
+	var menu = jQuery('#menu_index');
+	var id = that.attr('id');
+	var callerType = id.split('_').pop();
+	if(menu.hasClass('menu_closed'))
 	{
-		jQuery('#menu_index').show();
-		jQuery('#menu_index').removeClass('menu_closed');
+		if(menu.hasClass('menu_' + callerType))
+		{
+			menu.show();
+			menu.removeClass('menu_closed');
+		}
+		else
+		{
+			menu.removeClass();
+			menu.load(rootUrl + callerType,
+			function()
+			{
+				menu.show();
+				menu.addClass('menu_' + callerType);
+				
+			});
+		}
 	}
 	else
 	{
-		jQuery('#menu_index').hide();
-		jQuery('#menu_index').addClass('menu_closed');
+		if(menu.hasClass('menu_' + callerType))
+		{
+			menu.hide();
+			menu.addClass('menu_closed');
+		}
+		else
+		{
+			menu.removeClass();
+			menu.load(rootUrl + callerType,
+				  function()
+				  {
+					  menu.show();
+					  menu.addClass('menu_' + callerType);
+			
+				  });
+		}
 	}
 	return false;
 }
@@ -328,7 +360,6 @@ function toggleSats()
 
 function initSOE()
 {
-	jQuery('#menu_index').hide();
 	var ww = jQuery(window).width();
 	var wh = jQuery(window).height();
 	svgWidth = ww;
@@ -354,13 +385,13 @@ function initSOE()
 	var curPoint = undefined;
 	if(theCity != undefined)
 	{
-		jQuery.get(rootUrl + "svg_path.php", { svg : "cities.svg", get: 1 },
+		jQuery.get(templateUrl + "svg_path.php", { svg : "cities.svg", get: 1 },
 		function(data)
 		{
 			var d = json_parse(data);
 			for(var ci = 0; ci < d.p.length ; ci++)
 			{
-				jQuery.get(rootUrl + "svg_path.php", { svg : "cities.svg", id: d.p[ci] },
+				jQuery.get(templateUrl + "svg_path.php", { svg : "cities.svg", id: d.p[ci] },
 					function(cdata)
 					{
 						var cd = json_parse(cdata);
@@ -375,7 +406,7 @@ function initSOE()
 							var maxID = 1113;
 							for(var id = 38; id < maxID; id += 2)
 							{
-								jQuery.get(rootUrl + "svg_path.php", { svg : "europe_simple.svg", id: "path" + id },
+								jQuery.get(templateUrl + "svg_path.php", { svg : "europe_simple.svg", id: "path" + id },
 									function(gdata)
 									{
 										var d = json_parse(gdata);
@@ -387,7 +418,7 @@ function initSOE()
 												np.close();
 												np.fill(minimap_fill.toString());
 												
-												jQuery.get(rootUrl + "svg_path.php", { svg : "europe.svg", id: d.id },
+												jQuery.get(templateUrl + "svg_path.php", { svg : "europe.svg", id: d.id },
 													function(sdata)
 													{
 														var dd = json_parse(sdata);
@@ -464,6 +495,8 @@ function initSOE()
 	jQuery('.located_type_item').click(toggleSats);
 	
 	/// Menu
+	var menuIndex = jQuery('#menu_index');
+	menuIndex.hide();
 	jQuery('#menu_item span').click(toggleMenu);
 	
 	
