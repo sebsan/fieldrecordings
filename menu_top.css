@@ -101,23 +101,23 @@
 	
 
 table.sample td{	
-	border-radius: 10px;
-	-moz-border-radius: 10px;
+	border-radius: none;
+	-moz-border-radius: none;
 	padding: 5px 20px;
 }
 
 .year_row {
 	font-family: helvetica_serif;
 	letter-spacing: 0.09em;
-	font-size: 12pt;
+	font-size: 9pt;
 	color:black;
+	border-left:1px solid black;
 }
 
 .month_row {
 	font-family: helvetica_serif;
 	letter-spacing: 0.09em;
-	font-size: 9pt;
-	text-transform: uppercase;
+	font-size: 11pt;
 	color:black;
 }
 
@@ -162,10 +162,11 @@ table.sample td{
 }
 
 .event_name_row {
-	font-family: free_sansBold;
+	font-family: free_sans;
 	letter-spacing: 0.09em;
 	font-size: 10pt;
 	color:black;
+	border-left:1px solid black;
 	text-align:left;
 }
 
@@ -175,6 +176,8 @@ table.sample td{
 	font-size: 15pt;
 	color:black;
 	text-align:center;
+	border:1px solid black;
+	height:15px;
 }
 
 .event_name_column {
