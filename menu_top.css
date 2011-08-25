@@ -164,10 +164,17 @@ table.sample td{
 .event_name_row {
 	font-family: free_sansBold;
 	letter-spacing: 0.09em;
+	font-size: 10pt;
+	color:black;
+	text-align:left;
+}
+
+.pattern_row {
+	font-family: free_sansBold;
+	letter-spacing: 0.09em;
 	font-size: 15pt;
 	color:black;
 	text-align:center;
-
 }
 
 .event_name_column {

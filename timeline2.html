@@ -30,7 +30,7 @@ var theCity = "<?php echo $_GET["city"] ?>";
 
 	<table class="sample" border="1">
 		<tr>
-			<th class="writings_titre">Timeline overview</th>	
+			<td colspan="60" class="writings_titre">Timeline overview</td>	
 		</tr>
 		<tr>
 			<td colspan="48" class="year_row">2011</td>
@@ -50,13 +50,22 @@ var theCity = "<?php echo $_GET["city"] ?>";
 
 		</tr>
 		<tr>
-			<td class="event_name_row"></td>
-			<td colspan="6" class="event_name_row">event 1</td>
-			<td class="event_name_row"></td>
-			<td class="event_name_row"></td>
-			<td class="event_name_row"></td>
-			<td class="event_name_row"></td>
+		<!--premiere row pattern -->
+		<tr>
+			<td colspan="9" class="pattern_row" ></td>
+			<td colspan="2" class="pattern_row" background=img/chevron.png></td>
+			<td colspan="2" class="pattern_row"></td>
+			<td colspan="3" class="pattern_row" background=img/chevron.png></td>
+			<td colspan="44" class="pattern_row" background=img/losange.svg></td>
 
+		</tr>
+		<!--premiere row event -->
+			<td colspan="30" class="event_name_row"> Presentation of the project : </br> London, Prague, Tallinn</td>
+			<td colspan="30" class="event_name_row"> Presentation of the project : </br> London, Prague, Tallinn</td>
+			<td class="event_name_row"></td>
+			<td class="event_name_row"></td>
+			<td class="event_name_row"></td>
+			<td class="event_name_row"></td>
 			<td class="event_name_row">event 2</td>
 		</tr>
 	</table> 
