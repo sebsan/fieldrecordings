@@ -26,4 +26,50 @@
 
 
 
+P R O P O S I T I O N
+
+Création d’un site internet qui comprend:
+- blog
+- galerie d’artistes avec un compte individuel pour chaque artiste (galerie son/images, C.V.)
+- agenda
+- liste des institutions
+- rubric «Open Calls»
+- sound map
+- interface d’administration
+
+À cela s’ajoute bien-sûr la création d’un environnement
+graphique porteur des valeurs du projet.
+
+
+D E V I S
+
+Design graphique
+- - - - - - - -
+• Création d’une identité : recherches et développement d’un univers visuel, choix typographiques, dessin logo.
+• Lay-out du site : design et déclinaison des pages web et courriels.
+• Ajustements, tests, mises au point
+
+Développement et intégration
+- - - - - - - -
+Site
+• Mise en place de la structure du site
+• Construction de la base de données
+• Mise en place d'un module de gestion du contenu (interface de mise à jour)
+• Gabarits HTML, styles CSS, scripts javascript
+• Importation et traitement du contenu
+• Ouverture d’un fil RSS
+
+Newsletter
+• Mise en place d'un système de gestion newsletter
+• Création de la liste de diffusion et importation des données actuelles
+• Personnalisation du design de la liste
+
+Intégration sur le serveur
+Déboguage
+
+
+TOTAL. . . . . . . . . . . 12.000 TVAC
+
+
+
 
