@@ -99,26 +99,31 @@
 	width:190px;
 	}
 	
+/* style du tableau */
 
 table.sample td{	
 	border-radius: none;
 	-moz-border-radius: none;
-	padding: 5px 20px;
+	width:15px;
 }
 
 .year_row {
-	font-family: helvetica_serif;
-	letter-spacing: 0.09em;
+	font-family: free_sans;
 	font-size: 9pt;
-	color:black;
-	border-left:1px solid black;
+	color:gray;
+	height:10px;
+	padding: 5px 0px;
 }
 
 .month_row {
 	font-family: helvetica_serif;
-	letter-spacing: 0.09em;
-	font-size: 11pt;
+	font-size: 9pt;
 	color:black;
+	height:5px;
+	padding: 5px 20px;
+	text-align:center;
+	border-left:1px solid black;
+	height:10px;
 }
 
 .month_column {
@@ -126,11 +131,13 @@ table.sample td{
 }
 	
 .workshop_row {
-	font-family: free_sansBold;
-	letter-spacing: 0.09em;
-	font-size: 10pt;
+	font-family: free_sans;
+	letter-spacing: 0.1em;
+	font-size: 9pt;
 	text-transform: uppercase;
-	color:white;
+	color:black;
+	padding: 5px 5px;
+	height:7px;
 }
 
 .workshop_column {
@@ -145,38 +152,31 @@ table.sample td{
 	color:white;
 }
 
-.webproject_column {
-	background-color: #FFCC00;
-}
-
-.cities_row {
-	font-family: free_sansBold;
-	letter-spacing: 0.09em;
-	font-size: 10pt;
-	text-transform: uppercase;
-	color:white;
-}
-
-.cities_column {
-	background-color: #3399FF;
-}
-
 .event_name_row {
-	font-family: free_sans;
-	letter-spacing: 0.09em;
-	font-size: 10pt;
+	font-family: free_sansBold;
+	font-size: 12pt;
 	color:black;
-	border-left:1px solid black;
 	text-align:left;
+	padding: 5px 5px;
+	height:7px;
+}
+.presentation_row {
+	font-family: free_sans;
+	font-size: 12pt;
+	color:black;
+	text-align:left;
+	padding: 5px 5px;
+	height: 7px;
+
 }
 
 .pattern_row {
 	font-family: free_sansBold;
 	letter-spacing: 0.09em;
-	font-size: 15pt;
+	font-size: 10pt;
 	color:black;
 	text-align:center;
-	border:1px solid black;
+	border-left:1px solid black;
 	height:15px;
 }
 

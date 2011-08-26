@@ -35,7 +35,7 @@ var theCity = "<?php echo isset($_GET["city"]) ? $_GET["city"]: "berlin" ?>";
 
 <div id="menu_index" class="menu_closed">
 	<span>
-		<div id="colonne_1" class="index_col">
+		<div id="colonne-index_1" class="index_col">
 			<span class="menu_writings_wrapper">
 				<div class="writings_titre">
 				<a class="menu_writings" href="#">General concept and objectives of the project</a>
@@ -79,7 +79,7 @@ var theCity = "<?php echo isset($_GET["city"]) ? $_GET["city"]: "berlin" ?>";
 	</span>
 
 	<span>
-		<div id="colonne_2" class="index_col">	
+		<div id="colonne-index_2" class="index_col">	
 			<span class="menu_writings_wrapper">
 				<div class="writings_titre">
 				<a class="menu_writings" href="#">New sound-shaping and space-making devices</a>
@@ -119,7 +119,7 @@ var theCity = "<?php echo isset($_GET["city"]) ? $_GET["city"]: "berlin" ?>";
 	</span>
 
 	<span>
-		<div id="colonne_3" class="index_col">
+		<div id="colonne-index_3" class="index_col">
 			<span class="menu_writings_wrapper">
 				<div class="writings_titre">
 				<a class="menu_writings" href="#">Et tout le reste</a>

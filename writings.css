@@ -1,25 +1,13 @@
 /* writings.css */
 
 
- .writings_titre{
-	font-family: free_sansBold;
-	font-size: 18pt;
-	line-height: 20pt;
-	padding: 15px 0px 5px 0px;
-	}
 
-#writing_outer  .writings_titre{
+#writing_outer  {
 	font-size: 28pt;
 	line-height: 20pt;
-	padding: 15px 0px 5px 0px;
+	padding: 40px 0px 5px 0px;
 	}
 	
- .writings_author{
-	color: black;
-	font-family: helvetica_serif;
-	font-size: 11pt;
-	padding: 0px 0px 10px 15px;
-	}
 	
 #menu_index a.menu_writings{
 }
@@ -49,6 +37,29 @@
 	color: red;
 	}
 	
+	
+	
+ .writings_titre{
+	font-family: free_sansBold;
+	font-size: 15pt;
+	line-height: 17pt;
+	padding: 15px 0px 5px 0px;
+	}
+ .writings_titre-in{
+	color:red;
+	font-family: free_sansBold;
+	font-size: 15pt;
+	line-height: 17pt;
+	padding: 15px 0px 5px 0px;
+	}
+	
+ .writings_author{
+	color: black;
+	font-family: helvetica_serif;
+	font-size: 11pt;
+	padding: 0px 0px 10px 15px;
+	}
+	
 .writings_excerpt{
 	color:black;
 	font-family: free_sans;
@@ -67,35 +78,80 @@
 .writings_txt{
 	color: black;
 	font-family: free_sans;
-	font-size: 15pt;
+	font-size: 12pt;
+	line-height: 16pt;
 	padding: 0px 0px 5px 0px;
 	}
 
-#colonne_1 {
-	float:left;
-	width:300px;
-	padding: 0px 30px 0px 0px;
+.writings_1{
+	color: black;
+	font-family: helvetica_serif;
+	font-size: 15pt;
+	padding: 15px 0px 5px 0px;
+	text-align:center;
+	}
+
+.writings_2{
+	color: black;
+	font-family: free_sansBold;
+	font-size: 12pt;
+	padding: 15px 0px 5px 0px;
 	}
 	
-#colonne_2 {
+.writings_sommaire{
+	color: red;
+	font-family: free_sans;
+	font-size: 12pt;
+	padding: 0px 0px 5px 0px;
+	}
+
+
+#colonne-index_1 {
 	float:left;
-	width:300px;
-	padding: 0px 30px 0px 0px;
-}
-#colonne_3 {
+	width:250px;
+padding: 0px 30px 5px 0px;
+
+	}
+	
+#colonne-index_2 {
 	float:left;
-	width:300px;
-	padding: 0px 30px 0px 0px;
+	width:250px;
+padding: 0px 30px 5px 0px;
+
+	}
+	
+#colonne-index_3 {
+	float:left;
+	width:250px;
+	padding: 0px 30px 5px 0px;
 }
 
-	
+#colonne-writings_1 {
+	float:left;
+	width:500px;
+}
+#colonne-writings_2 {
+	float:left;
+	width:200px;
+	padding: 0px 0px 5px 20px;
+}
+
+#index_outer {
+     background-color: #FFFFFF;
+     border: none;
+     left: 50px;
+     position: absolute;
+     top: 20px;
+     width: 980px;
+}
+
 #writing_outer {
      background-color: #FFFFFF;
      border: none;
      left: 50px;
      position: absolute;
-     top: 60px;
-     width: 600px;
+     top: 20px;
+     width: 980px;
 }
 
 #writing {
