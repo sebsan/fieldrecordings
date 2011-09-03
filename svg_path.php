@@ -4,54 +4,56 @@
 	return the p attribute of an svg element in the file passed as argument; 
 */
 
+require_once('../../../wp-config.php');
 
 class SVGPath
 {
-	public function __construct($file)
+	public function __construct()
 	{
-		$this->svg = DOMDocument::load($file);
-		if($this->svg === FALSE)
-			$this->loadStatus = 1;
-		else
-			$this->loadStatus = 0;
-	}
-	
-	public function getIDs()
-	{
-		$p = array();
-		$status = $this->loadStatus;
-		if($this->loadStatus == 0)
+		
+		$this->link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
+		if (!$link) 
 		{
-			// 			$elem = $this->svg->getElementById ( $id );
-			$xpath = new DOMXPath($this->svg);
-			$res =  $xpath->query("//*[@d]");
-			foreach($res as $elem)
-			{
-				$p[] = $elem->getAttribute("id");
-			}
+			$this->loadStatus = 1;
 		}
-		return json_encode(array("status" => $status, "p" => $p));
+		$this->loadStatus = 0;
+		mysql_select_db(DB_NAME);
 	}
 	
+// 	public function getIDs()
+// 	{
+// 		$p = array();
+// 		$status = $this->loadStatus;
+// 		if($this->loadStatus == 0)
+// 		{
+// 			// 			$elem = $this->svg->getElementById ( $id );
+// 			$xpath = new DOMXPath($this->svg);
+// 			$res =  $xpath->query("//*[@d]");
+// 			foreach($res as $elem)
+// 			{
+// 				$p[] = $elem->getAttribute("id");
+// 			}
+// 		}
+// 		return json_encode(array("status" => $status, "p" => $p));
+// 	}
+	
+	/// $id is a 2 letters country code
 	public function getPath($id)
 	{
 		$p = "";
 		$status = $this->loadStatus;
 		if($this->loadStatus == 0)
 		{
-// 			$elem = $this->svg->getElementById ( $id );
-			$xpath = new DOMXPath($this->svg);
-			$res =  $xpath->query("//*[@id='$id']");
-			if($res->length >  0)
+			$query = sprintf("SELECT * FROM countries WHERE ccode = '%s' ", mysql_real_escape_string($id));
+			$result = mysql_query($query, $link);
+			if($row = mysql_fetch_assoc($result))  // we're just interested in the first result
 			{
-				$node = $res->item(0);
-				$elem = $node;
-				$p = $elem->getAttribute("d");
+				$p = $row['svg'];
 			}
 			else
-				$status = 2;
+				$this->loadStatus = 2;
 		}
-		return json_encode(array("status" => $status , "id"=> $id, "p" => $p));
+		return json_encode(array("status" =>  $this->loadStatus , "id"=> $id, "p" => $p));
 	}
 }
 
@@ -61,18 +63,18 @@ function get($p, $default = "")
 	return $ret;
 }
 
-$file = get("svg");
+// $file = get("svg");
 $id = get("id");
-$p = get("get", NULL);
+// $p = get("get", NULL);
 
 $sp = new SVGPath($file);
 // header('Content-Type: text/javascript; charset=utf8');
 header('Content-Type: text/plain; charset=utf8');
 // header('Content-Type: application/json; charset=utf8');
 // echo '('. $sp->getPath($id) .')';
-if($p != NULL)
-	echo $sp->getIDs();
-else
+// if($p != NULL)
+// 	echo $sp->getIDs();
+// else
 	echo  $sp->getPath($id) ;
 
 ?>

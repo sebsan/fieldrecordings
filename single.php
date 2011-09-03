@@ -24,6 +24,8 @@ if($postType == 'soe_event')
 }
 elseif($postType == 'soe_artist')
 {
+// 	print_r($post);
+// 	print_r($custom);
 	$image = "";
 	$tags = "";
 	$audio = "";
@@ -35,11 +37,11 @@ elseif($postType == 'soe_artist')
 	<div class="section">
 	<div class="section_title">Biography</div>
 	<div class="section_par">
-	'.get_the_content().'
+	'.$custom['artist_bio'][0].'
 	</div>
 	<div class="section_title">Use of fieldrecordings</div>
 	<div class="section_par">
-	'.get_the_excerpt().'
+	'.$custom['artist_use'][0].'
 	</div>
 	<div class="general_url"><a href="http://'.$custom['artist_url'][0].'">'.$custom['artist_url'][0].'</a></div>
 	<div class="tags_box">

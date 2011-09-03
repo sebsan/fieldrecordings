@@ -40,6 +40,7 @@ class SOE_Artist extends SOE_Type
 		add_meta_box( 'mb_artist_bio', 'Information', array( &$this, "meta_content" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_artist_url', 'Website', array( &$this, "meta_url" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_artist_media', 'Media', array( &$this, "meta_media" ), $this->tname, 'normal', 'high');
+		add_meta_box( 'mb_artist_location', 'Location', array( &$this, "location" ), $this->tname, 'normal', 'high');
 	}
 	
 	public function meta_name($post, $metabox) 
@@ -70,11 +71,11 @@ class SOE_Artist extends SOE_Type
 		echo '
 		<div class="inside">
 			<h4>'.$this->meta_fields['artist_bio'].'</h4>
-			<div id="artist_bio">
+			<div id="artist_bio_box">
 				<textarea class="artist_bio" id="artist_bio" name="artist_bio" >'.$custom['artist_bio'][0].'</textarea>
 			</div>
 			<h4>'.$this->meta_fields['artist_use'].'</h4>
-			<div id="artist_use">
+			<div id="artist_use_box">
 				<textarea class="artist_use" id="artist_use" name="artist_use" >'.$custom['artist_use'][0].'</textarea>
 			</div>
 		</div>
@@ -86,10 +87,21 @@ class SOE_Artist extends SOE_Type
 			{
 				tinyMCE.execCommand("mceAddControl", false, "artist_bio");
 				tinyMCE.execCommand("mceAddControl", false, "artist_use");
-	}
+			}
+			else
+			{
+				var tf = typeof( tinyMCE );
+				var tfe = typeof( tinyMCE.execCommand );
+				alert("No TinyMCE around /" + tf + "/" + tfe +"/");
+			}
 	});
 	</script>
 		';
+		wp_tiny_mce( false , // true makes the editor "teeny"
+		array(
+			"editor_selector" => "a_nice_textarea"
+		)
+		);
 		
 	}
 	

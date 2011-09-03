@@ -6,9 +6,10 @@
 class SOE_Type
 {
 	public $meta_fields = array(
-		'city' => 'City',
-		'country' => 'Country'
+		'location' => 'Location'
 		);
+	
+	public $locations;
 	
 	function __construct($args)
 	{
@@ -89,6 +90,72 @@ class SOE_Type
 	public function WP_type()
 	{
 		return $this->tname;
+	}
+	
+	public function location($post, $metabox) 
+	{
+		$custom = get_post_custom($post->ID);
+		$loc = NULL;
+		if(isset($custom['location'][0]))
+		{
+			global $wpdb;
+			$locs = $wpdb->get_results("
+			SELECT c.geonameid,c.name,c.country_code,a.name AS codename FROM cities15 AS c LEFT JOIN admin1codes AS a ON (a.admin = CONCAT(c.country_code,'.',c.admin1))
+			WHERE c.geonameid = ".$custom['location'][0].";" , OBJECT);
+// 			print_r($locs);
+			if($locs != NULL)
+			{
+				$loc = $locs[0];
+			}
+		}
+		$locSource = get_bloginfo('stylesheet_directory').'/cities.php';
+		if($loc === NULL)
+		{
+			echo '
+			<div>
+			<input type="hidden" id="location" name="location"/> 
+			<input type="text" id="location_search"/> 
+			</div>';
+		}
+		else
+		{
+			echo '
+			<div>
+			<input type="hidden" id="location" name="location" value="'.$loc->geonameid.'" /> 
+			<input type="text" id="location_search" value="'.$loc->name.', '.$loc->codename.' ('.$loc->country_code.')" />
+			</div>';
+		}
+		
+		echo '
+		<script type="text/javascript">
+		// <![CDATA[
+		
+		jQuery(document).ready(function()
+		{
+			
+	
+	jQuery( "#location_search" ).autocomplete(
+		{
+			minLength: 0,
+			source: "'.$locSource.'",
+			focus: function( event, ui ) 
+			{
+				jQuery( "#location_search" ).val( ui.item.label );
+				return false;
+			},
+			select: function( event, ui ) 
+			{
+				jQuery( "#location_search" ).val(ui.item.label);
+				jQuery( "#location" ).val(ui.item.value);
+				return false;
+			},
+		});
+	});
+	// ]]>
+	</script>
+	';
+	
+	
 	}
 	
 }
