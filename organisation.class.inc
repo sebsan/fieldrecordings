@@ -13,7 +13,8 @@ class SOE_Organisation extends SOE_Type
 			'organisation_mission' => 'Mission statement',
 			'organisation_url' => 'Website URL',
 			'organisation_image' => 'Image',
-			'organisation_sound' => 'Sound'));
+			'organisation_sound' => 'Sound',
+			'organisation_user' => 'Wordpress user conected to this organisation'));
 		
 		add_action( 'admin_init', array(&$this, 'admin_init') );
 		add_filter('name_save_pre', array(&$this, 'prepare_to_save'));
@@ -36,6 +37,7 @@ class SOE_Organisation extends SOE_Type
 	public function admin_init() 
 	{
 		add_meta_box( 'mb_organisation_name', 'Name', array( &$this, "meta_name" ), $this->tname, 'normal', 'high');
+		add_meta_box( 'mb_organisation_user', 'User', array( &$this, "meta_user" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_organisation_mission', 'Information', array( &$this, "meta_content" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_organisation_url', 'Website', array( &$this, "meta_url" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_organisation_media', 'Media', array( &$this, "meta_media" ), $this->tname, 'normal', 'high');
@@ -51,6 +53,27 @@ class SOE_Organisation extends SOE_Type
 		<p>'.$this->meta_fields['organisation_name'].'</p>
 		</div>
 	';
+	}
+	
+	public function meta_user($post, $metabox)
+	{
+		$custom = get_post_custom($post->ID);
+		$users = get_users();
+		
+		$options = '';
+		foreach($users as $user)
+		{
+			if($user->ID == $custom['organisation_user'][0])
+				$options .= '<option value="'.$user->ID.'" selected="selected">'.$user->display_name.'</option>';
+			else
+				$options .= '<option value="'.$user->ID.'">'.$user->display_name.'</option>';
+		}
+		echo '
+		<div class="inside">
+		<select name="organisation_user">'.$options.'</select>
+		<p>'.$this->meta_fields['organisation_user'].'</p>
+		</div>
+		';
 	}
 	
 	public function meta_url($post, $metabox) 

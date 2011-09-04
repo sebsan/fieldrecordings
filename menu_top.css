@@ -39,10 +39,12 @@
 	
 #menu_item span{
 	padding: 0px 20px;
+	cursor:pointer;
 	}
 	
 #menu_index {
 	position: absolute;
+	z-index:1000;
 	top: 42px;
 	left: 0px;
 	width:100%;

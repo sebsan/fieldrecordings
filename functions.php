@@ -7,6 +7,44 @@ require_once(get_stylesheet_directory() . '/post.class.inc');
 require_once(get_stylesheet_directory() . '/organisation.class.inc');
 
 
+/// utils
+
+function GetLocation($id)
+{
+	// 	echo '<h2>GetLocation: '.$id.'</h2>';
+	global $wpdb;
+	$locs = $wpdb->get_results("
+	SELECT c.geonameid,c.name,c.country_code,a.name AS codename 
+	FROM cities15 AS c LEFT JOIN admin1codes AS a 
+	ON (a.admin = CONCAT(c.country_code,'.',c.admin1))
+	WHERE c.geonameid = ".$id.";
+	" ,OBJECT);
+	
+	if($locs != NULL)
+	{
+		// 		echo '<h2>Found location for: '.$id.'</h2>';
+		return $locs[0];
+	}
+	// 	echo '<h2>Failed to find location for: '.$id.'</h2>';
+	return NULL;
+}
+
+function GetCountryName($isocode)
+{
+	global $wpdb;
+	$query = "
+	SELECT country_name 
+	FROM countries 
+	WHERE ccode = '".$isocode."';
+	";
+	$country = $wpdb->get_results( $query ,OBJECT);
+	if($country != NULL)
+		return $country[0]->country_name;
+	return "";
+}
+
+///
+
 add_action('admin_init', 'SOE_locationInit');
 add_action('init', 'SOE_customTypesInit');
 add_action('init', 'SOE_JSInit');
@@ -22,15 +60,7 @@ function SOE_locationCallback()
 	$loc = NULL;
 	if($locsetting !== false)
 	{
-		global $wpdb;
-		$locs = $wpdb->get_results("
-		SELECT c.geonameid,c.name,c.country_code,a.name AS codename FROM cities15 AS c LEFT JOIN admin1codes AS a ON (a.admin = CONCAT(c.country_code,'.',c.admin1))
-		WHERE c.geonameid = ".$locsetting.";" , OBJECT);
-		// 			print_r($locs);
-		if($locs != NULL)
-		{
-			$loc = $locs[0];
-		}
+		$loc = GetLocation($locsetting);
 	}
 	$locSource = get_bloginfo('stylesheet_directory').'/cities.php';
 	if($loc === NULL)
@@ -166,22 +196,6 @@ function SOE_JSInit()
 	
 }
 
-
-// Utils
-
-function GetLocation($id)
-{
-	global $wpdb;
-	$locs = $wpdb->get_results("
-	SELECT c.geonameid,c.name,c.country_code,a.name AS codename FROM cities15 AS c LEFT JOIN admin1codes AS a ON (a.admin = CONCAT(c.country_code,'.',c.admin1))
-	WHERE c.geonameid = ".$id.";" , OBJECT);
-	// 			print_r($locs);
-	if($locs != NULL)
-	{
-		return $locs[0];
-	}
-	return NULL;
-}
 
 
 ?>

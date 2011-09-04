@@ -10,6 +10,28 @@ Sounds of Europe
  */
 
 
+global $tnames;
+global $postloc;
+global $blogloc;
+$postloc = NULL;
+$blogloc = NULL;
+
+if(is_singular() && in_array($post->post_type, $tnames))
+{
+	
+	$custom = get_post_custom($post->ID);
+	if(isset($custom['location'][0]))
+	{
+		$postloc = GetLocation($custom['location'][0]);
+	}
+}
+else
+{
+	$blogloc = GetLocation( get_option('soe_location') );
+	
+}
+
+
 $template_dir = get_stylesheet_directory_uri();
 $SOE_styles = array(
 	"style",
@@ -38,8 +60,6 @@ foreach($SOE_styles as $style)
 	echo "\n";
 }
 
-global $tnames;
-global $postloc;
 
 ?>
 </style>

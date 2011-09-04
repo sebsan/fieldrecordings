@@ -70,7 +70,7 @@ class SOE_Type
 				{
 					if (!update_post_meta($post_id, $key, $value)) 
 					{
-						add_post_meta($post_id, $key, $value);
+						add_post_meta($post_id, $key, $value, true);
 					}
 				} 
 				else 
