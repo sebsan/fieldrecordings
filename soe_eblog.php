@@ -9,8 +9,7 @@ Sounds of Europe
 
  */
 
-global $soe_types;
-$postType = $post->post_type;
+global $blogloc;
 
 ?>
 
@@ -18,7 +17,7 @@ $postType = $post->post_type;
 
 <?php 
 
-$args = array('post_type' => $post_type,
+$args = array('post_type' => 'soe_eblog',
 'order' => 'DESC',
 'orderby' => 'post_date',
 'posts_per_page'=> -1
@@ -30,18 +29,19 @@ $startCol = '<span>
 <div class="index_col">';
 $endCol = '</div>
 </span>';
-$lastLoc = "";
+$lastLoc = -1;
 while ( $the_query->have_posts() )
 {
 	$the_query->the_post();
 	$custom = get_post_custom($post->ID);
 	
-	$loc = $custom['city'][0];
+	$loc = $custom['location'][0];
 	if($loc != $lastLoc)
 	{
 		$lastLoc = $loc;
+		$lObj = GetLocation($loc);
 		echo '<div class="menu_category">
-		'.$lastLoc.'
+		'.$lObj->name.'
 		</div>';
 	}
 }

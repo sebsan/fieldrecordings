@@ -97,11 +97,8 @@ class SOE_Artist extends SOE_Type
 	});
 	</script>
 		';
-		wp_tiny_mce( false , // true makes the editor "teeny"
-		array(
-			"editor_selector" => "a_nice_textarea"
-		)
-		);
+		// Dumb call to have a tinyMCE object
+		wp_tiny_mce( false , array( "editor_selector" => "a_nice_textarea" ) );
 		
 	}
 	

@@ -30,6 +30,7 @@ class SOE_Event extends SOE_Type
 	{
 		
 		add_meta_box( "event-option-box", "Event details" , array( &$this, "meta_options" ), $this->tname, 'normal', 'core');
+		add_meta_box( 'mb_event_location', 'Location', array( &$this, "location" ), $this->tname, 'normal', 'high');
 	}
 	
 	
@@ -57,57 +58,6 @@ class SOE_Event extends SOE_Type
 			</div>
 		</div>
 		';
-		
-		
-// 		$venues = $wpdb->get_results("
-// 		SELECT * 
-// 		FROM ". $wpdb->posts ." 
-// 		WHERE post_type = 'soe_venue' AND post_status = 'publish';" , OBJECT);
-// 		
-// 		echo '
-// 		<div style="margin-left:50%">
-// 		<h4>Select venue</h4>
-// 		<select name="venue" id="venue">
-// 		';
-// 		foreach($venues as $venue)
-// 		{
-// 			$selected = $venue->ID == $custom['venue'][0] ? "selected" : "";
-// 			echo '<option value="'.$venue->ID.'"'.$selected.'>'.$venue->post_title.'</option>
-// 			';
-// 		}
-// 		echo '
-// 		</select>
-// 		</div>
-// 		';
-// 		
-// 		
-// 		$projects = $wpdb->get_results("
-// 		SELECT * 
-// 		FROM ". $wpdb->posts ." 
-// 		WHERE post_type = 'soe_project' AND post_status = 'publish';" , OBJECT);
-// 
-// 		echo '
-// 		<div style="margin-left:50%">
-// 		<h4>Select project</h4>
-// 		<select name="project" id="project">
-// 		<option value="0">No project</option>
-// 		';
-// 		foreach($projects as $project)
-// 		{
-// 			$terms = wp_get_object_terms($project->ID, 'post_tag');
-// 			if(/*($terms === WP_Error) 
-// 			|| (count($terms) == 0)
-// 			||*/ ((count($terms) > 0) && ($terms[0]->name == 'project')) )
-// 			{
-// 				$selected = $project->ID == $custom['project'][0] ? "selected" : "";
-// 				echo '<option value="'.$project->ID.'"'.$selected.'>'.$project->post_name.'</option>
-// 				';
-// 			}
-// 		}
-// 		echo '
-// 		</select>
-// 		</div>
-// 		';
 		
 		echo '<div style="clear:left"></div>';
 	}

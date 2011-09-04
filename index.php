@@ -9,12 +9,24 @@
  *	
  */
 
-$tnames = array();
-foreach($soe_types as $qt)
+global $tnames;
+global $postloc;
+global $blogloc;
+$postloc = NULL;
+$blogloc = NULL;
+if(is_singular() && in_array($post->post_type, $tnames))
 {
-	$tnames[] = $qt->WP_type();
+	$custom = get_post_custom($post->ID);
+	if(isset($custom['location'][0]))
+	{
+		$postloc = GetLocation($custom['location'][0]);
+	}
 }
-
+else
+{
+	$blogloc = GetLocation( get_option('soe_location') );
+	
+}
 
 
 if(is_singular())
@@ -27,7 +39,7 @@ elseif(is_home())
 }
 elseif(is_post_type_archive())
 {
-	echo '<h1>Try to load: </h1>' . $post->post_type;
+// 	echo '<h1>Try to load: </h1>' . $post->post_type;
 	get_template_part( $post->post_type );
 }
 else

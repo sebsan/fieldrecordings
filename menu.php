@@ -16,6 +16,6 @@
 	<span id="menu_item_eblog">Blog</span>
 	<span id="menu_item_artist">Artists</span>
 	<span id="menu_item_event">Events</span>
-	<span id="menu_item_organization">Institutions</span>
+	<span id="menu_item_organisation">Institutions</span>
 	<span id="menu_item_writing">Writings</span>
 </div>

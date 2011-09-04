@@ -12,6 +12,7 @@ get_header();
 
 
 global $wpdb;
+global $postloc;
 the_post();
 $postType = get_post_type($post->ID);
 $custom = get_post_custom($post->ID);
@@ -32,7 +33,7 @@ elseif($postType == 'soe_artist')
 	
 	echo '<div class="content_category">ARTISTS</div>
 	<div class="title">'.get_the_title().'</div>
-	<div class="location">'.$custom['city'][0].'-'.$custom['country'][0].'</div>
+	<div class="location">'.$postloc->name.' — '.$postloc->country_code.'</div>
 	<div class="picture">'.$image.'</div>
 	<div class="section">
 	<div class="section_title">Biography</div>

@@ -35,7 +35,12 @@ $SOE_styles = array(
 foreach($SOE_styles as $style)
 {
 	echo '@import url("'.$template_dir.'/'.$style.'.css");';
+	echo "\n";
 }
+
+global $tnames;
+global $postloc;
+
 ?>
 </style>
 
@@ -43,28 +48,33 @@ foreach($SOE_styles as $style)
 var rootUrl = "<?php echo get_bloginfo('url') . '/'; ?>";
 var templateUrl = "<?php echo $template_dir . '/'; ?>";
 var jplayerswf = " <?php echo get_bloginfo('template_directory') . '/js/jQuery.jPlayer.2.0.0/' ;?>";
-var theCity = "<?php echo "bruxelles" ?>";
+var theCity = "<?php  echo $postloc !== NULL ? $postloc->geonameid : "bruxelles" ?>";
 <?php
 // city IDs in use
 global $wpdb;
 $locs = $wpdb->get_results("
 SELECT * 
 FROM ". $wpdb->postmeta ." AS p 
-INNER JOIN cities AS c 
-ON (p.meta_key = 'location' AND p.meta_value = c.id);" , OBJECT);
+INNER JOIN cities15 AS c 
+ON (p.meta_key = 'location' AND p.meta_value = c.geonameid);" , OBJECT);
 // 			print_r($locs);
+$locids = array();
 if($locs != NULL)
 {
 	echo 'var locations = new Array();';
 	foreach($locs as $loc)
 	{
-		echo '{var cObj = new Object();';
-		echo 'cObj.id = '.$loc->meta_value.';';
-		echo 'cObj.name = '.$loc->city.';';
-		echo 'cObj.lat = '.$loc->lat.';';
-		echo 'cObj.lon = '.$loc->lon.';';
-		echo 'cObj.country = '.$loc->country.';';
-		echo 'locations.push(cObj);}';
+		if(in_array($loc->meta_value, $locids) === FALSE)
+		{
+			echo '{var cObj = new Object();';
+			echo 'cObj.id = '.$loc->meta_value.';';
+			echo 'cObj.name = "'.$loc->name.'";';
+			echo 'cObj.lat = -1 * '.$loc->latitude.';';
+			echo 'cObj.lon = '.$loc->longitude.';';
+			echo 'cObj.country = "'.$loc->country_code.'";';
+			echo 'locations.push(cObj);}';
+			$locids[] = $loc->meta_value;
+		}
 	}
 }
 ?>

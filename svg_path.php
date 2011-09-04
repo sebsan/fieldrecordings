@@ -20,23 +20,6 @@ class SVGPath
 		mysql_select_db(DB_NAME);
 	}
 	
-// 	public function getIDs()
-// 	{
-// 		$p = array();
-// 		$status = $this->loadStatus;
-// 		if($this->loadStatus == 0)
-// 		{
-// 			// 			$elem = $this->svg->getElementById ( $id );
-// 			$xpath = new DOMXPath($this->svg);
-// 			$res =  $xpath->query("//*[@d]");
-// 			foreach($res as $elem)
-// 			{
-// 				$p[] = $elem->getAttribute("id");
-// 			}
-// 		}
-// 		return json_encode(array("status" => $status, "p" => $p));
-// 	}
-	
 	/// $id is a 2 letters country code
 	public function getPath($id)
 	{
@@ -45,10 +28,20 @@ class SVGPath
 		if($this->loadStatus == 0)
 		{
 			$query = sprintf("SELECT * FROM countries WHERE ccode = '%s' ", mysql_real_escape_string($id));
-			$result = mysql_query($query, $link);
-			if($row = mysql_fetch_assoc($result))  // we're just interested in the first result
+			$result = mysql_query($query, $this->link);
+			
+			if($result !== FALSE)
 			{
-				$p = $row['svg'];
+				if(mysql_num_rows($result) > 0)
+				{
+					$row = mysql_fetch_assoc($result);
+					$p = $row['svg'];
+				}
+				else
+				{
+					$this->loadStatus = 3;
+					$p = mysql_num_rows($result);
+				}
 			}
 			else
 				$this->loadStatus = 2;

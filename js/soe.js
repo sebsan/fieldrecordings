@@ -369,13 +369,13 @@ function initSOE()
 	var minimap_fill = new Color(0,0,254);
 	var country_stroke = new Color(255,0,0);
 	
-	var bscale = 0.4;
-	var btrans = ww / (4 * bscale) ;
-// 	var select = "path220";
+	var bscale = 15;
+	var btransx = ww / (2.5 * bscale) ;
+	var btransy = 3200 / (3 * bscale) ;
 
-	var scale = 0.1;
-	var trh = ww * 0.8 * (1/scale);
-	var trv = 20 * (1/scale);
+	var scale = 4;
+	var trh = ww * 0.85 * (1/scale);
+	var trv = 330 * (1/scale);
 	// draw circle
 	var c = circle(raph, 110);
 	c.stroke("red");
@@ -387,8 +387,8 @@ function initSOE()
 	for(var ci = 0; ci < locations.length ; ci++)
 	{
 		var cloc = locations[ci];
-		var city = new Circle(raph, 10);
-		city.scale(bscale).translate(btrans + cloc.lon, cloc.lat).draw();
+		var city = new circle(raph, 1 / bscale);
+		city.scale(bscale).translate(btransx + cloc.lon, btransy + cloc.lat).draw();
 		var bb = city.bbox();
 		var CurCityClass = "";
 		if(cloc.id == theCity)
@@ -400,7 +400,7 @@ function initSOE()
 						var curCountryData = json_parse(data);
 						var curCountryPath = new Path(raph, curCountryData.p);
 						curCountryPath.scale(bscale)
-						.translate(btrans, 0)
+						.translate(btransx, btransy)
 						.attr("stroke-dasharray", "-")
 						.stroke(country_stroke.toString())
 						.draw();
@@ -439,21 +439,40 @@ function initSOE()
 		+'</a></div>');
 		jQuery('#carte').append(citylink);
 		
-		
-		jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
-				function(data)
-				{
-					var countryData = json_parse(data);
-					if(countryData.status == 0)
+		if(cloc.id == theCity)
+		{
+			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
+				   function(data)
+				   {
+					   var countryData = json_parse(data);
+					   if(countryData.status == 0)
+					   {
+						   var countryPath = new Path(raph, countryData.p);
+						   countryPath.scale(scale)
+						   .translate(trh , trv)
+						   .fill(minimap_fill.toString())
+						   .attr("stroke-width", "0.2")
+							.draw();
+					   }
+				   });
+		}
+		else
+		{
+			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
+					function(data)
 					{
-						var countryPath = new Path(raph, countryData.p);
-						countryPath.scale(scale)
-						.translate(trh , trv)
-						.stroke(minimap_stroke.toString())
-						.attr("stroke-width", "0.2")
-						.draw();
-					}
-				});
+						var countryData = json_parse(data);
+						if(countryData.status == 0)
+						{
+							var countryPath = new Path(raph, countryData.p);
+							countryPath.scale(scale)
+							.translate(trh , trv)
+							.stroke(minimap_stroke.toString())
+							.attr("stroke-width", "0.2")
+							.draw();
+						}
+					});
+		}
 		
 	}
 	// satellites
