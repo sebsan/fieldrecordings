@@ -15,6 +15,10 @@
   src:url("FreeSansBold.ttf");
 }
 
+@font-face {
+  font-family:Fanwood;
+  src:url("Fanwood.otf");
+}
 *{
 	border:none;
 	margin:0;

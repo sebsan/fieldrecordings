@@ -39,10 +39,12 @@
 	
 #menu_item span{
 	padding: 0px 20px;
+	cursor:pointer;
 	}
 	
 #menu_index {
 	position: absolute;
+	z-index:1000;
 	top: 42px;
 	left: 0px;
 	width:100%;
@@ -99,26 +101,31 @@
 	width:190px;
 	}
 	
+/* style du tableau */
 
 table.sample td{	
-	border-radius: 10px;
-	-moz-border-radius: 10px;
-	padding: 5px 20px;
+	border-radius: none;
+	-moz-border-radius: none;
+	width:15px;
 }
 
 .year_row {
-	font-family: helvetica_serif;
-	letter-spacing: 0.09em;
-	font-size: 12pt;
-	color:black;
+	font-family: free_sans;
+	font-size: 9pt;
+	color:gray;
+	height:10px;
+	padding: 5px 0px;
 }
 
 .month_row {
 	font-family: helvetica_serif;
-	letter-spacing: 0.09em;
 	font-size: 9pt;
-	text-transform: uppercase;
 	color:black;
+	height:5px;
+	padding: 5px 20px;
+	text-align:center;
+	border-left:1px solid black;
+	height:10px;
 }
 
 .month_column {
@@ -126,11 +133,13 @@ table.sample td{
 }
 	
 .workshop_row {
-	font-family: free_sansBold;
-	letter-spacing: 0.09em;
-	font-size: 10pt;
+	font-family: free_sans;
+	letter-spacing: 0.1em;
+	font-size: 9pt;
 	text-transform: uppercase;
-	color:white;
+	color:black;
+	padding: 5px 5px;
+	height:7px;
 }
 
 .workshop_column {
@@ -145,36 +154,32 @@ table.sample td{
 	color:white;
 }
 
-.webproject_column {
-	background-color: #FFCC00;
-}
-
-.cities_row {
-	font-family: free_sansBold;
-	letter-spacing: 0.09em;
-	font-size: 10pt;
-	text-transform: uppercase;
-	color:white;
-}
-
-.cities_column {
-	background-color: #3399FF;
-}
-
 .event_name_row {
 	font-family: free_sansBold;
-	letter-spacing: 0.09em;
-	font-size: 10pt;
+	font-size: 12pt;
 	color:black;
 	text-align:left;
+	padding: 5px 5px;
+	height:7px;
+}
+.presentation_row {
+	font-family: free_sans;
+	font-size: 12pt;
+	color:black;
+	text-align:left;
+	padding: 5px 5px;
+	height: 7px;
+
 }
 
 .pattern_row {
 	font-family: free_sansBold;
 	letter-spacing: 0.09em;
-	font-size: 15pt;
+	font-size: 10pt;
 	color:black;
 	text-align:center;
+	border-left:1px solid black;
+	height:15px;
 }
 
 .event_name_column {

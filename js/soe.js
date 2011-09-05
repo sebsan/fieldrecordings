@@ -369,127 +369,112 @@ function initSOE()
 	var minimap_fill = new Color(0,0,254);
 	var country_stroke = new Color(255,0,0);
 	
-	var bscale = 0.4;
-	var btrans = ww / (4 * bscale) ;
-// 	var select = "path220";
+	var bscale = 15;
+	var btransx = ww / (2.5 * bscale) ;
+	var btransy = 3200 / (3 * bscale) ;
 
-	var scale = 0.1;
-	var trh = ww * 0.8 * (1/scale);
-	var trv = 20 * (1/scale);
+	var scale = 4;
+	var trh = ww * 0.85 * (1/scale);
+	var trv = 330 * (1/scale);
 	// draw circle
 	var c = circle(raph, 110);
 	c.stroke("red");
 	c.translate((ww * 0.8) + 20 , 20);
 	c.draw();
 	var loc = window.location;
-	var curPoint = undefined;
-	if(theCity != undefined)
+
+	
+	for(var ci = 0; ci < locations.length ; ci++)
 	{
-		jQuery.get(templateUrl + "svg_path.php", { svg : "cities.svg", get: 1 },
-		function(data)
+		var cloc = locations[ci];
+		var city = new circle(raph, 1 / bscale);
+		city.scale(bscale).translate(btransx + cloc.lon, btransy + cloc.lat).draw();
+		var bb = city.bbox();
+		var CurCityClass = "";
+		if(cloc.id == theCity)
 		{
-			var d = json_parse(data);
-			for(var ci = 0; ci < d.p.length ; ci++)
-			{
-				jQuery.get(templateUrl + "svg_path.php", { svg : "cities.svg", id: d.p[ci] },
-					function(cdata)
+			// Draw current country (large)
+			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
+					function(data)
 					{
-						var cd = json_parse(cdata);
-						var city = new Path(raph, cd.p);
-						var bb0 = city.bbox();
-						if(cd.id == theCity)
-						{
-							city.fill(new Color(0,0,255));
-							curPoint = new Point(bb0.x + (bb0.width / 2),bb0.y + (bb0.height / 2));
-	// 						    alert('curpoint: ' + curPoint.toString());
-							///  We must wait for curPoint to be defined
-							var maxID = 1113;
-							for(var id = 38; id < maxID; id += 2)
-							{
-								jQuery.get(templateUrl + "svg_path.php", { svg : "europe_simple.svg", id: "path" + id },
-									function(gdata)
-									{
-										var d = json_parse(gdata);
-										if(d.status == 0)
-										{
-											var np = new Path(raph, d.p);
-											if(np.contains(curPoint) == true)
-											{
-												np.close();
-												np.fill(minimap_fill.toString());
-												
-												jQuery.get(templateUrl + "svg_path.php", { svg : "europe.svg", id: d.id },
-													function(sdata)
-													{
-														var dd = json_parse(sdata);
-														var sp = new Path(raph, dd.p);
-														var bb = sp.bbox();
-														// 						sp.translate((ww/2) - bb.x - bb.width , (wh/2) - bb.y - bb.height )
-														sp.scale(bscale)
-														.translate(btrans, 0)
-														.attr("stroke-dasharray", "-")
-														.stroke(country_stroke.toString())
-														.draw();
-														
-													});
-										
-											}
-											// 				var pp = np.bbox();
-											np.scale(scale);
-											np.translate(trh , trv);
-											np.stroke(minimap_stroke.toString());
-											np.attr("stroke-width", "0.2");
-											np.draw();
-// 											svgloadComplete(d.id, 'path' + (maxID - 1));
-										}
-									});
-						}
-						///   
-							
-						}
-						city.scale(bscale).translate(btrans, 0).draw();
-						var bb = city.bbox();
-						var CurCityClass = "";
-						if(cd.id == theCity)
-						{
-							CurCityClass = " city_current";
-							var slidX = bb.x + (bb.width / 2);
-							line(raph, new Point(slidX, 0), new Point(slidX, bb.y));
-							line(raph, new Point(slidX, svgHeight), new Point(slidX, bb.y));
-							var tc = 20;
-							var triangle = new Path(raph);
-							triangle.moveTo(slidX + (tc /2), 0)
-								.lineTo(slidX, tc)
-								.lineTo(slidX - (tc /2), 0)
-								.close()
-								.fill(new Color(0,0,0).toString())
-								.draw();
-							var triangle1 = new Path(raph);
-								triangle1.moveTo(slidX + (tc /2), svgHeight)
-								.lineTo(slidX, svgHeight - tc)
-								.lineTo(slidX - (tc /2), svgHeight)
-								.close()
-								.fill(new Color(0,0,0).toString())
-								.draw();
-						}
-						
-						var citylink = jQuery('<div class="city_label'
-									+ CurCityClass
-									+'" style="position:absolute;top:'
-									+(bb.y + (bb.height * 2 ))
-									+'px;left:'+bb.x+'px;"><a href="'
-									+ loc.pathname +'?city='
-									+ cd.id 
-									+'">'
-									+cd.id
-									+'</a></div>');
-						jQuery('#carte').append(citylink);
+						var curCountryData = json_parse(data);
+						var curCountryPath = new Path(raph, curCountryData.p);
+						curCountryPath.scale(bscale)
+						.translate(btransx, btransy)
+						.attr("stroke-dasharray", "-")
+						.stroke(country_stroke.toString())
+						.draw();
 						
 					});
-			}
-		});
-	} 
-	
+			CurCityClass = " city_current";
+			var slidX = bb.x + (bb.width / 2);
+			line(raph, new Point(slidX, 0), new Point(slidX, bb.y));
+			line(raph, new Point(slidX, svgHeight), new Point(slidX, bb.y));
+			var tc = 20;
+			var triangle = new Path(raph);
+			triangle.moveTo(slidX + (tc /2), 0)
+			.lineTo(slidX, tc)
+			.lineTo(slidX - (tc /2), 0)
+			.close()
+			.fill(new Color(0,0,0).toString())
+			.draw();
+			var triangle1 = new Path(raph);
+			triangle1.moveTo(slidX + (tc /2), svgHeight)
+			.lineTo(slidX, svgHeight - tc)
+			.lineTo(slidX - (tc /2), svgHeight)
+			.close()
+			.fill(new Color(0,0,0).toString())
+			.draw();
+		}
+		
+		var citylink = jQuery('<div class="city_label'
+		+ CurCityClass
+		+'" style="position:absolute;top:'
+		+(bb.y + (bb.height * 2 ))
+		+'px;left:'+bb.x+'px;"><a href="'
+		+ loc.pathname +'?city='
+		+ cloc.id 
+		+'">'
+		+ cloc.name
+		+'</a></div>');
+		jQuery('#carte').append(citylink);
+		
+		if(cloc.id == theCity)
+		{
+			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
+				   function(data)
+				   {
+					   var countryData = json_parse(data);
+					   if(countryData.status == 0)
+					   {
+						   var countryPath = new Path(raph, countryData.p);
+						   countryPath.scale(scale)
+						   .translate(trh , trv)
+						   .fill(minimap_fill.toString())
+						   .attr("stroke-width", "0.2")
+							.draw();
+					   }
+				   });
+		}
+		else
+		{
+			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
+					function(data)
+					{
+						var countryData = json_parse(data);
+						if(countryData.status == 0)
+						{
+							var countryPath = new Path(raph, countryData.p);
+							countryPath.scale(scale)
+							.translate(trh , trv)
+							.stroke(minimap_stroke.toString())
+							.attr("stroke-width", "0.2")
+							.draw();
+						}
+					});
+		}
+		
+	}
 	// satellites
 	jQuery('.located_object').hide();
 	jQuery('.located_type_item').click(toggleSats);
