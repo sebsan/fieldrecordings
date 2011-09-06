@@ -82,6 +82,30 @@ elseif($postType == 'soe_artist')
 	'.$audio.'
 	</div>';
 }
+elseif($postType == 'soe_organisation')
+{
+	$image = "";
+	$tags = "";
+	$audio = "";
+	echo '<div class="content_category">ORGANISATION</div>
+	<div class="title">'.get_the_title().'</div>
+	<div class="location">'.$postloc->name.' — '.GetCountryName($postloc->country_code).'</div>
+	<div class="picture">'.$image.'</div>
+	<div class="section">
+	<div class="section_title">Mission statement</div>
+	<div class="section_par">
+	'.$custom['organisation_mission'][0].'
+	</div>
+	
+	<div class="general_url"><a href="http://'.$custom['organisation_url'][0].'">'.$custom['organisation_url'][0].'</a></div>
+	<div class="tags_box">
+	<div class="tags">
+	'.$tags.'
+	</div>
+	</div>
+	'.$audio.'
+	</div>';
+}
 
 echo '</div></div>';
 
