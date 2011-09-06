@@ -158,6 +158,55 @@ class SOE_Type
 	
 	}
 	
+	public function getMediaScripts()
+	{
+		wp_enqueue_script('media-upload');
+		wp_enqueue_script('thickbox');
+	}
+	public function getMediaStyles()
+	{
+		wp_enqueue_style('thickbox');
+	}
+	public function getMedia($label,$desc,$type)
+	{
+		
+// 		add_action('admin_print_scripts', array(&$this, 'getMediaScripts'));
+// 		add_action('admin_print_styles', array(&$this, 'getMediaStyles'));
+
+		echo '<tr valign="top">
+		<th scope="row">'.$label.'</th>
+		<td><label for="upload_media">
+		<input id="upload_media" type="text" size="36" name="upload_media" value="" />
+		<input id="upload_media_button" type="button" value="'.$label.'" />
+		<br />'.$desc.'
+		</label></td>
+		</tr>
+		';
+		
+		echo "<script type=\"text/javascript\">
+		jQuery(document).ready(function() 
+		{
+			jQuery('#upload_media_button').click(function() 
+			{
+				formfield = jQuery('#upload_media').attr('name');
+				tb_show('', 'media-upload.php?type=".$type."&amp;TB_iframe=true');
+				return false;
+			});
+			
+			window.send_to_editor = function(html) 
+			{
+				mediaurl = html;
+				jQuery('#upload_media').val(mediaurl);
+				tb_remove();
+			}
+			
+			});
+	
+		</script>
+		";
+		
+	}
+	
 }
 
 

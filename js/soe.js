@@ -441,6 +441,11 @@ function initSOE()
 		
 		if(cloc.id == theCity)
 		{
+			var ctx =  bb.x - (580 / 2) ;
+			var cty =  bb.y - (820 / 2) ;
+			var countryTexture = jQuery('<img style="position:absolute;top:'+cty+'px;left:'+ctx+'px" id="country_texture" width="585px" height="827px" src="'+templateUrl +'texture/'+cloc.country+'.png"/>');
+			jQuery('#carte').append(countryTexture);
+			
 			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
 				   function(data)
 				   {
