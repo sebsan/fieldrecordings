@@ -77,6 +77,17 @@ SELECT *
 FROM ". $wpdb->postmeta ." AS p 
 INNER JOIN cities15 AS c 
 ON (p.meta_key = 'location' AND p.meta_value = c.geonameid);" , OBJECT);
+$wpcities = $wpdb->get_results("
+SELECT * FROM wp_posts AS p 
+INNER JOIN wp_postmeta AS m 
+ON p.ID = m.post_id 
+WHERE (p.post_type = 'soe_city' AND m.meta_key = 'location') ;
+", OBJECT);
+$citiesurl = array();
+foreach($wpcities as $c)
+{
+	$citiesurl[$c->meta_value] = get_permalink($c->ID);
+}
 // 			print_r($locs);
 $locids = array();
 if($locs != NULL)
@@ -86,8 +97,10 @@ if($locs != NULL)
 	{
 		if(in_array($loc->meta_value, $locids) === FALSE)
 		{
+// 			echo "\n";
 			echo '{var cObj = new Object();';
 			echo 'cObj.id = '.$loc->meta_value.';';
+			echo 'cObj.url = "'.$citiesurl[$loc->meta_value].'";';
 			echo 'cObj.name = "'.$loc->name.'";';
 			echo 'cObj.lat = -1 * '.$loc->latitude.';';
 			echo 'cObj.lon = '.$loc->longitude.';';

@@ -79,28 +79,11 @@
 	}
 
 
-#colonne_1 {
+#menu_index span {
 	float:left;
 	width:190px;
 	}
-	
-#colonne_2 {
-	float:left;
-	width:190px;	
-}
-#colonne_3 {
-	float:left;
-	width:190px;	
-}
-#colonne_4 {
-	float:left;
-	width:190px;
-	}
-#colonne_5 {
-	float:left;
-	width:190px;
-	}
-	
+
 /* style du tableau */
 
 table.sample td{	
@@ -185,3 +168,9 @@ table.sample td{
 .event_name_column {
 	background-color: #0066CC;
 }
+
+.wave{background-image:url("img/wave.png")}
+.krol{background-image:url("img/krol.svg")}
+.chevron{background-image:url("img/chevron.png")}
+.vignette{background-image:url("img/vignette-2-small.png")}
+.curl{background-image:url("img/curl.svg")}

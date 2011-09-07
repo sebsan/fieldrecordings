@@ -36,7 +36,7 @@ class SOE_Type
 		$siteArgs = array(
 		'labels' => $labels,
 		'public' => true,
-		'show_ui' => true,
+		'show_ui' => $this->menu,
 		'_builtin' => false,
 		'capability_type' => 'post',
 		'hierarchical' => false,
@@ -92,6 +92,30 @@ class SOE_Type
 		return $this->tname;
 	}
 	
+	public function ensureCity($genonameid, $name)
+	{
+		global $wpdb;
+		$wplocs = $wpdb->get_results("
+		SELECT * FROM wp_posts AS p 
+		INNER JOIN wp_postmeta AS m 
+		ON p.ID = m.post_id 
+		WHERE (p.post_type = 'soe_city' AND m.meta_key = 'location' AND m.meta_value = '".$genonameid."') ;
+		", OBJECT);
+		if(count($wplocs) == 0)
+		{
+			$wplocdata = array(
+				'post_title' => $name,
+				'post_status' => 'publish', 
+				'post_type' => 'soe_city',
+			);
+			$wplocid =  wp_insert_post($wplocdata);
+			if($wplocid > 0)
+			{
+				add_post_meta($wplocid, 'location', $genonameid, true);
+			}
+		}
+	}
+	
 	public function location($post, $metabox) 
 	{
 		$custom = get_post_custom($post->ID);
@@ -106,6 +130,8 @@ class SOE_Type
 			if($locs != NULL)
 			{
 				$loc = $locs[0];
+				// Create WP cities if it does not exist yet
+				$this->ensureCity($custom['location'][0], $loc->name);
 			}
 		}
 		$locSource = get_bloginfo('stylesheet_directory').'/cities.php';

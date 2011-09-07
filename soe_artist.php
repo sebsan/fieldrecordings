@@ -41,53 +41,94 @@ foreach($artists as $a)
 ksort($artistByCountry);
 ?>
 
-<div id="menu_index" class="menu_closed">
 
 <?php 
 
 
 $itCount = 0;
 $maxItems = 8;
-$startCol = '<span>
-<div class="index_col">';
-$endCol = '</div>
-</span>';
+$cCount = 0;
+$maxCols = 6;
+$startCol = '<span><div class="index_col">';
+$endCol = '</div></span>';
 $lastLoc = "";
+$first = true;
+$pages = array();
+$content = "";
 foreach ( $artistByCountry as $countryCode => $arar )
 {
-	if($itCount === 0)
-		echo $startCol;
-	
+	if($cCount === $maxCols)
+	{
+		$pages[] = $content;
+		$content = "";
+		$cCount = 0;
+	}
+	if($itCount === 0 && $first === false)
+		$content .= $startCol;
+
 	$loc = $countryCode;
 	if($loc != $lastLoc)
 	{
-		if($lastLoc > 0 && $itCount == $maxItems)
+		$itCount = 0;
+		if($first === false)
+			$content .= $endCol;
+		$cCount++;
+		if($cCount === $maxCols)
 		{
-			$itCount = 0;
-			echo $endCol;
-			echo $startCol;
+			$pages[] = $content;
+			$content = "";
+			$cCount = 0;
 		}
+		$content .= $startCol;
 		$lastLoc = $loc;
-		echo '<div class="menu_category">
-		'.GetCountryName($loc).'
-		</div>';
+		$content .= '<div class="menu_category">'.GetCountryName($loc).'</div>';
 	}
+	$first = false;
 	ksort($arar);
 	foreach($arar as $a)
 	{
-		echo '<a class="menu_base" href="'.get_permalink($a->ID).'">'.get_the_title($a->ID).'</a>';
-		
-		
 		if($itCount == $maxItems)
 		{
 			$itCount = 0;
-			echo $endCol;
+			$content .= $endCol;
+			$cCount++;
+			if($cCount === $maxCols)
+			{
+				$pages[] = $content;
+				$content = "";
+				$cCount = 0;
+			}
+			$content .= $startCol;
 		}
 		else
 			$itCount++;
+		
+		$content .= '<a class="menu_base" href="'.get_permalink($a->ID).'">'.get_the_title($a->ID).'</a>';
 	}
+}
+
+if($content != "")
+	$pages[] = $content . $endCol;
+
+// print_r($pages);
+
+foreach($pages as $idx=>$p)
+{
+	$visibility = "";
+	if($idx > 0)
+	{
+		$visibility = ' style="display:none;"';
+	}
+	$nav = "";
+	if($idx > 0)
+		$nav .= '<div class="menu_page_nav menu_page_prev">pevious</div>';
+	if(($idx + 1) < count($pages))
+		$nav .= '<div class="menu_page_nav menu_page_next">next</div>';
+	echo '<div id="menu_page_'.$idx.'" class="page"'.$visibility.'>
+	'. $p . $nav . '
+	</div>
+	';
 }
 
 ?>
 
-</div> <!--menu_index-->
