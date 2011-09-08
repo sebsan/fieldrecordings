@@ -16,7 +16,9 @@ class SOE_Eblog extends SOE_Type
 	{
 		if ($post->post_type == $this->tname) 
 		{
-			add_post_meta($post_id, 'location', get_option('soe_location'), true);
+			$soeloc = get_option('soe_location');
+			$this->ensureCity($soeloc, GetLocation($soeloc)->name);
+			add_post_meta($post_id, 'location', $soeloc, true);
 		}
 	}
 }

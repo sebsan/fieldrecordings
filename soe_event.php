@@ -9,6 +9,7 @@ Sounds of Europe
 
  */
 
-echo '<h1>SOE_EVENT.PHP</h1>';
+// echo '<h1>SOE_EVENT.PHP</h1>';
+readfile(get_stylesheet_directory() . '/timeline2.html');
 
 ?>

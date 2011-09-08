@@ -106,6 +106,32 @@ elseif($postType == 'soe_organisation')
 	'.$audio.'
 	</div>';
 }
+elseif($postType == 'soe_city')
+{
+	$posts = $wpdb->get_results("
+	SELECT * FROM wp_posts AS p 
+	INNER JOIN wp_postmeta AS m 
+	ON p.ID = m.post_id 
+	WHERE (p.post_type != 'soe_city' AND m.meta_key = 'location' AND m.meta_value = '".$custom['location'][0]."') ;
+	", OBJECT);
+	foreach($posts as $p)
+	{
+		$boxtype = 'BLOG';
+		if($p->post_type == 'soe_event')
+			$boxtype = 'EVENT';
+		if($p->post_type == 'soe_artist')
+			$boxtype = 'ARTIST';
+		if($p->post_type == 'soe_organisation')
+			$boxtype = 'ORGANISATION';
+		echo '
+		<div id="closedBox_outer">
+			<div id="closedBox">
+				<div class="closedBox_category">'.$boxtype.'</div>
+				<div class="closedBox_title"><a href="'.get_permalink($p->ID).'">'.$p->post_title.'</a></div>
+			</div>
+		</div>';
+	}
+}
 
 echo '</div></div>';
 

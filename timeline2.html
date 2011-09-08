@@ -1,32 +1,5 @@
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-<title>SOE - PROJECT</title>
-<style media="screen" type="text/css">
-@import url("style.css");
-@import url("map.css");
-@import url("menu_map.css");
-@import url("menu_nomap.css");
-@import url("content.css");
-@import url("writings.css");
-@import url("menu_top.css");
 
-</style>
-
-<script type='text/javascript' src='JSON-js/json_parse.js'></script>
-<script type='text/javascript' src='js/jquery.js'></script>
-<script type='text/javascript' src='js/raphael.js'></script>
-<script type='text/javascript' src='js/soe.js'></script>
-
-<script type='text/javascript'>
-var theCity = "<?php echo $_GET["city"] ?>";
-</script>
-
-</head>
-<body>
-
-
-  <div id="timeline"1>
+  <div id="timeline1">
 
 	<table class="sample" border="1px solid black">
 		<tr>
@@ -54,7 +27,7 @@ var theCity = "<?php echo $_GET["city"] ?>";
 		<!--workshop pattern -->
 		<tr>
 			<td colspan="30" class="pattern_row" ></td>
-			<td colspan="36" class="pattern_row" background=img/krol.svg></td>
+			<td colspan="36" class="pattern_row krol"></td>
 
 		</tr>
 		<!--workshop event -->
@@ -66,7 +39,7 @@ var theCity = "<?php echo $_GET["city"] ?>";
 		<!--webproject pattern -->
 		<tr>
 			<td colspan="30" class="pattern_row" ></td>
-			<td colspan="36" class="pattern_row" background=img/wave.png></td>
+			<td colspan="36" class="pattern_row wave"></td>
 
 		</tr>
 		<!--workshop event -->
@@ -78,9 +51,9 @@ var theCity = "<?php echo $_GET["city"] ?>";
 		<!-- pattern couche 2 -->
 		<tr>
 			<td colspan="8" class="pattern_row" ></td>
-			<td colspan="2" class="pattern_row" background=img/chevron.png></td>
+			<td colspan="2" class="pattern_row chevron"></td>
 			<td colspan="1" class="pattern_row"></td>
-			<td colspan="4" class="pattern_row" background=img/chevron.png></td>
+			<td colspan="4" class="pattern_row chevron"></td>
 			<td colspan="51" class="pattern_row"></td>
 		</tr>
 		<!--presentation et openning Ljubljana event -->
@@ -89,7 +62,7 @@ var theCity = "<?php echo $_GET["city"] ?>";
 		</tr>
 		<tr>
 			<td colspan="30" class="pattern_row"></td>
-			<td colspan="4" class="pattern_row" background=img/vignette-2-small.png></td>
+			<td colspan="4" class="pattern_row vignette"></td>
 			<td colspan="32" class="pattern_row"></td>
 		</tr>
 		<tr>
@@ -98,7 +71,7 @@ var theCity = "<?php echo $_GET["city"] ?>";
 		</tr>
 		<tr>
 			<td colspan="33" class="pattern_row" ></td>
-			<td colspan="3" class="pattern_row" background=img/wave.png></td>
+			<td colspan="3" class="pattern_row wave"></td>
 			<td colspan="29" class="pattern_row"></td>
 		</tr>
 		</tr>
@@ -108,7 +81,7 @@ var theCity = "<?php echo $_GET["city"] ?>";
 		</tr>
 		<tr>
 			<td colspan="35" class="pattern_row" ></td>
-			<td colspan="3" class="pattern_row" background=img/curl.svg></td>
+			<td colspan="3" class="pattern_row curl"></td>
 			<td colspan="22" class="pattern_row" ></td>
 		</tr>
 		</tr>
@@ -119,6 +92,3 @@ var theCity = "<?php echo $_GET["city"] ?>";
 	</table> 
   </div>
 
-
-</body>
-</html>

@@ -13,7 +13,6 @@ global $blogloc;
 
 ?>
 
-<div id="menu_index" class="menu_closed">
 
 <?php 
 
@@ -26,48 +25,90 @@ $the_query = new WP_Query( $args );
 
 $itCount = 0;
 $maxItems = 8;
-$startCol = '<span>
-<div class="index_col">';
-$endCol = '</div>
-</span>';
+$cCount = 0;
+$maxCols = 6;
+$startCol = '<span> <div class="index_col">';
+$endCol = '</div> </span>';
 $lastLoc = 0;
+$first = true;
+$pages = array();
+$content = "";
 while ( $the_query->have_posts() )
 {
-	if($itCount === 0)
-		echo $startCol;
+	if($cCount === $maxCols)
+	{
+		$pages[] = $content;
+		$content = "";
+		$cCount = 0;
+	}
+	if($itCount === 0 && $first === false)
+		$content .= $startCol;
 	$the_query->the_post();
 	$custom = get_post_custom($post->ID);
 	
 	$loc = $custom['location'][0];
 	if($loc != $lastLoc)
 	{
-		if($lastLoc > 0 && $itCount == $maxItems)
+		
+		$itCount = 0;
+		if($first === false)
+			$content .= $endCol;
+		$cCount++;
+		if($cCount === $maxCols)
 		{
-			$itCount = 0;
-			echo $endCol;
-			echo $startCol;
+			$pages[] = $content;
+			$content = "";
+			$cCount = 0;
 		}
+		$content .= $startCol;
 		$lastLoc = $loc;
 		$lObj = GetLocation($loc);
-		echo '<div class="menu_category">
-		'.$lObj->name.'
+		$content .= '<div class="menu_category">
+		'.GetCountryName($lObj->country_code).'
 		</div>';
 	}
 	
-	echo '<a class="menu_base" href="'.get_permalink($post->ID).'">'.get_the_title().'</a>';
+	$content .=  '<a class="menu_base" href="'.get_permalink($post->ID).'">'.get_the_title().'</a>';
 	
 	
 	if($itCount == $maxItems)
 	{
 		$itCount = 0;
-		echo $endCol;
+		$content .= $endCol;
+		$cCount++;
+		if($cCount === $maxCols)
+		{
+			$pages[] = $content;
+			$content = "";
+			$cCount = 0;
+		}
 	}
 	else
 		$itCount++;
 }
-	
+
+if($content != "")
+	$pages[] = $content . $endCol;
+
+foreach($pages as $idx=>$p)
+{
+	$visibility = "";
+	if($idx > 0)
+	{
+		$visibility = ' style="display:none;"';
+	}
+	$nav = "";
+	if($idx > 0)
+		$nav .= '<div class="menu_page_nav menu_page_prev">pevious</div>';
+	if(($idx + 1) < count($pages))
+		$nav .= '<div class="menu_page_nav menu_page_next">next</div>';
+	echo '<div id="menu_page_'.$idx.'" class="page"'.$visibility.'>
+	'. $p . $nav . '
+	</div>
+	';
+}
+
 ?>
 
-</div> <!--menu_index-->
 
 

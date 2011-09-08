@@ -358,6 +358,30 @@ function toggleSats()
 }
 
 
+function paginateMenu()
+{
+// 	jQuery('.page').hide();
+// 	jQuery('#menu_page_0').show();
+	jQuery('.menu_page_prev').live('click',function()
+	{
+		var that = jQuery(this);
+		var parent = that.parent();
+		var target = parent.prev();
+		
+		parent.hide();
+		target.show();
+	})
+	jQuery('.menu_page_next').live('click',function()
+	{
+		var that = jQuery(this);
+		var parent = that.parent();
+		var target = parent.next();
+		
+		parent.hide();
+		target.show();
+	})
+}
+
 function initSOE()
 {
 	var ww = jQuery(window).width();
@@ -432,8 +456,7 @@ function initSOE()
 		+'" style="position:absolute;top:'
 		+(bb.y + (bb.height * 2 ))
 		+'px;left:'+bb.x+'px;"><a href="'
-		+ loc.pathname +'?city='
-		+ cloc.id 
+		+ cloc.url
 		+'">'
 		+ cloc.name
 		+'</a></div>');
@@ -488,6 +511,7 @@ function initSOE()
 	var menuIndex = jQuery('#menu_index');
 	menuIndex.hide();
 	jQuery('#menu_item span').click(toggleMenu);
+	paginateMenu();
 	
 	
 }

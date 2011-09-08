@@ -5,6 +5,7 @@ require_once(get_stylesheet_directory() . '/event.class.inc');
 require_once(get_stylesheet_directory() . '/artist.class.inc');
 require_once(get_stylesheet_directory() . '/post.class.inc');
 require_once(get_stylesheet_directory() . '/organisation.class.inc');
+require_once(get_stylesheet_directory() . '/city.class.inc');
 
 
 /// utils
@@ -46,8 +47,29 @@ function GetCountryName($isocode)
 ///
 
 add_action('admin_init', 'SOE_locationInit');
+add_action('admin_init', 'SOE_AdminInit');
 add_action('init', 'SOE_customTypesInit');
 add_action('init', 'SOE_JSInit');
+
+function sendAudioURL($html, $href, $title)
+{
+	return $href;
+}
+
+function sendImageURL($html, $src, $alt, $align)
+{
+	error_log('sendImageURL:'.$html.'|'.$src);
+	return $src;
+}
+
+function SOE_AdminInit()
+{
+	add_filter( 'audio_send_to_editor_url', 'sendAudioURL', 1, 3 );
+	add_filter( 'image_send_to_editor_url', array(&$this,'sendImageURL'), 1, 4 );
+	
+// 	global $wp_filter, $merged_filters, $wp_current_filter;
+// 	print_r($wp_filter);
+}
 
 function SOE_locationSection()
 {
@@ -144,8 +166,13 @@ function SOE_customTypesInit()
 				'name' => 'Organisation',
 				'menu' => true,
 				'support' => array('post_tag') ) );
-	
+				
+	$soe_cities = new SOE_City(array(
+				'name' => 'City',
+				'menu' => false,
+				'support' => array('post_tag') ) );
 	$soe_types = array( 
+				$soe_cities,
 				$soe_events ,
 				$soe_artists,
 				$soe_posts,
@@ -159,19 +186,6 @@ function SOE_customTypesInit()
 	}
 }
 
-function sendAudioURL($html, $href, $title)
-{
-	return $href;
-}
-
-function sendImageURL($html, $src, $alt, $align)
-{
-	error_log('sendImageURL:'.$html.'|'.$src);
-	return $src;
-}
-
-add_filter( 'audio_send_to_editor_url', 'sendAudioURL', 10, 3 );
-add_filter( 'image_send_to_editor_url', 'sendImageURL', 10, 4 );
 
 function SOE_JSInit()
 {
