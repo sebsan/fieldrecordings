@@ -1,21 +1,38 @@
 /* map.css */
 
+.carte{
+	position: absolute;
+	top:0;
+	left:0;
+}
+
+
 .city_label {
 	
 }
 
 .city_label a{
-	padding:3px 10px 3px 10px;
-	border-radius: 10px;
-	-moz-border-radius: 10px;
-	background-color: #0000FF;
-	font-family: free_sansBold;
+	padding:3px;
+/* 	border-radius: 10px; */
+/* 	-moz-border-radius: 10px; */
+	background-color: white;
+	font-family: helvetica_serif;
 	letter-spacing: 0.09em;
 	font-size: 8pt;
-	color: white;
-	text-transform: capitalize;
+	text-transform: uppercase;
+	color: red;
+	border:1px solid red;
 }
 
 .city_label a:hover{
-	background-color: #0033FF;
+	color:white;
+	background-color: red;
+}
+
+.city_current a{
+	color: blue;
+	border:1px solid blue;
+}
+.city_current a:hover{
+	background-color: blue;
 }

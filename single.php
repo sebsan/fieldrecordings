@@ -8,12 +8,14 @@ Sounds of Europe
 %DATE%		2011-07-25
 
 */
+
+the_post();
 get_header();
 
 
 global $wpdb;
 global $postloc;
-the_post();
+
 $postType = get_post_type($post->ID);
 $custom = get_post_custom($post->ID);
 

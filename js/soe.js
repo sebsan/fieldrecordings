@@ -43,6 +43,41 @@ Point.prototype.toString = function()
 	return " [ " +this.x + " ; " +this.y + " ] ";
 }
 
+function Rect(left, top, width, height)
+{
+	if(left instanceof Rect)
+	{
+		this._x = left._x;
+		this._y = left._y;
+		this._width = left._width;
+		this._height = left._height;
+	}
+	else
+	{
+		this._x = left;
+		this._y = top;
+		this._width = width;
+		this._height = height;
+	}
+}
+
+Rect.prototype.top = function(){return this._y;}
+Rect.prototype.left = function(){return this._x;}
+Rect.prototype.width = function(){return this._width;}
+Rect.prototype.height = function(){return this._height;}
+Rect.prototype.right = function(){return this._x + this._width;}
+Rect.prototype.bottom = function(){return this._y + this._height;}
+Rect.prototype.center = function(){return (new Point(this._x + (this._width / 2), this._y + (this._height / 2)));}
+Rect.prototype.translate = function(dx, dy){this._x += dx; this._y += dy;}
+Rect.prototype.move = function(x, y){this._x = x; this._y = y;}
+
+Rect.prototype.intersects = function(r) 
+{
+	return (this.left() <= r.right() &&
+	r.left() <= this.right() &&
+	this.top() <= r.bottom() &&
+	r.top() <= this.bottom());
+}
 function Color(r, g, b, a)
 {
 	this.r = r;
@@ -227,9 +262,9 @@ function circle(paper, r)
 }
 
 
-function lineConnect(paper, id, x, y)
+function lineConnect(paper, jqelem, x, y)
 {
-	var e = jQuery("#" + id);
+	var e = jqelem;
 	var o = e.offset();
 	var sx = o.left + Math.floor(e.width() / 2);
 	var sy = o.top + Math.floor(e.height() / 2);
@@ -382,6 +417,16 @@ function paginateMenu()
 	})
 }
 
+function collides(obj, objList)
+{
+	for(var i = 0; i < objList.length; i++)
+	{
+		if(obj.intersects(objList[i]))
+			return true;
+	}
+	return false;
+}
+
 function initSOE()
 {
 	var ww = jQuery(window).width();
@@ -392,6 +437,8 @@ function initSOE()
 	var minimap_stroke = new Color(0,0,254);
 	var minimap_fill = new Color(0,0,254);
 	var country_stroke = new Color(255,0,0);
+	var cityColor = new Color(0,0,200);
+	var white = new Color(255,255,255);
 	
 	var bscale = 15;
 	var btransx = ww / (2.5 * bscale) ;
@@ -406,17 +453,38 @@ function initSOE()
 	c.translate((ww * 0.8) + 20 , 20);
 	c.draw();
 	var loc = window.location;
-
 	
+	var citySize = 4 / bscale;
+	var surcitySize = 8 / bscale;
+	
+	var labelRects = new Array();
 	for(var ci = 0; ci < locations.length ; ci++)
 	{
 		var cloc = locations[ci];
-		var city = new circle(raph, 1 / bscale);
-		city.scale(bscale).translate(btransx + cloc.lon, btransy + cloc.lat).draw();
+		var city = new circle(raph, citySize);
+		city.scale(bscale).translate(btransx + cloc.lon - (citySize ), btransy + cloc.lat - (citySize ));
+		if(cloc.id == theCity)
+		{
+			city.stroke(cityColor.toString()).fill(cityColor.toString()).draw();
+
+			var surcity = new circle(raph, surcitySize);
+			surcity.scale(bscale).translate(btransx + cloc.lon - (surcitySize ), btransy + cloc.lat - (surcitySize ));
+			surcity.stroke(cityColor.toString()).attr("stroke-width", "2").draw();
+		}
+		else
+		{
+			city.fill(white.toString()).stroke(cityColor.toString()).draw();
+		}
 		var bb = city.bbox();
+		var cityPoint = new Point(bb.x + (bb.width / 2), bb.y + (bb.height / 2));
 		var CurCityClass = "";
 		if(cloc.id == theCity)
 		{
+			// Insert texture;
+			var ctx =  bb.x - (580 / 2) ;
+			var cty =  bb.y - (820 / 2) ;
+			raph.image(templateUrl +'texture/'+cloc.country+'.png', ctx, cty, 585, 827).toBack();
+			
 			// Draw current country (large)
 			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
 					function(data)
@@ -431,7 +499,7 @@ function initSOE()
 						
 					});
 			CurCityClass = " city_current";
-			var slidX = bb.x + (bb.width / 2);
+			var slidX = cityPoint.x;
 			line(raph, new Point(slidX, 0), new Point(slidX, bb.y));
 			line(raph, new Point(slidX, svgHeight), new Point(slidX, bb.y));
 			var tc = 20;
@@ -454,21 +522,41 @@ function initSOE()
 		var citylink = jQuery('<div class="city_label'
 		+ CurCityClass
 		+'" style="position:absolute;top:'
-		+(bb.y + (bb.height * 2 ))
-		+'px;left:'+bb.x+'px;"><a href="'
+		+ bb.y
+		+'px;left:'+(cityPoint.x + bb.width)+'px;"><a href="'
 		+ cloc.url
 		+'">'
 		+ cloc.name
 		+'</a></div>');
-		jQuery('#carte').append(citylink);
+		jQuery('#labels').append(citylink);
+		var labelRect = new Rect(citylink.offset().left, citylink.offset().top, citylink.outerWidth(), citylink.outerHeight());
+		var xtTry = 0;
+		var ytTry = 0;
+		while(collides(labelRect, labelRects))
+		{
+			if(xtTry < ytTry + 2)
+				xtTry++;
+			else
+			{
+				ytTry++;
+				xtTry = 0;
+			}
+			labelRect.move(cityPoint.x + (xtTry * labelRect.width()), cityPoint.y + (ytTry *labelRect.height()));
+		}
+// 		alert(cloc.name + ': xtry='+xtTry+'; ytry='+ytTry);
+		if(ytTry > 0 || xtTry > 0)
+		{
+			citylink.offset({ top: cityPoint.y + (ytTry *labelRect.height()), left: cityPoint.x + (xtTry * labelRect.width()) });
+// 			lineConnect(raph, citylink, cityPoint.x, cityPoint.y);
+		}
+// 		new Path(raph).moveTo(cityPoint.x, cityPoint.y)
+// 		.lineTo(cityPoint.x + (xtTry * labelRect.width()), cityPoint.y + (ytTry *labelRect.height()))
+// 		.stroke(cityColor.toString())
+// 		.draw();
+		labelRects.push(labelRect);
 		
 		if(cloc.id == theCity)
 		{
-			var ctx =  bb.x - (580 / 2) ;
-			var cty =  bb.y - (820 / 2) ;
-			var countryTexture = jQuery('<img style="position:absolute;top:'+cty+'px;left:'+ctx+'px" id="country_texture" width="585px" height="827px" src="'+templateUrl +'texture/'+cloc.country+'.png"/>');
-			jQuery('#carte').append(countryTexture);
-			
 			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
 				   function(data)
 				   {

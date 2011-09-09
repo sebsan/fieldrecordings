@@ -16,9 +16,8 @@ global $blogloc;
 $postloc = NULL;
 $blogloc = NULL;
 
-if(is_singular() && in_array($post->post_type, $tnames))
+if(is_single($post) && in_array($post->post_type, $tnames))
 {
-	
 	$custom = get_post_custom($post->ID);
 	if(isset($custom['location'][0]))
 	{
@@ -118,7 +117,9 @@ if($locs != NULL)
 <body>
 
 <!-- MAP -->
-<div id="carte"></div>
+<div id="texture" class="map" style="z-index:0;"></div>
+<div id="carte" class="map" style="z-index:1;"></div>
+<div id="labels" class="map" style="z-index:2;"></div>
 <!-- MAP -->
 
 <!-- MENU -->
