@@ -123,7 +123,7 @@ class SOE_Organisation extends SOE_Type
 		$custom = get_post_custom($post->ID);
 		echo '
 		';
-		$this->getMedia('Upload Image', 'Select an image for this organisation', 'image');
+	$this->getMedia('Upload Image', 'Select an image for this organisation', 'image' ,'organisation_image', $custom['organisation_image'][0]);
 	}
 	
 }
