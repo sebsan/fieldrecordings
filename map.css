@@ -7,14 +7,12 @@
 }
 
 
-.city_label {
-	
+.city_label:hover {
+	z-index:10000;
 }
 
 .city_label a{
 	padding:3px;
-/* 	border-radius: 10px; */
-/* 	-moz-border-radius: 10px; */
 	background-color: white;
 	font-family: helvetica_serif;
 	letter-spacing: 0.09em;

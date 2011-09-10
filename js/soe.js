@@ -235,6 +235,12 @@ Path.prototype.element = function()
 	return this._path.node;
 }
 
+Path.prototype.toBack = function()
+{
+	this._path.toBack();
+	return this;
+}
+
 Path.prototype.contains = function(point)
 {
 	var bbox = this._path.getBBox();
@@ -519,41 +525,48 @@ function initSOE()
 			.draw();
 		}
 		
+		var labX = Math.floor(cityPoint.x + bb.width);
+		var labY = Math.floor(cityPoint.y + bb.height);
 		var citylink = jQuery('<div class="city_label'
 		+ CurCityClass
 		+'" style="position:absolute;top:'
-		+ bb.y
-		+'px;left:'+(cityPoint.x + bb.width)+'px;"><a href="'
+		+ labY
+		+'px;left:'
+		+ labX
+		+'px;"><a href="'
 		+ cloc.url
 		+'">'
 		+ cloc.name
 		+'</a></div>');
 		jQuery('#labels').append(citylink);
-		var labelRect = new Rect(citylink.offset().left, citylink.offset().top, citylink.outerWidth(), citylink.outerHeight());
-		var xtTry = 0;
-		var ytTry = 0;
-		while(collides(labelRect, labelRects))
+		var labelRect = new Rect(labX, labY , citylink.outerWidth() , citylink.outerHeight() );
 		{
-			if(xtTry < ytTry + 2)
-				xtTry++;
-			else
+			var r = 0;
+			var t = 0;
+			var x = 0;
+			var y = 0;
+			while(collides(labelRect, labelRects))
 			{
-				ytTry++;
-				xtTry = 0;
+				if(t == -360)
+					t = 0;
+				else
+					t -= 10;
+				r += 1;
+				x = Math.floor(r * Math.cos(t));
+				y = Math.floor(r * Math.sin(t));
+				labelRect.move(labX + x, labY + y);
 			}
-			labelRect.move(cityPoint.x + (xtTry * labelRect.width()), cityPoint.y + (ytTry *labelRect.height()));
 		}
-// 		alert(cloc.name + ': xtry='+xtTry+'; ytry='+ytTry);
-		if(ytTry > 0 || xtTry > 0)
+		if(labX != labelRect.left() || labY != labelRect.top())
 		{
-			citylink.offset({ top: cityPoint.y + (ytTry *labelRect.height()), left: cityPoint.x + (xtTry * labelRect.width()) });
-// 			lineConnect(raph, citylink, cityPoint.x, cityPoint.y);
+			citylink.animate({ top: labelRect.top(), left: labelRect.left() });
 		}
 // 		new Path(raph).moveTo(cityPoint.x, cityPoint.y)
-// 		.lineTo(cityPoint.x + (xtTry * labelRect.width()), cityPoint.y + (ytTry *labelRect.height()))
+// 		.lineTo(labelRect.center().x, labelRect.center().y)
 // 		.stroke(cityColor.toString())
-// 		.draw();
+// 		.draw().toBack();
 		labelRects.push(labelRect);
+// 		line(raph,new Point(0,labelRect.bottom()),new Point(2000, labelRect.bottom()));
 		
 		if(cloc.id == theCity)
 		{
