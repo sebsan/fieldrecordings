@@ -242,6 +242,11 @@ Path.prototype.toBack = function()
 	return this;
 }
 
+Path.prototype.toFront = function()
+{
+	this._path.toFront();
+	return this;
+}
 Path.prototype.remove = function()
 {
 	this._path.remove();
@@ -476,7 +481,8 @@ function drawCursorLine(x)
 }
 
 
-var cityx = 0;
+var curCityPoint = undefined;
+var countryCode = '';
 
 function initSOE()
 {
@@ -499,15 +505,16 @@ function initSOE()
 	var trh = ww * 0.85 * (1/scale);
 	var trv = 330 * (1/scale);
 	// draw circle
-	var c = circle(raph, 110);
-	c.stroke("red");
-	c.translate((ww * 0.8) + 20 , 20);
-	c.draw();
+// 	var c = circle(raph, 110);
+// 	c.stroke("red");
+// 	c.translate((ww * 0.8) + 20 , 20);
+// 	c.draw();
+	var mframe = new Path(raph);
+// 	mframe.moveTo(ww * 0.8, 0).lineTo(ww * 0.8, wh * 0.3).lineTo(ww, wh * 0.3).lineTo(ww,0).close().stroke('transparent').fill(new Color(200,200,200).toString()).draw();
 	var loc = window.location;
 	
 	var citySize = 4 / bscale;
 	var surcitySize = 8 / bscale;
-	var cityPoint = undefined;
 	var labelRects = new Array();
 	for(var ci = 0; ci < locations.length ; ci++)
 	{
@@ -527,15 +534,12 @@ function initSOE()
 			city.fill(white.toString()).stroke(cityColor.toString()).draw();
 		}
 		var bb = city.bbox();
-		cityPoint = new Point(bb.x + (bb.width / 2), bb.y + (bb.height / 2));
+		var cityPoint = new Point(bb.x + (bb.width / 2), bb.y + (bb.height / 2));
 		var CurCityClass = "";
 		if(cloc.id == theCity)
 		{
-			// Insert texture;
-			var ctx =  bb.x - (580 / 2) ;
-			var cty =  bb.y - (820 / 2) ;
-			raph.image(templateUrl +'texture/'+cloc.country+'.png', ctx, cty, 585, 827).toBack();
-			
+			curCityPoint = cityPoint;
+			countryCode = cloc.country;
 			// Draw current country (large)
 			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
 					function(data)
@@ -544,14 +548,19 @@ function initSOE()
 						var curCountryPath = new Path(raph, curCountryData.p);
 						curCountryPath.scale(bscale)
 						.translate(btransx, btransy)
-						.attr("stroke-dasharray", "-")
-						.stroke(country_stroke.toString())
-						.draw();
+						.stroke('transparent')
+						.fill(country_stroke.toString())
+						.draw().toBack();
+						
+						// Insert texture;
+						var ctx =  curCityPoint.x - (580 / 2) ;
+						var cty =  curCityPoint.y - (820 / 2) ;
+						
+						raph.image(templateUrl +'texture/'+countryCode+'.png', ctx, cty, 585, 827).toBack();
 						
 					});
 			CurCityClass = " city_current";
 			drawCursorLine(cityPoint.x);
-			cityx = cityPoint.x;
 		}
 		
 		var labX = Math.floor(cityPoint.x + bb.width);
@@ -599,20 +608,20 @@ function initSOE()
 		
 		if(cloc.id == theCity)
 		{
-			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
-				   function(data)
-				   {
-					   var countryData = json_parse(data);
-					   if(countryData.status == 0)
-					   {
-						   var countryPath = new Path(raph, countryData.p);
-						   countryPath.scale(scale)
-						   .translate(trh , trv)
-						   .fill(minimap_fill.toString())
-						   .attr("stroke-width", "0.2")
-							.draw();
-					   }
-				   });
+// 			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
+// 				   function(data)
+// 				   {
+// 					   var countryData = json_parse(data);
+// 					   if(countryData.status == 0)
+// 					   {
+// 						   var countryPath = new Path(raph, countryData.p);
+// 						   countryPath.scale(scale)
+// 						   .translate(trh , trv)
+// 						   .fill(minimap_fill.toString())
+// 						   .attr("stroke-width", "0.2")
+// 							.draw();
+// 					   }
+// 				   });
 		}
 		else
 		{
@@ -623,8 +632,8 @@ function initSOE()
 						if(countryData.status == 0)
 						{
 							var countryPath = new Path(raph, countryData.p);
-							countryPath.scale(scale)
-							.translate(trh , trv)
+							countryPath.scale(bscale)
+							.translate(btransx , btransy)
 							.stroke(minimap_stroke.toString())
 							.attr("stroke-width", "0.2")
 							.draw();
@@ -633,6 +642,8 @@ function initSOE()
 		}
 		
 	}
+	
+	
 	// satellites
 	jQuery('.located_object').hide();
 	jQuery('.located_type_item').click(toggleSats);
@@ -645,7 +656,7 @@ function initSOE()
 	
 	jQuery(window).resize(function() 
 	{
-		drawCursorLine(cityx);
+		drawCursorLine(curCityPoint.x);
 	});
 	
 	

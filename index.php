@@ -9,8 +9,11 @@
  *	
  */
 
-
-if(is_singular())
+if(is_page() && get_page_by_title('Artist Registration'))
+{
+	get_template_part('artist_form');
+}
+elseif(is_singular())
 {
 	get_template_part('single');
 }
