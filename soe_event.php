@@ -10,6 +10,6 @@ Sounds of Europe
  */
 
 // echo '<h1>SOE_EVENT.PHP</h1>';
-readfile(get_stylesheet_directory() . '/timeline2.html');
-
+$tl = file_get_contents(get_stylesheet_directory() . '/timeline2.html');
+echo $tl;
 ?>
