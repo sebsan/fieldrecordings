@@ -56,34 +56,38 @@ if(isset($_POST['artistname']) || isset($_POST['location']) || isset($_POST['bio
 				}
 			}
 		}
-		if(isset($_POST['media']) )
+// 		print_r($_FILES);
+		if(isset($_FILES['artistmedia']) )
 		{
-			$medianame = $_FILES['media']['tmp_name'];
-			$wp_filetype = explode('/', wp_check_filetype($medianame, null ));
-			error_log('MEDIA: '.$medianame.'[]'.$wp_filetype[0]);
+			$mediafilename = $_FILES['artistmedia']['tmp_name'];
+			$medianame = preg_replace('/\.[^.]+$/', '', $_FILES['artistmedia']['name']);
+			$wp_filetype = explode('/', $_FILES['artistmedia']['type']);
+			error_log('MEDIA: '.$mediafilename.'[]'.$wp_filetype[0]);
 			if($wp_filetype[0] == 'audio')
 			{
 				$upload_dir = wp_upload_dir();
-				if( move_uploaded_file ( $medianame , $upload_dir['path'] ))
+				if( move_uploaded_file ( $mediafilename , $upload_dir['path'].'/'. $medianame))
 				{
 					$attachment = array(
-						'post_mime_type' => $wp_filetype['type'],
-						'post_title' => preg_replace('/\.[^.]+$/', '', basename($medianame)),
+						'post_mime_type' => $_FILES['artistmedia']['type'],
+						'post_title' => $medianame,
 						'post_content' => '',
 						'post_status' => 'publish'
 						);
-						$attach_id = wp_insert_attachment( $attachment, $medianame, $artist);
+						$attach_id = wp_insert_attachment( $attachment, $mediafilename, $artist);
 						error_log('ATTACHED: '. $attach_id);
 						
 					add_post_meta($artist, 'artist_sound', $attach_id);
 				}
 				else
-					error_log('ERROR UNABLE TO MOVE: '. $medianame. ' ; '. $upload_dir['path']);
+					error_log('ERROR UNABLE TO MOVE: '. $mediafilename. ' ; '. $upload_dir['path']);
 			}
 			else
 				error_log('ERROR FILETYPE: '.$wp_filetype[0]);
 		}
-// 		header('Location: '. get_permalink($artist));
+		else
+			print_r($_POST);
+		header('Location: '. get_permalink($artist));
 	}
 }
 	
@@ -192,8 +196,8 @@ jQuery(document).ready(function()
 </div>
 
 <div>
-<label for="media">Upload track</label>
-<input type="file" name="media"/>
+<label for="artistmedia">Upload track</label>
+<input type="file" name="artistmedia"/>
 </div>
 
 <div>
