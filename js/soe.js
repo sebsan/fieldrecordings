@@ -300,6 +300,7 @@ var svgWidth = 2160;
 
 function toggleMenu()
 {
+	jQuery('.site_menu_item').removeClass('menu_item_active');
 	var that = jQuery(this);
 	var menu = jQuery('#menu_index');
 	var id = that.attr('id');
@@ -322,6 +323,7 @@ function toggleMenu()
 				
 			});
 		}
+		that.addClass('menu_item_active');
 	}
 	else
 	{
@@ -332,6 +334,7 @@ function toggleMenu()
 		}
 		else
 		{
+			that.addClass('menu_item_active');
 			menu.removeClass();
 			menu.load(rootUrl + callerType,
 				  function()

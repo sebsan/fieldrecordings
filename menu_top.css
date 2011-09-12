@@ -43,6 +43,10 @@
 	cursor:pointer;
 	}
 	
+.menu_item_active {
+	color:red;
+}
+	
 #menu_index {
 	position: absolute;
 	z-index:1000;
