@@ -30,13 +30,17 @@ $artists = $wpdb->get_results($query, OBJECT);
 
 
 $artistByCountry = array();
+$ps = array();
 foreach($artists as $a)
 {
 	$aloc = GetLocation($a->meta_value);
 	if(!isset($artistByCountry[$aloc->country_code]))
 		$artistByCountry[$aloc->country_code] = array();
-	$artistByCountry[$aloc->country_code][] = $a;
-	
+	if(!in_array($a->ID , $ps))
+	{
+		$ps[] = $a->ID;
+		$artistByCountry[$aloc->country_code][] = $a;
+	}
 }
 ksort($artistByCountry);
 ?>
