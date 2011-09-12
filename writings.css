@@ -44,12 +44,7 @@
      width: 980px;
 }
 
-#colonne-index_1 {
-	float:left;
-	width:250px;
-	padding: 0px 30px 5px 0px;
-	}
-	
+
 #colonne-index_2 {
 	float:left;
 	width:250px;
@@ -110,12 +105,7 @@
 }
 
 #writing_outer {
-     background-color: #696969;
-     border: none;
-     left: 0px;
-     position: absolute;
-     top: 0px;
-     width: 100%;
+  margin-top:56px;
 }
 #colonne-writings_1 {
 	float:left;
@@ -136,7 +126,7 @@
 	padding: 15px 0px 5px 0px;
 	}
 	
-.writings_txt{
+#writing_content p{
 	color: white;
 	font-family: Fanwood;
 	font-size: 16pt;
@@ -145,13 +135,13 @@
 	padding: 0 0 0 40px;
 	margin: 0 0 0 0;
 	}
-.writings_txt-first{
+#writing_content p:first-child{
 	color: white;
 	font-family: Fanwood;
 	font-size: 16pt;
 	line-height: 20pt;
 	text-indent: 0px;
-	padding: 0 0 0 0;
+	padding: 0 0 0 40px;
 	margin: 0 0 0 0;
 	}
 	

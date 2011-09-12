@@ -21,6 +21,7 @@
 
 #menu_item{
 	position: absolute;
+	z-index:1000;
 	top: 0;
 	left: 0px;
 	font-family: helvetica_serif;

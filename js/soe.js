@@ -7,12 +7,13 @@ requires: jQuery, Raphael
 
 var SOE_debug = false;
 
-var raf = undefined;
+var raph = undefined;
 var p = undefined;
 
 var map_id = new Array();
 var map_path = new Array();
 
+var theCursorLine = new Object();
 
 function Point(x, y)
 {
@@ -241,6 +242,12 @@ Path.prototype.toBack = function()
 	return this;
 }
 
+Path.prototype.remove = function()
+{
+	this._path.remove();
+	this.reset();
+}
+
 Path.prototype.contains = function(point)
 {
 	var bbox = this._path.getBBox();
@@ -433,6 +440,41 @@ function collides(obj, objList)
 	return false;
 }
 
+function drawCursorLine(x)
+{
+	if(theCursorLine.line != undefined)
+	{
+		theCursorLine.line.remove();
+		theCursorLine.triangle.remove();
+	}
+	var W = jQuery(window);
+	var slidX = x;
+	var slidY = jQuery("#menu_item").outerHeight();
+	theCursorLine.line = line(raph, new Point(slidX, W.height()), new Point(slidX, slidY));
+	var tc = 20;
+	var triangle = new Path(raph);
+	triangle.moveTo(slidX + (tc /2), slidY)
+	.lineTo(slidX, slidY + tc)
+	.lineTo(slidX - (tc /2), slidY)
+	.close()
+	.fill(new Color(0,0,0).toString())
+	.draw();
+	theCursorLine.triangle = new Path(raph);
+	theCursorLine.triangle.moveTo(slidX + (tc /2), W.height())
+	.lineTo(slidX, W.height() - tc)
+	.lineTo(slidX - (tc /2), W.height())
+	.close()
+	.fill(new Color(0,0,0).toString())
+	.draw();
+	
+	
+	
+	
+}
+
+
+var cityx = 0;
+
 function initSOE()
 {
 	var ww = jQuery(window).width();
@@ -462,7 +504,7 @@ function initSOE()
 	
 	var citySize = 4 / bscale;
 	var surcitySize = 8 / bscale;
-	
+	var cityPoint = undefined;
 	var labelRects = new Array();
 	for(var ci = 0; ci < locations.length ; ci++)
 	{
@@ -482,7 +524,7 @@ function initSOE()
 			city.fill(white.toString()).stroke(cityColor.toString()).draw();
 		}
 		var bb = city.bbox();
-		var cityPoint = new Point(bb.x + (bb.width / 2), bb.y + (bb.height / 2));
+		cityPoint = new Point(bb.x + (bb.width / 2), bb.y + (bb.height / 2));
 		var CurCityClass = "";
 		if(cloc.id == theCity)
 		{
@@ -505,24 +547,8 @@ function initSOE()
 						
 					});
 			CurCityClass = " city_current";
-			var slidX = cityPoint.x;
-			line(raph, new Point(slidX, 0), new Point(slidX, bb.y));
-			line(raph, new Point(slidX, svgHeight), new Point(slidX, bb.y));
-			var tc = 20;
-			var triangle = new Path(raph);
-			triangle.moveTo(slidX + (tc /2), 0)
-			.lineTo(slidX, tc)
-			.lineTo(slidX - (tc /2), 0)
-			.close()
-			.fill(new Color(0,0,0).toString())
-			.draw();
-			var triangle1 = new Path(raph);
-			triangle1.moveTo(slidX + (tc /2), svgHeight)
-			.lineTo(slidX, svgHeight - tc)
-			.lineTo(slidX - (tc /2), svgHeight)
-			.close()
-			.fill(new Color(0,0,0).toString())
-			.draw();
+			drawCursorLine(cityPoint.x);
+			cityx = cityPoint.x;
 		}
 		
 		var labX = Math.floor(cityPoint.x + bb.width);
@@ -547,7 +573,7 @@ function initSOE()
 			var y = 0;
 			while(collides(labelRect, labelRects))
 			{
-				if(t == -360)
+				if(t == -400)
 					t = 0;
 				else
 					t -= 10;
@@ -613,6 +639,11 @@ function initSOE()
 	menuIndex.hide();
 	jQuery('#menu_item span').click(toggleMenu);
 	paginateMenu();
+	
+	jQuery(window).resize(function() 
+	{
+		drawCursorLine(cityx);
+	});
 	
 	
 }

@@ -6,6 +6,7 @@ require_once(get_stylesheet_directory() . '/artist.class.inc');
 require_once(get_stylesheet_directory() . '/post.class.inc');
 require_once(get_stylesheet_directory() . '/organisation.class.inc');
 require_once(get_stylesheet_directory() . '/city.class.inc');
+require_once(get_stylesheet_directory() . '/writing.class.inc');
 
 
 /// utils
@@ -157,6 +158,11 @@ function SOE_customTypesInit()
 				'name' => 'Eblog',
 				'menu' => true,
 				'support' => array('title', 'editor', 'author', 'excerpt') ) );
+				
+	$soe_writings = new SOE_Eblog(array(
+				'name' => 'Writing',
+				'menu' => true,
+				'support' => array('title', 'editor', 'author', 'excerpt') ) );
 		
 	$soe_events = new SOE_Event( array(
 				'name' => 'Event',
@@ -178,6 +184,7 @@ function SOE_customTypesInit()
 				'menu' => false,
 				'support' => array('post_tag') ) );
 	$soe_types = array( 
+				$soe_writings,
 				$soe_cities,
 				$soe_events ,
 				$soe_artists,
