@@ -89,6 +89,15 @@
 	width:190px;
 	}
 
+#menu_page_nav {
+	color:blue;
+	font-family: free_sans;
+	font-size: 10pt;
+	line-height: 15pt;
+	padding: 0px 0px 0px 0px;
+	}
+
+
 /* style du tableau */
 
 table.sample td{	
