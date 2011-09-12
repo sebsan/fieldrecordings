@@ -421,7 +421,7 @@ function paginateMenu()
 	jQuery('.menu_page_prev').live('click',function()
 	{
 		var that = jQuery(this);
-		var parent = that.parent();
+		var parent = that.parent().parent();
 		var target = parent.prev();
 		
 		parent.hide();
@@ -430,7 +430,7 @@ function paginateMenu()
 	jQuery('.menu_page_next').live('click',function()
 	{
 		var that = jQuery(this);
-		var parent = that.parent();
+		var parent = that.parent().parent();
 		var target = parent.next();
 		
 		parent.hide();

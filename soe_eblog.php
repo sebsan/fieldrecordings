@@ -103,7 +103,7 @@ foreach($pages as $idx=>$p)
 	if(($idx + 1) < count($pages))
 		$nav .= '<div class="menu_page_nav menu_page_next">next</div>';
 	echo '<div id="menu_page_'.$idx.'" class="page"'.$visibility.'>
-	'. $p . $nav . '
+	'. $nav . $p  . '
 	</div>
 	';
 }
