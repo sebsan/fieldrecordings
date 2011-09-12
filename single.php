@@ -117,45 +117,52 @@ elseif($postType == 'soe_organisation')
 }
 elseif($postType == 'soe_city')
 {
-	$posts = $wpdb->get_results("
-	SELECT * FROM wp_posts AS p 
-	INNER JOIN wp_postmeta AS m 
+	$query = "
+	SELECT * FROM ".$wpdb->posts." AS p 
+	INNER JOIN ".$wpdb->postmeta." AS m 
 	ON p.ID = m.post_id 
 	WHERE (p.post_type != 'soe_city' AND m.meta_key = 'location' AND m.meta_value = '".$custom['location'][0]."') ;
-	", OBJECT);
-	$mx = 500;
-	$my = 500;
-	$x = 0;
-	$y = 0;
-	$r = 0;
-	$t = 0;
+	";
+// 	echo $query;
+	$posts = $wpdb->get_results($query, OBJECT);
+	$x = 50;
+	$y = 50;
+	$cw = 220;
+	$ch = 62;
+	$ccx = 0;
+	$ccy = 0;
+	$ps = array();
 	foreach($posts as $p)
 	{
-		if( $t == -400)
-			$t = 0;
-		else
-			$t -= 20;
-		$r += 60;
-		
-		$x = floor($r * cos($t));
-		$y = floor($r * sin($t));
-		
-		$boxtype = 'BLOG';
-		if($p->post_type == 'soe_event')
-			$boxtype = 'EVENT';
-		if($p->post_type == 'soe_artist')
-			$boxtype = 'ARTIST';
-		if($p->post_type == 'soe_organisation')
-			$boxtype = 'ORGANISATION';
-		if($p->post_type == 'soe_writing')
-			$boxtype = 'WRITING';
-		echo '
-		<div class="closedBox_outer" style="position:absolute;left:'.($mx+$x).'px;top:'.($my+$y).'px">
-			<div class="closedBox">
-				<div class="closedBox_category">'.$boxtype.'</div>
-				<div class="closedBox_title"><a href="'.get_permalink($p->ID).'">'.$p->post_title.'</a></div>
-			</div>
-		</div>';
+		if(!in_array($p->ID, $ps))
+		{
+			$ps[] = $p->ID;
+			if($ccx == $ccy)
+			{
+				$ccx = 0;
+				++$ccy;
+			}
+			
+			
+			$boxtype = 'BLOG';
+			if($p->post_type == 'soe_event')
+				$boxtype = 'EVENT';
+			if($p->post_type == 'soe_artist')
+				$boxtype = 'ARTIST';
+			if($p->post_type == 'soe_organisation')
+				$boxtype = 'ORGANISATION';
+			if($p->post_type == 'soe_writing')
+				$boxtype = 'WRITING';
+			echo '
+			<div class="closedBox_outer" style="position:absolute;left:'.(($cw * $ccx)+$x).'px;top:'.(($ch * $ccy)+$y).'px">
+				<div class="closedBox">
+					<div class="closedBox_category">'.$boxtype.'</div>
+					<div class="closedBox_title"><a href="'.get_permalink($p->ID).'">'.$p->post_title.'</a></div>
+				</div>
+			</div>';
+			
+			++$ccx;
+		}
 	}
 }
 elseif($postType == 'soe_writing')
