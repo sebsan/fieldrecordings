@@ -14,9 +14,28 @@
    id="svg3243"
    version="1.1"
    inkscape:version="0.48.0 r9654"
-   sodipodi:docname="curl.svg">
+   sodipodi:docname="wave.svg">
   <defs
-     id="defs3245" />
+     id="defs3245">
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect4422"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect3027"
+       is_visible="true"
+       pattern="m 0.87961754,2.7153331 0.99999986,0"
+       copytype="single_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="-0.4"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       fuse_tolerance="-0.1" />
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -24,9 +43,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="34.253378"
-     inkscape:cx="8.5547595"
-     inkscape:cy="7.8106518"
+     inkscape:zoom="48.441592"
+     inkscape:cx="5.5677227"
+     inkscape:cy="8.2182795"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -34,7 +53,7 @@
      inkscape:guide-bbox="true"
      inkscape:window-width="1110"
      inkscape:window-height="699"
-     inkscape:window-x="85"
+     inkscape:window-x="112"
      inkscape:window-y="25"
      inkscape:window-maximized="0">
     <sodipodi:guide
@@ -54,7 +73,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -64,9 +83,10 @@
      id="layer1"
      transform="translate(0,-1037.3622)">
     <path
-       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#00a100;fill-opacity:1;stroke:none;stroke-width:1.36363649;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
-       d="m 7.5,1042.7885 c -1.5985027,0 -2.758741,0.8267 -3.78125,1.5313 -1.022509,0.7045 -1.9024802,1.2812 -3.03125,1.2812 l -0.6875,0 0,1.3438 0.6875,0 c 1.5985032,0 2.7587409,-0.8267 3.78125,-1.5313 1.0225091,-0.7046 1.9024808,-1.2813 3.03125,-1.2813 1.1287703,0 2.0083049,0.5767 3.03125,1.2813 1.022945,0.7046 2.182747,1.5313 3.78125,1.5313 l 0.6875,0 0,-1.3438 -0.6875,0 c -1.12877,0 -2.008305,-0.5766 -3.03125,-1.2812 -1.022945,-0.7047 -2.1827465,-1.5313 -3.78125,-1.5313 z"
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1.36363648999999998;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+       d="m 7.5,1042.6853 c -1.5985027,0 -2.758741,0.8267 -3.78125,1.5313 -1.022509,0.7045 -1.9024802,1.2812 -3.03125,1.2812 l -0.6875,0 0,1.5502 0.6875,0 c 1.5985032,0 2.7587409,-0.8267 3.78125,-1.5313 1.0225091,-0.7046 1.9024808,-1.2813 3.03125,-1.2813 1.1287703,0 2.0083049,0.5767 3.03125,1.2813 1.022945,0.7046 2.182747,1.5313 3.78125,1.5313 l 0.6875,0 0,-1.5502 -0.6875,0 c -1.12877,0 -2.008305,-0.5766 -3.03125,-1.2812 -1.022945,-0.7047 -2.1827465,-1.5313 -3.78125,-1.5313 z"
        id="path7531"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="scsccsssssccscs" />
   </g>
 </svg>

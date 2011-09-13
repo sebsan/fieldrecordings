@@ -102,12 +102,12 @@ table.sample td{
 
 .month_row {
 	font-family: helvetica_serif;
-	font-size: 9pt;
-	color:black;
+	font-size: 12pt;
+	color:red;
 	height:5px;
-	padding: 5px 20px;
-	text-align:center;
-	border-left:1px solid black;
+	padding: 5px 40px 5px 0px;
+	text-align:left;
+/*	border-left:1px solid black;*/
 	height:10px;
 }
 
@@ -147,10 +147,10 @@ table.sample td{
 }
 .presentation_row {
 	font-family: free_sans;
-	font-size: 12pt;
-	color:black;
+	font-size: 10pt;
+	color:red;
 	text-align:left;
-	padding: 5px 5px;
+	padding: 0px 0px 20px 0px;
 	height: 7px;
 
 }
@@ -159,9 +159,9 @@ table.sample td{
 	font-family: free_sansBold;
 	letter-spacing: 0.09em;
 	font-size: 10pt;
-	color:black;
+/*	color:black;*/
 	text-align:center;
-	border-left:1px solid black;
+/*	border-left:1px solid black;*/
 	height:15px;
 }
 
@@ -170,7 +170,10 @@ table.sample td{
 }
 
 .wave{background-image:url("img/wave.png")}
-.krol{background-image:url("img/krol.svg")}
+.krol{background-image:url("img/krol.png")}
 .chevron{background-image:url("img/chevron.png")}
 .vignette{background-image:url("img/vignette-2-small.png")}
-.curl{background-image:url("img/curl.svg")}
+.curl{background-image:url("img/curl.png")}
+.sinuz{background-image:url("img/sinuz.png")}
+.losange{background-image:url("img/losange.png")}
+

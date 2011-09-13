@@ -14,9 +14,28 @@
    id="svg3243"
    version="1.1"
    inkscape:version="0.48.0 r9654"
-   sodipodi:docname="curl.png">
+   sodipodi:docname="curl.svg">
   <defs
-     id="defs3245" />
+     id="defs3245">
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect4422"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect3027"
+       is_visible="true"
+       pattern="m 0.85042338,7.9119008 0.99999982,0"
+       copytype="single_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="-0.4"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       fuse_tolerance="-0.1" />
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -25,8 +44,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="34.253378"
-     inkscape:cx="8.5547595"
-     inkscape:cy="7.8106518"
+     inkscape:cx="3.256012"
+     inkscape:cy="5.4751157"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -34,8 +53,8 @@
      inkscape:guide-bbox="true"
      inkscape:window-width="1110"
      inkscape:window-height="699"
-     inkscape:window-x="85"
-     inkscape:window-y="25"
+     inkscape:window-x="16"
+     inkscape:window-y="30"
      inkscape:window-maximized="0">
     <sodipodi:guide
        orientation="1,0"
@@ -54,7 +73,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -64,7 +83,7 @@
      id="layer1"
      transform="translate(0,-1037.3622)">
     <path
-       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#fa0000;fill-opacity:1;stroke:none;stroke-width:1.49999988;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1.49999988000000006;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
        d="M 0 3 L 0 7.15625 C 1.2985133 10.012973 4.1641723 12 7.5 12 C 10.835828 12 13.701487 10.012973 15 7.15625 L 15 3 L 14.25 3 L 14.25 3.75 C 14.25 7.4868 11.236795 10.5 7.5 10.5 C 3.7632051 10.5 0.75 7.4868 0.75 3.75 L 0.75 3 L 0 3 z "
        transform="translate(0,1037.3622)"
        id="path4776-83-4" />

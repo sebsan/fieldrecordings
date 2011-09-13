@@ -14,7 +14,7 @@
    id="svg3243"
    version="1.1"
    inkscape:version="0.48.0 r9654"
-   sodipodi:docname="wave.svg">
+   sodipodi:docname="losange.svg">
   <defs
      id="defs3245" />
   <sodipodi:namedview
@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="17.216412"
-     inkscape:cx="14.005979"
-     inkscape:cy="7.5841277"
+     inkscape:zoom="24.347683"
+     inkscape:cx="11.201325"
+     inkscape:cy="6.7633784"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -34,8 +34,8 @@
      inkscape:guide-bbox="true"
      inkscape:window-width="1110"
      inkscape:window-height="699"
-     inkscape:window-x="91"
-     inkscape:window-y="25"
+     inkscape:window-x="161"
+     inkscape:window-y="49"
      inkscape:window-maximized="0">
     <sodipodi:guide
        orientation="1,0"
@@ -54,7 +54,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -63,10 +63,20 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-1037.3622)">
-    <path
-       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1.24999797;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
-       d="M 7.5 1.71875 L 7.15625 1.96875 L 0 6.75 L 0 8.21875 L 7.15625 13 L 7.5 13.25 L 7.84375 13 L 15 8.21875 L 15 6.75 L 7.84375 1.96875 L 7.5 1.71875 z M 7.5 3.21875 L 13.875 7.5 L 7.5 11.75 L 1.125 7.5 L 7.5 3.21875 z "
-       transform="translate(0,1037.3622)"
-       id="rect3237-6" />
+    <g
+       id="g3010">
+      <path
+         sodipodi:nodetypes="ccccccccccc"
+         inkscape:connector-curvature="0"
+         id="path3418-2"
+         d="m 7.5,1038.8662 -0.34375,0.25 -7.15625,4.7813 0,1.8885 0.34375,-0.2187 7.15625,-4.7813 7.15625,4.7813 0.34375,0.2187 0,-1.8885 -7.15625,-4.7813 z"
+         style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1.25;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+      <path
+         sodipodi:nodetypes="ccccccccccc"
+         inkscape:connector-curvature="0"
+         id="path3418-2-6"
+         d="m 7.5,1050.8173 -0.34375,-0.25 L 0,1045.786 l 0,-1.8885 0.34375,0.2187 7.15625,4.7813 7.15625,-4.7813 0.34375,-0.2187 0,1.8885 -7.15625,4.7813 z"
+         style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1.25;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+    </g>
   </g>
 </svg>
