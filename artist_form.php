@@ -117,6 +117,31 @@ wp_head();
 ?>
 
 <style media="screen" type="text/css">
+
+@font-face {
+  font-family:helvetica_serif;
+  src:url(<?php echo '"'. get_bloginfo('stylesheet_directory') . '/OSP_helvetica_serif.ttf"' ?>);
+}
+
+@font-face {
+  font-family:free_sans;
+  src:url(<?php echo '"'. get_bloginfo('stylesheet_directory') . '/FreeSans.ttf"'?>);
+}
+
+@font-face {
+  font-family:free_sansBold;
+  src:url(<?php echo '"'. get_bloginfo('stylesheet_directory') . '/FreeSansBold.ttf"'?>);
+}
+
+@font-face {
+  font-family:Fanwood;
+  src:url(<?php echo '"'. get_bloginfo('stylesheet_directory') . '/Fanwood.otf"'?>);
+}
+
+*{
+	border:none;
+}
+
 .ui-autocomplete
 {
 	list-style:none;
@@ -130,12 +155,106 @@ wp_head();
 }
 .ui-autocomplete li a
 {
-	color:#777;
+	color:grey;
 }
 .ui-autocomplete li a.ui-state-hover
 {
 	color:#000;
 }
+
+
+label 
+{
+	color:blue;
+	font-family: helvetica_serif;
+	background-color:white;
+	font-size: 8pt;
+	line-height: 12pt;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	border: 1px solid blue;
+	margin-left: 30px;
+	padding: 3px; 
+}
+
+input 
+{
+	color:black;
+	font-family: free_sans;
+	font-size: 10pt;
+	width: 300px;
+	line-height: 12pt;
+	border:1px solid blue;
+	margin-left: 30px;
+	margin-bottom: 10px;
+	padding: 0 0 0px 0;
+}
+
+input.submit
+{
+	color:white;
+	width: 70px;
+	background-color:blue;
+	font-family: helvetica_serif;
+	font-size: 8pt;
+	line-height: 12pt;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	border: 1px solid blue;
+	margin-left: 30px;
+	margin-top: 20px;
+	padding: 3px; 
+}
+
+
+input.submit:hover
+{
+	color:blue;
+	width: 70px;
+	font-family: helvetica_serif;
+	background-color:white;
+	font-size: 8pt;
+	line-height: 12pt;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	border: 1px solid blue;
+	margin-left: 30px;
+	margin-top: 20px;
+	padding: 3px; 
+}
+
+textarea 
+{
+	color:black;
+	font-family: free_sans;
+	font-size: 10pt;
+	width: 300px;
+	height: 200px;
+	line-height: 12pt;
+	border:1px solid blue;
+	margin-left: 30px;
+	margin-bottom: 10px;
+
+
+}
+
+#left{
+position: fixed;
+}
+
+#right{
+position: fixed;
+left: 350px;
+}
+
+#log{
+position: fixed;
+left: 700px;
+}
+
 </style>
 
 <script type="text/javascript">
@@ -167,41 +286,57 @@ jQuery(document).ready(function()
 <body>
 
 <form name="regform" method="post" action="" enctype="multipart/form-data">
-<div>
-<label for="artistname">Name</label>
-<input type="text" name="artistname"/>
-</div>
-<div>
-<label for="website">Website</label>
-<input type="text" name="website"/>
-</div>
-
-
-<div>
-<label for="location_search">Location</label>
-<input type="hidden" id="location" name="location"/> 
-<input type="text" id="location_search"/> 
-</div>
-
-
-
-
-<div>
-<label for="bio">Biography</label>
-<textarea name="bio"></textarea>
-</div>
-<div>
-<label for="use">Use of field recordings</label>
-<textarea name="use"></textarea>
-</div>
-
-<div>
-<label for="artistmedia">Upload track</label>
-<input type="file" name="artistmedia"/>
+<div id="left">
+	<div>
+	<label for="artistname">Name</label>
+	</div>
+	<div>
+	<input type="text" name="artistname"/>
+	</div>
+	<div>
+	<label for="website">Website</label>
+	</div>
+	<div>
+	<input type="text" name="website"/>
+	</div>
+	<div>
+	<label for="location_search">Location</label>
+	</div>
+	<div>
+	<input type="hidden" id="location" name="location"/> 
+	</div>
+	<div>
+	<input type="text" id="location_search"/> 
+	</div>
+	<div>
+	<label for="bio">Biography</label>
+	</div>
+	<div>
+	<textarea name="bio"></textarea>
+	</div>
 </div>
 
-<div>
-<input type="submit" value="Submit"/>
+<div id="right">
+	<div>
+	<label for="use">Use of field recordings</label>
+	</div>
+	<div>
+	<textarea name="use"></textarea>
+	</div>
+
+	<div>
+	<label for="artistmedia">Upload track</label>
+	</div>
+	<div>
+	<input type="file" name="artistmedia"/>
+	</div>
+
+	<div>
+	<input class="submit" type="submit" value="Submit"/>
+	</div>
+</div>
+<div id="log">
+<img src="<?php echo get_bloginfo('stylesheet_directory') . '/sounds-of-eu_logo.png' ?>"/>
 </div>
 
 </form>
