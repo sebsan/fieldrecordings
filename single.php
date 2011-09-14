@@ -8,19 +8,21 @@ Sounds of Europe
 %DATE%		2011-07-25
 
 */
+
+the_post();
 get_header();
 
 
 global $wpdb;
 global $postloc;
-the_post();
+
 $postType = get_post_type($post->ID);
 $custom = get_post_custom($post->ID);
 
-echo '<div id="content_outer"> <div id="content">';
 
 if($postType == 'soe_eblog')
 {
+	echo '<div id="content_outer"> <div id="content">';
 	$date = get_the_date();
 	$author = get_the_author();
 	$authorLink = '';
@@ -47,13 +49,17 @@ if($postType == 'soe_eblog')
 	<div class="section_par">'.get_the_content().'</div>
 	</div>
 	';
+	echo '</div></div>';
 }
 elseif($postType == 'soe_event')
 {
+	echo '<div id="content_outer"> <div id="content">';
+	echo '</div></div>';
 	
 }
 elseif($postType == 'soe_artist')
 {
+	echo '<div id="content_outer"> <div id="content">';
 // 	print_r($post);
 // 	print_r($custom);
 	$image = "";
@@ -81,9 +87,11 @@ elseif($postType == 'soe_artist')
 	</div>
 	'.$audio.'
 	</div>';
+	echo '</div></div>';
 }
 elseif($postType == 'soe_organisation')
 {
+	echo '<div id="content_outer"> <div id="content">';
 	$image = "";
 	$tags = "";
 	$audio = "";
@@ -105,35 +113,87 @@ elseif($postType == 'soe_organisation')
 	</div>
 	'.$audio.'
 	</div>';
+	echo '</div></div>';
 }
 elseif($postType == 'soe_city')
 {
-	$posts = $wpdb->get_results("
-	SELECT * FROM wp_posts AS p 
-	INNER JOIN wp_postmeta AS m 
+	$query = "
+	SELECT * FROM ".$wpdb->posts." AS p 
+	INNER JOIN ".$wpdb->postmeta." AS m 
 	ON p.ID = m.post_id 
 	WHERE (p.post_type != 'soe_city' AND m.meta_key = 'location' AND m.meta_value = '".$custom['location'][0]."') ;
-	", OBJECT);
+	";
+// 	echo $query;
+	$posts = $wpdb->get_results($query, OBJECT);
+	$x = 50;
+	$y = 50;
+	$cw = 220;
+	$ch = 62;
+	$ccx = 0;
+	$ccy = 0;
+	$ps = array();
 	foreach($posts as $p)
 	{
-		$boxtype = 'BLOG';
-		if($p->post_type == 'soe_event')
-			$boxtype = 'EVENT';
-		if($p->post_type == 'soe_artist')
-			$boxtype = 'ARTIST';
-		if($p->post_type == 'soe_organisation')
-			$boxtype = 'ORGANISATION';
-		echo '
-		<div id="closedBox_outer">
-			<div id="closedBox">
-				<div class="closedBox_category">'.$boxtype.'</div>
-				<div class="closedBox_title"><a href="'.get_permalink($p->ID).'">'.$p->post_title.'</a></div>
-			</div>
-		</div>';
+		if(!in_array($p->ID, $ps))
+		{
+			$ps[] = $p->ID;
+			if($ccx == $ccy)
+			{
+				$ccx = 0;
+				++$ccy;
+			}
+			
+			
+			$boxtype = 'BLOG';
+			if($p->post_type == 'soe_event')
+				$boxtype = 'EVENT';
+			if($p->post_type == 'soe_artist')
+				$boxtype = 'ARTIST';
+			if($p->post_type == 'soe_organisation')
+				$boxtype = 'ORGANISATION';
+			if($p->post_type == 'soe_writing')
+				$boxtype = 'WRITING';
+			echo '
+			<div class="closedBox_outer" style="position:absolute;left:'.(($cw * $ccx)+$x).'px;top:'.(($ch * $ccy)+$y).'px">
+				<div class="closedBox">
+					<div class="closedBox_category">'.$boxtype.'</div>
+					<div class="closedBox_title"><a href="'.get_permalink($p->ID).'">'.$p->post_title.'</a></div>
+				</div>
+			</div>';
+			
+			++$ccx;
+		}
 	}
 }
+elseif($postType == 'soe_writing')
+{
+	echo '
+	<div class="all">
+	<div id="writing_outer">
+	<div id="colonne-writings_1">
+	<div class="writings_titre-in">
+	<span >'.get_the_title().'</span>
+	</div>
+	<div class="writings_author">
+	<span class="menu_writings">'.get_the_author().'</span> <span class ="writings_day">'.get_the_date().'</span>
+	</div>
+	<div id="writing_content">
+	'.get_the_content().'
+	</div>
+	
+	<div id="colonne-sommaire">
+	<p class="writings_sommaire"><a href="#1">1. Exchanging artistic projects and ideas.</p>
+	<p class="writings_sommaire"><a href="#2">2. Exchanging sounds across borders.<a></p>
+	<p class="writings_sommaire"><a href="#2.1">2.1. Exploration.<a></p>
+	<p class="writings_sommaire"><a href="#2.2">2.2. Creation and exchange of sounds.<a></p>
+	</div> 
+	
+	
+	</div> <!-- writing_outer  -->
+	</div>
+	';
+}
 
-echo '</div></div>';
 
 
 get_footer();

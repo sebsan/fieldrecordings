@@ -193,40 +193,65 @@ class SOE_Type
 	{
 		wp_enqueue_style('thickbox');
 	}
-	public function getMedia($label,$desc,$type)
+	public function getMedia($label,$desc,$type,$form_name)
 	{
+		$custom = get_post_custom($post->ID);
+		global $wpdb;
+		$wpmedias = $wpdb->get_results("
+		SELECT * FROM wp_posts AS p 
+		WHERE p.post_type = 'attachment';
+		", OBJECT);
 		
-// 		add_action('admin_print_scripts', array(&$this, 'getMediaScripts'));
-// 		add_action('admin_print_styles', array(&$this, 'getMediaStyles'));
-
-		echo '<tr valign="top">
-		<th scope="row">'.$label.'</th>
-		<td><label for="upload_media">
-		<input id="upload_media" type="text" size="36" name="upload_media" value="" />
-		<input id="upload_media_button" type="button" value="'.$label.'" />
-		<br />'.$desc.'
-		</label></td>
-		</tr>
-		';
+		$selectStyle= 'cursor:pointer;border:1px solid grey';
+		$selectedMediaStyle = 'border:2px dashed black';
+		$selected = null;
+		$mediaForm = '<div id="media-form" height="500px" width="100%" style="overflow:auto">';
+		foreach($wpmedias as $m)
+		{
+			$mm = wp_get_attachment_metadata($m->ID);
+			$mc = get_post_custom($m->ID);
+			$mime = array_shift(explode('/', $m->post_mime_type));
+// 			echo 'MIME:'.$mime.';TYPE:'.$type;
+			if($mime == $type)
+			{
+				if($custom[$form_name][0] == $m->ID)
+					$selected =  $m->ID;
+				if('image' == $type)
+				{
+					$sized = image_downsize( $m->ID, 'thumbnail' );
+					
+					$mediaForm .= '<div style="'.($custom[$form_name][0] == $m->ID ? $selectedMediaStyle : "").'">
+					<img src="'.$sized[0].'" width="'.$sized[1].'" height="'.$sized[2].'"/> '.$m->post_title.'
+					<span class="selectmedia" id="selectmedia-'.$m->ID.'" style="'.$selectStyle.'">Select</span>
+					</div>';
+				}
+				elseif('audio' == $type)
+				{
+					$mediaForm .= '<div style="'.($custom[$form_name][0] == $m->ID ? $selectedMediaStyle : "").'">
+					'.$m->post_title.'
+					<span class="selectmedia" id="selectmedia-'.$m->ID.'" style="'.$selectStyle.'">Select</span>
+					</div>';
+				}
+			}
+		}
+		echo $mediaForm.'
+		<input type="hidden" id="'.$form_name.'" name="'.$form_name.'" value="'.$selected.'"/>
+		</div>';
 		
+	
 		echo "<script type=\"text/javascript\">
 		jQuery(document).ready(function() 
 		{
-			jQuery('#upload_media_button').click(function() 
+			jQuery('.selectmedia').click(function() 
 			{
-				formfield = jQuery('#upload_media').attr('name');
-				tb_show('', 'media-upload.php?type=".$type."&amp;TB_iframe=true');
+				var that = jQuery(this);
+				var s = that.attr('id').split('-').pop();
+				jQuery('#".$form_name."').val(s);
+				jQuery('#publish').click();
 				return false;
 			});
 			
-			window.send_to_editor = function(html) 
-			{
-				mediaurl = html;
-				jQuery('#upload_media').val(mediaurl);
-				tb_remove();
-			}
-			
-			});
+		});
 	
 		</script>
 		";

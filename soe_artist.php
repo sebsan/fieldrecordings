@@ -30,13 +30,17 @@ $artists = $wpdb->get_results($query, OBJECT);
 
 
 $artistByCountry = array();
+$ps = array();
 foreach($artists as $a)
 {
 	$aloc = GetLocation($a->meta_value);
 	if(!isset($artistByCountry[$aloc->country_code]))
 		$artistByCountry[$aloc->country_code] = array();
-	$artistByCountry[$aloc->country_code][] = $a;
-	
+	if(!in_array($a->ID , $ps))
+	{
+		$ps[] = $a->ID;
+		$artistByCountry[$aloc->country_code][] = $a;
+	}
 }
 ksort($artistByCountry);
 ?>
@@ -119,13 +123,14 @@ foreach($pages as $idx=>$p)
 	{
 		$visibility = ' style="display:none;"';
 	}
-	$nav = "";
+	$nav = '<div id="menu_page_nav_box">';
 	if($idx > 0)
-		$nav .= '<div class="menu_page_nav menu_page_prev">pevious</div>';
+		$nav .= '<span class="menu_page_nav menu_page_prev">pevious</span>';
 	if(($idx + 1) < count($pages))
-		$nav .= '<div class="menu_page_nav menu_page_next">next</div>';
+		$nav .= '<span class="menu_page_nav menu_page_next">next</span>';
+	$nav .= '</div>';
 	echo '<div id="menu_page_'.$idx.'" class="page"'.$visibility.'>
-	'. $p . $nav . '
+	'. $nav . $p . '
 	</div>
 	';
 }

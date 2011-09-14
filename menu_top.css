@@ -21,6 +21,7 @@
 
 #menu_item{
 	position: absolute;
+	z-index:1000;
 	top: 0;
 	left: 0px;
 	font-family: helvetica_serif;
@@ -41,6 +42,10 @@
 	padding: 0px 20px;
 	cursor:pointer;
 	}
+	
+.menu_item_active {
+	color:red;
+}
 	
 #menu_index {
 	position: absolute;
@@ -78,11 +83,21 @@
 	padding: 0px 0px 0px 0px;
 	}
 
-
-#menu_index span {
+div.index_col{
 	float:left;
 	width:190px;
+}
+
+.menu_page_nav {
+	color:blue;
+	font-family: free_sans;
+	font-size: 10pt;
+	line-height: 15pt;
+	padding: 0 1em 0 0;
+	cursor:pointer;
 	}
+
+
 
 /* style du tableau */
 

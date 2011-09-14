@@ -7,12 +7,13 @@ requires: jQuery, Raphael
 
 var SOE_debug = false;
 
-var raf = undefined;
+var raph = undefined;
 var p = undefined;
 
 var map_id = new Array();
 var map_path = new Array();
 
+var theCursorLine = new Object();
 
 function Point(x, y)
 {
@@ -43,6 +44,41 @@ Point.prototype.toString = function()
 	return " [ " +this.x + " ; " +this.y + " ] ";
 }
 
+function Rect(left, top, width, height)
+{
+	if(left instanceof Rect)
+	{
+		this._x = left._x;
+		this._y = left._y;
+		this._width = left._width;
+		this._height = left._height;
+	}
+	else
+	{
+		this._x = left;
+		this._y = top;
+		this._width = width;
+		this._height = height;
+	}
+}
+
+Rect.prototype.top = function(){return this._y;}
+Rect.prototype.left = function(){return this._x;}
+Rect.prototype.width = function(){return this._width;}
+Rect.prototype.height = function(){return this._height;}
+Rect.prototype.right = function(){return this._x + this._width;}
+Rect.prototype.bottom = function(){return this._y + this._height;}
+Rect.prototype.center = function(){return (new Point(this._x + (this._width / 2), this._y + (this._height / 2)));}
+Rect.prototype.translate = function(dx, dy){this._x += dx; this._y += dy;}
+Rect.prototype.move = function(x, y){this._x = x; this._y = y;}
+
+Rect.prototype.intersects = function(r) 
+{
+	return (this.left() <= r.right() &&
+	r.left() <= this.right() &&
+	this.top() <= r.bottom() &&
+	r.top() <= this.bottom());
+}
 function Color(r, g, b, a)
 {
 	this.r = r;
@@ -200,6 +236,23 @@ Path.prototype.element = function()
 	return this._path.node;
 }
 
+Path.prototype.toBack = function()
+{
+	this._path.toBack();
+	return this;
+}
+
+Path.prototype.toFront = function()
+{
+	this._path.toFront();
+	return this;
+}
+Path.prototype.remove = function()
+{
+	this._path.remove();
+	this.reset();
+}
+
 Path.prototype.contains = function(point)
 {
 	var bbox = this._path.getBBox();
@@ -227,9 +280,9 @@ function circle(paper, r)
 }
 
 
-function lineConnect(paper, id, x, y)
+function lineConnect(paper, jqelem, x, y)
 {
-	var e = jQuery("#" + id);
+	var e = jqelem;
 	var o = e.offset();
 	var sx = o.left + Math.floor(e.width() / 2);
 	var sy = o.top + Math.floor(e.height() / 2);
@@ -252,6 +305,7 @@ var svgWidth = 2160;
 
 function toggleMenu()
 {
+	jQuery('.site_menu_item').removeClass('menu_item_active');
 	var that = jQuery(this);
 	var menu = jQuery('#menu_index');
 	var id = that.attr('id');
@@ -274,6 +328,7 @@ function toggleMenu()
 				
 			});
 		}
+		that.addClass('menu_item_active');
 	}
 	else
 	{
@@ -284,6 +339,7 @@ function toggleMenu()
 		}
 		else
 		{
+			that.addClass('menu_item_active');
 			menu.removeClass();
 			menu.load(rootUrl + callerType,
 				  function()
@@ -365,7 +421,7 @@ function paginateMenu()
 	jQuery('.menu_page_prev').live('click',function()
 	{
 		var that = jQuery(this);
-		var parent = that.parent();
+		var parent = that.parent().parent();
 		var target = parent.prev();
 		
 		parent.hide();
@@ -374,13 +430,59 @@ function paginateMenu()
 	jQuery('.menu_page_next').live('click',function()
 	{
 		var that = jQuery(this);
-		var parent = that.parent();
+		var parent = that.parent().parent();
 		var target = parent.next();
 		
 		parent.hide();
 		target.show();
 	})
 }
+
+function collides(obj, objList)
+{
+	for(var i = 0; i < objList.length; i++)
+	{
+		if(obj.intersects(objList[i]))
+			return true;
+	}
+	return false;
+}
+
+function drawCursorLine(x)
+{
+	if(theCursorLine.line != undefined)
+	{
+		theCursorLine.line.remove();
+		theCursorLine.triangle.remove();
+	}
+	var W = jQuery(window);
+	var slidX = x;
+	var slidY = jQuery("#menu_item").outerHeight();
+	theCursorLine.line = line(raph, new Point(slidX, W.height()), new Point(slidX, slidY));
+	var tc = 20;
+	var triangle = new Path(raph);
+	triangle.moveTo(slidX + (tc /2), slidY)
+	.lineTo(slidX, slidY + tc)
+	.lineTo(slidX - (tc /2), slidY)
+	.close()
+	.fill(new Color(0,0,0).toString())
+	.draw();
+	theCursorLine.triangle = new Path(raph);
+	theCursorLine.triangle.moveTo(slidX + (tc /2), W.height())
+	.lineTo(slidX, W.height() - tc)
+	.lineTo(slidX - (tc /2), W.height())
+	.close()
+	.fill(new Color(0,0,0).toString())
+	.draw();
+	
+	
+	
+	
+}
+
+
+var curCityPoint = undefined;
+var countryCode = '';
 
 function initSOE()
 {
@@ -392,6 +494,8 @@ function initSOE()
 	var minimap_stroke = new Color(0,0,254);
 	var minimap_fill = new Color(0,0,254);
 	var country_stroke = new Color(255,0,0);
+	var cityColor = new Color(0,0,200);
+	var white = new Color(255,255,255);
 	
 	var bscale = 15;
 	var btransx = ww / (2.5 * bscale) ;
@@ -401,22 +505,41 @@ function initSOE()
 	var trh = ww * 0.85 * (1/scale);
 	var trv = 330 * (1/scale);
 	// draw circle
-	var c = circle(raph, 110);
-	c.stroke("red");
-	c.translate((ww * 0.8) + 20 , 20);
-	c.draw();
+// 	var c = circle(raph, 110);
+// 	c.stroke("red");
+// 	c.translate((ww * 0.8) + 20 , 20);
+// 	c.draw();
+	var mframe = new Path(raph);
+// 	mframe.moveTo(ww * 0.8, 0).lineTo(ww * 0.8, wh * 0.3).lineTo(ww, wh * 0.3).lineTo(ww,0).close().stroke('transparent').fill(new Color(200,200,200).toString()).draw();
 	var loc = window.location;
-
 	
+	var citySize = 4 / bscale;
+	var surcitySize = 8 / bscale;
+	var labelRects = new Array();
 	for(var ci = 0; ci < locations.length ; ci++)
 	{
 		var cloc = locations[ci];
-		var city = new circle(raph, 1 / bscale);
-		city.scale(bscale).translate(btransx + cloc.lon, btransy + cloc.lat).draw();
+		var city = new circle(raph, citySize);
+		city.scale(bscale).translate(btransx + cloc.lon - (citySize ), btransy + cloc.lat - (citySize ));
+		if(cloc.id == theCity)
+		{
+			city.stroke(cityColor.toString()).fill(cityColor.toString()).draw();
+
+			var surcity = new circle(raph, surcitySize);
+			surcity.scale(bscale).translate(btransx + cloc.lon - (surcitySize ), btransy + cloc.lat - (surcitySize ));
+			surcity.stroke(cityColor.toString()).attr("stroke-width", "2").draw();
+		}
+		else
+		{
+			city.fill(white.toString()).stroke(cityColor.toString()).draw();
+		}
 		var bb = city.bbox();
+		var cityPoint = new Point(bb.x + (bb.width / 2), bb.y + (bb.height / 2));
 		var CurCityClass = "";
 		if(cloc.id == theCity)
 		{
+			curCityPoint = cityPoint;
+			countryCode = cloc.country;
 			// Draw current country (large)
 			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
 					function(data)
@@ -425,64 +548,80 @@ function initSOE()
 						var curCountryPath = new Path(raph, curCountryData.p);
 						curCountryPath.scale(bscale)
 						.translate(btransx, btransy)
-						.attr("stroke-dasharray", "-")
-						.stroke(country_stroke.toString())
-						.draw();
+						.stroke('transparent')
+						.fill(country_stroke.toString())
+						.draw().toBack();
+						
+						// Insert texture;
+						var ctx =  curCityPoint.x - (580 / 2) ;
+						var cty =  curCityPoint.y - (820 / 2) ;
+						
+						raph.image(templateUrl +'texture/'+countryCode+'.png', ctx, cty, 585, 827).toBack();
 						
 					});
 			CurCityClass = " city_current";
-			var slidX = bb.x + (bb.width / 2);
-			line(raph, new Point(slidX, 0), new Point(slidX, bb.y));
-			line(raph, new Point(slidX, svgHeight), new Point(slidX, bb.y));
-			var tc = 20;
-			var triangle = new Path(raph);
-			triangle.moveTo(slidX + (tc /2), 0)
-			.lineTo(slidX, tc)
-			.lineTo(slidX - (tc /2), 0)
-			.close()
-			.fill(new Color(0,0,0).toString())
-			.draw();
-			var triangle1 = new Path(raph);
-			triangle1.moveTo(slidX + (tc /2), svgHeight)
-			.lineTo(slidX, svgHeight - tc)
-			.lineTo(slidX - (tc /2), svgHeight)
-			.close()
-			.fill(new Color(0,0,0).toString())
-			.draw();
+			drawCursorLine(cityPoint.x);
 		}
 		
+		var labX = Math.floor(cityPoint.x + bb.width);
+		var labY = Math.floor(cityPoint.y + bb.height);
 		var citylink = jQuery('<div class="city_label'
 		+ CurCityClass
 		+'" style="position:absolute;top:'
-		+(bb.y + (bb.height * 2 ))
-		+'px;left:'+bb.x+'px;"><a href="'
+		+ labY
+		+'px;left:'
+		+ labX
+		+'px;"><a href="'
 		+ cloc.url
 		+'">'
 		+ cloc.name
 		+'</a></div>');
-		jQuery('#carte').append(citylink);
+		jQuery('#labels').append(citylink);
+		var labelRect = new Rect(labX, labY , citylink.outerWidth() , citylink.outerHeight() );
+		{
+			var r = 0;
+			var t = 0;
+			var x = 0;
+			var y = 0;
+			while(collides(labelRect, labelRects))
+			{
+				if(t == -400)
+					t = 0;
+				else
+					t -= 10;
+				r += 1;
+				x = Math.floor(r * Math.cos(t));
+				y = Math.floor(r * Math.sin(t));
+				labelRect.move(labX + x, labY + y);
+			}
+		}
+		if(labX != labelRect.left() || labY != labelRect.top())
+		{
+			citylink.animate({ top: labelRect.top(), left: labelRect.left() });
+		}
+// 		new Path(raph).moveTo(cityPoint.x, cityPoint.y)
+// 		.lineTo(labelRect.center().x, labelRect.center().y)
+// 		.stroke(cityColor.toString())
+// 		.draw().toBack();
+		labelRects.push(labelRect);
+// 		line(raph,new Point(0,labelRect.bottom()),new Point(2000, labelRect.bottom()));
 		
 		if(cloc.id == theCity)
 		{
-			var ctx =  bb.x - (580 / 2) ;
-			var cty =  bb.y - (820 / 2) ;
-			var countryTexture = jQuery('<img style="position:absolute;top:'+cty+'px;left:'+ctx+'px" id="country_texture" width="585px" height="827px" src="'+templateUrl +'texture/'+cloc.country+'.png"/>');
-			jQuery('#carte').append(countryTexture);
-			
-			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
-				   function(data)
-				   {
-					   var countryData = json_parse(data);
-					   if(countryData.status == 0)
-					   {
-						   var countryPath = new Path(raph, countryData.p);
-						   countryPath.scale(scale)
-						   .translate(trh , trv)
-						   .fill(minimap_fill.toString())
-						   .attr("stroke-width", "0.2")
-							.draw();
-					   }
-				   });
+// 			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
+// 				   function(data)
+// 				   {
+// 					   var countryData = json_parse(data);
+// 					   if(countryData.status == 0)
+// 					   {
+// 						   var countryPath = new Path(raph, countryData.p);
+// 						   countryPath.scale(scale)
+// 						   .translate(trh , trv)
+// 						   .fill(minimap_fill.toString())
+// 						   .attr("stroke-width", "0.2")
+// 							.draw();
+// 					   }
+// 				   });
 		}
 		else
 		{
@@ -493,8 +632,8 @@ function initSOE()
 						if(countryData.status == 0)
 						{
 							var countryPath = new Path(raph, countryData.p);
-							countryPath.scale(scale)
-							.translate(trh , trv)
+							countryPath.scale(bscale)
+							.translate(btransx , btransy)
 							.stroke(minimap_stroke.toString())
 							.attr("stroke-width", "0.2")
 							.draw();
@@ -503,6 +642,8 @@ function initSOE()
 		}
 		
 	}
+	
+	
 	// satellites
 	jQuery('.located_object').hide();
 	jQuery('.located_type_item').click(toggleSats);
@@ -512,6 +653,11 @@ function initSOE()
 	menuIndex.hide();
 	jQuery('#menu_item span').click(toggleMenu);
 	paginateMenu();
+	
+	jQuery(window).resize(function() 
+	{
+		drawCursorLine(curCityPoint.x);
+	});
 	
 	
 }

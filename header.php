@@ -16,9 +16,8 @@ global $blogloc;
 $postloc = NULL;
 $blogloc = NULL;
 
-if(is_singular() && in_array($post->post_type, $tnames))
+if(is_single($post) && in_array($post->post_type, $tnames))
 {
-	
 	$custom = get_post_custom($post->ID);
 	if(isset($custom['location'][0]))
 	{
@@ -39,7 +38,8 @@ $SOE_styles = array(
 	"map",
 	"menu_map",
 	"menu_nomap",
-	"content");
+	"content",
+	"writings");
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en"> 
@@ -118,7 +118,9 @@ if($locs != NULL)
 <body>
 
 <!-- MAP -->
-<div id="carte"></div>
+<div id="texture" class="map" style="z-index:0;"></div>
+<div id="carte" class="map" style="z-index:1;"></div>
+<div id="labels" class="map" style="z-index:2;"></div>
 <!-- MAP -->
 
 <!-- MENU -->

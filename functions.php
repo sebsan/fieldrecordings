@@ -6,6 +6,7 @@ require_once(get_stylesheet_directory() . '/artist.class.inc');
 require_once(get_stylesheet_directory() . '/post.class.inc');
 require_once(get_stylesheet_directory() . '/organisation.class.inc');
 require_once(get_stylesheet_directory() . '/city.class.inc');
+require_once(get_stylesheet_directory() . '/writing.class.inc');
 
 
 /// utils
@@ -51,22 +52,28 @@ add_action('admin_init', 'SOE_AdminInit');
 add_action('init', 'SOE_customTypesInit');
 add_action('init', 'SOE_JSInit');
 
-function sendAudioURL($html, $href, $title)
-{
-	return $href;
-}
-
-function sendImageURL($html, $src, $alt, $align)
-{
-	error_log('sendImageURL:'.$html.'|'.$src);
-	return $src;
-}
-
+// function sendAudioURL($html, $href, $title)
+// {
+// 	return $href;
+// }
+// 
+// function sendImageURL($html, $id, $caption, $title, $align, $url, $size, $alt )
+// {
+// 	//error_log('sendImageURL:'.$html.'|'.$src);
+// 	return $url;
+// }
+// 
+// 
+// function sendMediaURL($html, $url)
+// {
+// 	return $url;
+// }
 function SOE_AdminInit()
 {
-	add_filter( 'audio_send_to_editor_url', 'sendAudioURL', 1, 3 );
-	add_filter( 'image_send_to_editor_url', array(&$this,'sendImageURL'), 1, 4 );
-	
+// 	add_filter( 'audio_send_to_editor_url', 'sendAudioURL', 1, 3 );
+// 	add_filter( 'image_send_to_editor', 'sendImageURL', 1, 8 );
+// 	
+// 	
 // 	global $wp_filter, $merged_filters, $wp_current_filter;
 // 	print_r($wp_filter);
 }
@@ -151,6 +158,11 @@ function SOE_customTypesInit()
 				'name' => 'Eblog',
 				'menu' => true,
 				'support' => array('title', 'editor', 'author', 'excerpt') ) );
+				
+	$soe_writings = new SOE_Eblog(array(
+				'name' => 'Writing',
+				'menu' => true,
+				'support' => array('title', 'editor', 'author', 'excerpt') ) );
 		
 	$soe_events = new SOE_Event( array(
 				'name' => 'Event',
@@ -172,6 +184,7 @@ function SOE_customTypesInit()
 				'menu' => false,
 				'support' => array('post_tag') ) );
 	$soe_types = array( 
+				$soe_writings,
 				$soe_cities,
 				$soe_events ,
 				$soe_artists,
