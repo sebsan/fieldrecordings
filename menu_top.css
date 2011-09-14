@@ -21,7 +21,6 @@
 
 #menu_item{
 	position: absolute;
-	z-index:1000;
 	top: 0;
 	left: 0px;
 	font-family: helvetica_serif;
@@ -42,10 +41,6 @@
 	padding: 0px 20px;
 	cursor:pointer;
 	}
-	
-.menu_item_active {
-	color:red;
-}
 	
 #menu_index {
 	position: absolute;
@@ -83,21 +78,11 @@
 	padding: 0px 0px 0px 0px;
 	}
 
-div.index_col{
+
+#menu_index span {
 	float:left;
 	width:190px;
-}
-
-.menu_page_nav {
-	color:blue;
-	font-family: free_sans;
-	font-size: 10pt;
-	line-height: 15pt;
-	padding: 0 1em 0 0;
-	cursor:pointer;
 	}
-
-
 
 /* style du tableau */
 
@@ -108,19 +93,19 @@ table.sample td{
 }
 
 .year_row {
-	font-family: free_sans;
-	font-size: 9pt;
+	font-family: helvetica_serif;
+	font-size: 10pt;
 	color:gray;
-	height:10px;
-	padding: 5px 0px;
+	height:30px;
+	padding: 5px 0px 5px 12px;
 }
 
 .month_row {
 	font-family: helvetica_serif;
 	font-size: 12pt;
-	color:red;
+	color:grey;
 	height:5px;
-	padding: 5px 40px 5px 0px;
+	padding: 5px 30px 5px 0px;
 	text-align:left;
 /*	border-left:1px solid black;*/
 	height:10px;
@@ -162,10 +147,10 @@ table.sample td{
 }
 .presentation_row {
 	font-family: free_sans;
-	font-size: 10pt;
+	font-size: 12pt;
 	color:red;
 	text-align:left;
-	padding: 0px 0px 20px 0px;
+	padding: 0px 0px 15px 0px;
 	height: 7px;
 
 }
@@ -191,4 +176,4 @@ table.sample td{
 .curl{background-image:url("img/curl.png")}
 .sinuz{background-image:url("img/sinuz.png")}
 .losange{background-image:url("img/losange.png")}
-
+.oval{background-image:url("img/oval.png"); background-repeat:no-repeat;}
