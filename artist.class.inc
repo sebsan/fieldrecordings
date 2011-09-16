@@ -37,10 +37,10 @@ class SOE_Artist extends SOE_Type
 	public function admin_init() 
 	{
 		add_meta_box( 'mb_artist_name', 'Name', array( &$this, "meta_name" ), $this->tname, 'normal', 'high');
+		add_meta_box( 'mb_artist_location', 'Location', array( &$this, "location" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_artist_bio', 'Information', array( &$this, "meta_content" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_artist_url', 'Website', array( &$this, "meta_url" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_artist_media', 'Media', array( &$this, "meta_media" ), $this->tname, 'normal', 'high');
-		add_meta_box( 'mb_artist_location', 'Location', array( &$this, "location" ), $this->tname, 'normal', 'high');
 	}
 	
 	public function meta_name($post, $metabox) 
@@ -105,8 +105,8 @@ class SOE_Artist extends SOE_Type
 	public function meta_media($post, $metabox) 
 	{
 		$custom = get_post_custom($post->ID);
-		echo '
-		';
+		$this->getMedia('Image', 'Select an image for this artist', 'image' ,'artist_image');
+		$this->getMedia('Sound', 'Select a sound track for this artist', 'audio' ,'artist_sound');
 	}
 	
 }

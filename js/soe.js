@@ -7,6 +7,55 @@ requires: jQuery, Raphael
 
 var SOE_debug = false;
 
+
+function initMediaPlayer()
+{
+	jQuery('.audio-mp3').each(function(index)
+	{
+		var wp_id =  jQuery(this).attr('id').substring(6);
+		var audioFile = jQuery(this).attr('title');
+		var playerDiv = jQuery(this).children('.media-player').first();
+		
+		var  player = playerDiv.jPlayer({
+			ready: function () 
+			{
+				jQuery(this).jPlayer("setMedia", { mp3: audioFile});
+			},
+			supplied: "mp3",
+			swfPath: jplayerswf,
+			cssSelectorAncestor: '#jp_interface_' + wp_id,
+			cssSelector: {
+				play: '.jp-play',
+				pause: '.jp-pause'
+			}
+		});
+		player.jPlayer("play");
+	});
+	
+	jQuery('.audio-ogg').each(function(index)
+	{
+		var wp_id =  jQuery(this).attr('id').substring(6);
+		var audioFile = jQuery(this).attr('title');
+		var playerDiv = jQuery(this).children('.media-player').first();
+		
+		var  player = playerDiv.jPlayer({
+			ready: function () 
+			{
+				jQuery(this).jPlayer("setMedia", { oga: audioFile});
+			},
+			supplied: "oga",
+			swfPath: jplayerswf,
+			cssSelectorAncestor: '#jp_interface_' + wp_id,
+			cssSelector: {
+				play: '.jp-play',
+				pause: '.jp-pause'
+			}
+		});
+		player.jPlayer("play");
+	});
+}
+
+
 var raph = undefined;
 var p = undefined;
 
@@ -127,6 +176,11 @@ Path.prototype._updateAttrs = function()
 		translation : this._translation,
 		scale : this._scale
 	});
+}
+
+Path.prototype.simplify = function()
+{
+	var simpliFactor = 3;
 }
 
 Path.prototype.bbox = function()
@@ -486,6 +540,7 @@ var countryCode = '';
 
 function initSOE()
 {
+	initMediaPlayer();
 	var ww = jQuery(window).width();
 	var wh = jQuery(window).height();
 	svgWidth = ww;
@@ -516,6 +571,8 @@ function initSOE()
 	var citySize = 4 / bscale;
 	var surcitySize = 8 / bscale;
 	var labelRects = new Array();
+	var dCountries = new Array();
+	var labelsElem = jQuery('#labels');
 	for(var ci = 0; ci < locations.length ; ci++)
 	{
 		var cloc = locations[ci];
@@ -552,6 +609,8 @@ function initSOE()
 						.fill(country_stroke.toString())
 						.draw().toBack();
 						
+						curCountryPath.simplify();
+						
 						// Insert texture;
 						var ctx =  curCityPoint.x - (580 / 2) ;
 						var cty =  curCityPoint.y - (820 / 2) ;
@@ -565,18 +624,8 @@ function initSOE()
 		
 		var labX = Math.floor(cityPoint.x + bb.width);
 		var labY = Math.floor(cityPoint.y + bb.height);
-		var citylink = jQuery('<div class="city_label'
-		+ CurCityClass
-		+'" style="position:absolute;top:'
-		+ labY
-		+'px;left:'
-		+ labX
-		+'px;"><a href="'
-		+ cloc.url
-		+'">'
-		+ cloc.name
-		+'</a></div>');
-		jQuery('#labels').append(citylink);
+		var citylink = jQuery('<div class="city_label' + CurCityClass +'" style="position:absolute;top:' + labY +'px;left:' + labX +'px;"><a href="' + cloc.url +'">' + cloc.name +'</a></div>');
+		labelsElem.append(citylink);
 		var labelRect = new Rect(labX, labY , citylink.outerWidth() , citylink.outerHeight() );
 		{
 			var r = 0;
@@ -599,12 +648,7 @@ function initSOE()
 		{
 			citylink.animate({ top: labelRect.top(), left: labelRect.left() });
 		}
-// 		new Path(raph).moveTo(cityPoint.x, cityPoint.y)
-// 		.lineTo(labelRect.center().x, labelRect.center().y)
-// 		.stroke(cityColor.toString())
-// 		.draw().toBack();
 		labelRects.push(labelRect);
-// 		line(raph,new Point(0,labelRect.bottom()),new Point(2000, labelRect.bottom()));
 		
 		if(cloc.id == theCity)
 		{
@@ -625,20 +669,25 @@ function initSOE()
 		}
 		else
 		{
-			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
-					function(data)
-					{
-						var countryData = json_parse(data);
-						if(countryData.status == 0)
-						{
-							var countryPath = new Path(raph, countryData.p);
-							countryPath.scale(bscale)
-							.translate(btransx , btransy)
-							.stroke(minimap_stroke.toString())
-							.attr("stroke-width", "0.2")
-							.draw();
-						}
-					});
+// 			if(dCountries.indexOf(cloc.country) < 0 false)
+// 			{
+// 				dCountries.push(cloc.country);
+// 			
+// 				jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
+// 						function(data)
+// 						{
+// 							var countryData = json_parse(data);
+// 							if(countryData.status == 0)
+							{
+								countryPath = new Path(raph, countries[cloc.country]);
+								countryPath.scale(bscale)
+								.translate(btransx , btransy)
+								.stroke(minimap_stroke.toString())
+								.attr("stroke-width", "0.2")
+								.draw();
+							}
+// 						});
+// 			}
 		}
 		
 	}

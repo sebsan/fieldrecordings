@@ -205,7 +205,7 @@ class SOE_Type
 		$selectStyle= 'cursor:pointer;border:1px solid grey';
 		$selectedMediaStyle = 'border:2px dashed black';
 		$selected = null;
-		$mediaForm = '<div id="media-form" height="500px" width="100%" style="overflow:auto">';
+		$mediaForm = '<h3>'.$label.'</h3>'.$desc.'<div height="500px" width="100%" style="overflow:auto">';
 		foreach($wpmedias as $m)
 		{
 			$mm = wp_get_attachment_metadata($m->ID);
@@ -247,7 +247,7 @@ class SOE_Type
 				var that = jQuery(this);
 				var s = that.attr('id').split('-').pop();
 				jQuery('#".$form_name."').val(s);
-				jQuery('#publish').click();
+				// jQuery('#publish').click();
 				return false;
 			});
 			

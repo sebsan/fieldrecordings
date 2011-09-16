@@ -8,14 +8,18 @@ Sounds of Europe
 %DATE%		2011-09-10
 
 */
-// $sessionReg = md5('bhjus678shdj gdsh6dds 89d7s styi sudt ' . $_SERVER['REMOTE_ADDR'];
 
 
 if($_SESSION['REG'] != session_id())
 	return;
 
-
-if(isset($_POST['artistname']) || isset($_POST['location']) || isset($_POST['bio']))
+function va($a)
+{
+	if(isset($_POST[$a]) && $_POST[$a] != "")
+		return true;
+	return false;
+}
+if(va('artistname') && va('location') && va('bio'))
 {
 	$artist = wp_insert_post(array(
 		'post_type' => 'soe_artist',

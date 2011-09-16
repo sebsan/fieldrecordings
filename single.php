@@ -64,7 +64,7 @@ elseif($postType == 'soe_artist')
 // 	print_r($custom);
 	$image = "";
 	$tags = "";
-	$audio = "";
+	$audio = mediaPlayer($custom['artist_sound'][0]);
 	
 	echo '<div class="content_category">ARTISTS</div>
 	<div class="title">'.get_the_title().'</div>

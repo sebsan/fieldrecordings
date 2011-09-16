@@ -89,6 +89,7 @@ foreach($wpcities as $c)
 	$citiesurl[$c->meta_value] = get_permalink($c->ID);
 }
 // 			print_r($locs);
+$countrySVG = array();
 $locids = array();
 if($locs != NULL)
 {
@@ -97,6 +98,12 @@ if($locs != NULL)
 	{
 		if(in_array($loc->meta_value, $locids) === FALSE)
 		{
+			if(!array_key_exists($loc->country_code, $countrySVG))
+			{
+				$squery = "SELECT * FROM countries WHERE ccode = '".$loc->country_code ."';";
+				$csvg = $wpdb->get_results($squery, OBJECT);
+				$countrySVG[$loc->country_code] = $csvg[0]->svg;
+			}
 // 			echo "\n";
 			echo '{var cObj = new Object();';
 			echo 'cObj.id = '.$loc->meta_value.';';
@@ -109,6 +116,12 @@ if($locs != NULL)
 			$locids[] = $loc->meta_value;
 		}
 	}
+	echo 'var countries = new Object();';
+	foreach($countrySVG as $ck=>$cv)
+	{
+		echo 'countries[\''.$ck.'\']="'.$cv.'";';
+	}
+		
 }
 ?>
 </script>

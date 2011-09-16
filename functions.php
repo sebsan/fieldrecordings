@@ -239,6 +239,28 @@ function SOE_JSInit()
 	
 }
 
+function mediaPlayer($id)
+{
+	if($id > 0)
+	{
+		$audio = get_post($id, OBJECT);
+	
+		$mimetype = explode('/', get_post_mime_type($id));
+// 		print_r(get_post_mime_type($id));
+		$audiotype = $mimetype[1];
+		return '
+		<span class="audio-block audio-'.$audiotype.'" id="audio-'.$audio->ID.'" title="'.$audio->guid.'">
+		<span class="media-player"></span>
+		<span id="jp_interface_'.$audio->ID.'">
+		<img class="jp-play" src="'.get_bloginfo('template_directory').'/img/play.png" /> 
+		<img class="jp-pause" src="'.get_bloginfo('template_directory').'/img/pause.png" />  
+		<span class="audio_title">'.$audio->post_title.'</span> 
+		</span>
+		</span>';
+			
+	}
 
+	
+}
 
 ?>
