@@ -104,6 +104,7 @@ table.sample td{
 	border-radius: none;
 	-moz-border-radius: none;
 	width:15px;
+	background-color:yellow;
 }
 
 .year_row {
@@ -186,7 +187,7 @@ table.sample td{
 .wave{background-image:url("img/wave.png")}
 .krol{background-image:url("img/krol.png")}
 .chevron{background-image:url("img/chevron.png")}
-.vignette{background-image:url("img/vignette-2-small.png")}
+.vignette{background-image:url("img/vignette-2-small.png");}
 .curl{background-image:url("img/curl.png")}
 .sinuz{background-image:url("img/sinuz.png")}
 .losange{background-image:url("img/losange.png")}
