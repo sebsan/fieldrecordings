@@ -14,7 +14,7 @@
    id="svg3243"
    version="1.1"
    inkscape:version="0.48.0 r9654"
-   sodipodi:docname="chevron.png">
+   sodipodi:docname="chevron.svg">
   <defs
      id="defs3245">
     <inkscape:path-effect
@@ -44,11 +44,11 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="45.254834"
-     inkscape:cx="5.0910788"
+     inkscape:cx="4.7043798"
      inkscape:cy="7.6449754"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
-     showgrid="false"
+     showgrid="true"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:window-width="1110"
@@ -64,6 +64,9 @@
        orientation="1,0"
        position="15,9.3880929"
        id="guide3271" />
+    <inkscape:grid
+       type="xygrid"
+       id="grid2987" />
   </sodipodi:namedview>
   <metadata
      id="metadata3248">
@@ -73,7 +76,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -83,11 +86,10 @@
      id="layer1"
      transform="translate(0,-1037.3622)">
     <path
-       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1.25000000000000000;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
-       d="m 7.5,3.7989053 -0.34375,0.25 L 0,8.8301553 0,10.71875 0.34375,10.5 7.5,5.71875 14.65625,10.5 15,10.71875 15,8.8301553 7.84375,4.0489053 z"
-       transform="translate(0,1037.3622)"
-       id="path3418-2"
+       style="fill:none;stroke:#0000ff;stroke-width:1.10000000000000009;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 0,1047.3622 7.5,-5 7.5,5"
+       id="path2989"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccccccccc" />
+       sodipodi:nodetypes="ccc" />
   </g>
 </svg>

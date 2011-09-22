@@ -25,7 +25,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="24.347683"
-     inkscape:cx="11.201325"
+     inkscape:cx="11.471272"
      inkscape:cy="6.7633784"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -35,7 +35,7 @@
      inkscape:window-width="1110"
      inkscape:window-height="699"
      inkscape:window-x="161"
-     inkscape:window-y="49"
+     inkscape:window-y="46"
      inkscape:window-maximized="0">
     <sodipodi:guide
        orientation="1,0"
@@ -64,19 +64,20 @@
      id="layer1"
      transform="translate(0,-1037.3622)">
     <g
-       id="g3010">
+       id="g3012"
+       transform="translate(0,-0.18925)">
       <path
-         sodipodi:nodetypes="ccccccccccc"
+         sodipodi:nodetypes="ccc"
          inkscape:connector-curvature="0"
-         id="path3418-2"
-         d="m 7.5,1038.8662 -0.34375,0.25 -7.15625,4.7813 0,1.8885 0.34375,-0.2187 7.15625,-4.7813 7.15625,4.7813 0.34375,0.2187 0,-1.8885 -7.15625,-4.7813 z"
-         style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1.25;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+         id="path2989"
+         d="m 0,1045.005 7.5,-5 7.5,5"
+         style="fill:none;stroke:#0000ff;stroke-width:1.10000002;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
       <path
-         sodipodi:nodetypes="ccccccccccc"
+         sodipodi:nodetypes="ccc"
          inkscape:connector-curvature="0"
-         id="path3418-2-6"
-         d="m 7.5,1050.8173 -0.34375,-0.25 L 0,1045.786 l 0,-1.8885 0.34375,0.2187 7.15625,4.7813 7.15625,-4.7813 0.34375,-0.2187 0,1.8885 -7.15625,4.7813 z"
-         style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1.25;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+         id="path2989-6"
+         d="m 15,1045.0979 -7.5,5 -7.5,-5"
+         style="fill:none;stroke:#0000ff;stroke-width:1.10000002;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     </g>
   </g>
 </svg>

@@ -100,11 +100,12 @@ div.index_col {
 
 /* style du tableau */
 
+
 table.sample td{	
 	border-radius: none;
 	-moz-border-radius: none;
 	width:15px;
-	background-color:yellow;
+/*	background-color: yellow;*/
 }
 
 .year_row {
@@ -184,6 +185,7 @@ table.sample td{
 	background-color: #0066CC;
 }
 
+
 .wave{background-image:url("img/wave.png")}
 .krol{background-image:url("img/krol.png")}
 .chevron{background-image:url("img/chevron.png")}
@@ -191,4 +193,4 @@ table.sample td{
 .curl{background-image:url("img/curl.png")}
 .sinuz{background-image:url("img/sinuz.png")}
 .losange{background-image:url("img/losange.png")}
-.oval{background-image:url("img/oval.png"); background-repeat:no-repeat;}
+.oval{background-image:url("img/oval.png"); background-repeat:no-repeat; height:30px;}

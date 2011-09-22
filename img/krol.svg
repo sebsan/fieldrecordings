@@ -14,7 +14,7 @@
    id="svg3243"
    version="1.1"
    inkscape:version="0.48.0 r9654"
-   sodipodi:docname="krol2.svg">
+   sodipodi:docname="krol.svg">
   <defs
      id="defs3245">
     <inkscape:path-effect
@@ -141,19 +141,19 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="26.872615"
-     inkscape:cx="8.3927634"
+     inkscape:zoom="4.21"
+     inkscape:cx="5.1479937"
      inkscape:cy="7.3988182"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="1280"
-     inkscape:window-height="720"
-     inkscape:window-x="0"
-     inkscape:window-y="25"
-     inkscape:window-maximized="1">
+     inkscape:window-width="965"
+     inkscape:window-height="500"
+     inkscape:window-x="88"
+     inkscape:window-y="73"
+     inkscape:window-maximized="0">
     <sodipodi:guide
        orientation="1,0"
        position="0,8.4646739"
@@ -181,7 +181,7 @@
      id="layer1"
      transform="translate(0,-1037.3622)">
     <path
-       style="fill:none;stroke:#0000ff;stroke-width:1.54200000000000004;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#0000ff;stroke-width:1.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 15,1049.0734 c -1.572937,0.019 -3.148136,-0.1617 -4.676122,-0.5355 -1.492714,-0.3652 -2.9850371,-0.9428 -4.0825876,-2.0184 -0.5487752,-0.5378 -0.9876231,-1.196 -1.2225964,-1.9276 -0.2349732,-0.7315 -0.2593422,-1.5374 -0.018661,-2.2671 0.1770542,-0.5368 0.4984067,-1.0294 0.9375528,-1.3853 0.439146,-0.3559 0.9971987,-0.5699 1.562439,-0.5699 0.5652399,0 1.1232916,0.214 1.5624372,0.5699 0.4391456,0.3559 0.7604983,0.8485 0.937555,1.3853 0.240686,0.7297 0.216323,1.5356 -0.018646,2.2671 -0.2349684,0.7316 -0.6738131,1.3898 -1.2225881,1.9276 -1.0975501,1.0756 -2.5898844,1.6532 -4.0826123,2.0184 -1.5279886,0.3738 -3.1031924,0.5541 -4.676121452022,0.5353"
        id="path4412"
        inkscape:connector-curvature="0"
