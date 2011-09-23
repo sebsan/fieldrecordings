@@ -273,12 +273,14 @@ function GetTags($id)
 
 function GetNext($id)
 {
-	get_post($id, OBJECT);
+	global $wpdb;
+	$cp = get_post($id, OBJECT);
 	$query = "
 	SELECT * 
-	FROM ".$wpdb->post." AS p
-	WHERE (p.post_type = '".."');
+	FROM ".$wpdb->posts." AS p
+	WHERE (p.post_type = '".$cp->post_type."' AND p.post_date > DATE('".$cp->post_date."'));
 	";
+	echo $query;
 	$result = $wpdb->get_results($query, OBJECT);
 }
 
