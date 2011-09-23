@@ -83,6 +83,13 @@
 	padding: 0px 0px 0px 0px;
 	}
 
+#menu-logi{
+	position: absolute;
+	right: 0;
+	top:0;
+	}
+
+
 
 div.index_col {
 	float:left;
