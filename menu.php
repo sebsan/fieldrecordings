@@ -19,6 +19,5 @@
 	<span id="menu_item_organisation" class="site_menu_item">Institutions</span>
 	<span id="menu_item_writing" class="site_menu_item">Writings</span>
 	<span id="menu_item_about" class="site_menu_item">About</span>
-	<div id="menu-logi"><img src="<?php echo get_stylesheet_directory_uri()."/"; ?>img/soe-logo-menu.png"/></div>
 
 </div>

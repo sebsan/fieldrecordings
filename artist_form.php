@@ -279,16 +279,20 @@ textarea
 
 #left{
 position: fixed;
+left: 200px;
+top:40px;
 }
 
 #right{
 position: fixed;
-left: 350px;
+left: 550px;
+top:40px;
 }
 
 #log{
 position: fixed;
-left: 700px;
+left: 900px;
+top:40px;
 }
 
 </style>

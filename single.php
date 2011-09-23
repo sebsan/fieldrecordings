@@ -49,7 +49,18 @@ if($postType == 'soe_eblog')
 	<div class="section_par">'.get_the_content().'</div>
 	</div>
 	';
+	$np = GetNextAndPrevious($post->ID);
+	echo '<div id="post_nav_box">';
+	if($np['previous'])
+	{
+		echo '<div id="previous_post"><a class="post_nav_link" href="'.get_permalink($np['previous']->ID).'">← '.apply_filters('the_title', $np['previous']->post_title).'</a></div> ';
+	}
 	
+	if($np['next'])
+	{
+		echo '<div id="next_post"><a class="post_nav_link" href="'.get_permalink($np['next']->ID).'">'.apply_filters('the_title', $np['next']->post_title).' →</a></div> ';
+	}
+	echo '</div></div>';
 	echo '</div></div>';
 }
 elseif($postType == 'soe_event')

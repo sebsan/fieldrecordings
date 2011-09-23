@@ -271,17 +271,36 @@ function GetTags($id)
 	
 }
 
-function GetNext($id)
+function GetNextAndPrevious($id)
 {
 	global $wpdb;
+	$ret = array('next'=> FALSE, 'previous' => FALSE);
 	$cp = get_post($id, OBJECT);
 	$query = "
 	SELECT * 
 	FROM ".$wpdb->posts." AS p
-	WHERE (p.post_type = '".$cp->post_type."' AND p.post_date > DATE('".$cp->post_date."'));
+	WHERE (p.post_type = '".$cp->post_type."' AND p.post_date > '".$cp->post_date."');
 	";
-	echo $query;
+	
 	$result = $wpdb->get_results($query, OBJECT);
+	if($result)
+	{
+		$ret['next'] = $result[0];
+	}
+	$query = "
+	SELECT * 
+	FROM ".$wpdb->posts." AS p
+	WHERE (p.post_type = '".$cp->post_type."' AND p.post_date < '".$cp->post_date."');
+	";
+	
+	$result = $wpdb->get_results($query, OBJECT);
+	if($result)
+	{
+		$ret['previous'] = array_pop($result);
+	}
+	
+	return $ret;
+	
 }
 
 ?>

@@ -516,7 +516,7 @@ function drawCursorLine(x)
 		theCursorLine.line.remove();
 		theCursorLine.triangle.remove();
 	}
-	var W = jQuery(window);
+	var W = jQuery('body');
 	var slidX = x;
 	var slidY = jQuery("#menu_item").outerHeight();
 	theCursorLine.line = line(raph, new Point(slidX, W.height()), new Point(slidX, slidY));
@@ -548,7 +548,7 @@ var countryCode = '';
 function initSOE()
 {
 	initMediaPlayer();
-	var ww = jQuery(window).width();
+	var ww = jQuery(window).width() * 0.8;
 	var wh = jQuery(window).height();
 	svgWidth = ww;
 	svgHeight = wh;
@@ -707,7 +707,7 @@ function initSOE()
 	/// Menu
 	var menuIndex = jQuery('#menu_index');
 	menuIndex.hide();
-	jQuery('#menu_item span').click(toggleMenu);
+	jQuery('#menu_item span.site_menu_item').click(toggleMenu);
 	paginateMenu();
 	
 	jQuery(window).resize(function() 
