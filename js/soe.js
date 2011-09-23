@@ -10,13 +10,15 @@ var SOE_debug = false;
 
 function initMediaPlayer()
 {
-	jQuery('.audio-mp3').each(function(index)
+	jQuery('.audio-mpeg, .audio-mp3').each(function(index)
 	{
-		var wp_id =  jQuery(this).attr('id').substring(6);
-		var audioFile = jQuery(this).attr('title');
-		var playerDiv = jQuery(this).children('.media-player').first();
+		var that = jQuery(this);
+		var wp_id =  that.attr('id').substring(6);
+		var audioFile = that.attr('title');
+		var playerDiv = that.children('.media-player').first();
 		
-		var  player = playerDiv.jPlayer({
+		var  player = playerDiv.jPlayer(
+			{
 			ready: function () 
 			{
 				jQuery(this).jPlayer("setMedia", { mp3: audioFile});
@@ -27,16 +29,19 @@ function initMediaPlayer()
 			cssSelector: {
 				play: '.jp-play',
 				pause: '.jp-pause'
-			}
+			},
+			errorAlerts: false,
+			warningAlerts: false
 		});
 		player.jPlayer("play");
 	});
 	
 	jQuery('.audio-ogg').each(function(index)
 	{
-		var wp_id =  jQuery(this).attr('id').substring(6);
-		var audioFile = jQuery(this).attr('title');
-		var playerDiv = jQuery(this).children('.media-player').first();
+		var that = jQuery(this);
+		var wp_id =  that.attr('id').substring(6);
+		var audioFile = that.attr('title');
+		var playerDiv = that.children('.media-player').first();
 		
 		var  player = playerDiv.jPlayer({
 			ready: function () 
@@ -49,7 +54,9 @@ function initMediaPlayer()
 			cssSelector: {
 				play: '.jp-play',
 				pause: '.jp-pause'
-			}
+			},
+			errorAlerts: false,
+			warningAlerts: false
 		});
 		player.jPlayer("play");
 	});

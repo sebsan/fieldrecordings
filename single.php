@@ -49,6 +49,7 @@ if($postType == 'soe_eblog')
 	<div class="section_par">'.get_the_content().'</div>
 	</div>
 	';
+	
 	echo '</div></div>';
 }
 elseif($postType == 'soe_event')
@@ -60,32 +61,42 @@ elseif($postType == 'soe_event')
 elseif($postType == 'soe_artist')
 {
 	echo '<div id="content_outer"> <div id="content">';
-// 	print_r($post);
-// 	print_r($custom);
+
 	$image = "";
-	$tags = "";
-	$audio = mediaPlayer($custom['artist_sound'][0]);
+	if(isset($custom['artist_image'][0]))
+	{
+		$image = GetImage($custom['artist_image'][0]);
+	}
 	
-	echo '<div class="content_category">ARTISTS</div>
+	
+	
+	$tags = get_the_tag_list( '', ', ', '' );
+	$audio = '';
+	if(isset($custom['artist_sound'][0]))
+		$audio = 'Listen to '. mediaPlayer($custom['artist_sound'][0]);
+	
+	echo '
+	<div class="content_category">ARTISTS</div>
 	<div class="title">'.get_the_title().'</div>
 	<div class="location">'.$postloc->name.' — '.GetCountryName($postloc->country_code).'</div>
 	<div class="picture">'.$image.'</div>
 	<div class="section">
-	<div class="section_title">Biography</div>
-	<div class="section_par">
-	'.$custom['artist_bio'][0].'
-	</div>
-	<div class="section_title">Use of fieldrecordings</div>
-	<div class="section_par">
-	'.$custom['artist_use'][0].'
-	</div>
-	<div class="general_url"><a href="http://'.$custom['artist_url'][0].'">'.$custom['artist_url'][0].'</a></div>
-	<div class="tags_box">
-	<div class="tags">
-	'.$tags.'
-	</div>
-	</div>
-	'.$audio.'
+		<div class="section_title">Biography</div>
+		<div class="section_par">
+		'.$custom['artist_bio'][0].'
+		</div>
+		<div class="section_title">Use of fieldrecordings</div>
+		<div class="section_par">
+		'.$custom['artist_use'][0].'
+		</div>
+	
+		<div class="general_url"><a href="http://'.$custom['artist_url'][0].'">'.$custom['artist_url'][0].'</a></div>
+		<div class="tags_box">
+			<div class="tags">
+			'.$tags.'
+			</div>
+		</div>
+		<div class="artist_track">'.$audio.'</div>
 	</div>';
 	echo '</div></div>';
 }

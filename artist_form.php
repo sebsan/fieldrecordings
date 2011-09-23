@@ -19,7 +19,7 @@ function va($a)
 		return true;
 	return false;
 }
-if(va('artistname') && va('location') && va('bio'))
+if(va('artistname') && va('location') && va('bio') && va('email') && va('use'))
 {
 	$artist = wp_insert_post(array(
 		'post_type' => 'soe_artist',
@@ -27,9 +27,11 @@ if(va('artistname') && va('location') && va('bio'))
 		'post_status' => 'publish',));
 	if($artist > 0)
 	{
+		add_post_meta($artist, 'artist_name', mysql_real_escape_string($_POST['artistname']));
 		add_post_meta($artist, 'artist_bio', $_POST['bio']);
 		add_post_meta($artist, 'artist_use', $_POST['use']);
 		add_post_meta($artist, 'artist_url', $_POST['website']);
+		add_post_meta($artist, 'artist_email', $_POST['email']);
 		add_post_meta($artist, 'location', $_POST['location']);
 		$geonameid = $_POST['location'];
 		{
@@ -70,7 +72,8 @@ if(va('artistname') && va('location') && va('bio'))
 			if($wp_filetype[0] == 'audio')
 			{
 				$upload_dir = wp_upload_dir();
-				if( move_uploaded_file ( $mediafilename , $upload_dir['path'].'/'. $medianame))
+				$uname = $upload_dir['path'].'/'. $medianame ;
+				if( move_uploaded_file ( $mediafilename , $uname))
 				{
 					$attachment = array(
 						'post_mime_type' => $_FILES['artistmedia']['type'],
@@ -78,19 +81,48 @@ if(va('artistname') && va('location') && va('bio'))
 						'post_content' => '',
 						'post_status' => 'publish'
 						);
-						$attach_id = wp_insert_attachment( $attachment, $mediafilename, $artist);
-						error_log('ATTACHED: '. $attach_id);
+						$attach_id = wp_insert_attachment( $attachment, $uname, $artist);
+						error_log('ATTACHED AUDIO: '. $attach_id);
 						
 					add_post_meta($artist, 'artist_sound', $attach_id);
 				}
 				else
-					error_log('ERROR UNABLE TO MOVE: '. $mediafilename. ' ; '. $upload_dir['path']);
+					error_log('ERROR UNABLE TO MOVE: '. $mediafilename. ' ; '. $uname);
 			}
 			else
 				error_log('ERROR FILETYPE: '.$wp_filetype[0]);
 		}
-		else
-			print_r($_POST);
+		if(isset($_FILES['artistpicture']))
+		{
+			$mediafilename = $_FILES['artistpicture']['tmp_name'];
+			$medianame = preg_replace('/\.[^.]+$/', '', $_FILES['artistpicture']['name']);
+			$wp_filetype = explode('/', $_FILES['artistpicture']['type']);
+			error_log('MEDIA: '.$mediafilename.'[]'.$wp_filetype[0]);
+			if($wp_filetype[0] == 'image')
+			{
+				$upload_dir = wp_upload_dir();
+				$uname = $upload_dir['path'].'/'. $medianame;
+				if( move_uploaded_file ( $mediafilename , $uname))
+				{
+					$attachment = array(
+						'post_mime_type' => $_FILES['artistpicture']['type'],
+						'post_title' => $medianame,
+						'post_content' => '',
+						'post_status' => 'publish'
+						);
+						$attach_id = wp_insert_attachment( $attachment, $uname, $artist);
+						error_log('ATTACHED IMAGE: '. $attach_id);
+						require_once(ABSPATH . 'wp-admin/includes/image.php');
+						$attach_data = wp_generate_attachment_metadata( $attach_id,  $uname);
+						wp_update_attachment_metadata( $attach_id, $attach_data );
+						add_post_meta($artist, 'artist_image', $attach_id);
+				}
+				else
+					error_log('ERROR UNABLE TO MOVE: '. $mediafilename. ' ; '. $uname);
+			}
+			else
+				error_log('ERROR FILETYPE: '.$wp_filetype[0]);
+		}
 		header('Location: '. get_permalink($artist));
 	}
 }
@@ -304,6 +336,12 @@ jQuery(document).ready(function()
 	<input type="text" name="website"/>
 	</div>
 	<div>
+	<label for="email">E-mail</label>
+	</div>
+	<div>
+	<input type="text" name="email"/>
+	</div>
+	<div>
 	<label for="location_search">Location</label>
 	</div>
 	<div>
@@ -329,11 +367,19 @@ jQuery(document).ready(function()
 	</div>
 
 	<div>
-	<label for="artistmedia">Upload track</label>
+	<label for="artistmedia">Upload Track</label>
 	</div>
 	<div>
 	<input type="file" name="artistmedia"/>
 	</div>
+	
+	<div>
+	<label for="artistpicture">Upload Image</label>
+	</div>
+	<div>
+	<input type="file" name="artistpicture"/>
+	</div>
+	
 
 	<div>
 	<input class="submit" type="submit" value="Submit"/>
