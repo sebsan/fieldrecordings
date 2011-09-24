@@ -548,10 +548,10 @@ var countryCode = '';
 function initSOE()
 {
 	initMediaPlayer();
-	var ww = jQuery(window).width() * 0.8;
+	var ww = jQuery(window).width();
 	var wh = jQuery(window).height();
-	svgWidth = ww;
-	svgHeight = wh;
+	svgWidth = ww * 0.99;
+	svgHeight = wh * 0.99;
 	raph = Raphael(document.getElementById("carte"), svgWidth, svgHeight );
 	var minimap_stroke = new Color(0,0,254);
 	var minimap_fill = new Color(0,0,254);
@@ -619,10 +619,18 @@ function initSOE()
 						curCountryPath.simplify();
 						
 						// Insert texture;
-						var ctx =  curCityPoint.x - (580 / 2) ;
-						var cty =  curCityPoint.y - (820 / 2) ;
+						var ctx =  curCityPoint.x ;
+						var cty =  0 ;
+						var iW = ww - ctx;
+						var iH = wh;
 						
-						raph.image(templateUrl +'texture/'+countryCode+'.png', ctx, cty, 585, 827).toBack();
+						raph.image(templateUrl 
+							+'texture/texture.php?'
+							+'cx='+  curCityPoint.x *3
+							+'&cy='+ curCityPoint.y *3
+							+'&w='+  iW
+							+'&h='+  iH
+							, ctx, cty, iW, iH).toBack();
 						
 					});
 			CurCityClass = " city_current";

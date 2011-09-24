@@ -26,14 +26,15 @@
 	left: 0px;
 	font-family: helvetica_serif;
 	font-size: 10pt;
-	line-height: 16pt;
+	line-height: 42px;
+	height: 42px;
 	letter-spacing: 0.09em;
 	text-align: left;
 	width: 98.8%;
 	margin-left: auto; 
 	margin-right: auto;
 	text-transform:uppercase;
-	padding: .6%;
+	padding:  0 .6%;
 /* 	background-color:white; */
 	background:white url("img/soe-logo-menu.png") top right no-repeat;
 	border-bottom: 1px solid black;

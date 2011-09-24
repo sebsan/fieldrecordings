@@ -143,14 +143,31 @@ elseif($postType == 'soe_city')
 	SELECT * FROM ".$wpdb->posts." AS p 
 	INNER JOIN ".$wpdb->postmeta." AS m 
 	ON p.ID = m.post_id 
-	WHERE (p.post_type != 'soe_city' AND m.meta_key = 'location' AND m.meta_value = '".$custom['location'][0]."') ;
+	WHERE (p.post_type != 'soe_city' AND m.meta_key = 'location' AND m.meta_value = '".$custom['location'][0]."' AND p.post_status = 'publish') ;
 	";
 // 	echo $query;
 	$posts = $wpdb->get_results($query, OBJECT);
-	$x = 50;
-	$y = 50;
-	$cw = 220;
-	$ch = 62;
+	$tps = array();
+	foreach($posts as $p)
+	{
+		if(!in_array($p->ID, $tps))
+		{
+			$tps[] = $p->ID;
+		}
+	}
+	$nump = count($tps);
+	$maxp = 0;
+	$vc = 0;
+	for($i = 0; $vc < $nump; $i++)
+	{
+		$vc += $i;
+		$maxp = $i;
+	}
+	echo 'MAXP = '. $maxp . ' ; NUMP = '. $nump;
+	$x = 0;
+	$y = 42;
+	$cw = 201;
+	$ch = 41;
 	$ccx = 0;
 	$ccy = 0;
 	$ps = array();
@@ -159,10 +176,11 @@ elseif($postType == 'soe_city')
 		if(!in_array($p->ID, $ps))
 		{
 			$ps[] = $p->ID;
-			if($ccx == $ccy)
+			if($ccy == $maxp)
 			{
-				$ccx = 0;
-				++$ccy;
+				$maxp--;
+				$ccy = 0;
+				$ccx++;
 			}
 			
 			
@@ -183,7 +201,7 @@ elseif($postType == 'soe_city')
 				</div>
 			</div>';
 			
-			++$ccx;
+			$ccy++;
 		}
 	}
 }
