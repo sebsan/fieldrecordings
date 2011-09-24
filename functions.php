@@ -208,10 +208,10 @@ function SOE_JSInit()
 		get_bloginfo('template_directory') . '/js/jQuery.jPlayer.2.0.0/jquery.jplayer.min.js',
 			     array('jquery'),
 			     '2.0.0' );
-		wp_enqueue_script('soe_mediaplayer',
-		get_bloginfo('template_directory') . '/js/mediaplayer.js',
-		array('jquery-jplayer'),
-		'1.0' );
+// 		wp_enqueue_script('soe_mediaplayer',
+// 		get_bloginfo('template_directory') . '/js/mediaplayer.js',
+// 		array('jquery-jplayer'),
+// 		'1.0' );
 		wp_enqueue_script('json-parse',
 		get_bloginfo('template_directory') . '/JSON-js/json_parse.js',
 		array(),
@@ -244,12 +244,11 @@ function mediaPlayer($id)
 	if($id > 0)
 	{
 		$audio = get_post($id, OBJECT);
-	
+		$at = wp_get_attachment_url($id);
 		$mimetype = explode('/', get_post_mime_type($id));
-// 		print_r(get_post_mime_type($id));
 		$audiotype = $mimetype[1];
 		return '
-		<span class="audio-block audio-'.$audiotype.'" id="audio-'.$audio->ID.'" title="'.$audio->guid.'">
+		<span class="audio-block audio-'.$audiotype.'" id="audio-'.$audio->ID.'" title="'.$at.'">
 		<span class="media-player"></span>
 		<span id="jp_interface_'.$audio->ID.'">
 		<img class="jp-play" src="'.get_bloginfo('template_directory').'/img/play.png" /> 
@@ -258,8 +257,49 @@ function mediaPlayer($id)
 		</span>
 		</span>';
 			
-	}
+	}	
+}
 
+function GetImage($id)
+{
+	$sized = image_downsize( $id, array(323,323));
+	return '<img src="'.$sized[0].'" width="'.$sized[1].'" height="'.$sized[2].'"/>';
+}
+
+function GetTags($id)
+{
+	
+}
+
+function GetNextAndPrevious($id)
+{
+	global $wpdb;
+	$ret = array('next'=> FALSE, 'previous' => FALSE);
+	$cp = get_post($id, OBJECT);
+	$query = "
+	SELECT * 
+	FROM ".$wpdb->posts." AS p
+	WHERE (p.post_type = '".$cp->post_type."' AND p.post_date > '".$cp->post_date."');
+	";
+	
+	$result = $wpdb->get_results($query, OBJECT);
+	if($result)
+	{
+		$ret['next'] = $result[0];
+	}
+	$query = "
+	SELECT * 
+	FROM ".$wpdb->posts." AS p
+	WHERE (p.post_type = '".$cp->post_type."' AND p.post_date < '".$cp->post_date."');
+	";
+	
+	$result = $wpdb->get_results($query, OBJECT);
+	if($result)
+	{
+		$ret['previous'] = array_pop($result);
+	}
+	
+	return $ret;
 	
 }
 

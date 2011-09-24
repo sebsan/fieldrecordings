@@ -10,6 +10,7 @@ class SOE_Artist extends SOE_Type
 		
 		$this->addMetaFields(array(
 			'artist_name' => 'Name of the artist.',
+			'artist_email' => 'E-mail adress of the artist.',
 			'artist_bio' => 'Biography',
 			'artist_use' => 'Use of field recording',
 			'artist_url' => 'Website URL',
@@ -38,8 +39,8 @@ class SOE_Artist extends SOE_Type
 	{
 		add_meta_box( 'mb_artist_name', 'Name', array( &$this, "meta_name" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_artist_location', 'Location', array( &$this, "location" ), $this->tname, 'normal', 'high');
+		add_meta_box( 'mb_artist_url', 'Website & E-mail', array( &$this, "meta_url" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_artist_bio', 'Information', array( &$this, "meta_content" ), $this->tname, 'normal', 'high');
-		add_meta_box( 'mb_artist_url', 'Website', array( &$this, "meta_url" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_artist_media', 'Media', array( &$this, "meta_media" ), $this->tname, 'normal', 'high');
 	}
 	
@@ -61,6 +62,9 @@ class SOE_Artist extends SOE_Type
 		<div class="inside">
 		<input type="text" name="artist_url" style="width:98%;" value="'.$custom['artist_url'][0].'" id="artist_url">
 		<p>'.$this->meta_fields['artist_url'].'</p>
+		
+		<input type="text" name="artist_email" style="width:98%;" value="'.$custom['artist_email'][0].'" id="artist_email">
+		<p>'.$this->meta_fields['artist_email'].'</p>
 		</div>
 		';
 	}
@@ -104,7 +108,6 @@ class SOE_Artist extends SOE_Type
 	
 	public function meta_media($post, $metabox) 
 	{
-		$custom = get_post_custom($post->ID);
 		$this->getMedia('Image', 'Select an image for this artist', 'image' ,'artist_image');
 		$this->getMedia('Sound', 'Select a sound track for this artist', 'audio' ,'artist_sound');
 	}

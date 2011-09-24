@@ -55,12 +55,14 @@ class SOE_Type
 	
 	public function wp_insert_post($post_id, $post = null) 
 	{
+		error_log( 'wp_insert_post => '. $post->post_type);
 		if ($post->post_type == $this->tname) 
 		{
 			foreach ($this->meta_fields as $key => $desc) 
 			{
 				
 				$value = @$_POST[$key];
+				error_log( $key .' => '. $value);
 				if (empty($value)) 
 				{
 					delete_post_meta($post_id, $key);
@@ -184,18 +186,11 @@ class SOE_Type
 	
 	}
 	
-	public function getMediaScripts()
-	{
-		wp_enqueue_script('media-upload');
-		wp_enqueue_script('thickbox');
-	}
-	public function getMediaStyles()
-	{
-		wp_enqueue_style('thickbox');
-	}
+	
 	public function getMedia($label,$desc,$type,$form_name)
 	{
 		$custom = get_post_custom($post->ID);
+// 		print_r($custom);
 		global $wpdb;
 		$wpmedias = $wpdb->get_results("
 		SELECT * FROM wp_posts AS p 
@@ -203,33 +198,43 @@ class SOE_Type
 		", OBJECT);
 		
 		$selectStyle= 'cursor:pointer;border:1px solid grey';
-		$selectedMediaStyle = 'border:2px dashed black';
+		$selectedMediaName = 'select_media_'.$form_name;
+		$selectedMediaStyleName = 'selected_media_'.$form_name;
+		$selectedMediaStyle = 'class="'.$selectedMediaStyleName.'"';
 		$selected = null;
-		$mediaForm = '<h3>'.$label.'</h3>'.$desc.'<div height="500px" width="100%" style="overflow:auto">';
+		$mediaForm = '
+		<style>
+		.'.$selectedMediaStyleName.'{
+			border:2px dashed black;
+		}
+		</style>
+		<h3>'.$label.'</h3>'.$desc.'<div height="400px" width="70%" style="overflow:auto">';
 		foreach($wpmedias as $m)
 		{
 			$mm = wp_get_attachment_metadata($m->ID);
-			$mc = get_post_custom($m->ID);
+			// 			$mc = get_post_custom($m->ID);
 			$mime = array_shift(explode('/', $m->post_mime_type));
-// 			echo 'MIME:'.$mime.';TYPE:'.$type;
+			// 			echo 'MIME:'.$mime.';TYPE:'.$type;
 			if($mime == $type)
 			{
+				echo $custom[$form_name][0] .' == ' . $m->ID;
 				if($custom[$form_name][0] == $m->ID)
 					$selected =  $m->ID;
 				if('image' == $type)
 				{
 					$sized = image_downsize( $m->ID, 'thumbnail' );
 					
-					$mediaForm .= '<div style="'.($custom[$form_name][0] == $m->ID ? $selectedMediaStyle : "").'">
+					$mediaForm .= '
+					<div '.($custom[$form_name][0] == $m->ID ? $selectedMediaStyle : "").'>
 					<img src="'.$sized[0].'" width="'.$sized[1].'" height="'.$sized[2].'"/> '.$m->post_title.'
-					<span class="selectmedia" id="selectmedia-'.$m->ID.'" style="'.$selectStyle.'">Select</span>
+					<span class="'.$selectedMediaName.'" id="selectmedia-'.$m->ID.'" style="'.$selectStyle.'">Select</span>
 					</div>';
 				}
 				elseif('audio' == $type)
 				{
-					$mediaForm .= '<div style="'.($custom[$form_name][0] == $m->ID ? $selectedMediaStyle : "").'">
+					$mediaForm .= '<div '.($custom[$form_name][0] == $m->ID ? $selectedMediaStyle : "").'>
 					'.$m->post_title.'
-					<span class="selectmedia" id="selectmedia-'.$m->ID.'" style="'.$selectStyle.'">Select</span>
+					<span class="'.$selectedMediaName.'" id="selectmedia-'.$m->ID.'" style="'.$selectStyle.'">Select</span>
 					</div>';
 				}
 			}
@@ -237,24 +242,25 @@ class SOE_Type
 		echo $mediaForm.'
 		<input type="hidden" id="'.$form_name.'" name="'.$form_name.'" value="'.$selected.'"/>
 		</div>';
-		
-	
-		echo "<script type=\"text/javascript\">
-		jQuery(document).ready(function() 
-		{
-			jQuery('.selectmedia').click(function() 
-			{
-				var that = jQuery(this);
-				var s = that.attr('id').split('-').pop();
-				jQuery('#".$form_name."').val(s);
-				// jQuery('#publish').click();
-				return false;
-			});
-			
-		});
-	
-		</script>
-		";
+				
+				
+				echo "<script type=\"text/javascript\">
+				jQuery(document).ready(function() 
+					{
+						jQuery('.".$selectedMediaName."').click(function() 
+						{
+							jQuery('.".$selectedMediaStyleName."').removeClass('".$selectedMediaStyleName."');
+							var that = jQuery(this);
+							that.parent().addClass('".$selectedMediaStyleName."');
+							var s = that.attr('id').split('-').pop();
+							jQuery('#".$form_name."').val(s);
+							// jQuery('#publish').click();
+							return false;
+						});
+					});
+				
+				</script>
+				";
 		
 	}
 	
