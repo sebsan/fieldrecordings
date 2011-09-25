@@ -626,8 +626,8 @@ function initSOE()
 						
 						raph.image(templateUrl 
 							+'texture/texture.php?'
-							+'cx='+  Math.floor(curCityPoint.x) * 6
-							+'&cy='+ Math.floor(curCityPoint.y) *6
+							+'cx='+  Math.floor(curCityPoint.x / 10) * Math.floor(curCityPoint.x / 10)
+							+'&cy='+ Math.floor(curCityPoint.x / 10) * Math.floor(curCityPoint.x / 10)
 							+'&w='+  Math.floor(iW)
 							+'&h='+  Math.floor(iH)
 							, ctx, cty, iW, iH).toBack();
