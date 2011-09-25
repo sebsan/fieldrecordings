@@ -626,10 +626,10 @@ function initSOE()
 						
 						raph.image(templateUrl 
 							+'texture/texture.php?'
-							+'cx='+  curCityPoint.x *6
-							+'&cy='+ curCityPoint.y *6
-							+'&w='+  iW
-							+'&h='+  iH
+							+'cx='+  Math.floor(curCityPoint.x) * 6
+							+'&cy='+ Math.floor(curCityPoint.y) *6
+							+'&w='+  Math.floor(iW)
+							+'&h='+  Math.floor(iH)
 							, ctx, cty, iW, iH).toBack();
 						
 					});

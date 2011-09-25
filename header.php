@@ -91,6 +91,8 @@ foreach($wpcities as $c)
 // 			print_r($locs);
 $countrySVG = array();
 $locids = array();
+$minLat = 9999999;
+$minLon = 9999999;
 if($locs != NULL)
 {
 	echo 'var locations = new Array();';
@@ -104,6 +106,8 @@ if($locs != NULL)
 				$csvg = $wpdb->get_results($squery, OBJECT);
 				$countrySVG[$loc->country_code] = $csvg[0]->svg;
 			}
+// 			$minLat = min($minLat, floatval($loc->latitude));
+// 			$minLon = min($minLon, floatval($loc->latitude));
 // 			echo "\n";
 			echo '{var cObj = new Object();';
 			echo 'cObj.id = '.$loc->meta_value.';';
