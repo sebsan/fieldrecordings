@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SCRIBUSUTF8NEW Version="1.4.0.rc2">
+    <DOCUMENT ANZPAGES="7" PAGEWIDTH="595.28125984252" PAGEHEIGHT="841.889763779528" BORDERLEFT="40" BORDERRIGHT="40" BORDERTOP="40" BORDERBOTTOM="40" PRESET="0" BleedTop="0" BleedLeft="0" BleedRight="0" BleedBottom="0" ORIENTATION="0" PAGESIZE="A4" FIRSTNUM="1" BOOK="0" AUTOTEXT="1" AUTOSPALTEN="1" ABSTSPALTEN="3.881" UNITS="1" DFONT="Allan Bold" DSIZE="12" DCOL="1" DGAP="0" TabFill="" TabWidth="36" AUTHOR="" COMMENTS="" KEYWORDS="" PUBLISHER="" DOCDATE="" DOCTYPE="" DOCFORMAT="" DOCIDENT="" DOCSOURCE="" DOCLANGINFO="" DOCRELATION="" DOCCOVER="" DOCRIGHTS="" DOCCONTRIB="" TITLE="" VHOCH="33" VHOCHSC="66" VTIEF="33" VTIEFSC="66" VKAPIT="75" BASEGRID="14.4" BASEO="0" AUTOL="20" UnderlinePos="-1" UnderlineWidth="-1" StrikeThruPos="-1" StrikeThruWidth="-1" GROUPC="13" HCMS="0" DPSo="0" DPSFo="0" DPuse="0" DPgam="0" DPbla="1" DPMo="ECI-RGB.icc" DPPr="Fogra27L CMYK Coated Press" DPIn="ECI-RGB.icc" DPInCMYK="Fogra27L CMYK Coated Press" DPIn2="ECI-RGB.icc" DPIn3="Fogra27L CMYK Coated Press" DISc="1" DIIm="0" ALAYER="4" LANGUAGE="English" MINWORDLEN="3" HYCOUNT="2" AUTOMATIC="1" AUTOCHECK="0" GUIDELOCK="1" SnapToGuides="0" SnapToGrid="0" MINGRID="10.0006299212598" MAJGRID="50.0003149606299" SHOWGRID="0" SHOWGUIDES="1" showcolborders="1" SHOWFRAME="0" SHOWLAYERM="0" SHOWMARGIN="1" SHOWBASE="0" SHOWPICT="1" SHOWControl="0" SHOWLINK="0" rulerMode="1" showrulers="1" showBleed="1" rulerXoffset="0" rulerYoffset="0" GuideRad="10" GRAB="4" POLYC="3" POLYF="0.5" POLYR="0" POLYCUR="0" POLYFD="0" POLYS="0" AutoSave="1" AutoSaveTime="600000" ScratchBottom="20.0012598425197" ScratchLeft="100.00062992126" ScratchRight="100.00062992126" ScratchTop="20.0012598425197" GapHorizontal="0" GapVertical="39.9996850393701" StartArrow="0" EndArrow="0" PEN="Black" BRUSH="None" PENLINE="Black" PENTEXT="Black" StrokeText="Black" TextBackGround="None" TextLineColor="None" TextBackGroundShade="100" TextLineShade="100" TextPenShade="100" TextStrokeShade="100" STIL="1" STILLINE="1" WIDTH="1" WIDTHLINE="1" PENSHADE="100" LINESHADE="100" BRUSHSHADE="100" MAGMIN="10" MAGMAX="3200" MAGSTEP="200" CPICT="None" PICTSHADE="100" PICTSCX="1" PICTSCY="1" PSCALE="1" PASPECT="1" EmbeddedPath="0" HalfRes="1" dispX="3.528" dispY="3.528" constrain="15" MINORC="#00ff00" MAJORC="#ffaa7f" GuideC="#000080" BaseC="#c0c0c0" GuideZ="10" BACKG="1" PAGEC="#ffffff" MARGC="#0000ff" RANDF="0" currentProfile="PostScript">
+        <CheckProfile Name="PDF 1.3" ignoreErrors="0" autoCheck="1" checkGlyphs="1" checkOrphans="1" checkOverflow="1" checkPictures="1" checkResolution="1" checkTransparency="1" minResolution="144" maxResolution="2400" checkAnnotations="0" checkRasterPDF="1" checkForGIF="1" ignoreOffLayers="0" checkOffConflictLayers="0"/>
+        <CheckProfile Name="PDF 1.4" ignoreErrors="0" autoCheck="1" checkGlyphs="1" checkOrphans="1" checkOverflow="1" checkPictures="1" checkResolution="1" checkTransparency="0" minResolution="144" maxResolution="2400" checkAnnotations="0" checkRasterPDF="1" checkForGIF="1" ignoreOffLayers="0" checkOffConflictLayers="0"/>
+        <CheckProfile Name="PDF 1.5" ignoreErrors="0" autoCheck="1" checkGlyphs="1" checkOrphans="1" checkOverflow="1" checkPictures="1" checkResolution="1" checkTransparency="0" minResolution="144" maxResolution="2400" checkAnnotations="0" checkRasterPDF="1" checkForGIF="1" ignoreOffLayers="0" checkOffConflictLayers="0"/>
+        <CheckProfile Name="PDF/X-3" ignoreErrors="0" autoCheck="1" checkGlyphs="1" checkOrphans="1" checkOverflow="1" checkPictures="1" checkResolution="1" checkTransparency="1" minResolution="144" maxResolution="2400" checkAnnotations="1" checkRasterPDF="1" checkForGIF="1" ignoreOffLayers="0" checkOffConflictLayers="0"/>
+        <CheckProfile Name="PostScript" ignoreErrors="0" autoCheck="1" checkGlyphs="1" checkOrphans="1" checkOverflow="1" checkPictures="1" checkResolution="1" checkTransparency="1" minResolution="144" maxResolution="2400" checkAnnotations="0" checkRasterPDF="1" checkForGIF="1" ignoreOffLayers="0" checkOffConflictLayers="0"/>
+        <COLOR NAME="Black" CMYK="#000000ff" Spot="0" Register="0"/>
+        <COLOR NAME="Blue" RGB="#0000ff" Spot="0" Register="0"/>
+        <COLOR NAME="Cool Black" CMYK="#990000ff" Spot="0" Register="0"/>
+        <COLOR NAME="Cyan" CMYK="#ff000000" Spot="0" Register="0"/>
+        <COLOR NAME="FromSVG#fa0000" RGB="#fa0000" Spot="0" Register="0"/>
+        <COLOR NAME="Green" RGB="#00ff00" Spot="0" Register="0"/>
+        <COLOR NAME="Magenta" CMYK="#00ff0000" Spot="0" Register="0"/>
+        <COLOR NAME="Red" RGB="#ff0000" Spot="0" Register="0"/>
+        <COLOR NAME="Registration" CMYK="#ffffffff" Spot="0" Register="1"/>
+        <COLOR NAME="Rich Black" CMYK="#996666ff" Spot="0" Register="0"/>
+        <COLOR NAME="Warm Black" CMYK="#00994cff" Spot="0" Register="0"/>
+        <COLOR NAME="White" CMYK="#00000000" Spot="0" Register="0"/>
+        <COLOR NAME="Yellow" CMYK="#0000ff00" Spot="0" Register="0"/>
+        <HYPHEN/>
+        <STYLE NAME="Default Paragraph Style" DefaultStyle="1" ALIGN="0" LINESPMode="0" LINESP="15" INDENT="0" RMARGIN="0" FIRST="0" VOR="0" NACH="0" DROP="0" DROPLIN="2" DROPDIST="0"/>
+        <STYLE NAME="body text" ALIGN="0" LINESPMode="0" LINESP="12" FONT="OSP_helvetica_serif Medium" FONTSIZE="10" FCOLOR="Cyan" LANGUAGE="English"/>
+        <STYLE NAME=" Style 1 Bold" LINESPMode="1" LINESP="26" FONT="FreeSans Bold" FONTSIZE="8" FCOLOR="Red"/>
+        <STYLE NAME="Clone of Style 1" PARENT="Default Paragraph Style" FCOLOR="Cyan"/>
+        <STYLE NAME="Clone of Style 1 (1)" LINESPMode="0" LINESP="12" FIRST="14.17322835" FONT="OSP_helvetica_serif Medium" FONTSIZE="9" FCOLOR="Red"/>
+        <STYLE NAME="Date-timeline" LINESPMode="0" LINESP="10" FONT="OSP_helvetica_serif Medium" FONTSIZE="8" FCOLOR="Red" LANGUAGE="English"/>
+        <STYLE NAME="Style 1" LINESPMode="1" LINESP="26" FIRST="0" FONT="FreeSans Medium" FONTSIZE="8" FCOLOR="Red"/>
+        <STYLE NAME="event titles" LINESPMode="0" LINESP="20" FONT="OSP_helvetica_serif Medium" FONTSIZE="18" FEATURES="allcaps" FCOLOR="Cyan" TXTSHX="5" TXTSHY="-5" TXTOUT="1" TXTULP="-0.1" TXTULW="-0.1" TXTSTP="-0.1" TXTSTW="-0.1" LANGUAGE="English"/>
+        <STYLE NAME="body text2" PARENT="body text" LINESPMode="0" LINESP="15" FONTSIZE="10"/>
+        <STYLE NAME="body text3" PARENT="body text" LINESPMode="0" LINESP="16" FONTSIZE="10"/>
+        <STYLE NAME="body text4" PARENT="body text" LINESPMode="0" LINESP="15" FONTSIZE="13"/>
+        <STYLE NAME="body text5" PARENT="body text" LINESPMode="0" LINESP="16" FONTSIZE="14"/>
+        <STYLE NAME="Copy of body text (1)" LINESPMode="0" LINESP="12" FONT="OSP_helvetica_serif Medium" FONTSIZE="10" FCOLOR="Cyan" LANGUAGE="English"/>
+        <STYLE NAME="Copy of event titles (1)" LINESPMode="1" FONT="OSP_helvetica_serif Medium" FONTSIZE="16" FEATURES="allcaps" FCOLOR="Red" TXTSHX="5" TXTSHY="-5" TXTOUT="1" TXTULP="-0.1" TXTULW="-0.1" TXTSTP="-0.1" TXTSTW="-0.1" LANGUAGE="English"/>
+        <CHARSTYLE CNAME="Default Character Style" DefaultStyle="1" FONT="Allan Bold" FONTSIZE="12" FEATURES="inherit" FCOLOR="Black" FSHADE="100" SCOLOR="Black" SSHADE="100" TXTSHX="5" TXTSHY="-5" TXTOUT="1" TXTULP="-0.1" TXTULW="-0.1" TXTSTP="-0.1" TXTSTW="-0.1" SCALEH="100" SCALEV="100" BASEO="0" KERN="0" LANGUAGE="English"/>
+        <CHARSTYLE CNAME="01" FONT="OSP_helvetica_serif Medium" FCOLOR="Cyan"/>
+        <CHARSTYLE CNAME="02" FONT="OSP_helvetica_serif Medium" FONTSIZE="13" FCOLOR="Cyan"/>
+        <CHARSTYLE CNAME="03" FONT="OSP_helvetica_serif Medium" FONTSIZE="14" FCOLOR="Cyan"/>
+        <CHARSTYLE CNAME="04" FONT="OSP_helvetica_serif Medium" FONTSIZE="15" FCOLOR="Cyan"/>
+        <CHARSTYLE CNAME="05" FONT="OSP_helvetica_serif Medium" FONTSIZE="16" FCOLOR="Cyan"/>
+        <CHARSTYLE CNAME="06" FONT="OSP_helvetica_serif Medium" FONTSIZE="17" FCOLOR="Cyan"/>
+        <CHARSTYLE CNAME="07" FONT="OSP_helvetica_serif Medium" FONTSIZE="18" FCOLOR="Cyan"/>
+        <CHARSTYLE CNAME="08" FONT="OSP_helvetica_serif Medium" FONTSIZE="19" FCOLOR="Cyan"/>
+        <CHARSTYLE CNAME="09" FONT="OSP_helvetica_serif Medium" FONTSIZE="20" FCOLOR="Cyan"/>
+        <LAYERS NUMMER="1" LEVEL="0" NAME="pagiantion" SICHTBAR="1" DRUCKEN="1" EDIT="1" FLOW="1" TRANS="1" BLEND="0" OUTL="0" LAYERC="#ff0000"/>
+        <LAYERS NUMMER="0" LEVEL="1" NAME="text" SICHTBAR="1" DRUCKEN="1" EDIT="1" FLOW="1" TRANS="1" BLEND="0" OUTL="0" LAYERC="#000000"/>
+        <LAYERS NUMMER="2" LEVEL="2" NAME="side line" SICHTBAR="1" DRUCKEN="1" EDIT="1" FLOW="1" TRANS="1" BLEND="0" OUTL="0" LAYERC="#00ff00"/>
+        <LAYERS NUMMER="3" LEVEL="3" NAME="pictures" SICHTBAR="1" DRUCKEN="1" EDIT="1" FLOW="1" TRANS="1" BLEND="0" OUTL="0" LAYERC="#0000ff"/>
+        <LAYERS NUMMER="4" LEVEL="4" NAME="motifs" SICHTBAR="1" DRUCKEN="1" EDIT="1" FLOW="1" TRANS="1" BLEND="0" OUTL="0" LAYERC="#00ffff"/>
+        <Printer firstUse="0" toFile="0" useAltPrintCommand="0" outputSeparations="0" useSpotColors="1" useColor="1" mirrorH="0" mirrorV="0" useICC="0" doGCR="0" doClip="0" setDevParam="0" useDocBleeds="1" cropMarks="0" bleedMarks="0" registrationMarks="0" colorMarks="0" includePDFMarks="1" PSLevel="3" PDLanguage="3" markOffset="0" BleedTop="0" BleedLeft="0" BleedRight="0" BleedBottom="0" printer="Generic-CUPS-PDF-Printer" filename="" separationName="All" printerCommand="">
+            <Separation Name="Cyan"/>
+            <Separation Name="Magenta"/>
+            <Separation Name="Yellow"/>
+            <Separation Name="Black"/>
+        </Printer>
+        <PDF firstUse="0" Thumbnails="0" Articles="0" Bookmarks="0" Compress="1" CMethod="0" Quality="0" MirrorH="0" MirrorV="0" Clip="0" RotateDeg="0" PresentMode="0" RecalcPic="0" Grayscale="0" RGBMode="0" UseProfiles="0" UseProfiles2="0" Binding="0" PicRes="300" Resolution="300" Version="14" Intent="1" Intent2="0" SolidP="ECI-RGB.icc" ImageP="ECI-RGB.icc" PrintP="Fogra27L CMYK Coated Press" InfoString="" BTop="0" BLeft="0" BRight="0" BBottom="0" useDocBleeds="1" cropMarks="0" bleedMarks="0" registrationMarks="0" colorMarks="0" docInfoMarks="0" markOffset="0" ImagePr="0" PassOwner="" PassUser="" Permissions="-4" Encrypt="0" UseLayers="0" UseLpi="0" UseSpotColors="1" doMultiFile="0" displayBookmarks="0" displayFullscreen="0" displayLayers="0" displayThumbs="0" hideMenuBar="0" hideToolBar="0" fitWindow="0" PageLayout="0" openAction="">
+            <Fonts Name="Allan Bold"/>
+            <Subset Name="FreeSans Medium"/>
+            <Subset Name="OSP_helvetica_serif Medium"/>
+            <Effekte pageEffectDuration="1" pageViewDuration="1" effectType="0" Dm="0" M="0" Di="0"/>
+            <Effekte pageEffectDuration="1" pageViewDuration="1" effectType="0" Dm="0" M="0" Di="0"/>
+            <Effekte pageEffectDuration="1" pageViewDuration="1" effectType="0" Dm="0" M="0" Di="0"/>
+            <Effekte pageEffectDuration="1" pageViewDuration="1" effectType="0" Dm="0" M="0" Di="0"/>
+            <Effekte pageEffectDuration="1" pageViewDuration="1" effectType="0" Dm="0" M="0" Di="0"/>
+            <Effekte pageEffectDuration="1" pageViewDuration="1" effectType="0" Dm="0" M="0" Di="0"/>
+            <Effekte pageEffectDuration="1" pageViewDuration="1" effectType="0" Dm="0" M="0" Di="0"/>
+            <LPI Color="" Frequency="10" Angle="0" SpotFunction="0"/>
+            <LPI Color="Black" Frequency="133" Angle="45" SpotFunction="3"/>
+            <LPI Color="Cyan" Frequency="133" Angle="105" SpotFunction="3"/>
+            <LPI Color="Magenta" Frequency="133" Angle="75" SpotFunction="3"/>
+            <LPI Color="Yellow" Frequency="133" Angle="90" SpotFunction="3"/>
+        </PDF>
+        <DocItemAttributes/>
+        <TablesOfContents/>
+        <PageSets>
+            <Set Name="Single Page" FirstPage="0" Rows="1" Columns="1"/>
+            <Set Name="Double Sided" FirstPage="1" Rows="1" Columns="2">
+                <PageNames Name="Left Page"/>
+                <PageNames Name="Right Page"/>
+            </Set>
+            <Set Name="3-Fold" FirstPage="0" Rows="1" Columns="3">
+                <PageNames Name="Left Page"/>
+                <PageNames Name="Middle"/>
+                <PageNames Name="Right Page"/>
+            </Set>
+            <Set Name="4-Fold" FirstPage="0" Rows="1" Columns="4">
+                <PageNames Name="Left Page"/>
+                <PageNames Name="Middle Left"/>
+                <PageNames Name="Middle Right"/>
+                <PageNames Name="Right Page"/>
+            </Set>
+        </PageSets>
+        <Sections>
+            <Section Number="0" Name="0" From="0" To="6" Type="Type_1_2_3" Start="1" Reversed="0" Active="1"/>
+        </Sections>
+        <MASTERPAGE PAGEXPOS="100.00062992126" PAGEYPOS="20.0012598425197" PAGEWIDTH="595.28125984252" PAGEHEIGHT="841.889763779528" BORDERLEFT="40" BORDERRIGHT="40" BORDERTOP="40" BORDERBOTTOM="40" NUM="0" NAM="Normal" MNAM="" Size="A4" Orientation="0" LEFT="0" PRESET="0" VerticalGuides="" HorizontalGuides="" AGhorizontalAutoGap="0" AGverticalAutoGap="0" AGhorizontalAutoCount="0" AGverticalAutoCount="0" AGhorizontalAutoRefer="0" AGverticalAutoRefer="0" AGSelection="0 0 0 0"/>
+        <MASTERPAGE PAGEXPOS="100.00062992126" PAGEYPOS="20.0012598425197" PAGEWIDTH="595.275590551181" PAGEHEIGHT="841.889763779528" BORDERLEFT="40" BORDERRIGHT="40" BORDERTOP="40" BORDERBOTTOM="40" NUM="1" NAM="seb-page" MNAM="" Size="A4" Orientation="0" LEFT="0" PRESET="0" VerticalGuides="" HorizontalGuides="420.945 " AGhorizontalAutoGap="0" AGverticalAutoGap="0" AGhorizontalAutoCount="0" AGverticalAutoCount="0" AGhorizontalAutoRefer="0" AGverticalAutoRefer="0" AGSelection="0 0 0 0"/>
+        <PAGE PAGEXPOS="100.00062992126" PAGEYPOS="20.0012598425197" PAGEWIDTH="595.275590551181" PAGEHEIGHT="841.889763779528" BORDERLEFT="40" BORDERRIGHT="40" BORDERTOP="40" BORDERBOTTOM="40" NUM="0" NAM="" MNAM="Normal" Size="A4" Orientation="0" LEFT="0" PRESET="0" VerticalGuides="" HorizontalGuides="420.945 " AGhorizontalAutoGap="0" AGverticalAutoGap="0" AGhorizontalAutoCount="0" AGverticalAutoCount="0" AGhorizontalAutoRefer="0" AGverticalAutoRefer="0" AGSelection="0 0 0 0"/>
+        <PAGE PAGEXPOS="100.00062992126" PAGEYPOS="901.890708661418" PAGEWIDTH="595.28125984252" PAGEHEIGHT="841.889763779528" BORDERLEFT="40" BORDERRIGHT="40" BORDERTOP="40" BORDERBOTTOM="40" NUM="1" NAM="" MNAM="seb-page" Size="A4" Orientation="0" LEFT="0" PRESET="0" VerticalGuides="" HorizontalGuides="420.945 " AGhorizontalAutoGap="0" AGverticalAutoGap="0" AGhorizontalAutoCount="0" AGverticalAutoCount="0" AGhorizontalAutoRefer="0" AGverticalAutoRefer="0" AGSelection="0 0 0 0"/>
+        <PAGE PAGEXPOS="100.00062992126" PAGEYPOS="1783.78015748032" PAGEWIDTH="595.28125984252" PAGEHEIGHT="841.889763779528" BORDERLEFT="40" BORDERRIGHT="40" BORDERTOP="40" BORDERBOTTOM="40" NUM="2" NAM="" MNAM="seb-page" Size="A4" Orientation="0" LEFT="0" PRESET="0" VerticalGuides="" HorizontalGuides="420.945 " AGhorizontalAutoGap="0" AGverticalAutoGap="0" AGhorizontalAutoCount="0" AGverticalAutoCount="0" AGhorizontalAutoRefer="0" AGverticalAutoRefer="0" AGSelection="0 0 0 0"/>
+        <PAGE PAGEXPOS="100.00062992126" PAGEYPOS="2665.66960629921" PAGEWIDTH="595.28125984252" PAGEHEIGHT="841.889763779528" BORDERLEFT="40" BORDERRIGHT="40" BORDERTOP="40" BORDERBOTTOM="40" NUM="3" NAM="" MNAM="seb-page" Size="A4" Orientation="0" LEFT="0" PRESET="0" VerticalGuides="" HorizontalGuides="420.945 " AGhorizontalAutoGap="0" AGverticalAutoGap="0" AGhorizontalAutoCount="0" AGverticalAutoCount="0" AGhorizontalAutoRefer="0" AGverticalAutoRefer="0" AGSelection="0 0 0 0"/>
+        <PAGE PAGEXPOS="100.00062992126" PAGEYPOS="3547.55905511811" PAGEWIDTH="595.28125984252" PAGEHEIGHT="841.889763779528" BORDERLEFT="40" BORDERRIGHT="40" BORDERTOP="40" BORDERBOTTOM="40" NUM="4" NAM="" MNAM="seb-page" Size="A4" Orientation="0" LEFT="0" PRESET="0" VerticalGuides="" HorizontalGuides="420.945 " AGhorizontalAutoGap="0" AGverticalAutoGap="0" AGhorizontalAutoCount="0" AGverticalAutoCount="0" AGhorizontalAutoRefer="0" AGverticalAutoRefer="0" AGSelection="0 0 0 0"/>
+        <PAGE PAGEXPOS="100.00062992126" PAGEYPOS="4429.44850393701" PAGEWIDTH="595.28125984252" PAGEHEIGHT="841.889763779528" BORDERLEFT="40" BORDERRIGHT="40" BORDERTOP="40" BORDERBOTTOM="40" NUM="5" NAM="" MNAM="seb-page" Size="A4" Orientation="0" LEFT="0" PRESET="0" VerticalGuides="" HorizontalGuides="420.945 " AGhorizontalAutoGap="0" AGverticalAutoGap="0" AGhorizontalAutoCount="0" AGverticalAutoCount="0" AGhorizontalAutoRefer="0" AGverticalAutoRefer="0" AGSelection="0 0 0 0"/>
+        <PAGE PAGEXPOS="100.00062992126" PAGEYPOS="5311.33795275591" PAGEWIDTH="595.28125984252" PAGEHEIGHT="841.889763779528" BORDERLEFT="40" BORDERRIGHT="40" BORDERTOP="40" BORDERBOTTOM="40" NUM="6" NAM="" MNAM="seb-page" Size="A4" Orientation="0" LEFT="0" PRESET="0" VerticalGuides="" HorizontalGuides="420.945 " AGhorizontalAutoGap="0" AGverticalAutoGap="0" AGhorizontalAutoCount="0" AGverticalAutoCount="0" AGhorizontalAutoRefer="0" AGverticalAutoRefer="0" AGSelection="0 0 0 0"/>
+        <MASTEROBJECT OwnPage="1" PTYPE="4" XPOS="140.00062992126" YPOS="60.0012598425197" WIDTH="515.28125984252" HEIGHT="761.889763779528" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PCOLOR="None" PCOLOR2="None" TXTFILL="Black" TXTSTROKE="Black" TXTSTRSH="100" TXTFILLSH="100" TXTSCALE="100" TXTSCALEV="100" TXTBASE="0" TXTSHX="5" TXTSHY="-5" TXTOUT="1" TXTULP="-0.1" TXTULW="-0.1" TXTSTP="-0.1" TXTSTW="-0.1" COLUMNS="1" COLGAP="3.881" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="0" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LINESP="15" LINESPMode="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" IFONT="Allan Bold" ISIZE="12" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 515.281 0 515.281 0 515.281 0 515.281 0 515.281 761.89 515.281 761.89 515.281 761.89 515.281 761.89 0 761.89 0 761.89 0 761.89 0 761.89 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 515.281 0 515.281 0 515.281 0 515.281 0 515.281 761.89 515.281 761.89 515.281 761.89 515.281 761.89 0 761.89 0 761.89 0 761.89 0 761.89 0 0 0 0 " NUMGROUP="0" GROUPS="" startArrowIndex="0" endArrowIndex="0" OnMasterPage="seb-page" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" ALIGN="0" LAYER="0" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <trail/>
+            <PageItemAttributes/>
+        </MASTEROBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="6" XPOS="589.429921052677" YPOS="82.2402758088131" WIDTH="69.241338811109" HEIGHT="316.320039133235" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="0" PCOLOR="None" PCOLOR2="Black" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="0" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="Group9" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="1" groupsLastItem="6" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 69.2413 0 69.2413 0 69.2413 0 69.2413 0 69.2413 316.32 69.2413 316.32 69.2413 316.32 69.2413 316.32 0 316.32 0 316.32 0 316.32 0 316.32 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 69.2413 0 69.2413 0 69.2413 0 69.2413 0 69.2413 316.32 69.2413 316.32 69.2413 316.32 69.2413 316.32 0 316.32 0 316.32 0 316.32 0 316.32 0 0 0 0 " NUMGROUP="1" GROUPS="1 " startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" LAYER="1" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <trail/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="4" XPOS="636.725039382677" YPOS="86.749291342048" WIDTH="311.8110236" HEIGHT="47.29511833" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PCOLOR="None" PCOLOR2="None" TXTFILL="Red" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="-270" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" ISIZE="8" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 311.811 0 311.811 0 311.811 0 311.811 0 311.811 47.2951 311.811 47.2951 311.811 47.2951 311.811 47.2951 0 47.2951 0 47.2951 0 47.2951 0 47.2951 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 311.811 0 311.811 0 311.811 0 311.811 0 311.811 47.2951 311.811 47.2951 311.811 47.2951 311.811 47.2951 0 47.2951 0 47.2951 0 47.2951 0 47.2951 0 0 0 0 " NUMGROUP="1" GROUPS="1 " startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="47.29511833" gYpos="4.50901553323499" gWidth="69.241338811109" gHeight="316.320039133235" LAYER="1" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <ITEXT CH="Captured SPACE, an immersive listening"/>
+            <trail PARENT="event titles" FONTSIZE="8" FCOLOR="Red"/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="4" XPOS="654.36811023622" YPOS="212.733543307087" WIDTH="90" HEIGHT="16.3148033678312" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PCOLOR="None" PCOLOR2="None" TXTFILL="Red" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="-270" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 90 0 90 0 90 0 90 0 90 16.3148 90 16.3148 90 16.3148 90 16.3148 0 16.3148 0 16.3148 0 16.3148 0 16.3148 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 90 0 90 0 90 0 90 0 90 16.3148 90 16.3148 90 16.3148 90 16.3148 0 16.3148 0 16.3148 0 16.3148 0 16.3148 0 0 0 0 " NUMGROUP="1" GROUPS="1 " startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="64.938189183543" gYpos="130.493267498274" gWidth="69.241338811109" gHeight="316.320039133235" LAYER="1" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <ITEXT CH="Eric La Casa (F)"/>
+            <trail PARENT="body text" FONTSIZE="10" FCOLOR="Red"/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="4" XPOS="654.394330708661" YPOS="85.402834645669" WIDTH="125.135196850394" HEIGHT="15.8955120292485" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PCOLOR="None" PCOLOR2="None" TXTFILL="Red" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="-270" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 125.135 0 125.135 0 125.135 0 125.135 0 125.135 15.8955 125.135 15.8955 125.135 15.8955 125.135 15.8955 0 15.8955 0 15.8955 0 15.8955 0 15.8955 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 125.135 0 125.135 0 125.135 0 125.135 0 125.135 15.8955 125.135 15.8955 125.135 15.8955 125.135 15.8955 0 15.8955 0 15.8955 0 15.8955 0 15.8955 0 0 0 0 " NUMGROUP="1" GROUPS="1 " startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="64.964409655984" gYpos="3.16255883685599" gWidth="69.241338811109" gHeight="316.320039133235" LAYER="1" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <ITEXT CH=" Philip Samartzis (AUS)"/>
+            <trail PARENT="body text" FONTSIZE="10" FCOLOR="Red"/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="6" XPOS="641.584645669291" YPOS="82.6733466749181" WIDTH="229.629802931381" HEIGHT="17.2244094488189" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="0.850393700787402" PCOLOR="None" PCOLOR2="Red" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="-270" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 229.63 0 229.63 0 229.63 0 229.63 0 229.63 17.2244 229.63 17.2244 229.63 17.2244 229.63 17.2244 0 17.2244 0 17.2244 0 17.2244 0 17.2244 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 229.63 0 229.63 0 229.63 0 229.63 0 229.63 17.2244 229.63 17.2244 229.63 17.2244 229.63 17.2244 0 17.2244 0 17.2244 0 17.2244 0 17.2244 0 0 0 0 " NUMGROUP="1" GROUPS="1 " startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="52.1547246166141" gYpos="0.433070866104998" gWidth="69.241338811109" gHeight="316.320039133235" LAYER="1" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <trail/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="6" XPOS="657.86811025748" YPOS="208.665472663465" WIDTH="92.5748031283402" HEIGHT="16.4576771610533" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="0.8503937008" PCOLOR="None" PCOLOR2="Red" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="-270" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 92.5748 0 92.5748 0 92.5748 0 92.5748 0 92.5748 16.4577 92.5748 16.4577 92.5748 16.4577 92.5748 16.4577 0 16.4577 0 16.4577 0 16.4577 0 16.4577 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 92.5748 0 92.5748 0 92.5748 0 92.5748 0 92.5748 16.4577 92.5748 16.4577 92.5748 16.4577 92.5748 16.4577 0 16.4577 0 16.4577 0 16.4577 0 16.4577 0 0 0 0 " NUMGROUP="1" GROUPS="1 " startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="68.4381892048031" gYpos="126.425196854652" gWidth="69.241338811109" gHeight="316.320039133235" LAYER="1" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <trail/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="6" XPOS="658.246063013386" YPOS="82.6654726592131" WIDTH="125.781496041726" HEIGHT="16.45767716" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="0.8503937008" PCOLOR="None" PCOLOR2="Red" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="-270" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 125.781 0 125.781 0 125.781 0 125.781 0 125.781 16.4577 125.781 16.4577 125.781 16.4577 125.781 16.4577 0 16.4577 0 16.4577 0 16.4577 0 16.4577 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 125.781 0 125.781 0 125.781 0 125.781 0 125.781 16.4577 125.781 16.4577 125.781 16.4577 125.781 16.4577 0 16.4577 0 16.4577 0 16.4577 0 16.4577 0 0 0 0 " NUMGROUP="1" GROUPS="1 " startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="68.816141960709" gYpos="0.425196850399999" gWidth="69.241338811109" gHeight="316.320039133235" LAYER="1" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <trail/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="4" XPOS="132.892369118192" YPOS="223.637040835529" WIDTH="31.9782561046654" HEIGHT="22.2132919563214" RADRECT="0" FRTYPE="0" CLIPEDIT="1" PWIDTH="3.27474559568743" PCOLOR="None" PCOLOR2="None" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="-270" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" ISIZE="15" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 31.9783 0 31.9783 0 31.9783 0 31.9783 0 31.9783 22.2133 31.9783 22.2133 31.9783 22.2133 31.9783 22.2133 0 22.2133 0 22.2133 0 22.2133 0 22.2133 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 31.9783 0 31.9783 0 31.9783 0 31.9783 0 31.9783 22.2133 31.9783 22.2133 31.9783 22.2133 31.9783 22.2133 0 22.2133 0 22.2133 0 22.2133 0 22.2133 0 0 0 0 " NUMGROUP="0" GROUPS="" startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="27.9451802572473" gYpos="30.3933970915839" gWidth="40.9154099113103" gHeight="79.8298639981618" LAYER="1" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <ITEXT CH="12"/>
+            <trail PARENT="Style 1" FONTSIZE="15"/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="4" XPOS="132.215203735434" YPOS="625.125229813937" WIDTH="31.9782561" HEIGHT="22.21329196" RADRECT="0" FRTYPE="0" CLIPEDIT="1" PWIDTH="3.274745596" PCOLOR="None" PCOLOR2="None" TXTFILL="Red" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="-270" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" IFONT="FreeSans Medium" ISIZE="15" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 31.9783 0 31.9783 0 31.9783 0 31.9783 0 31.9783 22.2133 31.9783 22.2133 31.9783 22.2133 31.9783 22.2133 0 22.2133 0 22.2133 0 22.2133 0 22.2133 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 31.9783 0 31.9783 0 31.9783 0 31.9783 0 31.9783 22.2133 31.9783 22.2133 31.9783 22.2133 31.9783 22.2133 0 22.2133 0 22.2133 0 22.2133 0 22.2133 0 0 0 0 " NUMGROUP="0" GROUPS="" startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="27.94518022215" gYpos="33.228042761442" gWidth="40.9154099143" gHeight="79.8298639943" LAYER="1" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <ITEXT CH="13"/>
+            <trail FONT="FreeSans Medium" FCOLOR="Red"/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="4" XPOS="140.315590551181" YPOS="59.1036220472441" WIDTH="212.59842519685" HEIGHT="367.646377952756" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PCOLOR="None" PCOLOR2="None" COLUMNS="1" COLGAP="3.881" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="0" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LINESPMode="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="1" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 212.598 0 212.598 0 212.598 0 212.598 0 212.598 367.646 212.598 367.646 212.598 367.646 212.598 367.646 0 367.646 0 367.646 0 367.646 0 367.646 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 212.598 0 212.598 0 212.598 0 212.598 0 212.598 367.646 212.598 367.646 212.598 367.646 212.598 367.646 0 367.646 0 367.646 0 367.646 0 367.646 0 0 0 0 " NUMGROUP="0" GROUPS="" startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" ALIGN="0" LAYER="0" BOOKMARK="0" NEXTITEM="10" BACKITEM="-1">
+            <ITEXT FONTSIZE="8" CH="Eric La "/>
+            <ITEXT FONTSIZE="8.1" CH="Casa is a sound arti"/>
+            <ITEXT FONTSIZE="8.2" CH="st based in Par­is. Z"/>
+            <ITEXT FONTSIZE="8.3" CH="ijn in­teresse voor o"/>
+            <ITEXT FONTSIZE="8.4" CH="mgev­ings­gelu­iden bre"/>
+            <ITEXT FONTSIZE="8.5" CH="ngt hem mid­den jar­en"/>
+            <ITEXT FONTSIZE="8.6" CH=" '90 tot het creëren"/>
+            <ITEXT FONTSIZE="8.7" CH=" van gelu­idsin­stall­a"/>
+            <ITEXT FONTSIZE="8.8" CH="ties en -omgevin­gen "/>
+            <ITEXT FONTSIZE="8.9" CH="vol­gens pro­ced­ures d"/>
+            <ITEXT FONTSIZE="9" CH="ie in situ vorm krij­"/>
+            <ITEXT FONTSIZE="9.1" CH="gen, in func­tie van "/>
+            <ITEXT FONTSIZE="9.2" CH="de omgev­ing. Ver­trek"/>
+            <ITEXT FONTSIZE="9.3" CH="kende van zijn vel­do"/>
+            <ITEXT FONTSIZE="9.4" CH="p­names maakt Eric La"/>
+            <ITEXT FONTSIZE="9.5" CH=" Casa even­eens muzie"/>
+            <ITEXT FONTSIZE="9.6" CH="k stukken.Eric La C"/>
+            <ITEXT FONTSIZE="9.7" CH="asa is een gelu­id­sku"/>
+            <ITEXT FONTSIZE="9.8" CH="n­sten­aar die woont e"/>
+            <ITEXT FONTSIZE="9.9" CH="n werkt in Par­ijs. Z"/>
+            <ITEXT FONTSIZE="10" CH="ijn in­teresse voor o"/>
+            <ITEXT FONTSIZE="10.1" CH="mgev­ings­gelu­iden bre"/>
+            <ITEXT FONTSIZE="10.2" CH="ngt hem mid­den jar­en"/>
+            <ITEXT FONTSIZE="10.3" CH=" '90 tot het creëren"/>
+            <ITEXT FONTSIZE="10.4" CH=" van gelu­idsin­stall­a"/>
+            <ITEXT FONTSIZE="10.5" CH="ties en -omgevin­gen "/>
+            <ITEXT FONTSIZE="10.6" CH="vol­gens pro­ced­ures d"/>
+            <ITEXT FONTSIZE="10.7" CH="ie in situ vorm krij­"/>
+            <ITEXT FONTSIZE="10.8" CH="gen, in func­tie van "/>
+            <ITEXT FONTSIZE="10.9" CH="de omgev­ing. Ver­trek"/>
+            <ITEXT FONTSIZE="11" CH="kende van zijn vel­do"/>
+            <ITEXT FONTSIZE="11.1" CH="p­names maakt Eric La"/>
+            <ITEXT FONTSIZE="11.2" CH=" Casa even­eens muzie"/>
+            <ITEXT FONTSIZE="11.3" CH="k­stukken.Eric La Ca"/>
+            <ITEXT FONTSIZE="11.4" CH="sa est un ar­tiste so"/>
+            <ITEXT FONTSIZE="11.5" CH="n­ore basé à Par­is. D"/>
+            <ITEXT FONTSIZE="11.6" CH="epuis le mi­lieu des "/>
+            <ITEXT FONTSIZE="11.7" CH="an­nées ‘90, à l’écou"/>
+            <ITEXT FONTSIZE="11.8" CH="te de l’en­viron­nemen"/>
+            <ITEXT FONTSIZE="11.9" CH="t, Eric La Casa crée"/>
+            <ITEXT FONTSIZE="12" CH=" des formes (d’at­ten­"/>
+            <ITEXT FONTSIZE="12.1" CH="tion) qui s’in­sinu­en"/>
+            <ITEXT FONTSIZE="12.2" CH="t dans les sites, dé"/>
+            <ITEXT FONTSIZE="12.3" CH="veloppe ain­si des in­"/>
+            <ITEXT FONTSIZE="12.4" CH="stall­a­tions et en­vir"/>
+            <ITEXT FONTSIZE="12.5" CH="on­ne­ments son­ores, s"/>
+            <ITEXT FONTSIZE="12.6" CH="elon des pro­to­coles "/>
+            <ITEXT FONTSIZE="12.7" CH="qui s’élaborent in-s"/>
+            <ITEXT FONTSIZE="12.8" CH="itu au plus prés du "/>
+            <ITEXT FONTSIZE="12.9" CH="ter­rain et réal­ise d"/>
+            <ITEXT FONTSIZE="13" CH="es pièces mu­sicales,"/>
+            <ITEXT FONTSIZE="13.1" CH=" unique­ment com­posée"/>
+            <ITEXT FONTSIZE="13.2" CH="s à partir de ses en­"/>
+            <ITEXT FONTSIZE="13.3" CH="re­gis­tre­ments de ter­"/>
+            <ITEXT FONTSIZE="13.4" CH="rain.Philip Samartz"/>
+            <ITEXT FONTSIZE="13.5" CH="is is a sound artist"/>
+            <ITEXT FONTSIZE="13.6" CH=" and aca­dem­ic based "/>
+            <ITEXT FONTSIZE="13.7" CH="in Mel­bourne with a "/>
+            <ITEXT FONTSIZE="13.8" CH="par­tic­u­lar in­terest "/>
+            <ITEXT FONTSIZE="13.9" CH="in field re­cord­ing, "/>
+            <ITEXT FONTSIZE="14" CH="mu­sique con­crete and "/>
+            <ITEXT FONTSIZE="13.9" CH="sur­round sound spa­ti"/>
+            <ITEXT FONTSIZE="13.8" CH="al­isa­tion. He leads "/>
+            <ITEXT FONTSIZE="13.7" CH="the sound de­part­ment"/>
+            <ITEXT FONTSIZE="13.6" CH=" at RMIT uni­ver­siy i"/>
+            <ITEXT FONTSIZE="13.5" CH="n Mel­bourne where he"/>
+            <ITEXT FONTSIZE="13.4" CH=" teaches sound art a"/>
+            <ITEXT FONTSIZE="13.3" CH="nd spa­tial­isa­tion. H"/>
+            <ITEXT FONTSIZE="13.2" CH="e has ex­hib­ited na­ti"/>
+            <ITEXT FONTSIZE="13.1" CH="on­ally and in­ter­na­ti"/>
+            <ITEXT FONTSIZE="13" CH="on­ally. Samartzis ha"/>
+            <ITEXT FONTSIZE="12.9" CH="s pub­lished solo com­"/>
+            <ITEXT FONTSIZE="12.8" CH="pact discs - last on"/>
+            <ITEXT FONTSIZE="12.7" CH="e is Un­heard Spaces "/>
+            <ITEXT FONTSIZE="12.6" CH="(2006) - and has per­"/>
+            <ITEXT FONTSIZE="12.5" CH="formed and re­cor­ded "/>
+            <ITEXT FONTSIZE="12.4" CH="with lead­ing in­ter­na­"/>
+            <ITEXT FONTSIZE="12.3" CH="tion­al im­pro­visers a"/>
+            <ITEXT FONTSIZE="12.2" CH="nd mu­si­cians. Samart"/>
+            <ITEXT FONTSIZE="12.1" CH="zis uses field re­cor"/>
+            <ITEXT FONTSIZE="12" CH="d­ings of nat­ur­al and"/>
+            <ITEXT FONTSIZE="11.9" CH=" con­struc­ted en­vir­on­"/>
+            <ITEXT FONTSIZE="11.8" CH="ments as his primary"/>
+            <ITEXT FONTSIZE="11.7" CH=" ma­ter­i­al to render "/>
+            <ITEXT FONTSIZE="11.6" CH="dens­it­ies of space a"/>
+            <ITEXT FONTSIZE="11.5" CH="nd dis­crete zones of"/>
+            <ITEXT FONTSIZE="11.4" CH=" aur­al ex­per­i­ence, a"/>
+            <ITEXT FONTSIZE="11.3" CH="r­ranged and mixed to"/>
+            <ITEXT FONTSIZE="11.2" CH=" re­flect the acous­ti"/>
+            <ITEXT FONTSIZE="11.1" CH="c and spa­tial com­ple"/>
+            <ITEXT FONTSIZE="11" CH="x­it­ies of every­day s"/>
+            <ITEXT FONTSIZE="10.9" CH="ound fields. As an i"/>
+            <ITEXT FONTSIZE="10.8" CH="n­de­pend­ant cur­at­or h"/>
+            <ITEXT FONTSIZE="10.7" CH="e has or­gan­ized sev­e"/>
+            <ITEXT FONTSIZE="10.6" CH="r­al events fo­cus­ing "/>
+            <ITEXT FONTSIZE="10.5" CH="on the the­ory and pr"/>
+            <ITEXT FONTSIZE="10.4" CH="ac­tice of sound art "/>
+            <ITEXT FONTSIZE="10.3" CH="and sound spa­tial­isa­"/>
+            <ITEXT FONTSIZE="10.2" CH="tion.Philip Samartz"/>
+            <ITEXT FONTSIZE="10.1" CH="is is "/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="10.1" CH="een klankkun­s"/>
+            <ITEXT FONTSIZE="10" CH="ten­aar en aca­demicus"/>
+            <ITEXT FONTSIZE="9.9" CH=", met thuis­bas­is Mel­"/>
+            <ITEXT FONTSIZE="9.8" CH="bourne met in­teresse"/>
+            <ITEXT FONTSIZE="9.7" CH=" voor field re­cord­in"/>
+            <ITEXT FONTSIZE="9.6" CH="g, mu­sique con­crète,"/>
+            <ITEXT FONTSIZE="9.5" CH=" en sur­round sound s"/>
+            <ITEXT FONTSIZE="9.4" CH="pa­tial­isa­tion. Hij l"/>
+            <ITEXT FONTSIZE="9.3" CH="eidt het klank­de­part"/>
+            <ITEXT FONTSIZE="9.2" CH="e­ment aan de RMIT un"/>
+            <ITEXT FONTSIZE="9.1" CH="i­versiteit in Mel­bou"/>
+            <ITEXT FONTSIZE="9" CH="rne waar hij klankku"/>
+            <ITEXT FONTSIZE="8.9" CH="nst en spa­tial­isa­tie"/>
+            <ITEXT FONTSIZE="8.8" CH=" do­ceert. Zow­el in A"/>
+            <ITEXT FONTSIZE="8.7" CH="us­tralië als in het "/>
+            <ITEXT FONTSIZE="8.6" CH="buiten­land stond zij"/>
+            <ITEXT FONTSIZE="8.5" CH="n werk reeds tentoon"/>
+            <ITEXT FONTSIZE="8.4" CH=". Als so­loarti­est br"/>
+            <ITEXT FONTSIZE="8.3" CH="a­cht hij twee cd’s u"/>
+            <ITEXT FONTSIZE="8.2" CH="it – Un­heard Spaces "/>
+            <ITEXT FONTSIZE="8.1" CH="(2006) vormt zijn me"/>
+            <ITEXT FONTSIZE="8" CH="est re­cente werk – en"/>
+            <ITEXT FONTSIZE="8.1" CH=" real­iseerde hij per­"/>
+            <ITEXT FONTSIZE="8.2" CH="form­ances en op­names"/>
+            <ITEXT FONTSIZE="8.3" CH=" met toon­aangevende "/>
+            <ITEXT FONTSIZE="8.4" CH="in­ter­na­tionale muzik­"/>
+            <ITEXT FONTSIZE="8.5" CH="anten en im­pro­visato"/>
+            <ITEXT FONTSIZE="8.6" CH="ren. Samartzis maakt"/>
+            <ITEXT FONTSIZE="8.7" CH=" gebruik van field r"/>
+            <ITEXT FONTSIZE="8.8" CH="e­cord­ings van au­then­"/>
+            <ITEXT FONTSIZE="8.9" CH="tieke of ge­con­struee"/>
+            <ITEXT FONTSIZE="9" CH="rde omgevin­gen als b"/>
+            <ITEXT FONTSIZE="9.1" CH="asisma­ter­i­aal om de "/>
+            <ITEXT FONTSIZE="9.2" CH="akoes­tische en ruimt"/>
+            <ITEXT FONTSIZE="9.3" CH="elijke com­plex­iteit "/>
+            <ITEXT FONTSIZE="9.4" CH="van al­ledaagse sound"/>
+            <ITEXT FONTSIZE="9.5" CH=" fields weer te geve"/>
+            <ITEXT FONTSIZE="9.6" CH="n. Als on­af­hankelijk"/>
+            <ITEXT FONTSIZE="9.7" CH=" cur­at­or or­gan­iseerd"/>
+            <ITEXT FONTSIZE="9.8" CH="e hij reeds ver­schil­"/>
+            <ITEXT FONTSIZE="9.9" CH="lende events gewijd "/>
+            <ITEXT FONTSIZE="10" CH="aan de the­or­ie en pr"/>
+            <ITEXT FONTSIZE="10.1" CH="ak­tijk van klankkuns"/>
+            <ITEXT FONTSIZE="10.2" CH="t en sound "/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="10.2" CH="spa­tial­i"/>
+            <ITEXT FONTSIZE="10.3" CH="sa­tion.Philip Samar"/>
+            <ITEXT FONTSIZE="10.4" CH="tzis est un ar­tiste "/>
+            <ITEXT FONTSIZE="10.5" CH="son­ore et pro­fes­seur"/>
+            <ITEXT FONTSIZE="10.6" CH=" in­stallé à Mel­bourn"/>
+            <ITEXT FONTSIZE="10.7" CH="e, présent­ant un in­t"/>
+            <ITEXT FONTSIZE="10.8" CH="érêt par­ticuli­er pou"/>
+            <ITEXT FONTSIZE="10.9" CH="r le field re­cord­ing"/>
+            <ITEXT FONTSIZE="11" CH=", la mu­sique con­crèt"/>
+            <ITEXT FONTSIZE="11.1" CH="e et la spa­tial­isa­ti"/>
+            <ITEXT FONTSIZE="11.2" CH="on du son sur­round. "/>
+            <ITEXT FONTSIZE="11.3" CH="ll di­rige le dé­parte­"/>
+            <ITEXT FONTSIZE="11.4" CH="ment son de l’uni­ver"/>
+            <ITEXT FONTSIZE="11.5" CH="sité RMIT, à Mel­bour"/>
+            <ITEXT FONTSIZE="11.6" CH="ne où il en­sei­gne l’"/>
+            <ITEXT FONTSIZE="11.7" CH="art du son et la spa­"/>
+            <ITEXT FONTSIZE="11.8" CH="tial­isa­tion. Son tra"/>
+            <ITEXT FONTSIZE="11.9" CH="v­ail a été présenté "/>
+            <ITEXT FONTSIZE="12" CH="dans son pays, et in­"/>
+            <ITEXT FONTSIZE="12.1" CH="ter­na­tionale­ment. Sa"/>
+            <ITEXT FONTSIZE="12.2" CH="martzis a pub­lié des"/>
+            <ITEXT FONTSIZE="12.3" CH=" CD solo – le derni­e"/>
+            <ITEXT FONTSIZE="12.4" CH="r étant Un­heard Spac"/>
+            <ITEXT FONTSIZE="12.5" CH="es (2006) – et a par­"/>
+            <ITEXT FONTSIZE="12.6" CH="ti­cipé à des per­form­"/>
+            <ITEXT FONTSIZE="12.7" CH="ances et en­re­gis­tre­m"/>
+            <ITEXT FONTSIZE="12.8" CH="ents avec des mu­si­ci"/>
+            <ITEXT FONTSIZE="12.9" CH="ens et im­pro­visateur"/>
+            <ITEXT FONTSIZE="13" CH="s de pointe. Le maté"/>
+            <ITEXT FONTSIZE="13.1" CH="riau de base de Sama"/>
+            <ITEXT FONTSIZE="13.2" CH="rtzis est con­stitué "/>
+            <ITEXT FONTSIZE="13.3" CH="de field re­cord­ings "/>
+            <ITEXT FONTSIZE="13.4" CH="d’en­viron­ne­ments nat"/>
+            <ITEXT FONTSIZE="13.5" CH="urel ou con­stru­its -"/>
+            <ITEXT FONTSIZE="13.6" CH=" l’ob­jec­tif étant de"/>
+            <ITEXT FONTSIZE="13.7" CH=" rendre la dens­ité d"/>
+            <ITEXT FONTSIZE="13.8" CH="e l’es­pace et des zo"/>
+            <ITEXT FONTSIZE="13.9" CH="nes dis­crètes d’ex­pé"/>
+            <ITEXT FONTSIZE="14" CH="ri­ence audit­ive - ar­r"/>
+            <ITEXT FONTSIZE="13.9" CH="angés et mixés, afin"/>
+            <ITEXT FONTSIZE="13.8" CH=" de re­fléter les com­"/>
+            <ITEXT FONTSIZE="13.7" CH="plex­ités acous­tiques"/>
+            <ITEXT FONTSIZE="13.6" CH=" et spa­tiales des ch"/>
+            <ITEXT FONTSIZE="13.5" CH="amps son­ores quo­ti­di­"/>
+            <ITEXT FONTSIZE="13.4" CH="ens. "/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="13.4" CH="En tant que cu"/>
+            <ITEXT FONTSIZE="13.3" CH="r­at­eur in­dépend­ant, "/>
+            <ITEXT FONTSIZE="13.2" CH="il a égale­ment or­gan­"/>
+            <ITEXT FONTSIZE="13.1" CH="isé de nom­breux évèn"/>
+            <ITEXT FONTSIZE="13" CH="e­ments, se con­centra"/>
+            <ITEXT FONTSIZE="12.9" CH="nt sur la théor­ie et"/>
+            <ITEXT FONTSIZE="12.8" CH=" la pratique de l'ar"/>
+            <ITEXT FONTSIZE="12.7" CH="t son­ore et la spa­ti"/>
+            <ITEXT FONTSIZE="12.6" CH="al­isa­tion du son."/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="12.6" CH="ht­"/>
+            <ITEXT FONTSIZE="12.5" CH="tp://mi­cro­phon­ics."/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="12.5" CH="T"/>
+            <ITEXT FONTSIZE="12.4" CH="he in­flu­ences of the"/>
+            <ITEXT FONTSIZE="12.3" CH=" loc­ale"/>
+            <tab FONTSIZE="12.3"/>
+            <ITEXT FONTSIZE="12.3" CH=" "/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="12.3" CH="The propag"/>
+            <ITEXT FONTSIZE="12.2" CH="a­tion of sound in a "/>
+            <ITEXT FONTSIZE="12.1" CH="loc­ale is a com­plex "/>
+            <ITEXT FONTSIZE="12" CH="vi­brat­ory / un­du­lat­o"/>
+            <ITEXT FONTSIZE="11.9" CH="ry phe­nomen­on which "/>
+            <ITEXT FONTSIZE="11.8" CH="in­volves acous­tic me"/>
+            <ITEXT FONTSIZE="11.7" CH="as­ure­ment just as mu"/>
+            <ITEXT FONTSIZE="11.6" CH="ch as it in­volves ae"/>
+            <ITEXT FONTSIZE="11.5" CH="s­thet­ic ap­pre­ci­ation"/>
+            <ITEXT FONTSIZE="11.4" CH=". How to ac­count for"/>
+            <ITEXT FONTSIZE="11.3" CH=" the size of things "/>
+            <ITEXT FONTSIZE="11.2" CH="by their son­ic prop­e"/>
+            <ITEXT FONTSIZE="11.1" CH="r­ties? Bey­ond tech­ni"/>
+            <ITEXT FONTSIZE="11" CH="c­al pro­tocol, listen­"/>
+            <ITEXT FONTSIZE="10.9" CH="ing be­comes tied up "/>
+            <ITEXT FONTSIZE="10.8" CH="in the sur­faces of t"/>
+            <ITEXT FONTSIZE="10.7" CH="he world. Re­cord­ings"/>
+            <ITEXT FONTSIZE="10.6" CH=", son­ic read­ings, op"/>
+            <ITEXT FONTSIZE="10.5" CH="en out in­to a mu­sic­a"/>
+            <ITEXT FONTSIZE="10.4" CH="l form which re­act­iv­"/>
+            <ITEXT FONTSIZE="10.3" CH="ates a per­cep­tion of"/>
+            <ITEXT FONTSIZE="10.2" CH=" that which sur­round"/>
+            <ITEXT FONTSIZE="10.1" CH="s us, wheth­er vis­ibl"/>
+            <ITEXT FONTSIZE="10" CH="e or not; a re­in­jec­t"/>
+            <ITEXT FONTSIZE="9.9" CH="ion."/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="9.9" CH="For fif­teen yea"/>
+            <ITEXT FONTSIZE="9.8" CH="rs or so, my mu­sic­al"/>
+            <ITEXT FONTSIZE="9.7" CH=" prac­tice has been a"/>
+            <ITEXT FONTSIZE="9.6" CH=" series of ex­per­i­men"/>
+            <ITEXT FONTSIZE="9.5" CH="t­a­tions / im­pro­visa­t"/>
+            <ITEXT FONTSIZE="9.4" CH="ions with this son­ic"/>
+            <ITEXT FONTSIZE="9.3" CH=" loc­ale. As it passe"/>
+            <ITEXT FONTSIZE="9.2" CH="s through my mi­cro­ph"/>
+            <ITEXT FONTSIZE="9.1" CH="ones, the site of th"/>
+            <ITEXT FONTSIZE="9" CH="e sur­vey – every­day "/>
+            <ITEXT FONTSIZE="8.9" CH="life – is trans­forme"/>
+            <ITEXT FONTSIZE="8.8" CH="d in­to a site of pla"/>
+            <ITEXT FONTSIZE="8.7" CH="y. The di­men­sions of"/>
+            <ITEXT FONTSIZE="8.6" CH=" the real world gen­e"/>
+            <ITEXT FONTSIZE="8.5" CH="r­ate son­ic rep­res­ent­"/>
+            <ITEXT FONTSIZE="8.4" CH="a­tions whose pro­por­t"/>
+            <ITEXT FONTSIZE="8.3" CH="ions found an­oth­er p"/>
+            <ITEXT FONTSIZE="8.2" CH="er­spect­ive on the wo"/>
+            <ITEXT FONTSIZE="8.1" CH="rld. "/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="8.1" CH="Eric La Casa"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="8.1" CH="2"/>
+            <ITEXT FONTSIZE="8" CH="1:30 mar­tiens­go­home ("/>
+            <ITEXT FONTSIZE="8.1" CH="B)"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="8.1" CH="Im­age: zie mail"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="8.2" CH="Titre: ?"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="8.2" CH="BIO "/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="8.2" CH="Mar­ti"/>
+            <ITEXT FONTSIZE="8.3" CH="ens­go­home is a sound"/>
+            <ITEXT FONTSIZE="8.4" CH=" col­lect­ive who has "/>
+            <ITEXT FONTSIZE="8.5" CH="been fool­ing around "/>
+            <ITEXT FONTSIZE="8.6" CH="with re­cord­ings for "/>
+            <ITEXT FONTSIZE="8.7" CH="more than 15 years. "/>
+            <ITEXT FONTSIZE="8.8" CH="They present the res­"/>
+            <ITEXT FONTSIZE="8.9" CH="ult­ing sound­scapes e"/>
+            <ITEXT FONTSIZE="9" CH="very Thursday on ra­d"/>
+            <ITEXT FONTSIZE="9.1" CH="io cam­pus Brus­sels ("/>
+            <ITEXT FONTSIZE="9.2" CH="9:30 pm on 92.1 fm -"/>
+            <ITEXT FONTSIZE="9.3" CH=" www.ra­diocam­pus­brux"/>
+            <ITEXT FONTSIZE="9.4" CH="elles.org/). Each pr"/>
+            <ITEXT FONTSIZE="9.5" CH="o­gramme con­sists of "/>
+            <ITEXT FONTSIZE="9.6" CH="a one-hour-long im­pr"/>
+            <ITEXT FONTSIZE="9.7" CH="o­visa­tion, us­ing sou"/>
+            <ITEXT FONTSIZE="9.8" CH="nds re­cor­ded that we"/>
+            <ITEXT FONTSIZE="9.9" CH="ek or taken from the"/>
+            <ITEXT FONTSIZE="10" CH="ir ex­tens­ive field-r"/>
+            <ITEXT FONTSIZE="10.1" CH="e­cord­ing archive. Th"/>
+            <ITEXT FONTSIZE="10.2" CH="e core of the col­lec"/>
+            <ITEXT FONTSIZE="10.3" CH="t­ive con­sists today "/>
+            <ITEXT FONTSIZE="10.4" CH="of four mu­si­cians, o"/>
+            <ITEXT FONTSIZE="10.5" CH="f­ten aug­men­ted by gu"/>
+            <ITEXT FONTSIZE="10.6" CH="est mu­si­cians. mar­ti"/>
+            <ITEXT FONTSIZE="10.7" CH="ens­go­home is also pe"/>
+            <ITEXT FONTSIZE="10.8" CH="r­form­ing live whenev­"/>
+            <ITEXT FONTSIZE="10.9" CH="er pos­sible, prefer­a"/>
+            <ITEXT FONTSIZE="11" CH="bly in spe­cial set­ti"/>
+            <ITEXT FONTSIZE="11.1" CH="ngs, com­pos­ing site-"/>
+            <ITEXT FONTSIZE="11.2" CH="spe­cif­ic in­ter­ven­tio"/>
+            <ITEXT FONTSIZE="11.3" CH="ns or play­ing un­con­v"/>
+            <ITEXT FONTSIZE="11.4" CH="en­tion­al ven­ues."/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="11.4" CH="Ma"/>
+            <ITEXT FONTSIZE="11.5" CH="r­tiens­go­home is en c"/>
+            <ITEXT FONTSIZE="11.6" CH="ol­lectief van gelu­id­"/>
+            <ITEXT FONTSIZE="11.7" CH="skun­sten­aars die zic"/>
+            <ITEXT FONTSIZE="11.8" CH="h reeds 15 jaar uit­l"/>
+            <ITEXT FONTSIZE="11.9" CH="even met gelu­id­sop­na"/>
+            <ITEXT FONTSIZE="12" CH="mes. Elke don­der­d­ag "/>
+            <ITEXT FONTSIZE="12.1" CH="presenter­en zij hun "/>
+            <ITEXT FONTSIZE="12.2" CH="sound­scapes op ra­dio"/>
+            <ITEXT FONTSIZE="12.3" CH=" cam­pus Brus­sels (om"/>
+            <ITEXT FONTSIZE="12.4" CH=" 21.30 op 92.1 FM - "/>
+            <ITEXT FONTSIZE="12.5" CH="www.ra­diocam­pus­bruxe"/>
+            <ITEXT FONTSIZE="12.6" CH="lles.org/). Hun één "/>
+            <ITEXT FONTSIZE="12.7" CH="uur durend pro­gramma"/>
+            <ITEXT FONTSIZE="12.8" CH=" is een im­pro­visa­tie"/>
+            <ITEXT FONTSIZE="12.9" CH=" aan de hand van de "/>
+            <ITEXT FONTSIZE="13" CH="tijdens de week op­ge"/>
+            <ITEXT FONTSIZE="13.1" CH="n­o­men gelu­iden of ve"/>
+            <ITEXT FONTSIZE="13.2" CH="l­dop­names uit hun ui"/>
+            <ITEXT FONTSIZE="13.3" CH="t­gebreide archief. D"/>
+            <ITEXT FONTSIZE="13.4" CH="e vaste kern van het"/>
+            <ITEXT FONTSIZE="13.5" CH=" col­lectief be­staat "/>
+            <ITEXT FONTSIZE="13.6" CH="te­gen­woor­dig uit 4 m"/>
+            <ITEXT FONTSIZE="13.7" CH="uzik­anten, die vaak "/>
+            <ITEXT FONTSIZE="13.8" CH="worden bijgestaan do"/>
+            <ITEXT FONTSIZE="13.9" CH="or gast­musici. Mar­ti"/>
+            <ITEXT FONTSIZE="14" CH="ens­go­home brengt ook "/>
+            <ITEXT FONTSIZE="13.9" CH="zo vaak als mo­gelijk"/>
+            <ITEXT FONTSIZE="13.8" CH=" live per­form­ances, "/>
+            <ITEXT FONTSIZE="13.7" CH="en dan bij voorkeur "/>
+            <ITEXT FONTSIZE="13.6" CH="op spe­ciale set­tings"/>
+            <ITEXT FONTSIZE="13.5" CH=" of in ongebruikelij"/>
+            <ITEXT FONTSIZE="13.4" CH="ke loc­aties, waar­voo"/>
+            <ITEXT FONTSIZE="13.3" CH="r ze dan volledig sp"/>
+            <ITEXT FONTSIZE="13.2" CH="e­cifieke com­pos­it­ies"/>
+            <ITEXT FONTSIZE="13.1" CH=" opz­etten."/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="13.1" CH="Mar­tiens­"/>
+            <ITEXT FONTSIZE="13" CH="go­home est un col­lec­"/>
+            <ITEXT FONTSIZE="12.9" CH="tif son­ore qui joue "/>
+            <ITEXT FONTSIZE="12.8" CH="avec des en­re­gis­tre­m"/>
+            <ITEXT FONTSIZE="12.7" CH="ents depuis plus de "/>
+            <ITEXT FONTSIZE="12.6" CH="15 ans. Il présente "/>
+            <ITEXT FONTSIZE="12.5" CH="les pays­ages son­ores"/>
+            <ITEXT FONTSIZE="12.4" CH=" qu'il en tire chaqu"/>
+            <ITEXT FONTSIZE="12.3" CH="e jeudi sur ra­dio ca"/>
+            <ITEXT FONTSIZE="12.2" CH="m­pus bruxelles (21h3"/>
+            <ITEXT FONTSIZE="12.1" CH="0 sur 92.1 fm - www."/>
+            <ITEXT FONTSIZE="12" CH="ra­diocam­pus­bruxelles"/>
+            <ITEXT FONTSIZE="11.9" CH=".org/). Chaque émis­s"/>
+            <ITEXT FONTSIZE="11.8" CH="ion con­siste en une "/>
+            <ITEXT FONTSIZE="11.7" CH="im­pro­visa­tion d'une "/>
+            <ITEXT FONTSIZE="11.6" CH="heure, util­is­ant des"/>
+            <ITEXT FONTSIZE="11.5" CH=" en­re­gis­tre­ments réa"/>
+            <ITEXT FONTSIZE="11.4" CH="l­isés dans la se­main"/>
+            <ITEXT FONTSIZE="11.3" CH="e, ou ex­traits de se"/>
+            <ITEXT FONTSIZE="11.2" CH="s vo­lu­mineuses archi"/>
+            <ITEXT FONTSIZE="11.1" CH="ves de field re­cord­i"/>
+            <ITEXT FONTSIZE="11" CH="ngs. Le noy­au cent­ra"/>
+            <ITEXT FONTSIZE="10.9" CH="l du col­lec­tif est c"/>
+            <ITEXT FONTSIZE="10.8" CH="om­posé de quatre mu­s"/>
+            <ITEXT FONTSIZE="10.7" CH="i­ciens, souvent re­jo"/>
+            <ITEXT FONTSIZE="10.6" CH="ints par des in­vités"/>
+            <ITEXT FONTSIZE="10.5" CH=". Mar­tiens­go­home se "/>
+            <ITEXT FONTSIZE="10.4" CH="produit égale­ment le"/>
+            <ITEXT FONTSIZE="10.3" CH=" plus souvent pos­sib"/>
+            <ITEXT FONTSIZE="10.2" CH="le en con­cert, de pr"/>
+            <ITEXT FONTSIZE="10.1" CH="éférence dans des ci"/>
+            <ITEXT FONTSIZE="10" CH="r­con­stances ou des l"/>
+            <ITEXT FONTSIZE="9.9" CH="ieux par­ticuli­ers."/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="9.8" CH="ht­tp://mgh.con­stantv"/>
+            <ITEXT FONTSIZE="9.7" CH="zw.org/"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="9.7" CH="PT"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="9.7" CH="Since it"/>
+            <ITEXT FONTSIZE="9.6" CH="s in­cep­tion in 1996,"/>
+            <ITEXT FONTSIZE="9.5" CH=" the Brus­sels col­lec"/>
+            <ITEXT FONTSIZE="9.4" CH="t­ive mar­tiens­go­home "/>
+            <ITEXT FONTSIZE="9.3" CH="has col­lec­ted, treat"/>
+            <ITEXT FONTSIZE="9.2" CH="ed and played vari­ou"/>
+            <ITEXT FONTSIZE="9.1" CH="s forms of field re­c"/>
+            <ITEXT FONTSIZE="9" CH="ord­ings. Start­ing as"/>
+            <ITEXT FONTSIZE="8.9" CH=" a ra­dio show, still"/>
+            <ITEXT FONTSIZE="8.8" CH=" broad­cast­ing on ra­d"/>
+            <ITEXT FONTSIZE="8.7" CH="io cam­pus every week"/>
+            <ITEXT FONTSIZE="8.6" CH=", the col­lect­ive has"/>
+            <ITEXT FONTSIZE="8.5" CH=" fo­cused from the st"/>
+            <ITEXT FONTSIZE="8.4" CH="art on non-mu­sic­al s"/>
+            <ITEXT FONTSIZE="8.3" CH="ound sources. Noise,"/>
+            <ITEXT FONTSIZE="8.2" CH=" ma­chine fail­ure, co"/>
+            <ITEXT FONTSIZE="8.1" CH="n­tact-mike re­cord­ing"/>
+            <ITEXT FONTSIZE="8" CH="s, ra­dio stat­ics and "/>
+            <ITEXT FONTSIZE="8.1" CH="lar­ger scale field r"/>
+            <ITEXT FONTSIZE="8.2" CH="e­cord­ings, every ava"/>
+            <ITEXT FONTSIZE="8.3" CH="il­able sound is ex­am"/>
+            <ITEXT FONTSIZE="8.4" CH="ined, tried out, de­f"/>
+            <ITEXT FONTSIZE="8.5" CH="ormed or kept in­tact"/>
+            <ITEXT FONTSIZE="8.6" CH=", and as­sembled to t"/>
+            <ITEXT FONTSIZE="8.7" CH="ake part in an im­pro­"/>
+            <ITEXT FONTSIZE="8.8" CH="vised coun­ter­feit so"/>
+            <ITEXT FONTSIZE="8.9" CH="und­scape. No hier­arc"/>
+            <ITEXT FONTSIZE="9" CH="hy is es­tab­lished be"/>
+            <ITEXT FONTSIZE="9.1" CH="tween them, and smal"/>
+            <ITEXT FONTSIZE="9.2" CH="l sounds, back­ground"/>
+            <ITEXT FONTSIZE="9.3" CH=" hum, or glitches, a"/>
+            <ITEXT FONTSIZE="9.4" CH="re treated with the "/>
+            <ITEXT FONTSIZE="9.5" CH="same re­spect as more"/>
+            <ITEXT FONTSIZE="9.6" CH=" ex­pli­cit, more sig­n"/>
+            <ITEXT FONTSIZE="9.7" CH="i­fic­ant or more mu­si"/>
+            <ITEXT FONTSIZE="9.8" CH="c­al sounds. All thos"/>
+            <ITEXT FONTSIZE="9.9" CH="e re­cord­ings are lat"/>
+            <ITEXT FONTSIZE="10" CH="er ab­strac­ted, blurr"/>
+            <ITEXT FONTSIZE="10.1" CH="ed, dis­tor­ted, warpe"/>
+            <ITEXT FONTSIZE="10.2" CH="d bey­ond re­cog­ni­tion"/>
+            <ITEXT FONTSIZE="10.3" CH=", taken some­times as"/>
+            <ITEXT FONTSIZE="10.4" CH=" far as pos­sible fro"/>
+            <ITEXT FONTSIZE="10.5" CH="m their ori­gins, and"/>
+            <ITEXT FONTSIZE="10.6" CH=" set in mo­tion in a "/>
+            <ITEXT FONTSIZE="10.7" CH="son­ic fic­tion, a nar­"/>
+            <ITEXT FONTSIZE="10.8" CH="rat­ive of mys­tery an"/>
+            <ITEXT FONTSIZE="10.9" CH="d con­tin­gency. In th"/>
+            <ITEXT FONTSIZE="11" CH="is re­spect, the real­"/>
+            <ITEXT FONTSIZE="11.1" CH="ist­ic, rep­res­ent­a­tio"/>
+            <ITEXT FONTSIZE="11.2" CH="n­al, qual­ity of the "/>
+            <ITEXT FONTSIZE="11.3" CH="re­cord­ings is sec­ond­"/>
+            <ITEXT FONTSIZE="11.4" CH="ary to their aur­al p"/>
+            <ITEXT FONTSIZE="11.5" CH="rop­er­ties, to what t"/>
+            <ITEXT FONTSIZE="11.6" CH="hey can see in them,"/>
+            <ITEXT FONTSIZE="11.7" CH=" to what they can ma"/>
+            <ITEXT FONTSIZE="11.8" CH="ke of them. Their ra­"/>
+            <ITEXT FONTSIZE="11.9" CH="dio pro­grammes and c"/>
+            <ITEXT FONTSIZE="12" CH="on­certs con­sist of d"/>
+            <ITEXT FONTSIZE="12.1" CH="if­fer­ent mo­ments, va"/>
+            <ITEXT FONTSIZE="12.2" CH="ri­ous loc­a­tions, mul­"/>
+            <ITEXT FONTSIZE="12.3" CH="tiple acous­tic space"/>
+            <ITEXT FONTSIZE="12.4" CH="s and times woven to­"/>
+            <ITEXT FONTSIZE="12.5" CH="geth­er to pro­duce a "/>
+            <ITEXT FONTSIZE="12.6" CH="hy­brid place, gov­ern"/>
+            <ITEXT FONTSIZE="12.7" CH="ed by a com­pos­ite ch"/>
+            <ITEXT FONTSIZE="12.8" CH="ro­no­logy. It re­mains"/>
+            <ITEXT FONTSIZE="12.9" CH=" non­ethe­less a place"/>
+            <ITEXT FONTSIZE="13" CH=", an eph­em­er­al and a"/>
+            <ITEXT FONTSIZE="13.1" CH="r­ti­fi­cial site, but "/>
+            <ITEXT FONTSIZE="13.2" CH="a bear­ings of sorts,"/>
+            <ITEXT FONTSIZE="13.3" CH=" com­plete with move­m"/>
+            <ITEXT FONTSIZE="13.4" CH="ent, activ­ity, live­l"/>
+            <ITEXT FONTSIZE="13.5" CH="i­ness, some­times eve"/>
+            <ITEXT FONTSIZE="13.6" CH="n in­hab­it­ants. It is"/>
+            <ITEXT FONTSIZE="13.7" CH=" a fantasy, a truth "/>
+            <ITEXT FONTSIZE="13.8" CH="ly­ing some­where betw"/>
+            <ITEXT FONTSIZE="13.9" CH="een a lie and a fic­t"/>
+            <ITEXT FONTSIZE="14" CH="ion."/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="14" CH="Don­der­d­ag/Jeud"/>
+            <ITEXT FONTSIZE="13.9" CH="i 13/10/11 Beursscho"/>
+            <ITEXT FONTSIZE="13.8" CH="uw­burg"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="13.8" CH="19:30 Peter "/>
+            <ITEXT FONTSIZE="13.7" CH="Cu­s­ack (GB)"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="13.7" CH="Im­age: "/>
+            <ITEXT FONTSIZE="13.6" CH="zie mail"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="13.6" CH="Titre: ?"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="13.6" CH="B"/>
+            <ITEXT FONTSIZE="13.5" CH="IO"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="13.5" CH="Peter Cu­s­ack, bas"/>
+            <ITEXT FONTSIZE="13.4" CH="ed in Lon­don, works "/>
+            <ITEXT FONTSIZE="13.3" CH="as a sound artist, m"/>
+            <ITEXT FONTSIZE="13.2" CH="u­si­cian and en­vir­on­m"/>
+            <ITEXT FONTSIZE="13.1" CH="ent­al re­cord­ist with"/>
+            <ITEXT FONTSIZE="13" CH=" a spe­cial in­terest "/>
+            <ITEXT FONTSIZE="12.9" CH="in acous­tic eco­logy."/>
+            <ITEXT FONTSIZE="12.8" CH=" Pro­jects range from"/>
+            <ITEXT FONTSIZE="12.7" CH=" com­munity arts to r"/>
+            <ITEXT FONTSIZE="12.6" CH="e­search in­to the rol"/>
+            <ITEXT FONTSIZE="12.5" CH="e that sound plays i"/>
+            <ITEXT FONTSIZE="12.4" CH="n our sense of place"/>
+            <ITEXT FONTSIZE="12.3" CH=". He ini­ti­ated the “"/>
+            <ITEXT FONTSIZE="12.2" CH="Fa­vour­ite Sounds Pro­"/>
+            <ITEXT FONTSIZE="12.1" CH="ject” that aims to d"/>
+            <ITEXT FONTSIZE="12" CH="is­cov­er what people "/>
+            <ITEXT FONTSIZE="11.9" CH="find pos­it­ive about "/>
+            <ITEXT FONTSIZE="11.8" CH="their every­day sound"/>
+            <ITEXT FONTSIZE="11.7" CH=" en­vir­on­ment. His pr"/>
+            <ITEXT FONTSIZE="11.6" CH="o­ject ‘Sounds From D"/>
+            <ITEXT FONTSIZE="11.5" CH="an­ger­ous Places’ ex­a"/>
+            <ITEXT FONTSIZE="11.4" CH="m­ines the sound­scape"/>
+            <ITEXT FONTSIZE="11.3" CH="s of sites of ma­jor "/>
+            <ITEXT FONTSIZE="11.2" CH="en­vir­on­ment­al dam­age"/>
+            <ITEXT FONTSIZE="11.1" CH="."/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="11.1" CH="He pro­duced 'Ver­mi"/>
+            <ITEXT FONTSIZE="11" CH="l­ion Sounds' - the e"/>
+            <ITEXT FONTSIZE="10.9" CH="n­vir­on­ment­al sound p"/>
+            <ITEXT FONTSIZE="10.8" CH="ro­gram - for Res­on­an"/>
+            <ITEXT FONTSIZE="10.7" CH="ce­FM Ra­dio, Lon­don, "/>
+            <ITEXT FONTSIZE="10.6" CH="lec­tures on ‘Sound A"/>
+            <ITEXT FONTSIZE="10.5" CH="rts &amp; Design’ at the"/>
+            <ITEXT FONTSIZE="10.4" CH=" Lon­don Col­lege of C"/>
+            <ITEXT FONTSIZE="10.3" CH="om­mu­nic­a­tion and was"/>
+            <ITEXT FONTSIZE="10.2" CH=" re­cently a Re­search"/>
+            <ITEXT FONTSIZE="10.1" CH=" Fel­low on the mul­ti"/>
+            <ITEXT FONTSIZE="10" CH="discip­lin­ary multi-u"/>
+            <ITEXT FONTSIZE="9.9" CH="ni­versity ‘Pos­it­ive "/>
+            <ITEXT FONTSIZE="9.8" CH="Sound­scapes Pro­ject’"/>
+            <ITEXT FONTSIZE="9.7" CH=". CDs in­clude ‘Your "/>
+            <ITEXT FONTSIZE="9.6" CH="Fa­vour­ite Lon­don Sou"/>
+            <ITEXT FONTSIZE="9.5" CH="nds’ (Res­on­ance), ‘B"/>
+            <ITEXT FONTSIZE="9.4" CH="aikal Ice’ (ReR), ’F"/>
+            <ITEXT FONTSIZE="9.3" CH="a­vour­ite Sounds of B"/>
+            <ITEXT FONTSIZE="9.2" CH="eijing’ (Sub­jam)."/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="9.2" CH="P"/>
+            <ITEXT FONTSIZE="9.1" CH="eter Cu­s­ack woont en"/>
+            <ITEXT FONTSIZE="9" CH=" werkt in Londen. De"/>
+            <ITEXT FONTSIZE="8.9" CH="ze gelu­id­skun­sten­aar"/>
+            <ITEXT FONTSIZE="8.8" CH=" en muzik­ant heeft e"/>
+            <ITEXT FONTSIZE="8.7" CH="en voorlief­de voor a"/>
+            <ITEXT FONTSIZE="8.6" CH="koes­tische eco­lo­gie,"/>
+            <ITEXT FONTSIZE="8.5" CH=" en trekt er dus gra"/>
+            <ITEXT FONTSIZE="8.4" CH="ag op uit voor field"/>
+            <ITEXT FONTSIZE="8.3" CH=" re­cord­ings. Zijn re"/>
+            <ITEXT FONTSIZE="8.2" CH="p­er­toire var­ieert va"/>
+            <ITEXT FONTSIZE="8.1" CH="n gemeenschapskunst "/>
+            <ITEXT FONTSIZE="8" CH="tot het on­derzoek naa"/>
+            <ITEXT FONTSIZE="8.1" CH="r de rol van ‘gelu­id"/>
+            <ITEXT FONTSIZE="8.2" CH="’ in onze con­cep­tie "/>
+            <ITEXT FONTSIZE="8.3" CH="van ruimte. Hij lanc"/>
+            <ITEXT FONTSIZE="8.4" CH="eerde het ‘Fa­vour­ite"/>
+            <ITEXT FONTSIZE="8.5" CH=" Sounds Pro­ject’ waa"/>
+            <ITEXT FONTSIZE="8.6" CH="r­in hij op zoek gaat"/>
+            <ITEXT FONTSIZE="8.7" CH=" naar wat mensen als"/>
+            <ITEXT FONTSIZE="8.8" CH=" pos­it­ief er­var­en in"/>
+            <ITEXT FONTSIZE="8.9" CH=" hun al­ledaagse gelu­"/>
+            <ITEXT FONTSIZE="9" CH="id­somgev­ing. Zijn pr"/>
+            <ITEXT FONTSIZE="9.1" CH="o­ject ‘Sounds From D"/>
+            <ITEXT FONTSIZE="9.2" CH="an­ger­ous Places’ be­s"/>
+            <ITEXT FONTSIZE="9.3" CH="tudeert de sound­scap"/>
+            <ITEXT FONTSIZE="9.4" CH="es van eco­lo­gisch zw"/>
+            <ITEXT FONTSIZE="9.5" CH="aar beschadig­de site"/>
+            <ITEXT FONTSIZE="9.6" CH="s."/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="9.6" CH="Peter Cu­s­ack pro­d"/>
+            <ITEXT FONTSIZE="9.7" CH="uceerde 'Ver­mil­ion S"/>
+            <ITEXT FONTSIZE="9.8" CH="ounds' (pro­gramma ov"/>
+            <ITEXT FONTSIZE="9.9" CH="er omgev­ings­gelu­iden"/>
+            <ITEXT FONTSIZE="10" CH=") voor de Londense z"/>
+            <ITEXT FONTSIZE="10.1" CH="ender Res­on­ance­FM Ra­"/>
+            <ITEXT FONTSIZE="10.2" CH="dio, hield lezin­gen "/>
+            <ITEXT FONTSIZE="10.3" CH="over ‘Sound Arts &amp; D"/>
+            <ITEXT FONTSIZE="10.4" CH="esign’ in het Lon­don"/>
+            <ITEXT FONTSIZE="10.5" CH=" Col­lege of Com­mu­nic­"/>
+            <ITEXT FONTSIZE="10.6" CH="a­tion en was re­cent "/>
+            <ITEXT FONTSIZE="10.7" CH="nog een on­derzoek­s­pa"/>
+            <ITEXT FONTSIZE="10.8" CH="rt­ner in het mul­tidi"/>
+            <ITEXT FONTSIZE="10.9" CH="scip­lin­aire ‘Pos­it­iv"/>
+            <ITEXT FONTSIZE="11" CH="e Sound­scapes Pro­jec"/>
+            <ITEXT FONTSIZE="11.1" CH="t’ dat over ver­schil­"/>
+            <ITEXT FONTSIZE="11.2" CH="lende uni­versiteiten"/>
+            <ITEXT FONTSIZE="11.3" CH=" liep. Hij bra­cht oo"/>
+            <ITEXT FONTSIZE="11.4" CH="k o.a. de cd's ‘Your"/>
+            <ITEXT FONTSIZE="11.5" CH=" Fa­vour­ite Lon­don So"/>
+            <ITEXT FONTSIZE="11.6" CH="unds’ (Res­on­ance), ‘"/>
+            <ITEXT FONTSIZE="11.7" CH="Baikal Ice’ (ReR) en"/>
+            <ITEXT FONTSIZE="11.8" CH=" ’Fa­vour­ite Sounds o"/>
+            <ITEXT FONTSIZE="11.9" CH="f Beijing’ (Sub­jam) "/>
+            <ITEXT FONTSIZE="12" CH="uit."/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="12" CH="Peter Cu­s­ack, "/>
+            <ITEXT FONTSIZE="12.1" CH="in­stallé à Lon­dres, "/>
+            <ITEXT FONTSIZE="12.2" CH="trav­aille comme ar­ti"/>
+            <ITEXT FONTSIZE="12.3" CH="ste son­ore, mu­si­cien"/>
+            <ITEXT FONTSIZE="12.4" CH=" et capteur d’en­viro"/>
+            <ITEXT FONTSIZE="12.5" CH="n­nement, avec un in­t"/>
+            <ITEXT FONTSIZE="12.6" CH="érêt par­ticuli­er pou"/>
+            <ITEXT FONTSIZE="12.7" CH="r l’éco­lo­gie acous­ti"/>
+            <ITEXT FONTSIZE="12.8" CH="que. Ses pro­jets von"/>
+            <ITEXT FONTSIZE="12.9" CH="t des arts com­mun­aut"/>
+            <ITEXT FONTSIZE="13" CH="aires à la recher­che"/>
+            <ITEXT FONTSIZE="13.1" CH=" au­tour du rôle du s"/>
+            <ITEXT FONTSIZE="13.2" CH="on dans la man­ière d"/>
+            <ITEXT FONTSIZE="13.3" CH="ont nous res­sentons "/>
+            <ITEXT FONTSIZE="13.4" CH="notre po­s­i­tion. Il a"/>
+            <ITEXT FONTSIZE="13.5" CH=" lancé le “Fa­vour­ite"/>
+            <ITEXT FONTSIZE="13.6" CH=" Sounds Pro­ject”, do"/>
+            <ITEXT FONTSIZE="13.7" CH="nt l’ob­jec­tif est de"/>
+            <ITEXT FONTSIZE="13.8" CH=" dé­couv­rir ce que le"/>
+            <ITEXT FONTSIZE="13.9" CH="s gens res­sen­tent co"/>
+            <ITEXT FONTSIZE="14" CH="mme pos­i­tif dans leur"/>
+            <ITEXT FONTSIZE="13.9" CH=" en­viron­nement son­or"/>
+            <ITEXT FONTSIZE="13.8" CH="e quo­ti­di­en.  Son pr"/>
+            <ITEXT FONTSIZE="13.7" CH="o­jet ‘Sounds From Da"/>
+            <ITEXT FONTSIZE="13.6" CH="n­ger­ous Places’ ex­am­"/>
+            <ITEXT FONTSIZE="13.5" CH="ine quant à lui les "/>
+            <ITEXT FONTSIZE="13.4" CH="en­viron­ne­ments son­or"/>
+            <ITEXT FONTSIZE="13.3" CH="es de lieux de cata­s"/>
+            <ITEXT FONTSIZE="13.2" CH="trophes en­viron­nemen"/>
+            <ITEXT FONTSIZE="13.1" CH="tales."/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="13.1" CH="Il a produit "/>
+            <ITEXT FONTSIZE="13" CH="'Ver­mil­ion Sounds' –"/>
+            <ITEXT FONTSIZE="12.9" CH=" pro­gramme de sons e"/>
+            <ITEXT FONTSIZE="12.8" CH="n­viron­nemen­taux - po"/>
+            <ITEXT FONTSIZE="12.7" CH="ur Res­on­ance­FM Ra­dio"/>
+            <ITEXT FONTSIZE="12.6" CH=", Lon­don, donne des "/>
+            <ITEXT FONTSIZE="12.5" CH="cours de ‘Sound Arts"/>
+            <ITEXT FONTSIZE="12.4" CH=" &amp; Design’ au Lon­don"/>
+            <ITEXT FONTSIZE="12.3" CH=" Col­lege of Com­mu­nic­"/>
+            <ITEXT FONTSIZE="12.2" CH="a­tion et a récem­ment"/>
+            <ITEXT FONTSIZE="12.1" CH=" fait partie des Mem"/>
+            <ITEXT FONTSIZE="12" CH="bres de Recher­che du"/>
+            <ITEXT FONTSIZE="11.9" CH=" pro­jet multi-uni­ver"/>
+            <ITEXT FONTSIZE="11.8" CH="sitaire et multi-dis­"/>
+            <ITEXT FONTSIZE="11.7" CH="cip­lin­aire ‘Pos­it­ive"/>
+            <ITEXT FONTSIZE="11.6" CH=" Sound­scapes Pro­ject"/>
+            <ITEXT FONTSIZE="11.5" CH="’. Ses CD com­prennen"/>
+            <ITEXT FONTSIZE="11.4" CH="t e.a. ‘Your Fa­vour­i"/>
+            <ITEXT FONTSIZE="11.3" CH="te Lon­don Sounds’ (R"/>
+            <ITEXT FONTSIZE="11.2" CH="es­on­ance), ‘Baikal I"/>
+            <ITEXT FONTSIZE="11.1" CH="ce’ (ReR) et ’Fa­vour­"/>
+            <ITEXT FONTSIZE="11" CH="ite Sounds of Beijin"/>
+            <ITEXT FONTSIZE="10.9" CH="g’ (Sub­jam)."/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <para PARENT="body text" ALIGN="0" LINESP="15"/>
+            <ITEXT FONTSIZE="10.9" CH="ht­tp:/"/>
+            <ITEXT FONTSIZE="10.8" CH="/fa­vour­ite­sounds.or"/>
+            <ITEXT CH="g"/>
+            <trail PARENT="body text" ALIGN="0" LINESP="15"/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="4" XPOS="140.315590551181" YPOS="464.101102362205" WIDTH="212.59842519685" HEIGHT="349.868818897638" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PCOLOR="None" PCOLOR2="None" COLUMNS="1" COLGAP="3.881" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="0" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LINESPMode="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="1" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 212.598 0 212.598 0 212.598 0 212.598 0 212.598 349.869 212.598 349.869 212.598 349.869 212.598 349.869 0 349.869 0 349.869 0 349.869 0 349.869 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 212.598 0 212.598 0 212.598 0 212.598 0 212.598 349.869 212.598 349.869 212.598 349.869 212.598 349.869 0 349.869 0 349.869 0 349.869 0 349.869 0 0 0 0 " NUMGROUP="0" GROUPS="" startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" ALIGN="0" LAYER="0" BOOKMARK="0" NEXTITEM="11" BACKITEM="9">
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="4" XPOS="362.654173228347" YPOS="59.78015748031" WIDTH="212.59842519685" HEIGHT="366.21984251969" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PCOLOR="None" PCOLOR2="None" COLUMNS="1" COLGAP="3.881" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="0" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LINESPMode="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="1" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 212.598 0 212.598 0 212.598 0 212.598 0 212.598 366.22 212.598 366.22 212.598 366.22 212.598 366.22 0 366.22 0 366.22 0 366.22 0 366.22 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 212.598 0 212.598 0 212.598 0 212.598 0 212.598 366.22 212.598 366.22 212.598 366.22 212.598 366.22 0 366.22 0 366.22 0 366.22 0 366.22 0 0 0 0 " NUMGROUP="0" GROUPS="" startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" ALIGN="0" LAYER="0" BOOKMARK="0" NEXTITEM="12" BACKITEM="10">
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="4" XPOS="359.654173228347" YPOS="456.66960629921" WIDTH="212.59842519685" HEIGHT="361.800314960632" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PCOLOR="None" PCOLOR2="None" COLUMNS="1" COLGAP="3.881" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="0" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LINESPMode="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="1" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 212.598 0 212.598 0 212.598 0 212.598 0 212.598 361.8 212.598 361.8 212.598 361.8 212.598 361.8 0 361.8 0 361.8 0 361.8 0 361.8 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 212.598 0 212.598 0 212.598 0 212.598 0 212.598 361.8 212.598 361.8 212.598 361.8 212.598 361.8 0 361.8 0 361.8 0 361.8 0 361.8 0 0 0 0 " NUMGROUP="0" GROUPS="" startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" ALIGN="0" LAYER="0" BOOKMARK="0" NEXTITEM="13" BACKITEM="11">
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="4" PTYPE="4" XPOS="140.00062992126" YPOS="3587.55905511811" WIDTH="515.28125984252" HEIGHT="761.889763779528" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PCOLOR="None" PCOLOR2="None" COLUMNS="1" COLGAP="3.881" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="0" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LINESPMode="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="1" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 515.281 0 515.281 0 515.281 0 515.281 0 515.281 761.89 515.281 761.89 515.281 761.89 515.281 761.89 0 761.89 0 761.89 0 761.89 0 761.89 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 515.281 0 515.281 0 515.281 0 515.281 0 515.281 761.89 515.281 761.89 515.281 761.89 515.281 761.89 0 761.89 0 761.89 0 761.89 0 761.89 0 0 0 0 " NUMGROUP="0" GROUPS="" startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" ALIGN="0" LAYER="0" BOOKMARK="0" NEXTITEM="14" BACKITEM="12">
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="5" PTYPE="4" XPOS="140.00062992126" YPOS="4469.44850393701" WIDTH="515.28125984252" HEIGHT="761.889763779528" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PCOLOR="None" PCOLOR2="None" COLUMNS="1" COLGAP="3.881" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="0" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LINESPMode="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="1" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 515.281 0 515.281 0 515.281 0 515.281 0 515.281 761.89 515.281 761.89 515.281 761.89 515.281 761.89 0 761.89 0 761.89 0 761.89 0 761.89 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 515.281 0 515.281 0 515.281 0 515.281 0 515.281 761.89 515.281 761.89 515.281 761.89 515.281 761.89 0 761.89 0 761.89 0 761.89 0 761.89 0 0 0 0 " NUMGROUP="0" GROUPS="" startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" ALIGN="0" LAYER="0" BOOKMARK="0" NEXTITEM="15" BACKITEM="13">
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="6" PTYPE="4" XPOS="140.00062992126" YPOS="5351.33795275591" WIDTH="515.28125984252" HEIGHT="761.889763779528" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PCOLOR="None" PCOLOR2="None" COLUMNS="1" COLGAP="3.881" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="0" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LINESPMode="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="1" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 515.281 0 515.281 0 515.281 0 515.281 0 515.281 761.89 515.281 761.89 515.281 761.89 515.281 761.89 0 761.89 0 761.89 0 761.89 0 761.89 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 515.281 0 515.281 0 515.281 0 515.281 0 515.281 761.89 515.281 761.89 515.281 761.89 515.281 761.89 0 761.89 0 761.89 0 761.89 0 761.89 0 0 0 0 " NUMGROUP="0" GROUPS="" startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" ALIGN="0" LAYER="0" BOOKMARK="0" NEXTITEM="-1" BACKITEM="14">
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="6" XPOS="647.979222789763" YPOS="338.988651205433" WIDTH="76.64391951" HEIGHT="14.12712597" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="0" PCOLOR="None" PCOLOR2="Black" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="-270" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="1" groupsLastItem="2" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 76.6439 0 76.6439 0 76.6439 0 76.6439 0 76.6439 14.1271 76.6439 14.1271 76.6439 14.1271 76.6439 14.1271 0 14.1271 0 14.1271 0 14.1271 0 14.1271 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 76.6439 0 76.6439 0 76.6439 0 76.6439 0 76.6439 14.1271 76.6439 14.1271 76.6439 14.1271 76.6439 14.1271 0 14.1271 0 14.1271 0 14.1271 0 14.1271 0 0 0 0 " NUMGROUP="1" GROUPS="4 " startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" LAYER="2" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <trail/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="6" XPOS="647.695758219763" YPOS="339.272115805433" WIDTH="70.2992126" HEIGHT="8.8125" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="0.5669291339" PCOLOR="White" PCOLOR2="Red" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="-270" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 70.2992 0 70.2992 0 70.2992 0 70.2992 0 70.2992 8.8125 70.2992 8.8125 70.2992 8.8125 70.2992 8.8125 0 8.8125 0 8.8125 0 8.8125 0 8.8125 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 70.2992 0 70.2992 0 70.2992 0 70.2992 0 70.2992 8.8125 70.2992 8.8125 70.2992 8.8125 70.2992 8.8125 0 8.8125 0 8.8125 0 8.8125 0 8.8125 0 0 0 0 " NUMGROUP="1" GROUPS="4 " startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" LAYER="2" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <trail/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="4" XPOS="646.320955079763" YPOS="341.658817505433" WIDTH="73.97375328" HEIGHT="12.46885826" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PCOLOR="None" PCOLOR2="None" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="-270" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 73.9738 0 73.9738 0 73.9738 0 73.9738 0 73.9738 12.4689 73.9738 12.4689 73.9738 12.4689 73.9738 12.4689 0 12.4689 0 12.4689 0 12.4689 0 12.4689 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 73.9738 0 73.9738 0 73.9738 0 73.9738 0 73.9738 12.4689 73.9738 12.4689 73.9738 12.4689 73.9738 12.4689 0 12.4689 0 12.4689 0 12.4689 0 12.4689 0 0 0 0 " NUMGROUP="1" GROUPS="4 " startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" LAYER="2" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <ITEXT CH="Beursschouwburg"/>
+            <trail PARENT="Style 1" FONTSIZE="6" FEATURES="inherit allcaps"/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="5" XPOS="643.177333029763" YPOS="409.534478005433" WIDTH="849.813623704319" HEIGHT="1" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="0.5669291339" PCOLOR="None" PCOLOR2="Red" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="90" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="0" POCOOR="" NUMCO="0" COCOOR="" NUMGROUP="0" GROUPS="" startArrowIndex="0" endArrowIndex="17" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" LAYER="2" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <trail/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="5" XPOS="643.177333029763" YPOS="326.883149605433" WIDTH="12.30519685" HEIGHT="1" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="0.5669291339" PCOLOR="None" PCOLOR2="Red" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="-270" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="0" POCOOR="" NUMCO="0" COCOOR="" NUMGROUP="0" GROUPS="" startArrowIndex="17" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" LAYER="2" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <trail/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="6" XPOS="670.316216051968" YPOS="330.394650134016" WIDTH="28.66884076" HEIGHT="15.15068418" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="0" PCOLOR="None" PCOLOR2="Black" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="-270" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="1" groupsLastItem="2" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 28.6688 0 28.6688 0 28.6688 0 28.6688 0 28.6688 15.1507 28.6688 15.1507 28.6688 15.1507 28.6688 15.1507 0 15.1507 0 15.1507 0 15.1507 0 15.1507 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 28.6688 0 28.6688 0 28.6688 0 28.6688 0 28.6688 15.1507 28.6688 15.1507 28.6688 15.1507 28.6688 15.1507 0 15.1507 0 15.1507 0 15.1507 0 15.1507 0 0 0 0 " NUMGROUP="1" GROUPS="5 " startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" LAYER="2" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <trail/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="6" XPOS="670.032751481968" YPOS="330.678114634016" WIDTH="25.47031256" HEIGHT="13.09165748" RADRECT="0" FRTYPE="1" CLIPEDIT="0" PWIDTH="0.5669291339" PCOLOR="White" PCOLOR2="Red" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="-270" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="25.4703 6.54583 25.4703 10.1611 12.7352 13.0917 19.7688 13.0917 12.7352 13.0917 5.70172 13.0917 0 6.54583 0 10.1611 0 6.54583 0 2.93067 12.7352 0 5.70172 0 12.7352 0 19.7688 0 25.4703 6.54583 25.4703 2.93067 " NUMCO="16" COCOOR="25.4703 6.54583 25.4703 10.1611 12.7352 13.0917 19.7688 13.0917 12.7352 13.0917 5.70172 13.0917 0 6.54583 0 10.1611 0 6.54583 0 2.93067 12.7352 0 5.70172 0 12.7352 0 19.7688 0 25.4703 6.54583 25.4703 2.93067 " NUMGROUP="1" GROUPS="5 " startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" LAYER="2" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <trail/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="4" XPOS="667.199676681968" YPOS="334.198744634016" WIDTH="24.86474619" HEIGHT="12.03414481" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PCOLOR="None" PCOLOR2="None" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="-270" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 24.8647 0 24.8647 0 24.8647 0 24.8647 0 24.8647 12.0341 24.8647 12.0341 24.8647 12.0341 24.8647 12.0341 0 12.0341 0 12.0341 0 12.0341 0 12.0341 0 0 0 0 " NUMCO="16" COCOOR="0 0 0 0 24.8647 0 24.8647 0 24.8647 0 24.8647 0 24.8647 12.0341 24.8647 12.0341 24.8647 12.0341 24.8647 12.0341 0 12.0341 0 12.0341 0 12.0341 0 12.0341 0 0 0 0 " NUMGROUP="1" GROUPS="5 " startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" LAYER="2" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <ITEXT CH="21:15"/>
+            <trail PARENT="Style 1" FONTSIZE="7"/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="5" XPOS="87" YPOS="439.5" WIDTH="685.5" HEIGHT="1" RADRECT="0" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PCOLOR="None" PCOLOR2="Black" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="0" PLINEART="7" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="0" POCOOR="" NUMCO="0" COCOOR="" NUMGROUP="0" GROUPS="" startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" LAYER="1" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <trail/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="6" XPOS="380.91883511419" YPOS="62.4463848879697" WIDTH="7.89717903367557" HEIGHT="8.20069848607133" RADRECT="0" FRTYPE="3" CLIPEDIT="1" PWIDTH="1" PCOLOR="Red" PCOLOR2="None" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="37.3618999623822" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="12" POCOOR="3.94859 0 3.94859 0 0 8.2007 0 8.2007 0 8.2007 0 8.2007 7.89718 8.2007 7.89718 8.2007 7.89718 8.2007 7.89718 8.2007 3.94859 0 3.94859 0 " NUMCO="12" COCOOR="3.94859 0 3.94859 0 0 8.2007 0 8.2007 0 8.2007 0 8.2007 7.89718 8.2007 7.89718 8.2007 7.89718 8.2007 7.89718 8.2007 3.94859 0 3.94859 0 " NUMGROUP="0" GROUPS="" startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" LAYER="1" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <trail/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="6" XPOS="366.22271615175" YPOS="832.255864634437" WIDTH="8" HEIGHT="7.8220861236191" RADRECT="0" FRTYPE="1" CLIPEDIT="0" PWIDTH="1" PCOLOR="Red" PCOLOR2="None" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="0" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="0" TEXTFLOW="0" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="8 3.91104 8 6.07113 4 7.82209 6.20922 7.82209 4 7.82209 1.79086 7.82209 0 3.91104 0 6.07113 0 3.91104 0 1.75103 4 0 1.79086 0 4 0 6.20922 0 8 3.91104 8 1.75103 " NUMCO="16" COCOOR="8 3.91104 8 6.07113 4 7.82209 6.20922 7.82209 4 7.82209 1.79086 7.82209 0 3.91104 0 6.07113 0 3.91104 0 1.75103 4 0 1.79086 0 4 0 6.20922 0 8 3.91104 8 1.75103 " NUMGROUP="0" GROUPS="" startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" LAYER="1" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <trail/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="2" XPOS="250" YPOS="-0.25" WIDTH="216.5" HEIGHT="149.49874015748" RADRECT="0" FRTYPE="3" CLIPEDIT="1" PWIDTH="1" PCOLOR="None" PCOLOR2="None" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="0" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="0.0556841563786008" LOCALSCY="0.0556841563786008" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="0" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="" TEXTFLOWMODE="3" TEXTFLOW="1" TEXTFLOW2="0" TEXTFLOW3="1" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="../programme/images/jason.jpg" PFILE2="" PFILE3="" PRFILE="Embedded Canon EOS 400D DIGITAL" EPROF="Embedded Canon EOS 400D DIGITAL" IRENDER="0" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 216.5 0 216.5 0 216.5 0 216.5 0 216.5 149.499 216.5 149.499 216.5 149.499 216.5 149.499 0 149.499 0 149.499 0 149.499 0 149.499 0 0 0 0 " NUMCO="16" COCOOR="-15.304 -10.6104 -15.304 -10.6104 231.881 -10.6104 231.881 -10.6104 231.881 -10.6104 231.881 -10.6104 231.881 160.077 231.881 160.077 231.881 160.077 231.881 160.077 -15.304 160.077 -15.304 160.077 -15.304 160.077 -15.304 160.077 -15.304 -10.6104 -15.304 -10.6104 " NUMGROUP="0" GROUPS="" startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" LAYER="3" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <trail/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="2" XPOS="290.5" YPOS="508.24874015748" WIDTH="103.634517766497" HEIGHT="96" RADRECT="0" FRTYPE="3" CLIPEDIT="1" PWIDTH="1" PCOLOR="None" PCOLOR2="None" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="0" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="0.0812182741116751" LOCALSCY="0.0812182741116751" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="0" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME="habillà5mm" TEXTFLOWMODE="3" TEXTFLOW="1" TEXTFLOW2="0" TEXTFLOW3="1" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="../programme/images/manu.jpg" PFILE2="" PFILE3="" PRFILE="Embedded Camera RGB Profile" EPROF="Embedded Camera RGB Profile" IRENDER="0" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="16" POCOOR="0 0 0 0 103.635 0 103.635 0 103.635 0 103.635 0 103.635 96 103.635 96 103.635 96 103.635 96 0 96 0 96 0 96 0 96 0 0 0 0 " NUMCO="16" COCOOR="-7.32572 -6.81342 -7.32572 -6.81342 110.997 -6.81342 110.997 -6.81342 110.997 -6.81342 110.997 -6.81342 110.997 102.793 110.997 102.793 110.997 102.793 110.997 102.793 -7.32572 102.793 -7.32572 102.793 -7.32572 102.793 -7.32572 102.793 -7.32572 -6.81342 -7.32572 -6.81342 " NUMGROUP="0" GROUPS="" startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="1" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" LAYER="3" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <trail/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+        <PAGEOBJECT OwnPage="0" PTYPE="7" XPOS="124.326771653543" YPOS="54.3004724409449" WIDTH="50.3307086614173" HEIGHT="37.4443307086614" RADRECT="0" FRTYPE="3" CLIPEDIT="1" PWIDTH="5.66929133858268" PCOLOR="None" PCOLOR2="Black" COLUMNS="1" COLGAP="0" NAMEDLST="" SHADE="100" SHADE2="100" GRTYP="0" ROT="0" PLINEART="1" PLINEEND="0" PLINEJOIN="0" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" PICART="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" FLIPPEDH="0" FLIPPEDV="0" SCALETYPE="1" RATIO="1" PRINTABLE="1" ANNOTATION="0" ANNAME=" path4412" TEXTFLOWMODE="1" TEXTFLOW="1" TEXTFLOW2="0" TEXTFLOW3="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" FLOP="0" PFILE="" PFILE2="" PFILE3="" PRFILE="" EPROF="" IRENDER="1" EMBEDDED="1" LOCK="0" LOCKR="0" REVERS="0" TransValue="0" TransValueS="0" TransBlend="0" TransBlendS="0" isTableItem="0" TopLine="0" LeftLine="0" RightLine="0" BottomLine="0" isGroupControl="0" NUMDASH="0" DASHS="" DASHOFF="0" NUMPO="56" POCOOR="50.3306 37.1816 46.5733 37.295 40.1196 33.2949 42.8382 35.8738 40.1196 33.2949 37.4067 30.7096 35.7633 23.3314 35.8133 27.0651 35.7633 23.3314 35.7633 23.3314 35.7633 23.3314 35.7633 23.3314 35.7633 23.3314 35.7516 20.9931 36.7624 16.7513 36.2687 18.8035 36.7624 16.7513 37.2322 14.696 37.5842 10.8446 37.691 12.7218 37.5842 10.8446 37.4587 7.91692 33.7612 3.05902 35.9936 5.02191 33.7612 3.05902 33.7612 3.05902 33.7612 3.05902 33.7612 3.05902 33.7612 3.05902 31.5278 1.08546 25.45 0 28.4708 0.00266698 25.45 0 22.4292 0.00300035 17.139 3.05969 19.3724 1.08579 17.139 3.05969 14.907 5.02225 13.3156 10.8449 13.4416 7.91725 13.3156 10.8449 13.2087 12.7221 14.1364 16.7513 13.6667 14.6964 14.1364 16.7513 14.6299 18.8038 15.1365 23.3307 15.1471 20.9928 15.1365 23.3307 15.0865 27.1631 10.5763 33.4995 13.411 30.8992 10.5763 33.4995 7.73502 36.0922 0 37.179 3.84893 37.4443 " NUMCO="56" COCOOR="52.4847 38.7278 48.4079 38.8508 41.4054 34.5105 44.3552 37.3088 41.4054 34.5105 38.4618 31.7053 36.6786 23.6997 36.7329 27.751 36.6786 23.6997 36.6786 23.6997 36.6786 23.6997 36.6786 23.6997 36.6786 23.6997 36.6659 21.1626 37.7627 16.56 37.227 18.7868 37.7627 16.56 38.2724 14.33 38.6544 10.1511 38.7702 12.1879 38.6544 10.1511 38.5182 6.97442 34.5063 1.70341 36.9284 3.83323 34.5063 1.70341 34.5063 1.70341 34.5063 1.70341 34.5063 1.70341 34.5063 1.70341 32.0829 -0.437982 25.4882 -1.61575 28.766 -1.61285 25.4882 -1.61575 22.2106 -1.61249 16.4705 1.70413 18.8939 -0.437621 16.4705 1.70413 14.0487 3.83359 12.3219 10.1514 12.4586 6.97478 12.3219 10.1514 12.2059 12.1883 13.2126 16.56 12.7029 14.3304 13.2126 16.56 13.748 18.7872 14.2977 23.699 14.3092 21.1622 14.2977 23.699 14.2435 27.8573 9.34976 34.7326 12.4254 31.9111 9.34976 34.7326 6.26681 37.5457 -2.12598 38.7249 2.05026 39.0128 " NUMGROUP="0" GROUPS="" startArrowIndex="0" endArrowIndex="0" OnMasterPage="" ImageClip="" ImageRes="1" Pagenumber="0" isInline="0" fillRule="0" doOverprint="0" gXpos="0" gYpos="0" gWidth="0" gHeight="0" LAYER="4" BOOKMARK="0" NEXTITEM="-1" BACKITEM="-1">
+            <trail/>
+            <PageItemAttributes/>
+        </PAGEOBJECT>
+    </DOCUMENT>
+</SCRIBUSUTF8NEW>

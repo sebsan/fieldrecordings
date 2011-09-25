@@ -46,7 +46,7 @@
 	}
 	
 .menu_item_active {
-	color:red;
+	color:#fc264a;
 	}
 		  	
 #menu_index {
@@ -99,7 +99,7 @@ div.index_col {
 	}
 
 .menu_page_nav {
-	color:blue;
+	color:#18959a;
 	font-family: free_sans;
 	font-size: 10pt;
 	line-height: 15pt;
@@ -173,7 +173,7 @@ table.sample td{
 .presentation_row {
 	font-family: free_sans;
 	font-size: 12pt;
-	color:red;
+	color:#fc264a;
 	text-align:left;
 	padding: 0px 0px 15px 0px;
 	height: 7px;

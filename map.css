@@ -18,19 +18,19 @@
 	letter-spacing: 0.09em;
 	font-size: 8pt;
 	text-transform: uppercase;
-	color: red;
-	border:1px solid red;
+	color: #fc264a;
+	border:1px solid #fc264a;
 }
 
 .city_label a:hover{
 	color:white;
-	background-color: red;
+	background-color: #fc264a;
 }
 
 .city_current a{
-	color: blue;
-	border:1px solid blue;
+	color: #18959a;
+	border:1px solid #18959a;
 }
 .city_current a:hover{
-	background-color: blue;
+	background-color: #18959a;
 }
