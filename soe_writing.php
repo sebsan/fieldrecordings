@@ -24,14 +24,14 @@ $args = array('post_type' => 'soe_writing',
 $the_query = new WP_Query( $args );
 
 $itCount = 0;
-$maxItems = 8;
+$maxItems = 2;
 $cCount = 0;
 $maxCols = 6;
 $startCol = '<span> <div class="index_col">';
 $endCol = '</div> </span>';
 $first = true;
 $pages = array();
-$content = "";
+$content = $startCol;
 while ( $the_query->have_posts() )
 {
 	if($cCount === $maxCols)

@@ -207,6 +207,7 @@ class RugImage
 		
 		imagepng($dest, $ret);
 		imagedestroy($dest);
+		imagedestroy($ret);
 		return $ret;
 	}
 	
