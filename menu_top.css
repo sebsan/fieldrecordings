@@ -1,13 +1,13 @@
 /* menu_top.css */
 
 /*#menu_top{
-	position:absolute;
+	position:fixed;
 	top:5px;
 	background-color:white;
 }*/
 
 #menu_navigation{
-	 position: absolute;
+	 position: fixed;
 	 top:10;
 	 left:35;
 }
@@ -20,8 +20,8 @@
 	}
 
 #menu_item{
-	position: absolute;
-	z-index:1000;
+	position: fixed;
+	z-index:11;
 	top: 0;
 	left: 0px;
 	font-family: helvetica_serif;
@@ -50,8 +50,8 @@
 	}
 		  	
 #menu_index {
-	position: absolute;
-	z-index:1000;
+	position: fixed;
+	z-index:10;
 	top: 2%;
 	left: 0px;
 	width:98%;
@@ -86,7 +86,7 @@
 	}
 
 #menu-logi{
-	position: absolute;
+	position: fixed;
 	right: 0;
 	top:0;
 	}

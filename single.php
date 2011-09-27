@@ -163,7 +163,7 @@ elseif($postType == 'soe_city')
 		$vc += $i;
 		$maxp = $i;
 	}
-	echo 'MAXP = '. $maxp . ' ; NUMP = '. $nump;
+// 	echo 'MAXP = '. $maxp . ' ; NUMP = '. $nump;
 	$x = 0;
 	$y = 42;
 	$cw = 201;
@@ -232,6 +232,14 @@ elseif($postType == 'soe_writing')
 	</div> <!-- writing_outer  -->
 	</div>
 	';
+}
+elseif($postType == 'page')
+{
+	echo '<div id="content_outer"> <div id="content">
+	<div class="title">'.get_the_title().'</div>
+	<div class="section">
+	'.the_content().'
+	</div></div></div>';
 }
 
 

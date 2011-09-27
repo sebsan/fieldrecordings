@@ -22,6 +22,7 @@ function initMediaPlayer()
 			ready: function () 
 			{
 				jQuery(this).jPlayer("setMedia", { mp3: audioFile});
+// 				jQuery(this).jPlayer("play");
 			},
 			supplied: "mp3",
 			swfPath: jplayerswf,
@@ -30,10 +31,10 @@ function initMediaPlayer()
 				play: '.jp-play',
 				pause: '.jp-pause'
 			},
-			errorAlerts: false,
+			errorAlerts: SOE_debug,
 			warningAlerts: false
 		});
-		player.jPlayer("play");
+		
 	});
 	
 	jQuery('.audio-ogg').each(function(index)
@@ -55,7 +56,7 @@ function initMediaPlayer()
 				play: '.jp-play',
 				pause: '.jp-pause'
 			},
-			errorAlerts: false,
+			errorAlerts: SOE_debug,
 			warningAlerts: false
 		});
 		player.jPlayer("play");
@@ -516,15 +517,16 @@ function drawCursorLine(x)
 		theCursorLine.line.remove();
 		theCursorLine.triangle.remove();
 	}
-	var W = jQuery('body');
+	var W = jQuery(window);
 	var slidX = x;
 	var slidY = jQuery("#menu_item").outerHeight();
 	theCursorLine.line = line(raph, new Point(slidX, W.height()), new Point(slidX, slidY));
 	var tc = 20;
+	var tc1 = 10;
 	var triangle = new Path(raph);
-	triangle.moveTo(slidX + (tc /2), slidY)
-	.lineTo(slidX, slidY + tc)
-	.lineTo(slidX - (tc /2), slidY)
+	triangle.moveTo(slidX + (tc1 /2), slidY)
+	.lineTo(slidX, slidY + tc1)
+	.lineTo(slidX - (tc1 /2), slidY)
 	.close()
 	.fill(new Color(0,0,0).toString())
 	.draw();
@@ -553,10 +555,10 @@ function initSOE()
 	svgWidth = ww * 0.99;
 	svgHeight = wh * 0.99;
 	raph = Raphael(document.getElementById("carte"), svgWidth, svgHeight );
-	var minimap_stroke = new Color(0,0,254);
-	var minimap_fill = new Color(0,0,254);
-	var country_stroke = new Color(255,0,0);
-	var cityColor = new Color(0,0,200);
+	var minimap_stroke = new Color(0x18,0x95,0x9A);//fc264a
+	var minimap_fill = new Color(0x18,0x95,0x9A);
+	var country_stroke = new Color(0xFC,0x26,0x4A);//#18959a
+	var cityColor = new Color(0xFC,0x26,0x4A);
 	var white = new Color(255,255,255);
 	
 	var bscale = 15;
@@ -627,7 +629,7 @@ function initSOE()
 						raph.image(templateUrl 
 							+'texture/texture.php?'
 							+'cx='+  Math.floor(curCityPoint.x / 10) * Math.floor(curCityPoint.x / 10)
-							+'&cy='+ Math.floor(curCityPoint.x / 10) * Math.floor(curCityPoint.x / 10)
+							+'&cy='+ Math.floor(curCityPoint.y / 10) * Math.floor(curCityPoint.y / 10)
 							+'&w='+  Math.floor(iW)
 							+'&h='+  Math.floor(iH)
 							, ctx, cty, iW, iH).toBack();

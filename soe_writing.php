@@ -24,9 +24,11 @@ $args = array('post_type' => 'soe_writing',
 $the_query = new WP_Query( $args );
 
 $itCount = 0;
-$maxItems = 2;
+$maxItems = 1;
 $cCount = 0;
 $maxCols = 6;
+if($the_query->found_posts < $maxCols)
+	$maxItems = 0;
 $startCol = '<span> <div class="index_col">';
 $endCol = '</div> </span>';
 $first = true;
@@ -73,6 +75,8 @@ while ( $the_query->have_posts() )
 	}
 	else
 		$itCount++;
+	
+	$first = false;
 }
 
 if($content != "")
