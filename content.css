@@ -191,33 +191,37 @@
 }
 
 .closedBox_outer {
+	color:#18959A
 	background-color: #FFFFFF;
-	border: 1px solid #000000;
+	border: 1px solid #18959A;
 	width: 200px;
 	height:40px;
+	z-index:5;
 }
 
 .closedBox {
-	border: 1px solid #000000;
+	border: 1px solid #18959A;
 	margin: 2px;
 	padding: 0px;
 }
 
 .closedBox .closedBox_title {
 	clear:both;
+	color:#18959A;
 	font-family: helvetica_serif;
 	font-size: 8pt;
 	padding: 0px 10px 5px;
 }
 
 .closedBox .closedBox_category {
+	color:#18959A;
 	float:right;
 	font-family: free_sansBold;
 	font-size: 6pt;
 	padding: 4px 10px 0px 10px;
 	text-align:center;
-	border-left:1px solid #000000;
-	border-bottom:1px solid #000000;
+	border-left:1px solid #18959A;
+	border-bottom:1px solid #18959A;
 }
 
 #content .blog_title{

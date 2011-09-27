@@ -6,6 +6,68 @@
 	background-color:white;
 }*/
 
+#sow_player_outer{
+	position:absolute;
+	z-index:12;
+	left:10px;
+	top:10px;
+	color:#FC264A;
+	background-color:white;
+}
+
+.sow_details{
+	display:none;
+	color:#FC264A;
+	border-top:1px solid;
+}
+a.sow_by{
+	color:white;
+	background-color:#FC264A;
+	
+}
+a.sow_by:hover{
+	color:#FC264A;
+	background-color:white;
+}
+.jp-current-time, .jp-duration{
+	font-size:80%;
+}
+#sow_player_outer:hover{
+	border:1px solid;
+	padding:4px;
+	left:0px;
+	top:0px;
+}
+#sow_player_outer:hover #sow_player{
+	border:1px solid;
+	padding:4px;
+}
+#sow_player_outer:hover .sow_details{
+	display:block;
+}
+
+.news-active{
+	color:white;
+	background-color:#FC264A;
+	font-size:130%;
+}
+
+#newsContent{
+	position:fixed;
+	z-index:10;
+	color:white;
+	background-color:#FC264A;
+	font-size:16pt;
+	font-family:helvetica_serif;
+	padding:24px 12px 12px 12px;
+	top:32px;
+	right:0;
+}
+
+#newsContent span.title a{
+	color:white;
+}
+
 #menu_navigation{
 	 position: fixed;
 	 top:10;
@@ -38,6 +100,7 @@
 /* 	background-color:white; */
 	background:white url("img/soe-logo-menu.png") top right no-repeat;
 	border-bottom: 1px solid black;
+	text-align:center;
 	}
 	
 #menu_item span{

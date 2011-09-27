@@ -143,41 +143,6 @@ if($locs != NULL)
 <!-- MENU -->
 <?php get_template_part('menu'); 
 
-$events = $wpdb->get_results("
-SELECT * 
-FROM ". $wpdb->posts ." AS p 
-WHERE (p.post_type = 'soe_event') ;
-", OBJECT);
-// print_r($events);
-$news = array('post' => null, 'date' => 0 , 'custom' => null);
-$today = strtotime(current_time('mysql'));
-// print_r($today);
-// echo 'T = '.$today;
-foreach($events as $e)
-{
-	$c = get_post_custom($e->ID);
-// 	print_r($c);
-	$sd = strtotime($c['event_date_start'][0]);
-	$ed = strtotime($c['event_date_end'][0]);
-	if($sd >= $today || $ed >= $today)
-	{
-		if($d < $news['date'] || $news['date'] == 0)
-		{
-			$news['post'] = $e;
-			$news['date'] = $d;
-			$news['custom'] = $c;
-		}
-	}
 
-}
-// print_r($news);
-if($news['post'])
-{
-	echo '<div id="newsContent">
-	<div class="title">'.get_the_title($news['post']->ID).'</div>
-	<div class="date">'.$news['custom']['event_date_start'][0].'</div>
-	<div class="place">'.GetLocation($news['post']->ID).'</div>
-	</div> <!-- newsContent -->';
-}
 ?>
 <!-- END OF MENU -->

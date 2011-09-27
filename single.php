@@ -148,11 +148,15 @@ elseif($postType == 'soe_city')
 // 	echo $query;
 	$posts = $wpdb->get_results($query, OBJECT);
 	$tps = array();
+	$oposts = array();
 	foreach($posts as $p)
 	{
 		if(!in_array($p->ID, $tps))
 		{
 			$tps[] = $p->ID;
+			if(!isset($oposts[$p->post_type]))
+				$oposts[$p->post_type] = array();
+			$oposts[$p->post_type][] = $p;
 		}
 	}
 	$nump = count($tps);
