@@ -16,7 +16,7 @@ global $blogloc;
 $postloc = NULL;
 $blogloc = NULL;
 
-if(is_single($post) && in_array($post->post_type, $tnames))
+if(/*is_single($post) &&*/ in_array($post->post_type, $tnames))
 {
 	$custom = get_post_custom($post->ID);
 	if(isset($custom['location'][0]))
@@ -26,7 +26,7 @@ if(is_single($post) && in_array($post->post_type, $tnames))
 }
 else
 {
-	$blogloc = GetLocation( get_option('soe_location') );
+	$postloc = $blogloc = GetLocation( get_option('soe_location') );
 	
 }
 
@@ -68,7 +68,8 @@ foreach($SOE_styles as $style)
 var rootUrl = "<?php echo get_bloginfo('url') . '/'; ?>";
 var templateUrl = "<?php echo $template_dir . '/'; ?>";
 var jplayerswf = " <?php echo get_bloginfo('template_directory') . '/js/jQuery.jPlayer.2.0.0/' ;?>";
-var theCity = "<?php  echo $postloc !== NULL ? $postloc->geonameid : "bruxelles" ?>";
+var theCity = "<?php  echo $postloc !== NULL ? $postloc->geonameid : "XXXX" ?>";
+var doMap = <?php echo $post->post_type != 'soe_writing' ? 'true' : 'false'; ?>;
 <?php
 // city IDs in use
 global $wpdb;
@@ -141,5 +142,8 @@ if($locs != NULL)
 <!-- MAP -->
 
 <!-- MENU -->
-<?php get_template_part('menu'); ?>
+<?php get_template_part('menu'); 
+
+
+?>
 <!-- END OF MENU -->

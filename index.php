@@ -9,7 +9,7 @@
  *	
  */
 
-if(is_page() && get_page_by_title('Artist Registration'))
+if(is_page() && get_page_by_title('Artist Registration') == $post)
 {
 	get_template_part('artist_form');
 }

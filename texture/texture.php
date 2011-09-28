@@ -12,8 +12,17 @@ $center['y'] = $_GET['cy'];
 
 $ri = new RugImage($vrect);
 $img = $ri->CenterOn($center);
-header('Content-Type: image/png');
-readfile($img);
 
+header('Content-Type: image/png');
+header('Content-Transfer-Encoding: binary');
+header('Expires: 0');
+header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+header('Pragma: public');
+header('Content-Length: ' . filesize($img));
+
+ob_clean();
+flush();
+readfile($img);
+exit();
 
 ?>

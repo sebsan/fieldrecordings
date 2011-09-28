@@ -1,11 +1,15 @@
 /* map.css */
 
-.carte{
-	position: absolute;
+#carte{
+	position: fixed;
 	top:0;
 	left:0;
 }
-
+#labels{
+	position: fixed;
+	top:0;
+	left:0;
+}
 
 .city_label:hover {
 	z-index:10000;

@@ -201,7 +201,7 @@ wp_head();
 
 label 
 {
-	color:blue;
+	color:#18959A;
 	font-family: helvetica_serif;
 	background-color:white;
 	font-size: 8pt;
@@ -209,19 +209,19 @@ label
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
-	border: 1px solid blue;
+	border: 1px solid #18959A;
 	margin-left: 30px;
 	padding: 3px; 
 }
 
-input 
+input[type~="file"], input[type~="text"]
 {
 	color:black;
 	font-family: free_sans;
 	font-size: 10pt;
 	width: 300px;
 	line-height: 12pt;
-	border:1px solid blue;
+	border:1px solid #18959A;
 	margin-left: 30px;
 	margin-bottom: 10px;
 	padding: 0 0 0px 0;
@@ -231,14 +231,14 @@ input.submit
 {
 	color:white;
 	width: 70px;
-	background-color:blue;
+	background-color:#18959A;
 	font-family: helvetica_serif;
 	font-size: 8pt;
 	line-height: 12pt;
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
-	border: 1px solid blue;
+	border: 1px solid #18959A;
 	margin-left: 30px;
 	margin-top: 20px;
 	padding: 3px; 
@@ -247,7 +247,7 @@ input.submit
 
 input.submit:hover
 {
-	color:blue;
+	color:#18959A;
 	width: 70px;
 	font-family: helvetica_serif;
 	background-color:white;
@@ -256,7 +256,7 @@ input.submit:hover
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
-	border: 1px solid blue;
+	border: 1px solid #18959A;
 	margin-left: 30px;
 	margin-top: 20px;
 	padding: 3px; 
@@ -270,29 +270,45 @@ textarea
 	width: 300px;
 	height: 200px;
 	line-height: 12pt;
-	border:1px solid blue;
+	border:1px solid #18959A;
 	margin-left: 30px;
 	margin-bottom: 10px;
 
 
 }
 
+#form_explain{
+	position: absolute;
+	left: 40px;
+	top:40px;
+	color:#18959A;
+	font-family:helvetica_serif;
+	font-size:9pt;
+	line-height:13pt;
+	width:260px;
+}
+
+strong{
+	color:#FC264A;
+	font-size:110%;
+}
+
 #left{
-position: fixed;
-left: 200px;
-top:40px;
+	position: absolute;
+	left: 300px;
+	top:40px;
 }
 
 #right{
-position: fixed;
-left: 550px;
-top:40px;
+	position: absolute;
+	left: 650px;
+	top:40px;
 }
 
 #log{
-position: fixed;
-left: 900px;
-top:40px;
+	position: absolute;
+	left: 1000px;
+	top:40px;
 }
 
 </style>
@@ -325,7 +341,22 @@ jQuery(document).ready(function()
 </head>
 <body>
 
+
+
 <form name="regform" method="post" action="" enctype="multipart/form-data">
+<div id="form_explain">
+<p>
+<strong>Sounds of Europe</strong> is a project that acknowledges and follows the increase of <strong>field recording</strong> activity in music, art and sciences in recent years.
+One of the objectives of the project is to create <strong>a platform for sound oriented organizations and sound artists working with field recordings.</strong>
+In order to stimulate exchanges, please join!
+</p>
+<p>
+If you don't want to receive the 'Sounds of Europe' newsletter, please thick the box<input type="checkbox" value="mailinglist"/>  
+
+Your email address will in any case not be used for commercial purposes.
+</p>
+</div>
+
 <div id="left">
 	<div>
 	<label for="artistname">Name</label>

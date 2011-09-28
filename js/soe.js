@@ -22,6 +22,7 @@ function initMediaPlayer()
 			ready: function () 
 			{
 				jQuery(this).jPlayer("setMedia", { mp3: audioFile});
+// 				jQuery(this).jPlayer("play");
 			},
 			supplied: "mp3",
 			swfPath: jplayerswf,
@@ -30,10 +31,10 @@ function initMediaPlayer()
 				play: '.jp-play',
 				pause: '.jp-pause'
 			},
-			errorAlerts: false,
+			errorAlerts: SOE_debug,
 			warningAlerts: false
 		});
-		player.jPlayer("play");
+		
 	});
 	
 	jQuery('.audio-ogg').each(function(index)
@@ -55,10 +56,9 @@ function initMediaPlayer()
 				play: '.jp-play',
 				pause: '.jp-pause'
 			},
-			errorAlerts: false,
+			errorAlerts: SOE_debug,
 			warningAlerts: false
 		});
-		player.jPlayer("play");
 	});
 }
 
@@ -363,10 +363,11 @@ function line(paper, p0, p1)
 var svgHeight = 1862;
 var svgWidth = 2160;
 
-
+var tmenu_duration = 'slow';
 function toggleMenu()
 {
 	jQuery('.site_menu_item').removeClass('menu_item_active');
+	
 	var that = jQuery(this);
 	var menu = jQuery('#menu_index');
 	var id = that.attr('id');
@@ -375,7 +376,7 @@ function toggleMenu()
 	{
 		if(menu.hasClass('menu_' + callerType))
 		{
-			menu.show();
+			menu.slideDown(tmenu_duration);
 			menu.removeClass('menu_closed');
 		}
 		else
@@ -384,7 +385,7 @@ function toggleMenu()
 			menu.load(rootUrl + callerType,
 			function()
 			{
-				menu.show();
+				menu.slideDown(tmenu_duration);
 				menu.addClass('menu_' + callerType);
 				
 			});
@@ -395,7 +396,7 @@ function toggleMenu()
 	{
 		if(menu.hasClass('menu_' + callerType))
 		{
-			menu.hide();
+			menu.slideUp(tmenu_duration);
 			menu.addClass('menu_closed');
 		}
 		else
@@ -405,7 +406,7 @@ function toggleMenu()
 			menu.load(rootUrl + callerType,
 				  function()
 				  {
-					  menu.show();
+// 					  menu.slideDown('slow');
 					  menu.addClass('menu_' + callerType);
 			
 				  });
@@ -516,15 +517,16 @@ function drawCursorLine(x)
 		theCursorLine.line.remove();
 		theCursorLine.triangle.remove();
 	}
-	var W = jQuery('body');
+	var W = jQuery(window);
 	var slidX = x;
 	var slidY = jQuery("#menu_item").outerHeight();
 	theCursorLine.line = line(raph, new Point(slidX, W.height()), new Point(slidX, slidY));
 	var tc = 20;
+	var tc1 = 10;
 	var triangle = new Path(raph);
-	triangle.moveTo(slidX + (tc /2), slidY)
-	.lineTo(slidX, slidY + tc)
-	.lineTo(slidX - (tc /2), slidY)
+	triangle.moveTo(slidX + (tc1 /2), slidY)
+	.lineTo(slidX, slidY + tc1)
+	.lineTo(slidX - (tc1 /2), slidY)
 	.close()
 	.fill(new Color(0,0,0).toString())
 	.draw();
@@ -541,38 +543,61 @@ function drawCursorLine(x)
 	
 }
 
+function toggleNews()
+{
+	var n = jQuery('#newsContent');
+	var mn = jQuery('#menu_item_news');
+// 	alert(parseInt(mn.css('padding-left')));
+	if(n.is(':visible'))
+	{
+		n.hide();
+		mn.removeClass('news-active');
+	}
+	else
+	{
+		n.show();
+// 		n.css({ 
+// 			position : 'fixed',
+// 			left : (mn.offset().left) + "px" ,
+// 			top: (mn.offset().top + mn.outerHeight()) + "px" 
+// 		});
+		n.offset({ top: mn.offset().top + mn.outerHeight(), left: mn.offset().left });
+		mn.addClass('news-active');
+	}
+}
 
 var curCityPoint = undefined;
 var countryCode = '';
 
-function initSOE()
+function initMap(ttt)
 {
-	initMediaPlayer();
+	if(ttt == false)
+		return;
 	var ww = jQuery(window).width();
 	var wh = jQuery(window).height();
 	svgWidth = ww * 0.99;
 	svgHeight = wh * 0.99;
 	raph = Raphael(document.getElementById("carte"), svgWidth, svgHeight );
-	var minimap_stroke = new Color(0,0,254);
-	var minimap_fill = new Color(0,0,254);
-	var country_stroke = new Color(255,0,0);
-	var cityColor = new Color(0,0,200);
+	var minimap_stroke = new Color(0x18,0x95,0x9A);//fc264a
+	var minimap_fill = new Color(0x18,0x95,0x9A);
+	var country_stroke = new Color(0xFC,0x26,0x4A);//#18959a
+	var cityColor = new Color(0xFC,0x26,0x4A);
 	var white = new Color(255,255,255);
 	
 	var bscale = 15;
 	var btransx = ww / (2.5 * bscale) ;
 	var btransy = 3200 / (3 * bscale) ;
-
+	
 	var scale = 4;
 	var trh = ww * 0.85 * (1/scale);
 	var trv = 330 * (1/scale);
 	// draw circle
-// 	var c = circle(raph, 110);
-// 	c.stroke("red");
-// 	c.translate((ww * 0.8) + 20 , 20);
-// 	c.draw();
+	// 	var c = circle(raph, 110);
+	// 	c.stroke("red");
+	// 	c.translate((ww * 0.8) + 20 , 20);
+	// 	c.draw();
 	var mframe = new Path(raph);
-// 	mframe.moveTo(ww * 0.8, 0).lineTo(ww * 0.8, wh * 0.3).lineTo(ww, wh * 0.3).lineTo(ww,0).close().stroke('transparent').fill(new Color(200,200,200).toString()).draw();
+	// 	mframe.moveTo(ww * 0.8, 0).lineTo(ww * 0.8, wh * 0.3).lineTo(ww, wh * 0.3).lineTo(ww,0).close().stroke('transparent').fill(new Color(200,200,200).toString()).draw();
 	var loc = window.location;
 	
 	var citySize = 4 / bscale;
@@ -588,7 +613,7 @@ function initSOE()
 		if(cloc.id == theCity)
 		{
 			city.stroke(cityColor.toString()).fill(cityColor.toString()).draw();
-
+			
 			var surcity = new circle(raph, surcitySize);
 			surcity.scale(bscale).translate(btransx + cloc.lon - (surcitySize ), btransy + cloc.lat - (surcitySize ));
 			surcity.stroke(cityColor.toString()).attr("stroke-width", "2").draw();
@@ -606,35 +631,35 @@ function initSOE()
 			countryCode = cloc.country;
 			// Draw current country (large)
 			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
-					function(data)
-					{
-						var curCountryData = json_parse(data);
-						var curCountryPath = new Path(raph, curCountryData.p);
-						curCountryPath.scale(bscale)
-						.translate(btransx, btransy)
-						.stroke('transparent')
-						.fill(country_stroke.toString())
-						.draw().toBack();
-						
-						curCountryPath.simplify();
-						
-						// Insert texture;
-						var ctx =  curCityPoint.x ;
-						var cty =  0 ;
-						var iW = ww - ctx;
-						var iH = wh;
-						
-						raph.image(templateUrl 
-							+'texture/texture.php?'
-							+'cx='+  Math.floor(curCityPoint.x / 10) * Math.floor(curCityPoint.x / 10)
-							+'&cy='+ Math.floor(curCityPoint.x / 10) * Math.floor(curCityPoint.x / 10)
-							+'&w='+  Math.floor(iW)
-							+'&h='+  Math.floor(iH)
-							, ctx, cty, iW, iH).toBack();
-						
-					});
-			CurCityClass = " city_current";
-			drawCursorLine(cityPoint.x);
+				   function(data)
+				   {
+					   var curCountryData = json_parse(data);
+					   var curCountryPath = new Path(raph, curCountryData.p);
+					   curCountryPath.scale(bscale)
+					   .translate(btransx, btransy)
+					   .stroke('transparent')
+			.fill(country_stroke.toString())
+			.draw().toBack();
+			
+			curCountryPath.simplify();
+			
+			// Insert texture;
+			var ctx =  curCityPoint.x ;
+			var cty =  0 ;
+			var iW = ww - ctx;
+			var iH = wh;
+			
+			raph.image(templateUrl 
+			+'texture/texture.php?'
+			+'cx='+  Math.floor(curCityPoint.x / 10) * Math.floor(curCityPoint.x / 10)
+			+'&cy='+ Math.floor(curCityPoint.y / 10) * Math.floor(curCityPoint.y / 10)
+			+'&w='+  Math.floor(iW)
+			+'&h='+  Math.floor(iH)
+			, ctx, cty, iW, iH).toBack();
+			
+				   });
+				   CurCityClass = " city_current";
+				   drawCursorLine(cityPoint.x);
 		}
 		
 		var labX = Math.floor(cityPoint.x + bb.width);
@@ -667,63 +692,63 @@ function initSOE()
 		
 		if(cloc.id == theCity)
 		{
-// 			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
-// 				   function(data)
-// 				   {
-// 					   var countryData = json_parse(data);
-// 					   if(countryData.status == 0)
-// 					   {
-// 						   var countryPath = new Path(raph, countryData.p);
-// 						   countryPath.scale(scale)
-// 						   .translate(trh , trv)
-// 						   .fill(minimap_fill.toString())
-// 						   .attr("stroke-width", "0.2")
-// 							.draw();
-// 					   }
-// 				   });
-		}
-		else
-		{
-// 			if(dCountries.indexOf(cloc.country) < 0 false)
-// 			{
-// 				dCountries.push(cloc.country);
-// 			
-// 				jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
-// 						function(data)
-// 						{
-// 							var countryData = json_parse(data);
-// 							if(countryData.status == 0)
-							{
-								countryPath = new Path(raph, countries[cloc.country]);
-								countryPath.scale(bscale)
-								.translate(btransx , btransy)
-								.stroke(minimap_stroke.toString())
-								.attr("stroke-width", "0.2")
-								.draw();
-							}
-// 						});
-// 			}
-		}
-		
+			// 			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
+			// 				   function(data)
+			// 				   {
+				// 					   var countryData = json_parse(data);
+				// 					   if(countryData.status == 0)
+				// 					   {
+					// 						   var countryPath = new Path(raph, countryData.p);
+					// 						   countryPath.scale(scale)
+					// 						   .translate(trh , trv)
+					// 						   .fill(minimap_fill.toString())
+					// 						   .attr("stroke-width", "0.2")
+					// 							.draw();
+					// 					   }
+					// 				   });
 	}
-	
-	
-	// satellites
-	jQuery('.located_object').hide();
-	jQuery('.located_type_item').click(toggleSats);
-	
+	else
+	{
+		// 			if(dCountries.indexOf(cloc.country) < 0 false)
+		// 			{
+			// 				dCountries.push(cloc.country);
+			// 			
+			// 				jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
+			// 						function(data)
+			// 						{
+				// 							var countryData = json_parse(data);
+				// 							if(countryData.status == 0)
+				{
+					countryPath = new Path(raph, countries[cloc.country]);
+					countryPath.scale(bscale)
+					.translate(btransx , btransy)
+					.stroke(minimap_stroke.toString())
+					.attr("stroke-width", "0.2")
+					.draw();
+				}
+				// 						});
+				// 			}
+}
+
+}
+jQuery(window).resize(function() 
+{
+	drawCursorLine(curCityPoint.x);
+});
+}
+
+function initSOE()
+{
+	initMediaPlayer();
+
+	initMap(doMap);
+
 	/// Menu
 	var menuIndex = jQuery('#menu_index');
 	menuIndex.hide();
 	jQuery('#menu_item span.site_menu_item').click(toggleMenu);
 	paginateMenu();
-	
-	jQuery(window).resize(function() 
-	{
-		drawCursorLine(curCityPoint.x);
-	});
-	
-	
+
 }
 
 

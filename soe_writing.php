@@ -24,9 +24,11 @@ $args = array('post_type' => 'soe_writing',
 $the_query = new WP_Query( $args );
 
 $itCount = 0;
-$maxItems = 2;
+$maxItems = 1;
 $cCount = 0;
 $maxCols = 6;
+if($the_query->found_posts < $maxCols)
+	$maxItems = 0;
 $startCol = '<span> <div class="index_col">';
 $endCol = '</div> </span>';
 $first = true;
@@ -45,7 +47,7 @@ while ( $the_query->have_posts() )
 	$the_query->the_post();
 	$pm = get_permalink($post->ID);
 	$content .= '
-	<span class="menu_writings_wrapper">
+	<div class="menu_writings_wrapper">
 	<div class="writings_titre">
 	<a class="menu_writings" href="'.$pm.'">'.get_the_title().'</a>
 	</div>
@@ -55,7 +57,7 @@ while ( $the_query->have_posts() )
 	<a class="writings_excerpt" href="'.$pm.'">
 	'.get_the_excerpt().'
 	</a>
-	</span>
+	</div>
 	';
 	
 	
@@ -73,6 +75,8 @@ while ( $the_query->have_posts() )
 	}
 	else
 		$itCount++;
+	
+	$first = false;
 }
 
 if($content != "")

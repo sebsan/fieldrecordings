@@ -184,12 +184,12 @@ function SOE_customTypesInit()
 				'menu' => false,
 				'support' => array('post_tag') ) );
 	$soe_types = array( 
-				$soe_writings,
-				$soe_cities,
-				$soe_events ,
-				$soe_artists,
 				$soe_posts,
-				$soe_organisations
+				$soe_artists,
+				$soe_events ,
+				$soe_writings,
+				$soe_organisations,
+				$soe_cities
 				);
 				
 	$tnames = array();
@@ -208,10 +208,6 @@ function SOE_JSInit()
 		get_bloginfo('template_directory') . '/js/jQuery.jPlayer.2.0.0/jquery.jplayer.min.js',
 			     array('jquery'),
 			     '2.0.0' );
-// 		wp_enqueue_script('soe_mediaplayer',
-// 		get_bloginfo('template_directory') . '/js/mediaplayer.js',
-// 		array('jquery-jplayer'),
-// 		'1.0' );
 		wp_enqueue_script('json-parse',
 		get_bloginfo('template_directory') . '/JSON-js/json_parse.js',
 		array(),
@@ -228,6 +224,8 @@ function SOE_JSInit()
 	}
 	else
 	{
+		wp_register_style('datepicker', get_stylesheet_directory_uri() . '/js/datepicker.css');
+		wp_enqueue_style( 'datepicker');
 		wp_enqueue_script('jquery-ui-autocomplete',  get_stylesheet_directory_uri(). '/js/jquery-ui-autocomplete.js' , array('jquery-ui-core'));
 		wp_enqueue_script('jquery-ui-datepicker',  get_stylesheet_directory_uri(). '/js/jquery-ui-datepicker.js' , array('jquery-ui-core'));  
 		wp_enqueue_script('datepicker',  get_stylesheet_directory_uri(). '/js/datepicker.js' , array('jquery-ui-datepicker'));

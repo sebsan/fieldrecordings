@@ -10,6 +10,9 @@ Sounds of Europe
  */
 
 // echo '<h1>SOE_EVENT.PHP</h1>';
-$tl = file_get_contents(get_stylesheet_directory() . '/timeline2.html');
+$tlfn = get_stylesheet_directory() . '/timeline2.html';
+$tl = file_get_contents($tlfn);
+if($tl === FALSE)
+	echo '<p>Failed to read the content of: '.$tlfn.'<p>';
 echo $tl;
 ?>
