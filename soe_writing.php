@@ -47,7 +47,7 @@ while ( $the_query->have_posts() )
 	$the_query->the_post();
 	$pm = get_permalink($post->ID);
 	$content .= '
-	<span class="menu_writings_wrapper">
+	<div class="menu_writings_wrapper">
 	<div class="writings_titre">
 	<a class="menu_writings" href="'.$pm.'">'.get_the_title().'</a>
 	</div>
@@ -57,7 +57,7 @@ while ( $the_query->have_posts() )
 	<a class="writings_excerpt" href="'.$pm.'">
 	'.get_the_excerpt().'
 	</a>
-	</span>
+	</div>
 	';
 	
 	

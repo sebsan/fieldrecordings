@@ -184,12 +184,12 @@ function SOE_customTypesInit()
 				'menu' => false,
 				'support' => array('post_tag') ) );
 	$soe_types = array( 
-				$soe_writings,
-				$soe_cities,
-				$soe_events ,
-				$soe_artists,
 				$soe_posts,
-				$soe_organisations
+				$soe_artists,
+				$soe_events ,
+				$soe_writings,
+				$soe_organisations,
+				$soe_cities
 				);
 				
 	$tnames = array();

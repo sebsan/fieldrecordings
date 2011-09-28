@@ -3,7 +3,9 @@
 
 
 /* communs à l'index et aux textes */
-
+.menu_writings_wrapper{
+	padding:0 .5em;
+}
  .writings_titre{
 	font-family: free_sansBold;
 	font-size: 15pt;

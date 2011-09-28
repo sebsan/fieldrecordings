@@ -69,6 +69,7 @@ var rootUrl = "<?php echo get_bloginfo('url') . '/'; ?>";
 var templateUrl = "<?php echo $template_dir . '/'; ?>";
 var jplayerswf = " <?php echo get_bloginfo('template_directory') . '/js/jQuery.jPlayer.2.0.0/' ;?>";
 var theCity = "<?php  echo $postloc !== NULL ? $postloc->geonameid : "XXXX" ?>";
+var doMap = <?php echo $post->post_type != 'soe_writing' ? 'true' : 'false'; ?>;
 <?php
 // city IDs in use
 global $wpdb;

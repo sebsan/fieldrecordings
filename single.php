@@ -15,6 +15,7 @@ get_header();
 
 global $wpdb;
 global $postloc;
+global $soe_types;
 
 $postType = get_post_type($post->ID);
 $custom = get_post_custom($post->ID);
@@ -159,55 +160,88 @@ elseif($postType == 'soe_city')
 			$oposts[$p->post_type][] = $p;
 		}
 	}
-	$nump = count($tps);
-	$maxp = 0;
-	$vc = 0;
-	for($i = 0; $vc < $nump; $i++)
+	$bCounter = 0;
+	$bWidth = 243;
+	$bYoffset = 60;
+	$bXoffset = 60;
+	foreach($soe_types as $st)
 	{
-		$vc += $i;
-		$maxp = $i;
-	}
-// 	echo 'MAXP = '. $maxp . ' ; NUMP = '. $nump;
-	$x = 0;
-	$y = 42;
-	$cw = 201;
-	$ch = 41;
-	$ccx = 0;
-	$ccy = 0;
-	$ps = array();
-	foreach($posts as $p)
-	{
-		if(!in_array($p->ID, $ps))
+		if(isset($oposts[$st->WP_type()]))
 		{
-			$ps[] = $p->ID;
-			if($ccy == $maxp)
-			{
-				$maxp--;
-				$ccy = 0;
-				$ccx++;
-			}
-			
-			
 			$boxtype = 'BLOG';
-			if($p->post_type == 'soe_event')
-				$boxtype = 'EVENT';
-			if($p->post_type == 'soe_artist')
-				$boxtype = 'ARTIST';
-			if($p->post_type == 'soe_organisation')
-				$boxtype = 'ORGANISATION';
-			if($p->post_type == 'soe_writing')
-				$boxtype = 'WRITING';
-			echo '
-			<div class="closedBox_outer" style="position:absolute;left:'.(($cw * $ccx)+$x).'px;top:'.(($ch * $ccy)+$y).'px">
-				<div class="closedBox">
-					<div class="closedBox_category">'.$boxtype.'</div>
-					<div class="closedBox_title"><a href="'.get_permalink($p->ID).'">'.$p->post_title.'</a></div>
-				</div>
-			</div>';
-			
-			$ccy++;
+			if($st->WP_type() == 'soe_event')
+				$boxtype = 'EVENTS';
+			if($st->WP_type() == 'soe_artist')
+				$boxtype = 'ARTISTS';
+			if($st->WP_type() == 'soe_organisation')
+				$boxtype = 'ORGANISATIONS';
+			if($st->WP_type() == 'soe_writing')
+				$boxtype = 'WRITINGS';
+			echo '<div class="city_around_box" style="position:absolute;left:'.(($bCounter * $bWidth)+$bXoffset).'px;top:'.($bYoffset).'px">
+			<span class="city_around_title">'.$boxtype.'</span>
+			';
+			foreach($oposts[$st->WP_type()] as $p)
+			{
+				echo '
+				<div class="closedBox_outer">
+					<span class="closedBox">
+						<a href="'.get_permalink($p->ID).'">'.apply_filters('the_title',$p->post_title).'</a>
+					</span>
+				</div>';
+			}
+			echo '</div>';
+			$bCounter++;
 		}
 	}
+// 	$nump = count($tps);
+// 	$maxp = 0;
+// 	$vc = 0;
+// 	for($i = 0; $vc < $nump; $i++)
+// 	{
+// 		$vc += $i;
+// 		$maxp = $i;
+// 	}
+// // 	echo 'MAXP = '. $maxp . ' ; NUMP = '. $nump;
+// 	$x = 0;
+// 	$y = 42;
+// 	$cw = 201;
+// 	$ch = 41;
+// 	$ccx = 0;
+// 	$ccy = 0;
+// 	$ps = array();
+// 	foreach($posts as $p)
+// 	{
+// 		if(!in_array($p->ID, $ps))
+// 		{
+// 			$ps[] = $p->ID;
+// 			if($ccy == $maxp)
+// 			{
+// 				$maxp--;
+// 				$ccy = 0;
+// 				$ccx++;
+// 			}
+// 			
+// 			
+// 			$boxtype = 'BLOG';
+// 			if($p->post_type == 'soe_event')
+// 				$boxtype = 'EVENT';
+// 			if($p->post_type == 'soe_artist')
+// 				$boxtype = 'ARTIST';
+// 			if($p->post_type == 'soe_organisation')
+// 				$boxtype = 'ORGANISATION';
+// 			if($p->post_type == 'soe_writing')
+// 				$boxtype = 'WRITING';
+// 			echo '
+// 			<div class="closedBox_outer" style="position:absolute;left:'.(($cw * $ccx)+$x).'px;top:'.(($ch * $ccy)+$y).'px">
+// 				<div class="closedBox">
+// 					<div class="closedBox_category">'.$boxtype.'</div>
+// 					<div class="closedBox_title"><a href="'.get_permalink($p->ID).'">'.$p->post_title.'</a></div>
+// 				</div>
+// 			</div>';
+// 			
+// 			$ccy++;
+// 		}
+// 	}
 }
 elseif($postType == 'soe_writing')
 {

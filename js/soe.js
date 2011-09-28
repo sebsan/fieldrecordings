@@ -570,9 +570,10 @@ function toggleNews()
 var curCityPoint = undefined;
 var countryCode = '';
 
-function initSOE()
+function initMap(ttt)
 {
-	initMediaPlayer();
+	if(ttt == false)
+		return;
 	var ww = jQuery(window).width();
 	var wh = jQuery(window).height();
 	svgWidth = ww * 0.99;
@@ -587,17 +588,17 @@ function initSOE()
 	var bscale = 15;
 	var btransx = ww / (2.5 * bscale) ;
 	var btransy = 3200 / (3 * bscale) ;
-
+	
 	var scale = 4;
 	var trh = ww * 0.85 * (1/scale);
 	var trv = 330 * (1/scale);
 	// draw circle
-// 	var c = circle(raph, 110);
-// 	c.stroke("red");
-// 	c.translate((ww * 0.8) + 20 , 20);
-// 	c.draw();
+	// 	var c = circle(raph, 110);
+	// 	c.stroke("red");
+	// 	c.translate((ww * 0.8) + 20 , 20);
+	// 	c.draw();
 	var mframe = new Path(raph);
-// 	mframe.moveTo(ww * 0.8, 0).lineTo(ww * 0.8, wh * 0.3).lineTo(ww, wh * 0.3).lineTo(ww,0).close().stroke('transparent').fill(new Color(200,200,200).toString()).draw();
+	// 	mframe.moveTo(ww * 0.8, 0).lineTo(ww * 0.8, wh * 0.3).lineTo(ww, wh * 0.3).lineTo(ww,0).close().stroke('transparent').fill(new Color(200,200,200).toString()).draw();
 	var loc = window.location;
 	
 	var citySize = 4 / bscale;
@@ -613,7 +614,7 @@ function initSOE()
 		if(cloc.id == theCity)
 		{
 			city.stroke(cityColor.toString()).fill(cityColor.toString()).draw();
-
+			
 			var surcity = new circle(raph, surcitySize);
 			surcity.scale(bscale).translate(btransx + cloc.lon - (surcitySize ), btransy + cloc.lat - (surcitySize ));
 			surcity.stroke(cityColor.toString()).attr("stroke-width", "2").draw();
@@ -631,35 +632,35 @@ function initSOE()
 			countryCode = cloc.country;
 			// Draw current country (large)
 			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
-					function(data)
-					{
-						var curCountryData = json_parse(data);
-						var curCountryPath = new Path(raph, curCountryData.p);
-						curCountryPath.scale(bscale)
-						.translate(btransx, btransy)
-						.stroke('transparent')
-						.fill(country_stroke.toString())
-						.draw().toBack();
-						
-						curCountryPath.simplify();
-						
-						// Insert texture;
-						var ctx =  curCityPoint.x ;
-						var cty =  0 ;
-						var iW = ww - ctx;
-						var iH = wh;
-						
-						raph.image(templateUrl 
-							+'texture/texture.php?'
-							+'cx='+  Math.floor(curCityPoint.x / 10) * Math.floor(curCityPoint.x / 10)
-							+'&cy='+ Math.floor(curCityPoint.y / 10) * Math.floor(curCityPoint.y / 10)
-							+'&w='+  Math.floor(iW)
-							+'&h='+  Math.floor(iH)
-							, ctx, cty, iW, iH).toBack();
-						
-					});
-			CurCityClass = " city_current";
-			drawCursorLine(cityPoint.x);
+				   function(data)
+				   {
+					   var curCountryData = json_parse(data);
+					   var curCountryPath = new Path(raph, curCountryData.p);
+					   curCountryPath.scale(bscale)
+					   .translate(btransx, btransy)
+					   .stroke('transparent')
+			.fill(country_stroke.toString())
+			.draw().toBack();
+			
+			curCountryPath.simplify();
+			
+			// Insert texture;
+			var ctx =  curCityPoint.x ;
+			var cty =  0 ;
+			var iW = ww - ctx;
+			var iH = wh;
+			
+			raph.image(templateUrl 
+			+'texture/texture.php?'
+			+'cx='+  Math.floor(curCityPoint.x / 10) * Math.floor(curCityPoint.x / 10)
+			+'&cy='+ Math.floor(curCityPoint.y / 10) * Math.floor(curCityPoint.y / 10)
+			+'&w='+  Math.floor(iW)
+			+'&h='+  Math.floor(iH)
+			, ctx, cty, iW, iH).toBack();
+			
+				   });
+				   CurCityClass = " city_current";
+				   drawCursorLine(cityPoint.x);
 		}
 		
 		var labX = Math.floor(cityPoint.x + bb.width);
@@ -692,66 +693,63 @@ function initSOE()
 		
 		if(cloc.id == theCity)
 		{
-// 			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
-// 				   function(data)
-// 				   {
-// 					   var countryData = json_parse(data);
-// 					   if(countryData.status == 0)
-// 					   {
-// 						   var countryPath = new Path(raph, countryData.p);
-// 						   countryPath.scale(scale)
-// 						   .translate(trh , trv)
-// 						   .fill(minimap_fill.toString())
-// 						   .attr("stroke-width", "0.2")
-// 							.draw();
-// 					   }
-// 				   });
-		}
-		else
-		{
-// 			if(dCountries.indexOf(cloc.country) < 0 false)
-// 			{
-// 				dCountries.push(cloc.country);
-// 			
-// 				jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
-// 						function(data)
-// 						{
-// 							var countryData = json_parse(data);
-// 							if(countryData.status == 0)
-							{
-								countryPath = new Path(raph, countries[cloc.country]);
-								countryPath.scale(bscale)
-								.translate(btransx , btransy)
-								.stroke(minimap_stroke.toString())
-								.attr("stroke-width", "0.2")
-								.draw();
-							}
-// 						});
-// 			}
-		}
-		
+			// 			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
+			// 				   function(data)
+			// 				   {
+				// 					   var countryData = json_parse(data);
+				// 					   if(countryData.status == 0)
+				// 					   {
+					// 						   var countryPath = new Path(raph, countryData.p);
+					// 						   countryPath.scale(scale)
+					// 						   .translate(trh , trv)
+					// 						   .fill(minimap_fill.toString())
+					// 						   .attr("stroke-width", "0.2")
+					// 							.draw();
+					// 					   }
+					// 				   });
 	}
-	
-	
-	// satellites
-	jQuery('.located_object').hide();
-	jQuery('.located_type_item').click(toggleSats);
-	
+	else
+	{
+		// 			if(dCountries.indexOf(cloc.country) < 0 false)
+		// 			{
+			// 				dCountries.push(cloc.country);
+			// 			
+			// 				jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
+			// 						function(data)
+			// 						{
+				// 							var countryData = json_parse(data);
+				// 							if(countryData.status == 0)
+				{
+					countryPath = new Path(raph, countries[cloc.country]);
+					countryPath.scale(bscale)
+					.translate(btransx , btransy)
+					.stroke(minimap_stroke.toString())
+					.attr("stroke-width", "0.2")
+					.draw();
+				}
+				// 						});
+				// 			}
+}
+
+}
+jQuery(window).resize(function() 
+{
+	drawCursorLine(curCityPoint.x);
+});
+}
+
+function initSOE()
+{
+	initMediaPlayer();
+
+	initMap(doMap);
+
 	/// Menu
 	var menuIndex = jQuery('#menu_index');
 	menuIndex.hide();
 	jQuery('#menu_item span.site_menu_item').click(toggleMenu);
 	paginateMenu();
-	
-// 	toggleNews();
-// 	jQuery('#menu_item_news').click(toggleNews);
-// 	
-	jQuery(window).resize(function() 
-	{
-		drawCursorLine(curCityPoint.x);
-	});
-	
-	
+
 }
 
 

@@ -7,7 +7,7 @@
 }*/
 
 #sow_player_outer{
-	position:absolute;
+	position:fixed;
 	z-index:12;
 	left:10px;
 	top:10px;
