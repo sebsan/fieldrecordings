@@ -66,8 +66,23 @@ if($postType == 'soe_eblog')
 }
 elseif($postType == 'soe_event')
 {
-	echo '<div id="content_outer"> <div id="content">';
-	echo '</div></div>';
+	$date = new DateTime($cutom['event_date_start'][0]);
+	$ap = get_post($custom['event_organization'][0] , OBJECT );
+	$l = GetLocation($custom['location'][0]);
+// 	print_r($l);
+	echo '
+	<div id="content_outer"> 
+	<div id="content">
+		<div class="content_category">EVENT</div>
+		<div class="title">'.get_the_title().'</div>
+		<div class="blog_details"> 
+		'.$date->format('d~m~Y').', '.$l->name.', <a href="'.get_permalink($ap->ID).'""> '.$ap->post_title.'</a>
+		</div>
+		<div class="section">
+		<div class="section_par">'.get_the_content().'</div>
+		</div>
+	</div>
+	</div>';
 	
 }
 elseif($postType == 'soe_artist')

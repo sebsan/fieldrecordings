@@ -39,6 +39,20 @@ class SOE_Event extends SOE_Type
 		global $wpdb;
 		$custom = get_post_custom($post->ID);
 		
+		$orgas = '';
+		$query = "
+		SELECT * 
+		FROM ".$wpdb->posts." AS p
+		WHERE (p.post_type = 'soe_organisation');";
+		$result = $wpdb->get_results($query, OBJECT);
+		foreach($result as $r)
+		{
+			if($r->ID == $custom['event_organization'][0])
+				$orgas .= '<option value="'.$r->ID.'" selected="selected">'.$r->post_title.'</option>';
+			else
+				$orgas .= '<option value="'.$r->ID.'">'.$r->post_title.'</option>';
+		}
+		
 		// date and time
 		echo '
 		<style>
@@ -47,14 +61,17 @@ class SOE_Event extends SOE_Type
 		<div style="float:left;width:50%">
 			<div class="inside">
 			<h4>Start</h4>
-			<input class="datepicker" type="text" name="event_date_start"  tabindex="1" value="'.$custom['event_date_start'][0].'" id="event_date_start"/>
-			<input type="text" name="event_time_start" id="event_time_start" value="'.$custom['event_time_start'][0].'"/>
+			Date: <input class="datepicker" type="text" name="event_date_start"  tabindex="1" value="'.$custom['event_date_start'][0].'" id="event_date_start"/>
+			Time (if relevant): <input type="text" name="event_time_start" id="event_time_start" value="'.$custom['event_time_start'][0].'"/>
 			<p>'.$this->meta_fields['event_date_start'].'</p>
 			</div>
 			<div class="inside">
 			<h4>End</h4>
-			<input class="datepicker" type="text" name="event_date_end" style="width:98%;" tabindex="1" value="'.$custom['event_date_end'][0].'" id="event_date_end"/>
+			Date: <input class="datepicker" type="text" name="event_date_end" style="width:98%;" tabindex="1" value="'.$custom['event_date_end'][0].'" id="event_date_end"/>
 			<p>'.$this->meta_fields['event_date_end'].'</p>
+			
+			<h4>Organisation</h4>
+			<select name="event_organization">'.$orgas.'</select>
 			</div>
 		</div>
 		';

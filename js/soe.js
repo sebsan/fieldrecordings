@@ -59,7 +59,6 @@ function initMediaPlayer()
 			errorAlerts: SOE_debug,
 			warningAlerts: false
 		});
-		player.jPlayer("play");
 	});
 }
 
