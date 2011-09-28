@@ -273,11 +273,17 @@ elseif($postType == 'soe_writing')
 }
 elseif($postType == 'page')
 {
-	echo '<div id="content_outer"> <div id="content">
-	<div class="title">'.get_the_title().'</div>
-	<div class="section">
-	'.the_content().'
-	</div></div></div>';
+	echo '
+	<div id="content_outer"> 
+		<div id="content">
+			<div class="title">'.get_the_title().'</div>
+			<div class="section">
+				<div class="section_par">
+				'.get_the_content().'
+				</div>
+			</div>
+		</div>
+	</div>';
 }
 
 
