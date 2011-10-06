@@ -10,6 +10,8 @@ var SOE_debug = false;
 
 function initMediaPlayer()
 {
+// 	var sol = "flash,html";
+	var sol = "html,flash";
 	jQuery('.audio-mpeg, .audio-mp3').each(function(index)
 	{
 		var that = jQuery(this);
@@ -21,11 +23,11 @@ function initMediaPlayer()
 			{
 			ready: function () 
 			{
-				jQuery(this).jPlayer("setMedia", { mp3: audioFile});
-// 				jQuery(this).jPlayer("play");
+				playerDiv.jPlayer("setMedia", { mp3: audioFile});
 			},
+			preload: 'metadata',
 			supplied: "mp3",
-			solution:"flash,html",
+			solution: sol,
 			swfPath: jplayerswf,
 			cssSelectorAncestor: '#jp_interface_' + wp_id,
 			cssSelector: {
@@ -35,6 +37,7 @@ function initMediaPlayer()
 			errorAlerts: SOE_debug,
 			warningAlerts: false
 		});
+		
 		
 	});
 	
@@ -48,10 +51,10 @@ function initMediaPlayer()
 		var  player = playerDiv.jPlayer({
 			ready: function () 
 			{
-				jQuery(this).jPlayer("setMedia", { oga: audioFile});
+				playerDiv.jPlayer("setMedia", { oga: audioFile});
 			},
 			supplied: "oga",
-			solution:"flash,html",
+			solution: sol,
 			swfPath: jplayerswf,
 			cssSelectorAncestor: '#jp_interface_' + wp_id,
 			cssSelector: {

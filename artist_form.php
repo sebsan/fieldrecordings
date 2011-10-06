@@ -78,7 +78,8 @@ if(va('artistname') && va('location') && va('bio') && va('email') && va('use'))
 		if(isset($_FILES['artistmedia']) )
 		{
 			$mediafilename = $_FILES['artistmedia']['tmp_name'];
-			$medianame = preg_replace('/\.[^.]+$/', '', $_FILES['artistmedia']['name']);
+			$medianame = slugify( $_FILES['artistmedia']['name']);
+			$mediatitle = preg_replace('/\.[^.]+$/', '', $_FILES['artistmedia']['name']);
 			$wp_filetype = explode('/', $_FILES['artistmedia']['type']);
 			error_log('MEDIA: '.$mediafilename.'[]'.$wp_filetype[0]);
 			if($wp_filetype[0] == 'audio')
@@ -89,7 +90,7 @@ if(va('artistname') && va('location') && va('bio') && va('email') && va('use'))
 				{
 					$attachment = array(
 						'post_mime_type' => $_FILES['artistmedia']['type'],
-						'post_title' => $medianame,
+						'post_title' => $mediatitle,
 						'post_content' => '',
 						'post_status' => 'publish'
 						);
@@ -107,7 +108,8 @@ if(va('artistname') && va('location') && va('bio') && va('email') && va('use'))
 		if(isset($_FILES['artistpicture']))
 		{
 			$mediafilename = $_FILES['artistpicture']['tmp_name'];
-			$medianame = preg_replace('/\.[^.]+$/', '', $_FILES['artistpicture']['name']);
+			$medianame = slugify( $_FILES['artistpicture']['name']);
+			$mediatitle = preg_replace('/\.[^.]+$/', '', $_FILES['artistpicture']['name']);
 			$wp_filetype = explode('/', $_FILES['artistpicture']['type']);
 			error_log('MEDIA: '.$mediafilename.'[]'.$wp_filetype[0]);
 			if($wp_filetype[0] == 'image')
@@ -118,7 +120,7 @@ if(va('artistname') && va('location') && va('bio') && va('email') && va('use'))
 				{
 					$attachment = array(
 						'post_mime_type' => $_FILES['artistpicture']['type'],
-						'post_title' => $medianame,
+						'post_title' => $mediatitle,
 						'post_content' => '',
 						'post_status' => 'publish'
 						);
@@ -434,14 +436,14 @@ Your email address will in any case not be used for commercial purposes.
 	</div>
 
 	<div>
-	<label for="artistmedia">Upload Track</label>
+	<label for="artistmedia">Upload Track (mp3, ogg)</label>
 	</div>
 	<div>
 	<input type="file" name="artistmedia" value="<?php echo getPostValue('artistmedia'); ?>"/>
 	</div>
 	
 	<div>
-	<label for="artistpicture">Upload Image</label>
+	<label for="artistpicture">Upload Image (jpeg, png)</label>
 	</div>
 	<div>
 	<input type="file" name="artistpicture" value="<?php echo getPostValue('artistpicture'); ?>"/>

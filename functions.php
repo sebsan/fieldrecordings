@@ -241,8 +241,12 @@ function mediaPlayer($id)
 {
 	if($id > 0)
 	{
+		$uploads = wp_upload_dir();
 		$audio = get_post($id, OBJECT);
-		$at = wp_get_attachment_url($id);
+		$atURL =  explode('/', wp_get_attachment_url($id));
+		$atName = array_pop($atURL);
+		$atURL[] = rawurlencode($atName);
+		$at = implode('/',$atURL);
 		$mimetype = explode('/', get_post_mime_type($id));
 		$audiotype = $mimetype[1];
 		return '
@@ -309,5 +313,33 @@ function new_excerpt_more($more) {
 	return '…';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
+
+function slugify($text)
+{
+	// replace non letter or digits by -
+	$text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+	
+	// trim
+	$text = trim($text, '-');
+	
+	// transliterate
+	if (function_exists('iconv'))
+	{
+		$text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+	}
+	
+	// lowercase
+	$text = strtolower($text);
+	
+	// remove unwanted characters
+	$text = preg_replace('~[^-\w]+~', '', $text);
+	
+	if (empty($text))
+	{
+		return 'n-a';
+	}
+	
+	return $text;
+}
 
 ?>
