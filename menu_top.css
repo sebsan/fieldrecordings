@@ -123,7 +123,9 @@ a.sow_by:hover{
 	line-height: 10pt;
 	letter-spacing: 0.09em;
 	padding: 40px 0 20px 2%;
-	background-color:#F0F0F0  ;
+//	background-color:#F0F0F0;
+	background-color:white;
+	border-bottom:solid 1px black;
 	}
 	
 	
@@ -163,11 +165,12 @@ div.index_col {
 
 .menu_page_nav {
 	color:#18959a;
-	font-family: free_sans;
-	font-size: 10pt;
-	line-height: 15pt;
-	padding: 0 1em 0 0;
+	font-family: helvetica_serif;
+	font-size: 12pt;
+	line-height: 35pt;
+	padding: 5px 5px 5px 5px;
 	cursor:pointer;
+	border: solid 1px black;
 	}
 
 /* style du tableau */
@@ -181,21 +184,31 @@ table.sample td{
 }
 
 .year_row {
-	font-family: helvetica_serif;
-	font-size: 10pt;
-	color:gray;
-	height:30px;
-	padding: 5px 0px 5px 12px;
+	font-family: free_sansBold;
+	font-size: 9pt;
+	color:#fc264a;
+	height:20px;
+	padding: 5px 0px 5px 13px;
 }
 
 .month_row {
 	font-family: helvetica_serif;
-	font-size: 12pt;
-	color:grey;
+	font-size: 10pt;
+	color:black;
 	height:5px;
-	padding: 5px 30px 5px 0px;
+	padding: 0px 30px 0px 5px;
 	text-align:left;
-/*	border-left:1px solid black;*/
+	border-left:1px solid #fc264a;
+	height:10px;
+}
+
+.month_row_bis {
+	font-family: helvetica_serif;
+	font-size: 10pt;
+	color:black;
+	height:5px;
+	padding: 0px 30px 0px 5px;
+	text-align:left;
 	height:10px;
 }
 
@@ -234,13 +247,14 @@ table.sample td{
 	height:7px;
 }
 .presentation_row {
-	font-family: free_sans;
-	font-size: 12pt;
+	font-family: helvetica_serif;
+	font-size: 10pt;
+	line-height: 12pt;
 	color:#fc264a;
 	text-align:left;
 	padding: 0px 0px 15px 0px;
 	height: 7px;
-
+	vertical-align:top;
 }
 
 .pattern_row {
@@ -257,6 +271,9 @@ table.sample td{
 	background-color: #0066CC;
 }
 
+#timeline_box {
+	height: 380px;
+	}
 
 .wave{background-image:url("img/wave.png")}
 .krol{background-image:url("img/krol.png")}
@@ -265,4 +282,4 @@ table.sample td{
 .curl{background-image:url("img/curl.png")}
 .sinuz{background-image:url("img/sinuz.png")}
 .losange{background-image:url("img/losange.png")}
-.oval{background-image:url("img/oval.png"); background-repeat:no-repeat; height:30px;}
+.oval{background-image:url("img/oval.png"); background-repeat:no-repeat; height:18px;}
