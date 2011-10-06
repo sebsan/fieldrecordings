@@ -116,23 +116,41 @@ if($content != "")
 
 // print_r($pages);
 
-foreach($pages as $idx=>$p)
+$regPage = get_page_by_title('Artist Registration');
+$regBlock = '
+<div class="index_col">
+<div class="menu_category">Join</div>
+<a class="menu_base" target="_blank" href="'.get_permalink($regPage->ID).'">'.apply_filters('the_content', $regPage->post_content).'</a>
+</div>
+';
+
+if(count($pages) == 0)
 {
-	$visibility = "";
-	if($idx > 0)
-	{
-		$visibility = ' style="display:none;"';
-	}
-	$nav = '<div id="menu_page_nav_box">';
-	if($idx > 0)
-		$nav .= '<span class="menu_page_nav menu_page_prev">pevious</span>';
-	if(($idx + 1) < count($pages))
-		$nav .= '<span class="menu_page_nav menu_page_next">next</span>';
-	$nav .= '</div>';
-	echo '<div id="menu_page_'.$idx.'" class="page"'.$visibility.'>
-	'. $nav . $p . '
+	echo '<div id="menu_page_0" class="page">
+	'. $regBlock .'
 	</div>
 	';
+}
+else
+{
+	foreach($pages as $idx=>$p)
+	{
+		$visibility = "";
+		if($idx > 0)
+		{
+			$visibility = ' style="display:none;"';
+		}
+		$nav = '<div id="menu_page_nav_box">';
+		if($idx > 0)
+			$nav .= '<span class="menu_page_nav menu_page_prev">pevious</span>';
+		if(($idx + 1) < count($pages))
+			$nav .= '<span class="menu_page_nav menu_page_next">next</span>';
+		$nav .= '</div>';
+		echo '<div id="menu_page_'.$idx.'" class="page"'.$visibility.'>
+		'. $regBlock . $nav . $p . '
+		</div>
+		';
+	}
 }
 
 ?>

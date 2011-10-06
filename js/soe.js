@@ -25,6 +25,7 @@ function initMediaPlayer()
 // 				jQuery(this).jPlayer("play");
 			},
 			supplied: "mp3",
+			solution:"flash,html",
 			swfPath: jplayerswf,
 			cssSelectorAncestor: '#jp_interface_' + wp_id,
 			cssSelector: {
@@ -50,6 +51,7 @@ function initMediaPlayer()
 				jQuery(this).jPlayer("setMedia", { oga: audioFile});
 			},
 			supplied: "oga",
+			solution:"flash,html",
 			swfPath: jplayerswf,
 			cssSelectorAncestor: '#jp_interface_' + wp_id,
 			cssSelector: {

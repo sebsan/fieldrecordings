@@ -10,6 +10,8 @@ Sounds of Europe
 */
 
 
+$failedToCreate = false;
+
 if($_SESSION['REG'] != session_id())
 	return;
 
@@ -19,6 +21,16 @@ function va($a)
 		return true;
 	return false;
 }
+
+function getPostValue($a)
+{
+	if(isset($_POST[$a]) && $_POST[$a] != "")
+		return $_POST[$a];
+	return "";
+}
+
+if(isset($_POST['regform']))
+{
 if(va('artistname') && va('location') && va('bio') && va('email') && va('use'))
 {
 	$artist = wp_insert_post(array(
@@ -125,6 +137,11 @@ if(va('artistname') && va('location') && va('bio') && va('email') && va('use'))
 		}
 		header('Location: '. get_permalink($artist));
 	}
+	else
+		$failedToCreate = true;
+}
+else
+	$failedToCreate = true;
 }
 	
 	
@@ -330,6 +347,7 @@ jQuery(document).ready(function()
 			select: function( event, ui ) 
 			{
 				jQuery( "#location_search" ).val(ui.item.label);
+				jQuery( "#location_name" ).val(ui.item.label);
 				jQuery( "#location" ).val(ui.item.value);
 				return false;
 			},
@@ -340,10 +358,23 @@ jQuery(document).ready(function()
 
 </head>
 <body>
-
-
+<?php 
+// echo '<!--'; 
+// print_r($_POST);
+// foreach($_POST as $k=>$v)
+// {
+// 	echo $k .' = ' . $v ."\n";
+// }
+// echo 'a='.getPostValue('artistname');
+// echo '-->'; 
+?>
+<?php 
+if($failedToCreate)
+	echo '<h4 style="position:absolute;top:0;left:0;color:#666">Failed to submit your informations, please try again.</h2>';
+?>
 
 <form name="regform" method="post" action="" enctype="multipart/form-data">
+<input type="hidden" name="regform" value="1"/>
 <div id="form_explain">
 <p>
 <strong>Sounds of Europe</strong> is a project that acknowledges and follows the increase of <strong>field recording</strong> activity in music, art and sciences in recent years.
@@ -359,60 +390,61 @@ Your email address will in any case not be used for commercial purposes.
 
 <div id="left">
 	<div>
-	<label for="artistname">Name</label>
+	<label for="artistname">Name *</label>
 	</div>
 	<div>
-	<input type="text" name="artistname"/>
+	<input type="text" name="artistname" value="<?php echo getPostValue('artistname'); ?>"/>
 	</div>
 	<div>
 	<label for="website">Website</label>
 	</div>
 	<div>
-	<input type="text" name="website"/>
+	<input type="text" name="website" value="<?php echo getPostValue('website'); ?>"/>
 	</div>
 	<div>
-	<label for="email">E-mail</label>
+	<label for="email">E-mail *</label>
 	</div>
 	<div>
-	<input type="text" name="email"/>
+	<input type="text" name="email" value="<?php echo getPostValue('email'); ?>"/>
 	</div>
 	<div>
-	<label for="location_search">Location</label>
+	<label for="location_search">Location *</label>
 	</div>
 	<div>
-	<input type="hidden" id="location" name="location"/> 
+	<input type="hidden" id="location" name="location" value="<?php echo getPostValue('location'); ?>"/> 
+	<input type="hidden" id="location_name" name="location_name" value="<?php echo getPostValue('location_name'); ?>"/> 
 	</div>
 	<div>
-	<input type="text" id="location_search"/> 
+	<input type="text" id="location_search" value="<?php echo getPostValue('location_name'); ?>"/> 
 	</div>
 	<div>
-	<label for="bio">Biography</label>
+	<label for="bio">Biography *</label>
 	</div>
 	<div>
-	<textarea name="bio"></textarea>
+	<textarea name="bio"><?php echo getPostValue('bio'); ?></textarea>
 	</div>
 </div>
 
 <div id="right">
 	<div>
-	<label for="use">Use of field recordings</label>
+	<label for="use">Work with field recording *</label>
 	</div>
 	<div>
-	<textarea name="use"></textarea>
+	<textarea name="use"><?php echo getPostValue('use'); ?></textarea>
 	</div>
 
 	<div>
 	<label for="artistmedia">Upload Track</label>
 	</div>
 	<div>
-	<input type="file" name="artistmedia"/>
+	<input type="file" name="artistmedia" value="<?php echo getPostValue('artistmedia'); ?>"/>
 	</div>
 	
 	<div>
 	<label for="artistpicture">Upload Image</label>
 	</div>
 	<div>
-	<input type="file" name="artistpicture"/>
+	<input type="file" name="artistpicture" value="<?php echo getPostValue('artistpicture'); ?>"/>
 	</div>
 	
 
