@@ -15,7 +15,7 @@ sdir = 1
 fs = 8
 fsmax = 14
 fsmin = 8
-inc = 0.005
+inc = 0.0005
 ###
 
 tl = scribus.getTextLength()
