@@ -277,7 +277,7 @@ function GetNextAndPrevious($id)
 	$query = "
 	SELECT * 
 	FROM ".$wpdb->posts." AS p
-	WHERE (p.post_type = '".$cp->post_type."' AND p.post_date > '".$cp->post_date."');
+	WHERE (p.post_type = '".$cp->post_type."' AND p.post_date > '".$cp->post_date."' AND p.post_status = 'publish');
 	";
 	
 	$result = $wpdb->get_results($query, OBJECT);
@@ -288,7 +288,7 @@ function GetNextAndPrevious($id)
 	$query = "
 	SELECT * 
 	FROM ".$wpdb->posts." AS p
-	WHERE (p.post_type = '".$cp->post_type."' AND p.post_date < '".$cp->post_date."');
+	WHERE (p.post_type = '".$cp->post_type."' AND p.post_date < '".$cp->post_date."' AND p.post_status = 'publish');
 	";
 	
 	$result = $wpdb->get_results($query, OBJECT);
