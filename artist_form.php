@@ -410,7 +410,7 @@ Your email address will in any case not be used for commercial purposes.
 	<input type="text" name="email" value="<?php echo getPostValue('email'); ?>"/>
 	</div>
 	<div>
-	<label for="location_search">Location *</label>
+	<label for="location_search">City *</label>
 	</div>
 	<div>
 	<input type="hidden" id="location" name="location" value="<?php echo getPostValue('location'); ?>"/> 
