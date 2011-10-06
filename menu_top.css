@@ -164,6 +164,7 @@ div.index_col {
 	}
 
 .menu_page_nav {
+	display:inline;
 	color:#18959a;
 	font-family: helvetica_serif;
 	font-size: 12pt;
