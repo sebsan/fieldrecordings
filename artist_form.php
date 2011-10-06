@@ -432,7 +432,7 @@ Your email address will in any case not be used for commercial purposes.
 
 <div id="right">
 	<div>
-	<label for="use">Work with field recording *</label>
+	<label for="use">Description of work with field recording *</label>
 	</div>
 	<div>
 	<textarea name="use"><?php echo getPostValue('use'); ?></textarea>
