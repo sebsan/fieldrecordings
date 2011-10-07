@@ -6,7 +6,7 @@
 	border: 1px solid #000000;
 	left: 35px;
 	top: 60px;
-	width: 350px;
+	width: 450px;
 	z-index:5;
 }
 
@@ -20,7 +20,17 @@
 	margin: 10px;
 }
 
-
+#eblog_prolog{
+	border-bottom:1px solid #18959A;
+	background-color:#18959A;
+}
+#eblog_prolog div{
+	padding:10px;
+	font-family:free_sans;
+	font-size:8pt;
+	line-height:10pt;
+	color:#fff;
+}
 #content .content_category {
 	float:right;
 	font-family: free_sans;

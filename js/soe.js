@@ -545,7 +545,7 @@ function drawCursorLine(x)
 	}
 	var W = jQuery(window);
 	var slidX = x;
-	var slidY = jQuery("#menu_item").outerHeight();
+	var slidY = jQuery("#menu_item").outerHeight() + jQuery("#menu_item").offset().top;
 	theCursorLine.line = line(raph, new Point(slidX, W.height()), new Point(slidX, slidY));
 	var tc = 20;
 	var tc1 = 10;

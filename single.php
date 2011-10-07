@@ -23,7 +23,11 @@ $custom = get_post_custom($post->ID);
 
 if($postType == 'soe_eblog')
 {
-	echo '<div id="content_outer"> <div id="content">';
+	$__prologVV = '
+The ‘Sounds of Europe’ blog will travel to 20 of the 27 European countries during the two-year-project. Each month another organisation or artist, from a different country, will be responsible to maintain this blog for 1 month. They’ll explore and present each in a personal way the country’s context and what’s happening in regard to the field recording scene and activity.
+	';
+	
+	echo '<div id="content_outer"> <div id="content"> <div id="eblog_prolog"><div><span>'.$__prologVV.'</span></div></div>';
 	$date = get_the_date();
 	$author = get_the_author();
 	$authorLink = '';
