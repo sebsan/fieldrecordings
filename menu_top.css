@@ -6,26 +6,23 @@
 	background-color:white;
 }*/
 
-#sow_player_outer{
+#sow_player{
 	position:fixed;
 	z-index:13;
-	right:10px;
+	right:20px;
 	top:10px;
 	color:#FC264A;
 	background-color:white;
 }
 #sow_label{
 	font-family:helvetica_serif;
-	font-size:12pt;
-	line-height:22pt;
+	font-size:15pt;
+	line-height:17pt;
 }
-.sow_details{
-	font-family:helvetica_serif;
-	font-size:10pt;
-	padding:1em;
-	display:none;
+.sow_track_title{
+	font-family:free_sans;
+	font-size:12pt;
 	color:#FC264A;
-	border-top:1px solid;
 }
 a.sow_by{
 	color:white;
@@ -43,7 +40,7 @@ a.sow_by:hover{
 .jp-play, .jp-pause{
 	vertical-align:text-bottom;
 }
-#sow_player_outer:hover{
+/*#sow_player_outer:hover{
 	border:1px solid;
 	padding:4px;
 	right:0px;
@@ -55,7 +52,7 @@ a.sow_by:hover{
 }
 #sow_player_outer:hover .sow_details{
 	display:block;
-}
+}*/
 
 #latest_news {
 	font-size:10pt;
