@@ -71,9 +71,9 @@ if($sounds)
 	}
 
 ?>
-<div id="bando">
 <?php echo $soundStr; ?>
-<?php echo $newsStr; ?>
+<?php echo $newsStr; ?>	
+<div id="bando">
 <div id="bando_logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/soe-logo-menu.png"/></div>
 </div>
 

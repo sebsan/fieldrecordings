@@ -8,8 +8,8 @@
 
 #sow_player_outer{
 	position:fixed;
-	z-index:12;
-	left:10px;
+	z-index:13;
+	right:10px;
 	top:10px;
 	color:#FC264A;
 	background-color:white;
@@ -46,7 +46,7 @@ a.sow_by:hover{
 #sow_player_outer:hover{
 	border:1px solid;
 	padding:4px;
-	left:0px;
+	right:0px;
 	top:0px;
 }
 #sow_player_outer:hover #sow_player{
@@ -65,14 +65,14 @@ a.sow_by:hover{
 
 #newsContent{
 	position:fixed;
-	z-index:10;
+	z-index:9;
 	color:white;
 	background-color:#FC264A;
 	font-size:16pt;
 	font-family:helvetica_serif;
-	padding:24px 12px 12px 12px;
-	top:32px;
-	right:0;
+	padding:12px 12px 12px 12px;
+	top:109px;
+	right:10px;
 }
 
 #newsContent span.title a{
@@ -95,23 +95,23 @@ a.sow_by:hover{
 #menu_item{
 	position: fixed;
 	z-index:11;
-	top: 0;
+	top: 60px;
 	left: 0px;
 	font-family: helvetica_serif;
-	font-size: 10pt;
+	font-size: 9pt;
 	line-height: 42px;
-	height: 42px;
+	height: 37px;
 	letter-spacing: 0.09em;
 	text-align: left;
-	width: 98.8%;
+	width: 100%;
 	margin-left: auto; 
 	margin-right: auto;
 	text-transform:uppercase;
-	padding:  0 .6%;
+	padding:  0;
 /* 	background-color:white; */
-	background:white url("img/soe-logo-menu.png") top right no-repeat;
+	background:white ;
 	border-bottom: 1px solid black;
-	text-align:center;
+	text-align:left;
 	}
 	
 #menu_item span{
@@ -126,9 +126,9 @@ a.sow_by:hover{
 #menu_index {
 	position: fixed;
 	z-index:10;
-	top: 2%;
+	top: 97px;
 	left: 0px;
-	width:98%;
+	width:100%;
 	font-family: helvetica_serif;
 	font-size: 8pt;
 	line-height: 10pt;
@@ -301,6 +301,21 @@ table.sample td{
 
 #timeline_box {
 	height: 380px;
+	}
+	
+#bando {
+	position: fixed;
+	top: 0.9px;
+	height: 60px;
+	background-color: white;
+	border-bottom: solid 1px black;
+	z-index: 12;
+	width: 100%;
+	}	
+	
+#bando_logo {
+	position: fixed;
+	top: 8px;
 	}
 
 .wave{background-image:url("img/wave.png")}
