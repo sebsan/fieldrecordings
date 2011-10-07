@@ -14,8 +14,15 @@
 	color:#FC264A;
 	background-color:white;
 }
-
+#sow_label{
+	font-family:helvetica_serif;
+	font-size:12pt;
+	line-height:22pt;
+}
 .sow_details{
+	font-family:helvetica_serif;
+	font-size:10pt;
+	padding:1em;
 	display:none;
 	color:#FC264A;
 	border-top:1px solid;
@@ -30,7 +37,11 @@ a.sow_by:hover{
 	background-color:white;
 }
 .jp-current-time, .jp-duration{
+	font-family:helvetica_serif;
 	font-size:80%;
+}
+.jp-play, .jp-pause{
+	vertical-align:text-bottom;
 }
 #sow_player_outer:hover{
 	border:1px solid;

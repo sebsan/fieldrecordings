@@ -36,14 +36,14 @@ if($sounds)
 			<div class="audio-block audio-'.$audiotype.'" id="audio-'.$s->ID.'" title="'.$at.'">
 			<span class="media-player"></span>
 				<div id="jp_interface_'.$s->ID.'" class="player_symbols">
-					<img class="jp-play" src="'.get_bloginfo('template_directory').'/img/play.png" /> 
-					<img class="jp-pause" src="'.get_bloginfo('template_directory').'/img/pause.png" /> 
-					<span>Sound of the week</span>
+					<img class="jp-play" src="'.get_bloginfo('template_directory').'/img/play-red.png" /> 
+					<img class="jp-pause" src="'.get_bloginfo('template_directory').'/img/pause-red.png" /> 
+					<span id="sow_label">Sound of the week</span>
 					<div class="sow_details">
 						<div>
 						<span class="sow_track_title">'.$s->post_title.'</span>
-						<span class="jp-current-time"></span> |
-						<span class="jp-duration"></span>
+						[<span class="jp-current-time"></span> /
+						<span class="jp-duration"></span>]
 						</div> 
 						<div>
 						'.$par.'

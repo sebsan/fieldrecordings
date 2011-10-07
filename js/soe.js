@@ -17,6 +17,7 @@ function initMediaPlayer()
 		var that = jQuery(this);
 		var wp_id =  that.attr('id').substring(6);
 		var audioFile = that.attr('title');
+		that.attr('title', '');
 		var playerDiv = that.children('.media-player').first();
 		
 		var  player = playerDiv.jPlayer(
@@ -46,6 +47,7 @@ function initMediaPlayer()
 		var that = jQuery(this);
 		var wp_id =  that.attr('id').substring(6);
 		var audioFile = that.attr('title');
+		that.attr('title', '');
 		var playerDiv = that.children('.media-player').first();
 		
 		var  player = playerDiv.jPlayer({
