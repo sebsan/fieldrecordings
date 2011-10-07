@@ -772,11 +772,22 @@ function initSOE()
 		jQuery.ajax({
 			type: 'POST',
 	      url: templateUrl + 'tracktrack.php',
-	      data: { tt : trackTrack, tp: (event.jPlayer.status.paused ? 1 : 0 )},
+	      data: { tt : trackTrack, tp: 0 },
 	      async : false
 		});
 	});
 
+	jQuery('#sow_media_player').bind(jQuery.jPlayer.event.pause, function(event)
+	{
+		trackTrack = event.jPlayer.status.currentTime;
+		trackPaused = 1;
+		jQuery.ajax({
+			type: 'POST',
+	      url: templateUrl + 'tracktrack.php',
+	      data: { tt : trackTrack, tp: trackPaused},
+	      async : false
+		});
+	});
 	initMap(doMap);
 
 	/// Menu
