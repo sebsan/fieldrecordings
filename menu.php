@@ -34,7 +34,7 @@ if($sounds)
 	<div id="sow_player_outer">
 		<div id="sow_player">
 			<div class="audio-block audio-'.$audiotype.'" id="audio-'.$s->ID.'" title="'.$at.'">
-			<span class="media-player"></span>
+			<span class="media-player" id="sow_media_player"></span>
 				<div id="jp_interface_'.$s->ID.'" class="player_symbols">
 					<img class="jp-play" src="'.get_bloginfo('template_directory').'/img/play-red.png" /> 
 					<img class="jp-pause" src="'.get_bloginfo('template_directory').'/img/pause-red.png" /> 
@@ -71,11 +71,15 @@ if($sounds)
 	}
 
 ?>
+<div id="bando">
+<?php echo $soundStr; ?>
+<?php echo $newsStr; ?>
+<div id="bando_logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/soe-logo-menu.png"/></div>
+</div>
 
 <div id="menu_index" class="menu_closed"></div> <!--menu_index-->
 
-<?php echo $soundStr; ?>
-<?php echo $newsStr; ?>
+
 <div id="menu_item">
 	<span id="menu_item_eblog" class="site_menu_item">Blog</span>
 	<span id="menu_item_artist" class="site_menu_item">Artists</span>
