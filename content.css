@@ -233,10 +233,11 @@
 .city_around_title{
 	color:white;
 	font-family: free_sans;
-	font-size: 13pt;
+	font-size: 9pt;
 /* 	line-height: 22pt; */
 	background-color:#18959A;
-	padding: 5px;
+	padding: 4px 8px 0px 8px;
+	letter-spacing: 0.09em;
 }
 .closedBox_outer{
 	margin : 2px 0 0 0;
