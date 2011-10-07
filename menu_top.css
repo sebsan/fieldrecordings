@@ -269,6 +269,22 @@ table.sample td{
 	vertical-align:top;
 }
 
+.presentation_row a {
+	font-family: helvetica_serif;
+	font-size: 10pt;
+	line-height: 12pt;
+	color:#fc264a;
+	text-align:left;
+	padding: 0px 0px 15px 0px;
+	height: 7px;
+	vertical-align:top;
+}
+
+.presentation_row a:hover{
+	text-decoration: none;
+	color:#18959A;
+}
+
 .pattern_row {
 	font-family: free_sansBold;
 	letter-spacing: 0.09em;
