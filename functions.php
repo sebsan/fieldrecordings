@@ -231,9 +231,11 @@ add_filter('excerpt_more', 'new_excerpt_more');
 
 function slugify($text)
 {
+	// if its a filename, we want to preserve the dot
+	$ta = explode('.', $text);
 	// replace non letter or digits by -
-	$text = preg_replace('~[^\\pL\d]+~u', '-', $text);
-	
+	$text = preg_replace('~[^\\pL\d]+~u', '-', $ta);
+	$text = implode('.', $ta);
 	// trim
 	$text = trim($text, '-');
 	
@@ -247,7 +249,7 @@ function slugify($text)
 	$text = strtolower($text);
 	
 	// remove unwanted characters
-	$text = preg_replace('~[^-\w]+~', '', $text);
+	$text = preg_replace('~[^-^\.\w]+~', '', $text);
 	
 	if (empty($text))
 	{
