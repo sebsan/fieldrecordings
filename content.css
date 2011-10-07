@@ -16,6 +16,11 @@
 	padding: 0px;
 }
 
+#content p {
+	margin: 10px;
+}
+
+
 #content .content_category {
 	float:right;
 	font-family: free_sans;
@@ -62,6 +67,28 @@
 	line-height: 14pt;
 	padding: 5px 10px;
 }
+
+#content .section .section_par a{
+	font-family: helvetica_serif;
+	color:#18959A;
+	font-size: 10pt;
+	line-height: 14pt;
+}
+
+#content .section .section_par a:hover{
+	text-decoration: underline;
+}
+
+#content .section .section_par img.alignleft{
+	float: left;
+	padding: 5px 10px 10px 0px;
+}
+
+#content .section .section_par img.alignright{
+	float: right;
+	padding :10px;
+}
+
 
 #content .section .general_url {
 	padding: 5px 10px 0px 10px;
