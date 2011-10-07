@@ -57,6 +57,18 @@ a.sow_by:hover{
 	display:block;
 }
 
+#latest_news {
+	font-size:10pt;
+	font-family:free_sans;
+	letter-spacing: 0.09em;
+	margin: 0px 0px 10px 0px;
+	}
+	
+#latest_news span {
+	padding: 3px 7px;
+	border:1px solid white;
+	}
+
 .news-active{
 	color:white;
 	background-color:#FC264A;
@@ -68,7 +80,7 @@ a.sow_by:hover{
 	z-index:9;
 	color:white;
 	background-color:#FC264A;
-	font-size:16pt;
+	font-size:12pt;
 	font-family:helvetica_serif;
 	padding:12px 12px 12px 12px;
 	top:109px;
