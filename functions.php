@@ -9,6 +9,8 @@ require_once(get_stylesheet_directory() . '/city.class.inc');
 require_once(get_stylesheet_directory() . '/writing.class.inc');
 
 
+require_once(get_stylesheet_directory() . '/options.php');
+
 /// utils
 
 function GetLocation($id)
@@ -47,27 +49,11 @@ function GetCountryName($isocode)
 
 ///
 
-add_action('admin_init', 'SOE_locationInit');
 add_action('admin_init', 'SOE_AdminInit');
 add_action('init', 'SOE_customTypesInit');
 add_action('init', 'SOE_JSInit');
 
-// function sendAudioURL($html, $href, $title)
-// {
-// 	return $href;
-// }
-// 
-// function sendImageURL($html, $id, $caption, $title, $align, $url, $size, $alt )
-// {
-// 	//error_log('sendImageURL:'.$html.'|'.$src);
-// 	return $url;
-// }
-// 
-// 
-// function sendMediaURL($html, $url)
-// {
-// 	return $url;
-// }
+
 function SOE_AdminInit()
 {
 // 	add_filter( 'audio_send_to_editor_url', 'sendAudioURL', 1, 3 );
@@ -76,77 +62,6 @@ function SOE_AdminInit()
 // 	
 // 	global $wp_filter, $merged_filters, $wp_current_filter;
 // 	print_r($wp_filter);
-}
-
-function SOE_locationSection()
-{
-	echo '<p>Current location of the blog</p>';
-}
-
-function SOE_locationCallback()
-{
-	$locsetting = get_option('soe_location', false);
-	$loc = NULL;
-	if($locsetting !== false)
-	{
-		$loc = GetLocation($locsetting);
-	}
-	$locSource = get_bloginfo('stylesheet_directory').'/cities.php';
-	if($loc === NULL)
-	{
-		echo '
-		<div>
-		<input type="hidden" id="soe_location" name="soe_location"/> 
-		<input type="text" id="location_search"/> 
-		</div>';
-	}
-	else
-	{
-		echo '
-		<div>
-		<input type="hidden" id="soe_location" name="soe_location" value="'.$loc->geonameid.'" /> 
-		<input type="text" id="location_search" value="'.$loc->name.', '.$loc->codename.' ('.$loc->country_code.')" />
-		</div>';
-	}
-	
-	echo '
-	<script type="text/javascript">
-	// <![CDATA[
-	
-	jQuery(document).ready(function()
-	{
-		
-		
-		jQuery( "#location_search" ).autocomplete(
-			{
-				minLength: 0,
-				source: "'.$locSource.'",
-				focus: function( event, ui ) 
-		{
-			jQuery( "#location_search" ).val( ui.item.label );
-		return false;
-			},
-			select: function( event, ui ) 
-		{
-			jQuery( "#location_search" ).val(ui.item.label);
-			jQuery( "#soe_location" ).val(ui.item.value);
-		return false;
-			},
-			});
-			});
-		// ]]>
-		</script>
-		';
-}
-
-function SOE_locationInit()
-{
-	if(!is_admin())
-		return;
-	
-	add_settings_section('soe_location_section', 'Current Location', 'SOE_locationSection', 'general');
-	add_settings_field('soe_location', 'Location', 'SOE_locationCallback', 'general', 'soe_location_section');
-	register_setting('general','soe_location');
 }
 
 function SOE_customTypesInit() 

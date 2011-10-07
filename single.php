@@ -274,14 +274,7 @@ elseif($postType == 'soe_writing')
 	'.get_the_content().'
 	</div>
 	
-	<div id="colonne-sommaire">
-	<p class="writings_sommaire"><a href="#1">1. Exchanging artistic projects and ideas.</p>
-	<p class="writings_sommaire"><a href="#2">2. Exchanging sounds across borders.<a></p>
-	<p class="writings_sommaire"><a href="#2.1">2.1. Exploration.<a></p>
-	<p class="writings_sommaire"><a href="#2.2">2.2. Creation and exchange of sounds.<a></p>
-	</div> 
-	
-	
+
 	</div> <!-- writing_outer  -->
 	</div>
 	';

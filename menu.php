@@ -15,17 +15,11 @@ $newsStr = '';
 
 global $wpdb;
 /// SOUND OF THE WEEK
-$sounds = $wpdb->get_results("
-SELECT * 
-FROM ". $wpdb->posts ." AS p 
-WHERE (p.post_type = 'attachment' AND p.post_mime_type LIKE 'audio%' )
-ORDER BY p.post_date DESC
-LIMIT 0,1;
-", OBJECT);
 
+$sounds = get_option('soe_sow', false);
 if($sounds)
 {
-	$s = $sounds[0];
+	$s = get_post($sounds);
 	$at = wp_get_attachment_url($s->ID);
 	$mimetype = explode('/', get_post_mime_type($s->ID));
 	$audiotype = $mimetype[1];
@@ -62,41 +56,16 @@ if($sounds)
 }
 /// NEWS
 
-$events = $wpdb->get_results("
-SELECT * 
-FROM ". $wpdb->posts ." AS p 
-WHERE (p.post_type = 'soe_event') ;
-", OBJECT);
-	// print_r($events);
-	$news = array('post' => null, 'date' => 0 , 'custom' => null);
-	$today = strtotime(current_time('mysql'));
-	// print_r($today);
-	// echo 'T = '.$today;
-	foreach($events as $e)
+
+	$news = get_option('soe_news', false);
+	if($news)
 	{
-		$c = get_post_custom($e->ID);
-		// 	print_r($c);
-		$sd = strtotime($c['event_date_start'][0]);
-		$ed = strtotime($c['event_date_end'][0]);
-		if($sd >= $today || $ed >= $today)
-		{
-			if($d < $news['date'] || $news['date'] == 0)
-			{
-				$news['post'] = $e;
-				$news['date'] = $d;
-				$news['custom'] = $c;
-			}
-		}
-		
-	}
-	// print_r($news);
-	if($news['post'])
-	{
-		$ncust = get_post_custom($news['post']->ID);
+		$thenew = get_post($news);
+		$ncust = get_post_custom($thenew->ID);
 		$nloc = GetLocation($ncust['location'][0]);
 		$newsStr =  '<div id="newsContent">
-		<span class="title"><a href="'.get_permalink($news['post']->ID).'">'.get_the_title($news['post']->ID).'</a></span> /
-		<span class="date">'.$news['custom']['event_date_start'][0].'</span> /
+		<span class="title"><a href="'.get_permalink($thenew->ID).'">'.get_the_title($thenew->ID).'</a></span> /
+		<span class="date">'.$ncust['event_date_start'][0].'</span> /
 		<span class="place">'.$nloc->name.'</span>
 		</div> <!-- newsContent -->';
 	}
