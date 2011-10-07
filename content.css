@@ -253,11 +253,12 @@
 	color:#18959A;
 	font-family: helvetica_serif;
 	font-size: 10pt;
-	padding:3px;
+	padding: 4px 8px 4px 8px;
 	border: 1px solid #18959A;
 }
 .closedBox a:hover{
 	z-index:100;
+	color:#FC264A;
 }
 
 /*.closedBox .closedBox_title {
