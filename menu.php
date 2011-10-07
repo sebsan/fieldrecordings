@@ -31,28 +31,25 @@ if($sounds)
 	}
 	
 	$soundStr = '
-	<div id="sow_player_outer">
 		<div id="sow_player">
 			<div class="audio-block audio-'.$audiotype.'" id="audio-'.$s->ID.'" title="'.$at.'">
 			<span class="media-player" id="sow_media_player"></span>
 				<div id="jp_interface_'.$s->ID.'" class="player_symbols">
+				<span id="sow_label">Sound of the week</span>
+					
+					
+					<div>
 					<img class="jp-play" src="'.get_bloginfo('template_directory').'/img/play-red.png" /> 
 					<img class="jp-pause" src="'.get_bloginfo('template_directory').'/img/pause-red.png" /> 
-					<span id="sow_label">Sound of the week</span>
-					<div class="sow_details">
-						<div>
-						<span class="sow_track_title">'.$s->post_title.'</span>
-						[<span class="jp-current-time"></span> /
-						<span class="jp-duration"></span>]
-						</div> 
-						<div>
-						'.$par.'
-						</div>
+					<span class="sow_track_title">'.$s->post_title.'</span>
+					
+					</div> 
+					<div>
+					'.$par.'
 					</div>
 				</div>
 			</div>
-		</div> <!-- sow_player -->
-	</div><!-- sow_player_outer -->';
+		</div> <!-- sow_player -->';
 }
 /// NEWS
 
@@ -64,7 +61,7 @@ if($sounds)
 		$ncust = get_post_custom($thenew->ID);
 		$nloc = GetLocation($ncust['location'][0]);
 		$newsStr =  '<div id="newsContent">
-		<div id="latest_news">Latest News</div>
+		<div id="latest_news"><span>Latest News</span></div>
 		<span class="title"><a href="'.get_permalink($thenew->ID).'">'.get_the_title($thenew->ID).'</a></span> /
 		<span class="date">'.$ncust['event_date_start'][0].'</span> /
 		<span class="place">'.$nloc->name.'</span>
