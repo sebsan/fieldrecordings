@@ -44,9 +44,7 @@ if($sounds)
 					<span class="sow_track_title">'.$s->post_title.'</span>
 					
 					</div> 
-					<div>
-					'.$par.'
-					</div>
+					
 				</div>
 			</div>
 		</div> <!-- sow_player -->';
