@@ -24,7 +24,16 @@ function initMediaPlayer()
 			{
 			ready: function () 
 			{
+				var tt = trackTrack;
+				var tp = trackPaused;
 				playerDiv.jPlayer("setMedia", { mp3: audioFile});
+				if(tt > 0)
+				{
+					if( tp == 1)
+						playerDiv.jPlayer('pause', tt);
+					else
+						playerDiv.jPlayer('play', tt);
+				}
 			},
 			preload: 'metadata',
 			supplied: "mp3",
@@ -54,6 +63,16 @@ function initMediaPlayer()
 			ready: function () 
 			{
 				playerDiv.jPlayer("setMedia", { oga: audioFile});
+				var tt = trackTrack;
+				var tp = trackPaused;
+				playerDiv.jPlayer("setMedia", { mp3: audioFile});
+				if(tt > 0)
+				{
+					if( tp == 1)
+						playerDiv.jPlayer('pause', tt);
+					else
+						playerDiv.jPlayer('play', tt);
+				}
 			},
 			supplied: "oga",
 			solution: sol,
@@ -747,6 +766,16 @@ jQuery(window).resize(function()
 function initSOE()
 {
 	initMediaPlayer();
+	jQuery('#sow_media_player').bind(jQuery.jPlayer.event.timeupdate, function(event)
+	{
+		trackTrack = event.jPlayer.status.currentTime;
+		jQuery.ajax({
+			type: 'POST',
+	      url: templateUrl + 'tracktrack.php',
+	      data: { tt : trackTrack, tp: (event.jPlayer.status.paused ? 1 : 0 )},
+	      async : false
+		});
+	});
 
 	initMap(doMap);
 
@@ -760,3 +789,15 @@ function initSOE()
 
 
 jQuery(document).ready(initSOE);
+// jQuery(window).unload(
+// 	function () 
+// 	{ 
+// // 		alert('TT = '+trackTrack);
+// 		jQuery.ajax({
+// 			type: 'POST',
+// 			url: templateUrl + 'tracktrack.php',
+// 			data: { tt : trackTrack},
+// 			async : false
+// 			});
+// 		
+// 	} );

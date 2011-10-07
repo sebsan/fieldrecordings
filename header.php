@@ -9,6 +9,7 @@ Sounds of Europe
 
  */
 
+session_start();
 
 global $tnames;
 global $postloc;
@@ -70,7 +71,26 @@ var templateUrl = "<?php echo $template_dir . '/'; ?>";
 var jplayerswf = " <?php echo get_bloginfo('template_directory') . '/js/jQuery.jPlayer.2.0.0/' ;?>";
 var theCity = "<?php  echo $postloc !== NULL ? $postloc->geonameid : "XXXX" ?>";
 var doMap = <?php echo $post->post_type != 'soe_writing' ? 'true' : 'false'; ?>;
+
 <?php
+if(isset($_SESSION['tt']))
+{
+	echo 'var trackTrack = '.$_SESSION['tt'].';';
+}
+else
+{
+	echo 'var trackTrack = 0;';
+}
+if(isset($_SESSION['tp']))
+{
+	echo 'var trackPaused = '.$_SESSION['tp'].';';
+}
+else
+{
+	echo 'var trackPaused = 1;';
+}
+
+
 // city IDs in use
 global $wpdb;
 $locs = $wpdb->get_results("
