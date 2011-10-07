@@ -181,7 +181,7 @@ elseif($postType == 'soe_city')
 	}
 	$bCounter = 0;
 	$bWidth = 243;
-	$bYoffset = 60;
+	$bYoffset = 120;
 	$bXoffset = 60;
 	foreach($soe_types as $st)
 	{
