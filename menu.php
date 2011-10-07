@@ -64,6 +64,7 @@ if($sounds)
 		$ncust = get_post_custom($thenew->ID);
 		$nloc = GetLocation($ncust['location'][0]);
 		$newsStr =  '<div id="newsContent">
+		<div id="latest_news">Latest News</div>
 		<span class="title"><a href="'.get_permalink($thenew->ID).'">'.get_the_title($thenew->ID).'</a></span> /
 		<span class="date">'.$ncust['event_date_start'][0].'</span> /
 		<span class="place">'.$nloc->name.'</span>
@@ -71,12 +72,14 @@ if($sounds)
 	}
 
 ?>
-<div id="bando">
 <?php echo $soundStr; ?>
 <?php echo $newsStr; ?>
+
+<div id="bando">
 	<div id="bando_logo">
 		<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/soe-logo-menu.png"/>
 	</div>
+
 </div>
 
 <div id="menu_index" class="menu_closed"></div> <!--menu_index-->
