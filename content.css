@@ -21,15 +21,15 @@
 }
 
 #eblog_prolog{
-	border-bottom:1px solid #18959A;
-	background-color:#18959A;
+	border-bottom:1px solid #000;
+/* 	background-color:#18959A; */
 }
 #eblog_prolog div{
 	padding:10px;
 	font-family:free_sans;
 	font-size:8pt;
 	line-height:10pt;
-	color:#fff;
+	color:#888;
 }
 #content .content_category {
 	float:right;
