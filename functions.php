@@ -179,7 +179,7 @@ function mediaPlayer($id)
 
 function GetImage($id)
 {
-	$sized = image_downsize( $id, array(323,323));
+	$sized = image_downsize( $id, array(423,423));
 	return '<img src="'.$sized[0].'" width="'.$sized[1].'" height="'.$sized[2].'"/>';
 }
 
