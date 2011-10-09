@@ -12,7 +12,7 @@ function initMediaPlayer()
 {
 // 	var sol = "flash,html";
 	var sol = "html,flash";
-	jQuery('.audio-mpeg, .audio-mp3').each(function(index)
+	jQuery('.audio-mpeg, .audio-mp3, .audio-x-mp3').each(function(index)
 	{
 		var that = jQuery(this);
 		var wp_id =  that.attr('id').substring(6);
