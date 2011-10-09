@@ -73,6 +73,7 @@ if($sounds)
 <div id="bando">
 	<div id="bando_logo">
 		<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/soe-logo-menu.png"/>
+		<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/eu-logo.png"/>
 	</div>
 
 </div>
