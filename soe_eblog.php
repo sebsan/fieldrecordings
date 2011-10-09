@@ -16,10 +16,12 @@ global $blogloc;
 
 <?php 
 
-$args = array('post_type' => 'soe_eblog',
-'order' => 'DESC',
-'orderby' => 'post_date',
-'posts_per_page'=> -1
+$args = array(
+	'post_type' => 'soe_eblog',
+	'order' => 'DESC',
+	'orderby' => 'post_date',
+	'post_status' => 'publish'
+	'posts_per_page'=> -1
 );
 $the_query = new WP_Query( $args );
 
