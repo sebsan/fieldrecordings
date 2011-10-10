@@ -11,7 +11,7 @@ $center['x'] = $_GET['cx'];
 $center['y'] = $_GET['cy'];
 
 $ri = new RugImage($vrect);
-$img = $ri->CenterOn($center);
+$img = $ri->CenterOn($center, true);
 
 header('Content-Type: image/png');
 header('Content-Transfer-Encoding: binary');
