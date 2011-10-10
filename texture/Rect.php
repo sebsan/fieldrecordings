@@ -10,7 +10,7 @@ $center['y'] = $_POST['cy'];
 // TODO handle errors here
 
 $ri = new RugImage($vrect);
-$img = $ri->CenterOn($center);
+$img = $ri->CenterOn($center, true);
 
 $ret = '<img src="' . $img . '" width="' . $vrect['width'] . '" height="' . $vrect['height'] . '"/>';
 echo $ret;

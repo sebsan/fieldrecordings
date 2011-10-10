@@ -150,18 +150,34 @@ class RugImage
 			echo 'ERROR: Failed to create an image resource from source';
 	}
 
-	function CenterOn($center)
+	function CenterOn($center, $invertCoord = false) 
 	{
 		$x = $center['x'];
 		$y = $center['y'];
-		$ret = RUGCACHEDIR . $this->VS['width'] . '-' . $this->VS['height'] . '_' .$x . '-' . $y . '.png';
+		$iNvert = $invertCoord ? '_i' : '';
+		$ret = RUGCACHEDIR . $this->VS['width'] . '-' . $this->VS['height'] . '_' .$x . '-' . $y . $iNvert .'.png';
 		if(file_exists($ret))
 		{
 			return $ret;
 		}
-		
 		$rx = $x - floor($this->VS['width'] / 2);
 		$ry = $y - floor($this->VS['height'] / 2);
+		if($invertCoord)
+		{
+			$maxW = 0;
+			$maxH = 0;
+			foreach($files as $f)
+			{
+				$fn = basename($f, '.png');
+				$format = explode('_',$fn);
+				$r = new Rect($format[1], $format[0], $format[2], $format[3]);
+				$maxW = max($maxW, $r->right);
+				$maxH = max($maxH, $r->bottom);
+			}
+			$rx = $maxW - $rx;
+			$ry = $maxH - $ry;
+			
+		}
 		$vr = new Rect($ry, $rx, $this->VS['width'], $this->VS['height']);
 		
 		$dest = imagecreatetruecolor($this->VS['width'], $this->VS['height']);
