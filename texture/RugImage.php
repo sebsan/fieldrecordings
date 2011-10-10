@@ -160,26 +160,30 @@ class RugImage
 		{
 			return $ret;
 		}
-		$rx = $x - floor($this->VS['width'] / 2);
-		$ry = $y - floor($this->VS['height'] / 2);
+		$vsw2  =  floor($this->VS['width'] / 2);
+		$vsh2 = floor($this->VS['height'] / 2);
+		$rx = max($vsw2, $x - $vsw2);
+		$ry = max($vsh2, $y - $vsh2);
+		$maxW = 0;
+		$maxH = 0;
+		$files = glob(RUGIMAGEDIR . "*.png");
+		foreach($files as $f)
+		{
+			$fn = basename($f, '.png');
+			$format = explode('_',$fn);
+			$r = new Rect($format[1], $format[0], $format[2], $format[3]);
+			$maxW = max($maxW, $r->right);
+			$maxH = max($maxH, $r->bottom);
+		}
 		if($invertCoord)
 		{
-			$maxW = 0;
-			$maxH = 0;
-			$files = glob(RUGIMAGEDIR . "*.png");
-			foreach($files as $f)
-			{
-				$fn = basename($f, '.png');
-				$format = explode('_',$fn);
-				$r = new Rect($format[1], $format[0], $format[2], $format[3]);
-				$maxW = max($maxW, $r->right);
-				$maxH = max($maxH, $r->bottom);
-			}
-			$rx = $maxW - $rx;
-			$ry = $maxH - $ry;
-// 			error_log('mw = '.$maxW.'; mh = '.$maxH.';X = '. $x.'; Y = '.$ry);
+			$rx = max($vsw2, $maxW - $rx);
+			$ry = max($vsh2, $maxH - $ry);
 			
 		}
+		$rx = min($maxW - $vsw2, $rx);
+		$ry = min($maxH - $vsh2, $ry);
+		
 		$vr = new Rect($ry, $rx, $this->VS['width'], $this->VS['height']);
 		
 		$dest = imagecreatetruecolor($this->VS['width'], $this->VS['height']);
