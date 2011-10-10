@@ -390,9 +390,14 @@ var svgHeight = 1862;
 var svgWidth = 2160;
 
 var tmenu_duration = 'slow';
+function mapClick()
+{
+	jQuery('.menu_item_active').click();
+}
 function toggleMenu()
 {
 	jQuery('.site_menu_item').removeClass('menu_item_active');
+	jQuery('#carte').unbind('click', mapClick);
 	
 	var that = jQuery(this);
 	var menu = jQuery('#menu_index');
@@ -417,6 +422,7 @@ function toggleMenu()
 			});
 		}
 		that.addClass('menu_item_active');
+		jQuery('#carte').bind('click', mapClick);
 	}
 	else
 	{
@@ -436,6 +442,7 @@ function toggleMenu()
 					  menu.addClass('menu_' + callerType);
 			
 				  });
+			jQuery('#carte').bind('click', mapClick);
 		}
 	}
 	return false;
