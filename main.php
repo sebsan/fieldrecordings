@@ -15,6 +15,7 @@
 query_posts(array(
 	'post_type' => 'soe_eblog',
 	'posts_per_page' => '1',
+	'post_status' => 'publish',
 	));
 	
 global $wp_query;
