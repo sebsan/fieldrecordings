@@ -29,7 +29,7 @@ $cCount = 0;
 $maxCols = 6;
 if($the_query->found_posts < $maxCols)
 	$maxItems = 0;
-$startCol = '<span> <div class="index_col">';
+$startCol = '<span> <div class="writings_index_col">';
 $endCol = '</div> </span>';
 $first = true;
 $pages = array();
