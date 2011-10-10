@@ -712,7 +712,7 @@ function initMap(ttt)
 		}
 		if(labX != labelRect.left() || labY != labelRect.top())
 		{
-			citylink.animate({ top: labelRect.top(), left: labelRect.left() });
+			citylink.animate({ top: labelRect.top(), left: labelRect.left() }, 1500);
 		}
 		labelRects.push(labelRect);
 		
