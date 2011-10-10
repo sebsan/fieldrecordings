@@ -66,7 +66,8 @@
 }
 
 #content .section .section_title {
-	font-family: free_sansBold;
+	font-family: free_sans;
+	font-weight:bold;
 	font-size: 10pt;
 	padding: 5px 10px 0px 10px;
 }
@@ -135,7 +136,8 @@
 
 #content .section .artist_track {
 	border-top: 1px solid #000000;
-	font-family: free_sansBold;
+	font-family: free_sans;
+	font-weight:bold;
 	font-size: 10pt;
 	line-height: 16pt;
 	padding: 5px 10px;
@@ -173,20 +175,23 @@
 }
 
 #content .section .section_eventDate {
-	font-family: free_sansBold;
+	font-family: free_sans;
+	font-weight:bold;
 	font-size: 10pt;
 	padding: 5px 10px 0px 10px;
 }
 
 #content .section .section_eventHour {
-	font-family: free_sansBold;
+	font-family: free_sans;
+	font-weight:bold;
 	font-size: 10pt;
 	line-height: 10pt;
 	padding: 2px 10px 0px 10px;
 }
 
 #content .section .section_eventPlace {
-	font-family: free_sansBold;
+	font-family: free_sans;
+	font-weight:bold;
 	font-size: 10pt;
 	line-height: 10pt;
 	padding: 2px 10px 0px 10px;
@@ -305,7 +310,8 @@
 }
 	
 #content .pagination{
-	font-family: free_sansBold;
+	font-family: free_sans;
+	font-weight:bold;
 	font-size: 8pt;
 	padding: 5px 10px 15px 10px;
 }
@@ -313,7 +319,8 @@
 #content .pagination a{
 	color:black;
 	text-decoration:none;
-	font-family: free_sansBold;
+	font-family: free_sans;
+	font-weight:bold;
 	font-size: 8pt;
 	padding: 5px 5px 15px 5px;
 }
@@ -331,7 +338,8 @@
 }
 
 .located_type_item span{
-	font-family: free_sansBold;
+	font-family: free_sans;
+	font-weight:bold;
 	letter-spacing: 0.09em;
 	font-size: 8pt;
 	color: white;
@@ -342,7 +350,8 @@
 }
 
 .located_type_item span:hover{
-	font-family: free_sansBold;
+	font-family: free_sans;
+	font-weight:bold;
 	letter-spacing: 0.09em;
 	font-size: 8pt;
 	color: white;

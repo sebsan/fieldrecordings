@@ -183,14 +183,16 @@ strong {
 	}
 	
 .writings_sommaire{
-	font-family: free_sansBold;
+	font-family: free_sans;
+	font-weight:bold;
 	font-size: 12pt;
 	line-height: 17pt;
 	padding: 15px 0px 5px 0px;
 	}
 .writings_sommaire a:link{
 	color: grey; 
-	font-family: free_sansBold;
+	font-family: free_sans;
+	font-weight:bold;
 	font-size: 12pt;
 	line-height: 17pt;
 	padding: 0 0px 5px 0px;
