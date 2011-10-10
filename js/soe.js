@@ -678,7 +678,7 @@ function initMap(ttt)
 			raph.image(templateUrl 
 			+'texture/texture.php?'
 			+'cx='+  Math.floor(curCityPoint.x / 10) * Math.floor(curCityPoint.x / 10)
-			+'&cy='+ Math.floor(curCityPoint.y / 10) * Math.floor(curCityPoint.y / 10)
+			+'&cy='+ Math.floor(curCityPoint.y / 7) * Math.floor(curCityPoint.y / 7)
 			+'&w='+  Math.floor(iW)
 			+'&h='+  Math.floor(iH)
 			, ctx, cty, iW, iH).toBack();

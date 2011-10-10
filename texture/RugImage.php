@@ -160,10 +160,12 @@ class RugImage
 		{
 			return $ret;
 		}
-		$vsw2  =  floor($this->VS['width'] / 2);
-		$vsh2 = floor($this->VS['height'] / 2);
-		$rx = max($vsw2, $x - $vsw2);
-		$ry = max($vsh2, $y - $vsh2);
+		$vsw = floor($this->VS['width']);
+		$vsh = floor($this->VS['height']);
+		$vsw2  =  floor($vsw / 2);
+		$vsh2 = floor($vsh/ 2);
+		$rx = max(0, $x - $vsw2);
+		$ry = max(0, $y - $vsh2);
 		$maxW = 0;
 		$maxH = 0;
 		$files = glob(RUGIMAGEDIR . "*.png");
@@ -177,12 +179,12 @@ class RugImage
 		}
 		if($invertCoord)
 		{
-			$rx = max($vsw2, $maxW - $rx);
-			$ry = max($vsh2, $maxH - $ry);
+			$rx = max(0, $maxW - $rx);
+			$ry = max(0, $maxH - $ry);
 			
 		}
-		$rx = min($maxW - $vsw2, $rx);
-		$ry = min($maxH - $vsh2, $ry);
+		$rx = min($maxW - $vsw, $rx);
+		$ry = min($maxH - $vsh, $ry);
 		
 		$vr = new Rect($ry, $rx, $this->VS['width'], $this->VS['height']);
 		
