@@ -230,22 +230,24 @@
 .city_around_box{
 	z-index:6;
 }
+
 .city_around_title{
 	color:white;
 	font-family: free_sans;
 	font-size: 9pt;
 /* 	line-height: 22pt; */
 	background-color:#18959A;
-	padding: 4px 8px 0px 8px;
-	letter-spacing: 0.09em;
+	padding: 4px 8px 2px 8px;
+	letter-spacing: 0.17em;
 }
 .closedBox_outer{
-	margin : 2px 0 0 0;
+	margin : 12px 0 0 0;
 }
+
 .closedBox {
 	background-color: #FFFFFF;
 	border: 1px solid #18959A;
-	padding:3px 3px 6px 3px ;
+	padding:4px 3px 7px 3px ;
 /* 	vertical-align:middle; */
 }
 

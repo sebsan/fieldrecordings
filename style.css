@@ -7,12 +7,20 @@
 
 @font-face {
   font-family:free_sans;
+  font-weight:normal;
   src:url("FreeSans.ttf");
 }
 
 @font-face {
-  font-family:free_sansBold;
+  font-family:free_sans;
+  font-weight:bold;
   src:url("FreeSansBold.ttf");
+}
+
+@font-face {
+  font-family:free_sans;
+  font-style:italic;
+  src:url("FreeSansOblique.ttf");
 }
 
 @font-face {
