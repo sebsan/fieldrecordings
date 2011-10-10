@@ -166,6 +166,7 @@ class RugImage
 		{
 			$maxW = 0;
 			$maxH = 0;
+			$files = glob(RUGIMAGEDIR . "*.png");
 			foreach($files as $f)
 			{
 				$fn = basename($f, '.png');
@@ -176,6 +177,7 @@ class RugImage
 			}
 			$rx = $maxW - $rx;
 			$ry = $maxH - $ry;
+// 			error_log('mw = '.$maxW.'; mh = '.$maxH.';X = '. $x.'; Y = '.$ry);
 			
 		}
 		$vr = new Rect($ry, $rx, $this->VS['width'], $this->VS['height']);
