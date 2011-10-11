@@ -16,11 +16,11 @@
 }
 
 .city_label a{
-	padding:3px;
+	padding:3px 3px 1px 3px;
 	background-color: white;
 	font-family: helvetica_serif;
-	letter-spacing: 0.09em;
-	font-size: 8pt;
+	letter-spacing: 0.2em;
+	font-size: 6pt;
 	text-transform: uppercase;
 	color: #fc264a;
 	border:1px solid #fc264a;

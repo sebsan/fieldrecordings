@@ -197,15 +197,15 @@ elseif($postType == 'soe_city')
 			if($st->WP_type() == 'soe_writing')
 				$boxtype = 'WRITINGS';
 			echo '<div class="city_around_box" style="position:absolute;left:'.(($bCounter * $bWidth)+$bXoffset).'px;top:'.($bYoffset).'px">
-			<span class="city_around_title">'.$boxtype.'</span>
+			<div class="city_around_title"><span>'.$boxtype.'</span></div>
 			';
 			foreach($oposts[$st->WP_type()] as $p)
 			{
 				echo '
 				<div class="closedBox_outer">
-					<span class="closedBox">
+					<div class="closedBox">
 						<a href="'.get_permalink($p->ID).'">'.apply_filters('the_title',$p->post_title).'</a>
-					</span>
+					</div>
 				</div>';
 			}
 			echo '</div>';
