@@ -27,7 +27,7 @@ elseif(is_post_type_archive())
 }
 else
 {
-	echo '<h1>Unable to complete request:</h1>';
+	get_template_part( 'main' );
 }
 
 ?>

@@ -12,6 +12,8 @@
 // global $wpdb;
 // global $blogloc;
 // 
+global $isEntryPoint;
+$isEntryPoint = true;
 query_posts(array(
 	'post_type' => 'soe_eblog',
 	'posts_per_page' => '1',

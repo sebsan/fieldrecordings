@@ -780,19 +780,23 @@ jQuery(window).resize(function()
 function initSOE()
 {
 	initMediaPlayer();
-	jQuery('#sow_media_player').bind(jQuery.jPlayer.event.timeupdate, function(event)
+	jQuery('#sow_media_player').bind(jQuery.jPlayer.event.play, function(event)
 	{
-		trackTrack = event.jPlayer.status.currentTime;
-		jQuery.ajax({
-			type: 'POST',
-	      url: templateUrl + 'tracktrack.php',
-	      data: { tt : trackTrack, tp: 0 },
-	      async : false
+		jQuery('#sow_media_player').bind(jQuery.jPlayer.event.timeupdate, function(event)
+		{
+			trackTrack = event.jPlayer.status.currentTime;
+			jQuery.ajax({
+				type: 'POST',
+		url: templateUrl + 'tracktrack.php',
+		data: { tt : trackTrack, tp: 0 },
+		async : false
+			});
 		});
 	});
 
 	jQuery('#sow_media_player').bind(jQuery.jPlayer.event.pause, function(event)
 	{
+		jQuery('#sow_media_player').unbind(jQuery.jPlayer.event.timeupdate);
 		trackTrack = event.jPlayer.status.currentTime;
 		trackPaused = 1;
 		jQuery.ajax({

@@ -50,8 +50,9 @@ if($sounds)
 		</div> <!-- sow_player -->';
 }
 /// NEWS
-
-
+global $isEntryPoint;
+if(/*$isEntryPoint === */true)
+{
 	$news = get_option('soe_news', false);
 	if($news)
 	{
@@ -65,6 +66,7 @@ if($sounds)
 		<span class="place">'.$nloc->name.'</span>
 		</div> <!-- newsContent -->';
 	}
+}
 
 ?>
 <?php echo $soundStr; ?>
