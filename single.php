@@ -51,7 +51,7 @@ The ‘Sounds of Europe’ blog will travel to 20 of the 27 European countries d
 	'.$date.' · <a'.$authorLink.'"> '.$author.'</a>
 	</div>
 	<div class="section">
-	<div class="section_par">'.get_the_content().'</div>
+	<div class="section_par">'.apply_filters('the_content',get_the_content()).'</div>
 	</div>
 	';
 	$np = GetNextAndPrevious($post->ID);

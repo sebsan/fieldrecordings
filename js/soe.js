@@ -5,7 +5,7 @@ requires: jQuery, Raphael
 
 */
 
-var SOE_debug = false;
+var SOE_debug = true;
 
 
 function initMediaPlayer()
@@ -19,6 +19,9 @@ function initMediaPlayer()
 		var audioFile = that.attr('title');
 		that.attr('title', '');
 		var playerDiv = that.children('.media-player').first();
+		var isSow = false;
+		if(playerDiv.attr('id') == 'sow_media_player')
+			isSow = true;
 		
 		var  player = playerDiv.jPlayer(
 			{
@@ -27,7 +30,8 @@ function initMediaPlayer()
 				var tt = trackTrack;
 				var tp = trackPaused;
 				playerDiv.jPlayer("setMedia", { mp3: audioFile});
-				if(tt > 0)
+				playerDiv.bind(jQuery.jPlayer.event.play, function() { playerDiv.jPlayer("pauseOthers"); });
+				if(isSow && tt > 0)
 				{
 					if( tp == 1)
 						playerDiv.jPlayer('pause', tt);
@@ -58,15 +62,18 @@ function initMediaPlayer()
 		var audioFile = that.attr('title');
 		that.attr('title', '');
 		var playerDiv = that.children('.media-player').first();
+		var isSow = false;
+		if(playerDiv.attr('id') == 'sow_media_player')
+			isSow = true;
 		
 		var  player = playerDiv.jPlayer({
 			ready: function () 
 			{
 				playerDiv.jPlayer("setMedia", { oga: audioFile});
+				playerDiv.bind(jQuery.jPlayer.event.play, function() { playerDiv.jPlayer("pauseOthers"); });
 				var tt = trackTrack;
 				var tp = trackPaused;
-				playerDiv.jPlayer("setMedia", { mp3: audioFile});
-				if(tt > 0)
+				if(isSow && tt > 0)
 				{
 					if( tp == 1)
 						playerDiv.jPlayer('pause', tt);

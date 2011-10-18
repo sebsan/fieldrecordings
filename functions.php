@@ -259,4 +259,45 @@ function slugify($text)
 	return $text;
 }
 
+
+
+/**
+ *	Audio player kind of plugin 
+ */
+
+function getMediaFromTitle($t)
+{
+	global $wpdb;
+	$mq = "
+	SELECT * 
+	FROM ".$wpdb->posts." AS p
+	WHERE (p.post_type = 'attachment' AND p.post_title LIKE '". $t[1] ."');
+	";
+	$ats = $wpdb->get_results($mq, OBJECT);
+// 	var_dump($ats);
+	if($ats)
+	{
+		return mediaPlayer($ats[0]->ID); 
+	}
+	return '';
+}
+
+function insertMediaPlayer($html)
+{
+	$ret = preg_replace_callback('/\[audio\s*(.*)\]/', getMediaFromTitle, $html);
+	return $ret;
+}
+
+add_filter('the_content', 'insertMediaPlayer');
+
+
+
+
+
+
+
+
+
+
+
 ?>
