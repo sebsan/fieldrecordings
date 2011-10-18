@@ -234,6 +234,7 @@
 
 .city_around_box{
 	z-index:6;
+	width: 180px;
 }
 
 .city_around_title{
@@ -241,27 +242,34 @@
 	font-family: free_sans;
 	font-size: 9pt;
 /* 	line-height: 22pt; */
+	letter-spacing: 0.17em;
+	line-height:15pt;
+}
+.city_around_title span{
 	background-color:#18959A;
 	padding: 4px 8px 2px 8px;
-	letter-spacing: 0.17em;
+
 }
+	
 .closedBox_outer{
-	margin : 12px 0 0 0;
+	float:left;
+	margin : -1px 0px 0px 0px;
+	background-color: #FFFFFF;
+	border: 1px solid #18959A;
+	padding:3px 4px 3px 4px ;
+	clear:both;
 }
 
 .closedBox {
-	background-color: #FFFFFF;
+	padding: 4px 8px 4px 8px;
 	border: 1px solid #18959A;
-	padding:4px 3px 7px 3px ;
-/* 	vertical-align:middle; */
 }
 
 .closedBox a{
 	color:#18959A;
+		font-size: 10pt;
 	font-family: helvetica_serif;
-	font-size: 10pt;
-	padding: 4px 8px 4px 8px;
-	border: 1px solid #18959A;
+
 }
 .closedBox a:hover{
 	z-index:100;
