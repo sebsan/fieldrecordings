@@ -116,7 +116,7 @@ elseif($postType == 'soe_artist')
 		<div class="section_par">
 		'.$custom['artist_bio'][0].'
 		</div>
-		<div class="section_title">Use of fieldrecordings</div>
+		<div class="section_title">Description of work with field recording</div>
 		<div class="section_par">
 		'.$custom['artist_use'][0].'
 		</div>
