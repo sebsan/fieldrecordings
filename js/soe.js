@@ -5,7 +5,7 @@ requires: jQuery, Raphael
 
 */
 
-var SOE_debug = true;
+var SOE_debug = false;
 
 
 function initMediaPlayer()
