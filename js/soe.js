@@ -624,9 +624,20 @@ function initMap(ttt)
 	var cityColor = new Color(0xFC,0x26,0x4A);
 	var white = new Color(255,255,255);
 	
-	var bscale = 15;
-	var btransx = ww / (2.5 * bscale) ;
-	var btransy = 3200 / (3 * bscale) ;
+	var bscale = wh * 20 / 1000;
+	/*
+	 -10 is ~ our most West longitude
+	 -45 is ~ the latitude at which we wish to center the map
+	W * s + x * s = T
+	(W + x) * s = T
+	W + x = T/s
+	x = T/s - W
+	*/
+	var targetX = 500; // at the right of content_outer
+	var targetY = wh / 2 // vertical center of the viewport
+	
+	var btransx = (targetX / bscale) + 10;
+	var btransy = (targetY/ bscale) + 45;
 	
 	var scale = 4;
 	var trh = ww * 0.85 * (1/scale);
