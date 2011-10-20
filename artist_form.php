@@ -388,6 +388,9 @@ If you don't want to receive the 'Sounds of Europe' newsletter, please thick the
 
 Your email address will in any case not be used for commercial purposes.
 </p>
+<p>
+You can always contact us if questions or problems arise > info@soundsofeurope.eu
+</p>
 <p style="margin-top:10em">
 * = mandatory
 </p>
