@@ -149,7 +149,7 @@ a.sow_by:hover{
 	}
 	
 	
-#menu_index  a.menu_base{
+#menu_index  .menu_base{
 	display:block;
 	color:grey;
 	font-family: free_sans;

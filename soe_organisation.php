@@ -112,6 +112,22 @@ if($content != "")
 
 // print_r($pages);
 
+$regPage = get_page_by_title('Artist Registration');
+$regBlock = '
+<div class="index_col">
+<div class="menu_category">Sign up</div>
+<span class="menu_base"><p>If you want to sign up your organisation, you can send us an email with a short description of your organisation and website &gt; info@soundsofeurope.eu</p></span>
+</div>
+';
+
+if(count($pages) == 0)
+{
+	echo '<div id="menu_page_0" class="page">
+	'. $regBlock .'
+	</div>
+	';
+}
+
 foreach($pages as $idx=>$p)
 {
 	$visibility = "";
@@ -126,7 +142,7 @@ foreach($pages as $idx=>$p)
 		$nav .= '<div class="menu_page_nav menu_page_next">next</div>';
 	$nav .= '</div>';
 	echo '<div id="menu_page_'.$idx.'" class="page"'.$visibility.'>
-	' . $nav . $p . '
+	'. $regBlock  . $nav . $p . '
 	</div>
 	';
 }
