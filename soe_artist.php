@@ -51,8 +51,8 @@ ksort($artistByCountry);
 
 $itCount = 0;
 $maxItems = 8;
-$cCount = 0;
-$maxCols = 6;
+$cCount = -1;
+$maxCols = 5;
 $startCol = '<span><div class="index_col">';
 $endCol = '</div></span>';
 $lastLoc = "";

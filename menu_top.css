@@ -196,6 +196,7 @@ div.writings_index_col {
 	font-size: 12pt;
 	line-height: 35pt;
 	padding: 5px 5px 5px 5px;
+	margin-right:12px;
 	cursor:pointer;
 	border: solid 1px black;
 	}

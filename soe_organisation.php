@@ -47,8 +47,8 @@ ksort($organisationByCountry);
 
 $itCount = 0;
 $maxItems = 8;
-$cCount = 0;
-$maxCols = 6;
+$cCount = -1;
+$maxCols = 5;
 $startCol = '<span><div class="index_col">';
 $endCol = '</div></span>';
 $lastLoc = "";
@@ -108,7 +108,9 @@ foreach ( $organisationByCountry as $countryCode => $arar )
 }
 
 if($content != "")
+{
 	$pages[] = $content . $endCol;
+}
 
 // print_r($pages);
 
