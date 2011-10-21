@@ -163,7 +163,8 @@ elseif($postType == 'soe_city')
 	SELECT * FROM ".$wpdb->posts." AS p 
 	INNER JOIN ".$wpdb->postmeta." AS m 
 	ON p.ID = m.post_id 
-	WHERE (p.post_type != 'soe_city' AND m.meta_key = 'location' AND m.meta_value = '".$custom['location'][0]."' AND p.post_status = 'publish') ;
+	WHERE (p.post_type != 'soe_city' AND m.meta_key = 'location' AND m.meta_value = '".$custom['location'][0]."' AND p.post_status = 'publish') 
+	ORDER BY p.post_date DESC;
 	";
 // 	echo $query;
 	$posts = $wpdb->get_results($query, OBJECT);
@@ -180,7 +181,7 @@ elseif($postType == 'soe_city')
 		}
 	}
 	$bCounter = 0;
-	$bWidth = 243;
+	$bWidth = 202;
 	$bYoffset = 120;
 	$bXoffset = 60;
 	foreach($soe_types as $st)
