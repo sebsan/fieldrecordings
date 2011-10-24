@@ -121,12 +121,12 @@ if($locs != NULL)
 	{
 		if(in_array($loc->meta_value, $locids) === FALSE)
 		{
-			if(!array_key_exists($loc->country_code, $countrySVG))
-			{
-				$squery = "SELECT * FROM countries WHERE ccode = '".$loc->country_code ."';";
-				$csvg = $wpdb->get_results($squery, OBJECT);
-				$countrySVG[$loc->country_code] = $csvg[0]->svg;
-			}
+// 			if(array_key_exists($loc->country_code, $countrySVG) === FALSE)
+// 			{
+// 				$squery = "SELECT * FROM countries WHERE ccode = '".$loc->country_code ."';";
+// 				$csvg = $wpdb->get_results($squery, OBJECT);
+// 				$countrySVG[$loc->country_code] = $csvg[0]->svg;
+// 			}
 // 			$minLat = min($minLat, floatval($loc->latitude));
 // 			$minLon = min($minLon, floatval($loc->latitude));
 // 			echo "\n";
@@ -141,11 +141,11 @@ if($locs != NULL)
 			$locids[] = $loc->meta_value;
 		}
 	}
-	echo 'var countries = new Object();';
-	foreach($countrySVG as $ck=>$cv)
-	{
-		echo 'countries[\''.$ck.'\']="'.$cv.'";';
-	}
+// 	echo 'var countries = new Object();';
+// 	foreach($countrySVG as $ck=>$cv)
+// 	{
+// 		echo 'countries[\''.$ck.'\']="'.$cv.'";';
+// 	}
 		
 }
 ?>

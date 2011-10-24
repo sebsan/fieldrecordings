@@ -656,6 +656,15 @@ function initMap(ttt)
 	var labelRects = new Array();
 	var dCountries = new Array();
 	var labelsElem = jQuery('#labels');
+	var theCountry = '';
+	for(var ci = 0; ci < locations.length ; ci++)
+	{
+		if(locations[ci].id == theCity)
+		{
+			theCountry = locations[ci].country;
+			break;
+		}
+	}
 	for(var ci = 0; ci < locations.length ; ci++)
 	{
 		var cloc = locations[ci];
@@ -741,51 +750,41 @@ function initMap(ttt)
 		}
 		labelRects.push(labelRect);
 		
-		if(cloc.id == theCity)
+		
+		if(dCountries.indexOf(cloc.country) < 0  && cloc.country != theCountry)
 		{
-			// 			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
-			// 				   function(data)
-			// 				   {
-				// 					   var countryData = json_parse(data);
-				// 					   if(countryData.status == 0)
-				// 					   {
-					// 						   var countryPath = new Path(raph, countryData.p);
-					// 						   countryPath.scale(scale)
-					// 						   .translate(trh , trv)
-					// 						   .fill(minimap_fill.toString())
-					// 						   .attr("stroke-width", "0.2")
-					// 							.draw();
-					// 					   }
-					// 				   });
-	}
-	else
-	{
-		// 			if(dCountries.indexOf(cloc.country) < 0 false)
-		// 			{
-			// 				dCountries.push(cloc.country);
-			// 			
-			// 				jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
-			// 						function(data)
-			// 						{
-				// 							var countryData = json_parse(data);
-				// 							if(countryData.status == 0)
+			dCountries.push(cloc.country);
+			
+			/*** Served version */
+			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
+				function(data)
 				{
-					countryPath = new Path(raph, countries[cloc.country]);
-					countryPath.scale(bscale)
-					.translate(btransx , btransy)
-					.stroke(minimap_stroke.toString())
-					.attr("stroke-width", "0.2")
-					.draw();
-				}
-				// 						});
-				// 			}
-}
-
-}
-jQuery(window).resize(function() 
-{
-	drawCursorLine(curCityPoint.x);
-});
+					var countryData = json_parse(data);
+					if(countryData.status == 0)
+					{
+						countryPath = new Path(raph, countryData.p);
+						countryPath.scale(bscale)
+						.translate(btransx , btransy)
+						.stroke(minimap_stroke.toString())
+						.attr("stroke-width", "0.5")
+						.draw();
+					}
+				});
+			
+			/***  Static version
+			countryPath = new Path(raph, countries[cloc.country]);
+			countryPath.scale(bscale)
+			.translate(btransx , btransy)
+			.stroke(minimap_stroke.toString())
+			.attr("stroke-width", "0.2")
+			.draw();
+			*/
+		}
+	}
+	jQuery(window).resize(function() 
+	{
+		drawCursorLine(curCityPoint.x);
+	});
 }
 
 function initSOE()
