@@ -48,7 +48,7 @@ ksort($organisationByCountry);
 $itCount = 0;
 $maxItems = 8;
 $cCount = -1;
-$maxCols = 5;
+$maxCols = 6;
 $startCol = '<span><div class="index_col">';
 $endCol = '</div></span>';
 $lastLoc = "";
