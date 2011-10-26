@@ -82,7 +82,7 @@ elseif($postType == 'soe_event')
 		<div class="content_category">EVENT</div>
 		<div class="title">'.get_the_title().'</div>
 		<div class="blog_details"> 
-		'.$date->format('d~m~Y').', '.$l->name.', <a href="'.get_permalink($ap->ID).'""> '.$ap->post_title.'</a>
+		'.$date->format('d/m/Y').', '.$l->name.', <a href="'.get_permalink($ap->ID).'""> '.$ap->post_title.'</a>
 		</div>
 		<div class="section">
 		<div class="section_par">'.get_the_content().'</div>
