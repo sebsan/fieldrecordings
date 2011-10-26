@@ -12,6 +12,10 @@ require_once(get_stylesheet_directory() . '/writing.class.inc');
 require_once(get_stylesheet_directory() . '/options.php');
 
 /// utils
+function fDate($d)
+{
+	return date("d/m/Y", strtotime($d));
+}
 
 function GetLocation($id)
 {

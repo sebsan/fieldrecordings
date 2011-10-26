@@ -114,8 +114,11 @@ function SOE_NewsCallback()
 	WHERE (p.post_type = 'soe_event');
 	";
 	$result = $wpdb->get_results($query, OBJECT);
-	
 	$sstr = '<select name="soe_news">';
+	if(0 == $newssetting)
+		$sstr .= '<option value="0"  selected="selected">No Latest News</option>';
+	else
+		$sstr .= '<option value="0" >No Latest News</option>';
 	foreach($result as $r)
 	{
 		if($r->ID == $newssetting)
@@ -125,6 +128,21 @@ function SOE_NewsCallback()
 	}
 	$sstr .= '<select>';
 	
+	echo $sstr;
+}
+function SOE_NewsTitleSection()
+{
+	echo '<p>Highlight Event Title</p>';
+}
+
+function SOE_NewsTitleCallback()
+{
+	global $wpdb;
+	
+	$newstitle = get_option('soe_news_title', 'Latest News');
+	$sstr = '
+	<input type="text" name="soe_news_title" value="'.$newstitle.'"/>
+	';
 	echo $sstr;
 }
 
@@ -149,6 +167,7 @@ function SOE_OptionsInit()
 // 	add_settings_section('soe_news_section', 'News', 'SOE_NewsSection', 'soe_settings_page');
 // 	add_settings_field('soe_news', 'News', 'SOE_NewsCallback', 'soe_settings_page', 'soe_news_section');
 	register_setting('soe_settings_page','soe_news');
+	register_setting('soe_settings_page','soe_news_title');
 }
 
 function soe_settings_page()
@@ -161,6 +180,8 @@ function soe_settings_page()
 	
 	SOE_locationSection();
 	SOE_locationCallback();
+	SOE_NewsTitleSection();
+	SOE_NewsTitleCallback();
 	SOE_NewsSection();
 	SOE_NewsCallback();
 	SOE_SowSection();

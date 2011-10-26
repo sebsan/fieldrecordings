@@ -60,10 +60,11 @@ if(/*$isEntryPoint === */true)
 		$ncust = get_post_custom($thenew->ID);
 		$nloc = GetLocation($ncust['location'][0]);
 		$newsStr =  '<div id="newsContent">
-		<div id="latest_news"><span>Latest News</span></div>
-		<span class="title"><a href="'.get_permalink($thenew->ID).'">'.get_the_title($thenew->ID).'</a></span> /
-		<span class="date">'.$ncust['event_date_start'][0].'</span> /
-		<span class="place">'.$nloc->name.'</span>
+		<div id="latest_news"><span>'.get_option('soe_news_title').'</span></div>
+		<a href="'.get_permalink($thenew->ID).'">
+		<div class="title">'.get_the_title($thenew->ID).'</div>
+		<span class="date">'.fDate($ncust['event_date_start'][0]).'</span> &#x2014; <span class="place">'.$nloc->name.'</span>
+		</a>
 		</div> <!-- newsContent -->';
 	}
 }
