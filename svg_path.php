@@ -4,7 +4,10 @@
 	return the p attribute of an svg element in the file passed as argument; 
 */
 
-require_once('../../../wp-config.php');
+// display errors would break json output and no time for a custom errors handler yet 
+// and WP produces some
+@require_once('../../../wp-config.php');
+
 
 class SVGPath
 {

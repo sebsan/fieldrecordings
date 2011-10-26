@@ -23,10 +23,11 @@ $custom = get_post_custom($post->ID);
 
 if($postType == 'soe_eblog')
 {
-	$__prologVV = 'This blog will travel monthly to another European country, 
-	a local organisation or artist being responsible to maintain it. They’ll 
-	explore and present in a personal way the countries context and practices 
-	in regard to field recording.';
+	
+	$__prologVV = 'This blog will travel to a different European country
+every month where a local organisation or artist will be responsible for
+maintaining it. Each country´s particular context and practices with regards to
+field recording will be explored and presented in a personal way.';
 	
 	echo '<div id="content_outer"> <div id="content"> <div id="eblog_prolog"><div><span>'.$__prologVV.'</span></div></div>';
 	$date = get_the_date();
