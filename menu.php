@@ -53,8 +53,8 @@ if($sounds)
 global $isEntryPoint;
 if(/*$isEntryPoint === */true)
 {
-	$news = get_option('soe_news', false);
-	if($news)
+	$news = get_option('soe_news', 0);
+	if($news > 0)
 	{
 		$thenew = get_post($news);
 		$ncust = get_post_custom($thenew->ID);
