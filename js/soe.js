@@ -620,6 +620,7 @@ function initMap(ttt)
 	raph = Raphael(document.getElementById("carte"), svgWidth, svgHeight );
 	var minimap_stroke = new Color(0x18,0x95,0x9A);//fc264a
 	var minimap_fill = new Color(0x18,0x95,0x9A);
+	var country_fill =  new Color(0xff,0xff,0xff);
 	var country_stroke = new Color(0xFC,0x26,0x4A);//#18959a
 	var cityColor = new Color(0xFC,0x26,0x4A);
 	var white = new Color(255,255,255);
@@ -634,7 +635,7 @@ function initMap(ttt)
 	x = T/s - W
 	*/
 	var targetX = 500; // at the right of content_outer
-	var targetY = wh / 2 // vertical center of the viewport
+	var targetY = wh * .6 // vertical center of the viewport
 	
 	var btransx = (targetX / bscale) + 10;
 	var btransy = (targetY/ bscale) + 45;
@@ -657,6 +658,7 @@ function initMap(ttt)
 	var dCountries = new Array();
 	var labelsElem = jQuery('#labels');
 	var theCountry = '';
+	var textureElem = null;
 	for(var ci = 0; ci < locations.length ; ci++)
 	{
 		if(locations[ci].id == theCity)
@@ -706,16 +708,16 @@ function initMap(ttt)
 			// Insert texture;
 			var ctx =  curCityPoint.x ;
 			var cty =  0 ;
-			var iW = ww - ctx;
+			var iW = ww ;
 			var iH = wh;
 			
-			raph.image(templateUrl 
+			textureElem = raph.image(templateUrl 
 			+'texture/texture.php?'
 			+'cx='+  Math.floor(curCityPoint.x / 10) * Math.floor(curCityPoint.x / 10)
 			+'&cy='+ Math.floor(curCityPoint.y / 7) * Math.floor(curCityPoint.y / 7)
 			+'&w='+  Math.floor(iW)
 			+'&h='+  Math.floor(iH)
-			, ctx, cty, iW, iH).toBack();
+			, 0, cty, iW, iH).toBack();
 			
 				   });
 				   CurCityClass = " city_current";
@@ -766,7 +768,8 @@ function initMap(ttt)
 						countryPath.scale(bscale)
 						.translate(btransx , btransy)
 						.stroke(minimap_stroke.toString())
-						.attr("stroke-width", "0.5")
+						.fill(country_fill.toString())
+						.attr("stroke-width", "1")
 						.draw();
 					}
 				});
@@ -785,6 +788,7 @@ function initMap(ttt)
 	{
 		drawCursorLine(curCityPoint.x);
 	});
+// 	textureElem.toBack();
 }
 
 function initSOE()
