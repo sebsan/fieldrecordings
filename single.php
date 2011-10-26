@@ -72,7 +72,7 @@ field recording will be explored and presented in a personal way.';
 }
 elseif($postType == 'soe_event')
 {
-	$date = new DateTime($cutom['event_date_start'][0]);
+	$date = new DateTime($custom['event_date_start'][0]);
 	$ap = get_post($custom['event_organization'][0] , OBJECT );
 	$l = GetLocation($custom['location'][0]);
 // 	print_r($l);
