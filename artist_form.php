@@ -29,6 +29,13 @@ function getPostValue($a)
 	return "";
 }
 
+function getMaxUploadSize()
+{
+	$u_bytes = ini_get( 'upload_max_filesize' ) ;
+	$p_bytes = ini_get( 'post_max_size' ) ;
+	return min($u_bytes, $p_bytes);
+}
+
 if(isset($_POST['regform']))
 {
 if(va('artistname') && va('location') && va('bio') && va('email') && va('use'))
@@ -442,14 +449,14 @@ You can always contact us if questions or problems arise > <a href="mailto:info@
 	</div>
 
 	<div>
-	<label for="artistmedia">Upload Track (mp3, ogg)</label>
+	<label for="artistmedia">Upload Track (type: mp3, ogg; Max Size: <?php echo getMaxUploadSize(); ?>)</label>
 	</div>
 	<div>
 	<input type="file" name="artistmedia" value="<?php echo getPostValue('artistmedia'); ?>"/>
 	</div>
 	
 	<div>
-	<label for="artistpicture">Upload Image (jpeg, png)</label>
+	<label for="artistpicture">Upload Image (Type: jpeg, png; Max Size: <?php echo getMaxUploadSize(); ?>)</label>
 	</div>
 	<div>
 	<input type="file" name="artistpicture" value="<?php echo getPostValue('artistpicture'); ?>"/>
