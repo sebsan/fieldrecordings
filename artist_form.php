@@ -314,9 +314,18 @@ textarea
 	width:260px;
 }
 
+#form_explain a{
+	color:#18959A;
+}
+
+#form_explain a:hover{
+	color:#FC264A;
+}
+
+
 strong{
 	color:#FC264A;
-	font-size:110%;
+	font-size:100%;
 }
 
 #left{
