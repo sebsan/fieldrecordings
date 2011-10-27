@@ -143,7 +143,7 @@ a.sow_by:hover{
 	line-height: 10pt;
 	letter-spacing: 0.09em;
 	padding: 40px 0 20px 2%;
-//	background-color:#F0F0F0;
+	background-color:#F0F0F0;
 	background-color:white;
 	border-bottom:solid 1px black;
 	}
@@ -181,7 +181,7 @@ a.sow_by:hover{
 
 div.index_col {
 	float:left;
-	width:190px;
+	width:160px;
 	}
 	
 div.writings_index_col {
@@ -328,7 +328,7 @@ table.sample td{
 	position: fixed;
 	top: 0.9px;
 	height: 60px;
-	background-color: white;
+/*	background-color: white;*/
 	border-bottom: solid 1px black;
 	z-index: 12;
 	width: 100%;
