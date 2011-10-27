@@ -142,9 +142,9 @@ else
 		}
 		$nav = '<div id="menu_page_nav_box">';
 		if($idx > 0)
-			$nav .= '<span class="menu_page_nav menu_page_prev">previous</span>';
+			$nav .= '<span class="menu_page_nav menu_page_prev">← previous</span>';
 		if(($idx + 1) < count($pages))
-			$nav .= '<span class="menu_page_nav menu_page_next">next</span>';
+			$nav .= '<span class="menu_page_nav menu_page_next">next →</span>';
 		$nav .= '</div>';
 		echo '<div id="menu_page_'.$idx.'" class="page"'.$visibility.'>
 		'. $regBlock . $nav . $p . '

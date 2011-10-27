@@ -142,7 +142,7 @@ a.sow_by:hover{
 	font-size: 8pt;
 	line-height: 10pt;
 	letter-spacing: 0.09em;
-	padding: 40px 0 20px 2%;
+	padding: 30px 0 20px 2%;
 	background-color:#F0F0F0;
 	background-color:white;
 	border-bottom:solid 1px black;
@@ -151,19 +151,35 @@ a.sow_by:hover{
 	
 #menu_index  .menu_base{
 	display:block;
-	color:grey;
+	color:black;
 	font-family: free_sans;
 	padding: 5px 25px 5px 0px;
 	
 	} 
+	
+#menu_index  .menu_base p{
+	display:block;
+	color:#18959A;
+	font-family: free_sans;
+	padding: 5px 25px 5px 0px;
+	
+	}
+	
+#menu_index  .menu_base:hover p{
+	display:block;
+	color:grey;
+	font-family: free_sans;
+	padding: 5px 25px 5px 0px;
+	
+	}
 
 #menu_index a.menu_base:hover { 
 	text-decoration:none;
-	color:#484848;
+	color:grey;
 } 
 
 #menu_index .menu_category{
-	color:grey;
+	color:black;
 	font-family: free_sans;
 	font-weight: bold;
 	font-size: 10pt;
@@ -192,15 +208,16 @@ div.writings_index_col {
 .menu_page_nav {
 /*	display:inline;*/
 	color:#18959a;
-	font-family: helvetica_serif;
-	font-size: 12pt;
-	line-height: 13pt;
+	font-family: free_sans;
+	font-weight: bold;
+	font-size: 10pt;
+	line-height: 10pt;
 	padding: 5px 5px 5px 5px;
 	margin-right:12px;
 	cursor:pointer;
 	border: solid 1px black;
 	position:relative;
-	top:-34px;
+	top:-24px;
 	}
 
 /* style du tableau */
