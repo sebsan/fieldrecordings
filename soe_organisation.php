@@ -141,9 +141,9 @@ foreach($pages as $idx=>$p)
 	}
 	$nav = '<div id="menu_page_nav_box">';
 	if($idx > 0)
-		$nav .= '<div class="menu_page_nav menu_page_prev">← previous</div>';
+			$nav .= '<span class="menu_page_nav menu_page_prev">← previous</span>';
 	if(($idx + 1) < count($pages))
-		$nav .= '<div class="menu_page_nav menu_page_next">next →</div>';
+			$nav .= '<span class="menu_page_nav menu_page_next">next →</span>';
 	$nav .= '</div>';
 	echo '<div id="menu_page_'.$idx.'" class="page"'.$visibility.'>
 	'. $regBlock  . $nav . $p . '
