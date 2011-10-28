@@ -78,7 +78,7 @@ function SOE_customTypesInit()
 				'menu' => true,
 				'support' => array('title', 'editor', 'author', 'excerpt') ) );
 				
-	$soe_writings = new SOE_Eblog(array(
+	$soe_writings = new SOE_Writing(array(
 				'name' => 'Writing',
 				'menu' => true,
 				'support' => array('title', 'editor', 'author', 'excerpt') ) );

@@ -7,9 +7,9 @@ class SOE_Writing extends SOE_Type
 	
 	public function __construct($args)
 	{
-		parent::__construct($args);
+	parent::__construct($args);
 		$this->addMetaFields(array( 'writing_pdf' => 'Attached PDF.' ));
-		error_log('A');
+		
 		add_action( 'admin_init', array(&$this, 'admin_init') );
 	}
 	
