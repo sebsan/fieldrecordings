@@ -123,7 +123,7 @@ elseif($postType == 'soe_artist')
 		'.$custom['artist_use'][0].'
 		</div>
 	
-		<div class="general_url"><a href="http://'.$custom['artist_url'][0].'">'.$custom['artist_url'][0].'</a></div>
+		<div class="general_url"><a href="'.$custom['artist_url'][0].'">'.$custom['artist_url'][0].'</a></div>
 		<div class="tags_box">
 			<div class="tags">
 			'.$tags.'

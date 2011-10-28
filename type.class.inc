@@ -213,11 +213,13 @@ class SOE_Type
 		{
 			$mm = wp_get_attachment_metadata($m->ID);
 			// 			$mc = get_post_custom($m->ID);
-			$mime = array_shift(explode('/', $m->post_mime_type));
+			$mimeArray = explode('/', $m->post_mime_type);
+			$mime = $mimeArray[0];
+			$mime2 = $mimeArray[1];
 			// 			echo 'MIME:'.$mime.';TYPE:'.$type;
 			if($mime == $type)
 			{
-				echo $custom[$form_name][0] .' == ' . $m->ID;
+// 				echo $custom[$form_name][0] .' == ' . $m->ID;
 				if($custom[$form_name][0] == $m->ID)
 					$selected =  $m->ID;
 				if('image' == $type)
@@ -237,6 +239,13 @@ class SOE_Type
 					<span class="'.$selectedMediaName.'" id="selectmedia-'.$m->ID.'" style="'.$selectStyle.'">Select</span>
 					</div>';
 				}
+			}
+			elseif($mime2 == $type) // PDFs
+			{
+				$mediaForm .= '<div '.($custom[$form_name][0] == $m->ID ? $selectedMediaStyle : "").'>
+				'.$m->post_title.'
+				<span class="'.$selectedMediaName.'" id="selectmedia-'.$m->ID.'" style="'.$selectStyle.'">Select</span>
+				</div>';
 			}
 		}
 		echo $mediaForm.'
