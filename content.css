@@ -2,8 +2,8 @@
 
 #content_outer {
 	position: absolute;
-	background-color: #FFFFFF;
-	border: 1px solid #000000;
+	background-color:white;
+	border: 1px solid #18959A;
 	left: 35px;
 	width: 420px;
 	top: 125px;
@@ -11,7 +11,8 @@
 }
 
 #content {
-	border: 1px solid #000000;
+	background-color: white;
+	border: 1px solid #18959A;
 	margin: 2px;
 	padding: 0px;
 }
@@ -34,19 +35,21 @@
 #content .content_category {
 	float:right;
 	font-family: free_sans;
+	color:#18959A;
 	font-size: 8pt;
 	padding: 2px 10px 0px 10px;
 	text-align:center;
 	letter-spacing: 0.1em;
-	border-left:1px solid #000000;
-	border-bottom:1px solid #000000;
+	border-bottom:1px solid #18959A;
+	border-left:1px solid #18959A;
 }
 
 
 #content .title {
 	clear:both;
-	border-bottom: 1px solid #000000;
+	border-bottom: 1px solid #18959A;
 	font-family: helvetica_serif;
+	color:#18959A;
 	font-size: 18pt;
 	padding: 5px 10px 5px;
 }
