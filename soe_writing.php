@@ -96,7 +96,7 @@ foreach($pages as $idx=>$p)
 		$nav .= '<div class="menu_page_nav menu_page_next">next →</div>';
 	$nav = strlen($nav) == 0 ? '' : '<div class="menu_page_nav_box">' .$nav . '</div>';
 	echo '<div id="menu_page_'.$idx.'" class="page"'.$visibility.'>
-	'. $p . $nav . '
+	'.  $nav . $p .'
 	</div>
 	';
 }
