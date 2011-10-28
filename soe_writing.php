@@ -26,7 +26,7 @@ $the_query = new WP_Query( $args );
 $itCount = 0;
 $maxItems = 1;
 $cCount = 0;
-$maxCols = 6;
+$maxCols = 4;
 if($the_query->found_posts < $maxCols)
 	$maxItems = 0;
 $startCol = '<span> <div class="writings_index_col">';
