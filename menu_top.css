@@ -239,11 +239,20 @@ div.index_col {
 	width:13%;
 	}
 	
-div.writings_index_col {
+div.writings_index_col{
 	float:left;
 	width:250px;
-	}
-
+}
+	
+.menu_page_nav_box{
+	position:absolute;
+	top:0;
+	right:0;
+	padding:4pt;
+	border-left:1px solid #18959a;
+	border-bottom:1px solid #18959a;
+	
+}
 .menu_page_nav {
 /*	display:inline;*/
 	color:#18959a;
@@ -254,8 +263,6 @@ div.writings_index_col {
 	padding: 5px 5px 5px 0px;
 	margin-right:12px;
 	cursor:pointer;
-	position:relative;
-	top:-24px;
 	}
 
 /* style du tableau */
