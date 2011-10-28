@@ -7,11 +7,11 @@
 }*/
 
 #sow_player{
-	position:fixed;
+	position:absolute;
 	z-index:13;
-	right:66px;
+	right:0;
+	top:0;
 	height: 57px;
-	top:0px;
 	color:#FC264A;
 	background-color:white;
 	border-left: 1px solid #18959A;
@@ -81,15 +81,16 @@ a.sow_by:hover{
 }
 
 #newsContent{
-	position:fixed;
+	position:absolute;
+	top:109px;
+	right:0;
+	max-width:250px;
 	z-index:9;
 	color:white;
 	background-color:#FC264A;
 	font-size:12pt;
 	font-family:helvetica_serif;
 	padding:12px 12px 12px 12px;
-	top:109px;
-	right:10px;
 }
 
 #newsContent a{
