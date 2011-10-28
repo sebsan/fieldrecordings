@@ -13,6 +13,10 @@ if(is_page() && get_page_by_title('Artist Registration') == $post)
 {
 	get_template_part('artist_form');
 }
+elseif(is_page() && get_page_by_title('Artists Emails') == $post)
+{
+	get_template_part('artist_emails');
+}
 elseif(is_singular())
 {
 	get_template_part('single');
