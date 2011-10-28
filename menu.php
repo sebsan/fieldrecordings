@@ -74,8 +74,9 @@ if(/*$isEntryPoint === */true)
 <?php echo $newsStr; ?>
 
 <div id="bando">
-	<div id="bando_logo">
+	<div id="bando_logo1">
 		<a href="<?php echo get_bloginfo('wpurl'); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/soe-logo-menu2.png"/></a>
+	<div id="bando_logo2">
 		<a href="http://ec.europa.eu/culture/our-programmes-and-actions/doc411_en.htm"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/eu-logo.png"/></a>
 	</div>
 
