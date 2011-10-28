@@ -268,12 +268,19 @@ elseif($postType == 'soe_city')
 }
 elseif($postType == 'soe_writing')
 {
+	$pdf ='';
+	if(isset($custom['writing_pdf']))
+	{
+		$pdf_url = wp_get_attachment_url( $custom['writing_pdf'][0] );
+		$pdf = ' <span id="writing_pdf">(<a href="'.$pdf_url.'">PDF</a>)<span>';
+	}
+	
 	echo '
 	<div class="all">
 	<div id="writing_outer">
 	<div id="colonne-writings_1">
 	<div class="writings_titre-in">
-	<span >'.get_the_title().'</span>
+	<span >'.get_the_title().'</span> '.$pdf.'
 	</div>
 	<div class="writings_author">
 	<span class="menu_writings">'.get_the_author().'</span> <span class ="writings_day">'.get_the_date().'</span>

@@ -34,7 +34,14 @@
 	}
 
 
+#writing_pdf{
+	font-size:9pt;
+	padding-left:6pt;
+}
 
+#writing_pdf a{
+	color:#FC264A;
+}
 /* writings-index */
 
 

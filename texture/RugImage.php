@@ -130,18 +130,22 @@ class RugImage
 				{
 					for($y = 0; $y < $s[1]; $y += $splitH)
 					{
-						$dest = imagecreatetruecolor($splitW, $splitH);
-						if($dest != false)
+						$destFile = RUGIMAGEDIR .'/'.$x.'_'.$y.'_'.$splitW.'_'.$splitH.'.png';
+						if(!file_exists($destFile))
 						{
-							imagesavealpha($dest, true);
-							$tcolor = imagecolorallocatealpha($dest,0x00,0x00,0x00,127); 
-							imagefill($dest, 0, 0, $tcolor); 
-							imagecopyresized($dest,$imgsrc,0,0,$x,$y,$splitW,$splitH,$splitW,$splitH);
-							imagepng($dest, RUGIMAGEDIR .'/'.$x.'_'.$y.'_'.$splitW.'_'.$splitH.'.png');
-							imagedestroy($dest);
+							$dest = imagecreatetruecolor($splitW, $splitH);
+							if($dest != false)
+							{
+								imagesavealpha($dest, true);
+								$tcolor = imagecolorallocatealpha($dest,0x00,0x00,0x00,127); 
+								imagefill($dest, 0, 0, $tcolor); 
+								imagecopyresized($dest,$imgsrc,0,0,$x,$y,$splitW,$splitH,$splitW,$splitH);
+								imagepng($dest, $destFile);
+								imagedestroy($dest);
+							}
+							else
+								echo '<p>ERROR: Failed to create an image resource for :'.$x.'_'.$y.'_'.$splitW.'_'.$splitH.'</p>';
 						}
-						else
-							echo '<p>ERROR: Failed to create an image resource for :'.$x.'_'.$y.'_'.$splitW.'_'.$splitH.'</p>';
 					}
 				}
 			
