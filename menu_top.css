@@ -9,15 +9,23 @@
 #sow_player{
 	position:fixed;
 	z-index:13;
-	right:20px;
-	top:10px;
+	right:66px;
+	height: 57px;
+	top:0px;
 	color:#FC264A;
 	background-color:white;
+	border-left: 1px solid #18959A;
+	padding-left: 21px;
+	padding-top: 30px;
+	padding-right: 20px;
+
 }
 #sow_label{
 	font-family:helvetica_serif;
-	font-size:15pt;
-	line-height:17pt;
+	text-transform: uppercase;
+	text-align: center;
+	font-size:9pt;
+	line-height:20pt;
 }
 .sow_track_title{
 	font-family:free_sans;
@@ -126,14 +134,41 @@ a.sow_by:hover{
 	text-align:left;
 	}
 	
+#menu_item_about{
+	color:#fc264a;
+	font-size: 9pt;
+	line-height: 42px;
+	height: 37px;
+	letter-spacing: 0.09em;
+	text-align: left;
+	width: 90%;
+	margin-left: auto; 
+	margin-right: auto;
+	text-transform:uppercase;
+	padding:  0 0 0 2%;
+/* 	background-color:white; */
+	background:white ;
+
+	text-align:left;
+	}
+	
 #menu_item span{
 	padding: 0px 20px;
 	cursor:pointer;
 	}
 	
-.menu_item_active {
-	color:#fc264a;
+	
+.extra_menu_item{
+	color:yellow;
 	}
+	
+.menu_item_active {
+	color:#18959A;
+	}
+	
+	
+	
+	
 		  	
 #menu_index {
 	position: fixed;
@@ -200,7 +235,7 @@ a.sow_by:hover{
 
 div.index_col {
 	float:left;
-	width:16%;
+	width:13%;
 	}
 	
 div.writings_index_col {
@@ -347,10 +382,10 @@ table.sample td{
 	position: fixed;
 	top: 0px;
 	left:35px;
-	height: 50px;
+	height: 49px;
 	background-color: white;
 	padding:  0 0 0 2%;
-/*	border: solid 1px black;*/
+	border-bottom: solid 1px #18959A;
 	border-left: 1px solid #18959A;
 	border-right: 1px solid #18959A;
 	z-index: 12;
@@ -365,8 +400,9 @@ table.sample td{
 #bando_logo2 {
 	position: fixed;
 	top: 8px;
-	left:500px;
+	left: 325px;
 	}
+	
 
 
 .wave{background-image:url("img/wave.png")}
