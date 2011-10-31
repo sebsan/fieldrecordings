@@ -180,7 +180,7 @@ a.sow_by:hover{
 	font-family: helvetica_serif;
 	font-size: 8pt;
 	line-height: 10pt;
-	letter-spacing: 0.09em;
+/*	letter-spacing: 0.09em;*/
 	padding: 30px 0 20px 2%;
 	background-color:#F0F0F0;
 	background-color:white;
@@ -220,6 +220,7 @@ a.sow_by:hover{
 #menu_index .menu_category{
 	color:black;
 	font-family: free_sans;
+	letter-spacing: 0.02em;
 	font-weight: bold;
 	font-size: 10pt;
 	line-height: 15pt;
@@ -276,7 +277,8 @@ table.sample td{
 }
 
 .year_row {
-	font-family: free_sansBold;
+	font-family: free_sans;
+	font-weight: bold;
 	font-size: 9pt;
 	color:#fc264a;
 	height:20px;
@@ -420,4 +422,4 @@ table.sample td{
 .curl{background-image:url("img/curl.png")}
 .sinuz{background-image:url("img/sinuz.png")}
 .losange{background-image:url("img/losange.png")}
-.oval{background-image:url("img/oval.png"); background-repeat:no-repeat; height:18px;}
+.oval{background-image:url("img/oval.png"); background-repeat:no-repeat; height:27px;}
