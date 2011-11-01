@@ -22,7 +22,7 @@
 }
 
 #eblog_prolog{
-	border-bottom:1px solid #000;
+	border-bottom:1px solid #18959A;
 /* 	background-color:#18959A; */
 }
 #eblog_prolog div{
@@ -212,7 +212,7 @@
 }
 
 #post_nav_box {
-	border-top: 1px solid #000000;
+	border-top: 1px solid #18959A;
 	text-align:center;
 	height:25px;
 	
