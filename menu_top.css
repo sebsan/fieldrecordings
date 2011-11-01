@@ -282,7 +282,10 @@ table.sample td{
 	font-size: 9pt;
 	color:#fc264a;
 	height:20px;
-	padding: 5px 0px 5px 13px;
+	padding: 5px 0px 5px 10px;
+	border-bottom: 1px solid #FC264A;
+	border-left: 1px solid #FC264A;	
+	
 }
 
 .month_row {
