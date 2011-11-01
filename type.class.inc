@@ -197,18 +197,35 @@ class SOE_Type
 		WHERE p.post_type = 'attachment';
 		", OBJECT);
 		
-		$selectStyle= 'cursor:pointer;border:1px solid grey';
 		$selectedMediaName = 'select_media_'.$form_name;
 		$selectedMediaStyleName = 'selected_media_'.$form_name;
 		$selectedMediaStyle = 'class="'.$selectedMediaStyleName.'"';
-		$selected = null;
+		$selected = FALSE;
 		$mediaForm = '
 		<style>
 		.'.$selectedMediaStyleName.'{
-			border:2px dashed black;
+			background-color:#75f;
+		}
+		.media_pick_desc{
+			margin:1em;
+			font-style:italic;
+		}
+		.select_p_title{
+			padding:.3em;
+			line-height:18pt;
+			font-size:12pt;
+			font-family:sans-serif;
+		}
+		.'.$selectedMediaName.'{
+			cursor:pointer;
+			color:blue;
+			padding-left:2em;
+		}
+		.selectable{
+			border-bottom:1px solid #999;
 		}
 		</style>
-		<h3>'.$label.'</h3>'.$desc.'<div height="400px" width="70%" style="overflow:auto">';
+		<h3>'.$label.'</h3><div class="media_pick_desc">'.$desc.'</div><div style="overflow:auto;height:400px;width:98%;">';
 		foreach($wpmedias as $m)
 		{
 			$mm = wp_get_attachment_metadata($m->ID);
@@ -217,34 +234,37 @@ class SOE_Type
 			$mime = $mimeArray[0];
 			$mime2 = $mimeArray[1];
 			// 			echo 'MIME:'.$mime.';TYPE:'.$type;
+			$istheselected = FALSE;
+			if($custom[$form_name][0] == $m->ID)
+			{
+				$selected =  $m->ID;
+				$istheselected = TRUE;
+			}
 			if($mime == $type)
 			{
-// 				echo $custom[$form_name][0] .' == ' . $m->ID;
-				if($custom[$form_name][0] == $m->ID)
-					$selected =  $m->ID;
 				if('image' == $type)
 				{
 					$sized = image_downsize( $m->ID, 'thumbnail' );
 					
 					$mediaForm .= '
-					<div '.($custom[$form_name][0] == $m->ID ? $selectedMediaStyle : "").'>
-					<img src="'.$sized[0].'" width="'.$sized[1].'" height="'.$sized[2].'"/> '.$m->post_title.'
-					<span class="'.$selectedMediaName.'" id="selectmedia-'.$m->ID.'" style="'.$selectStyle.'">Select</span>
+					<div class="selectable '.($istheselected ? $selectedMediaStyleName : "").'">
+					<img src="'.$sized[0].'" width="'.$sized[1].'" height="'.$sized[2].'"/> <span class="select_p_title"> '.$m->post_title.'</span>
+					<span class="'.$selectedMediaName.'" id="selectmedia-'.$m->ID.'"><span class="select_button">Select</span></span>
 					</div>';
 				}
 				elseif('audio' == $type)
 				{
-					$mediaForm .= '<div '.($custom[$form_name][0] == $m->ID ? $selectedMediaStyle : "").'>
-					'.$m->post_title.'
-					<span class="'.$selectedMediaName.'" id="selectmedia-'.$m->ID.'" style="'.$selectStyle.'">Select</span>
+					$mediaForm .= '<div class="selectable  '.($istheselected ? $selectedMediaStyleName : "").'">
+					<span class="select_p_title"> '.$m->post_title.'</span>
+					<span class="'.$selectedMediaName.'" id="selectmedia-'.$m->ID.'"><span class="select_button">Select</span></span>
 					</div>';
 				}
 			}
 			elseif($mime2 == $type) // PDFs
 			{
-				$mediaForm .= '<div '.($custom[$form_name][0] == $m->ID ? $selectedMediaStyle : "").'>
-				'.$m->post_title.'
-				<span class="'.$selectedMediaName.'" id="selectmedia-'.$m->ID.'" style="'.$selectStyle.'">Select</span>
+				$mediaForm .= '<div class="selectable '.($istheselected ? $selectedMediaStyleName : "").'">
+				<span class="select_p_title"> '.$m->post_title.'</span>
+				<span class="'.$selectedMediaName.'" id="selectmedia-'.$m->ID.'"><span class="select_button">Select</span></span>
 				</div>';
 			}
 		}

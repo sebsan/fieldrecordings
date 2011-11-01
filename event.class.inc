@@ -45,9 +45,10 @@ class SOE_Event extends SOE_Type
 		FROM ".$wpdb->posts." AS p
 		WHERE (p.post_type = 'soe_organisation');";
 		$result = $wpdb->get_results($query, OBJECT);
+		$eos = $custom['event_organization'];
 		foreach($result as $r)
 		{
-			if($r->ID == $custom['event_organization'][0])
+			if(in_array($r->ID, $eos))// == $custom['event_organization'][0])
 				$orgas .= '<option value="'.$r->ID.'" selected="selected">'.$r->post_title.'</option>';
 			else
 				$orgas .= '<option value="'.$r->ID.'">'.$r->post_title.'</option>';
@@ -58,6 +59,12 @@ class SOE_Event extends SOE_Type
 		<style>
 		@import url("'. get_stylesheet_directory_uri(). '/css/jquery/datepicker.css");
 		</style>
+		<script type="text/javascript">
+		jQuery(document).ready(function()
+		{
+			jQuery("#e_o").asmSelect();
+		});
+		</script>
 		<div style="float:left;width:50%">
 			<div class="inside">
 			<h4>Start</h4>
@@ -71,7 +78,7 @@ class SOE_Event extends SOE_Type
 			<p>'.$this->meta_fields['event_date_end'].'</p>
 			
 			<h4>Organisation</h4>
-			<select name="event_organization">'.$orgas.'</select>
+			<select multiple="multiple" name="event_organization[]" id="e_o">'.$orgas.'</select>
 			</div>
 		</div>
 		';
