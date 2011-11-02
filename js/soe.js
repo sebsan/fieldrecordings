@@ -552,6 +552,7 @@ function collides(obj, objList)
 
 function drawCursorLine(x)
 {
+	return;
 	if(theCursorLine.line != undefined)
 	{
 		theCursorLine.line.remove();
@@ -791,6 +792,51 @@ function initMap(ttt)
 // 	textureElem.toBack();
 }
 
+function timelinePrev()
+{
+	var tl = jQuery('#timeline1');
+	var tlWidth = tl.width();
+	var tb = jQuery('#timeline_table');
+	tb.css('position', 'relative');
+	var xOffset = tb.offset().left - tl.offset().left;
+	var tbWidth = tb.width();
+	var limit = 0 ;
+	if(xOffset >=  limit)
+	{
+		return;
+	}
+	var newOffset = Math.min(limit , xOffset + tlWidth);
+	if(newOffset ==  limit)
+	{
+		jQuery('#timeline-nav-prev').addClass('inactive_nav');
+	}
+	jQuery('#timeline-nav-next').removeClass('inactive_nav');
+// 	tb.css('left', newOffset+'px');
+	tb.animate({ left: xOffset, left: newOffset }, 1000);
+}
+function timelineNext()
+{
+	var tl = jQuery('#timeline1');
+	var tlWidth = tl.width();
+	var tb = jQuery('#timeline_table');
+	tb.css('position', 'relative');
+	var xOffset = tb.offset().left - tl.offset().left;
+	var tbWidth = tb.width();
+	var limit = tlWidth - tbWidth ;
+	if(xOffset <=  limit)
+	{
+		return
+	}
+	var newOffset = Math.max(limit , xOffset - tlWidth);
+	if(newOffset ==  limit)
+	{
+		jQuery('#timeline-nav-next').addClass('inactive_nav');
+	}
+	jQuery('#timeline-nav-prev').removeClass('inactive_nav');
+// 	tb.css('left', newOffset+'px');
+	tb.animate({ left: xOffset, left: newOffset }, 1000);
+}
+
 function initSOE()
 {
 	initMediaPlayer();
@@ -827,6 +873,9 @@ function initSOE()
 	menuIndex.hide();
 	jQuery('#menu_item span.site_menu_item').click(toggleMenu);
 	paginateMenu();
+	
+	jQuery('#timeline-nav-prev').live('click',timelinePrev);
+	jQuery('#timeline-nav-next').live('click',timelineNext);
 
 }
 

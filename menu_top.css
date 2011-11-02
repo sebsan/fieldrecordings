@@ -264,12 +264,17 @@ div.writings_index_col{
 	padding: 5px 5px 5px 0px;
 	margin-right:12px;
 	cursor:pointer;
-	}
-
+}
+.inactive_nav{
+	color:#ccf;
+	cursor:auto;
+}
 /* style du tableau */
 
-
-table.sample td{	
+#timeline_table{
+	position:relative;
+}
+#timeline_table td{
 	border-radius: none;
 	-moz-border-radius: none;
 	width:15px;
@@ -417,6 +422,11 @@ table.sample td{
 	}
 	
 
+#timeline1{
+	width:90%;
+	overflow:hidden;
+	margin:0 auto;
+}
 
 .wave{background-image:url("img/wave.png")}
 .krol{background-image:url("img/krol.png")}
