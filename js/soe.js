@@ -771,7 +771,9 @@ function initMap(ttt)
 						.stroke(minimap_stroke.toString())
 						.fill(country_fill.toString())
 						.attr("stroke-width", "1")
-						.draw();
+						.toBack().draw();
+						
+// 						textureElem.toBack();
 					}
 				});
 			
