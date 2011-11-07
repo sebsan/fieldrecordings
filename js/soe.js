@@ -675,11 +675,11 @@ function initMap(ttt)
 		city.scale(bscale).translate(btransx + cloc.lon - (citySize ), btransy + cloc.lat - (citySize ));
 		if(cloc.id == theCity)
 		{
-			city.stroke(cityColor.toString()).fill(cityColor.toString()).draw();
+			city.stroke(country_stroke.toString()).fill(country_stroke.toString()).draw();
 			
 			var surcity = new circle(raph, surcitySize);
 			surcity.scale(bscale).translate(btransx + cloc.lon - (surcitySize ), btransy + cloc.lat - (surcitySize ));
-			surcity.stroke(cityColor.toString()).attr("stroke-width", "2").draw();
+			surcity.stroke(country_stroke.toString()).attr("stroke-width", "2").draw();
 		}
 		else
 		{
@@ -773,7 +773,7 @@ function initMap(ttt)
 						.attr("stroke-width", "1")
 						.toBack().draw();
 						
-// 						textureElem.toBack();
+						textureElem.toBack();
 					}
 				});
 			
