@@ -130,7 +130,7 @@ echo '</tr>
 echo '<tr>';
 for($i = 0; $i <= $colsCount; $i++)
 {
-	echo '<td class="month_row">'.$n->format('F (n)').'</td>';
+	echo '<td class="month_row">'.$n->format('F').'</td>';
 	$n->add($mi);
 }
 echo '</tr>
