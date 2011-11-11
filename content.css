@@ -215,6 +215,7 @@
 	border-top: 1px solid #18959A;
 	text-align:center;
 	height:25px;
+	clear:both;
 	
 }
 
@@ -313,12 +314,18 @@
 }
 	
 #content .blog_details a{
-	color:black;
+	color:#18959A;
 	text-decoration:none;
 	font-family: helvetica_serif;
 	font-size: 10pt;
 	line-height: 16pt;
 }
+
+#content .blog_details a:hover{
+	text-decoration:underline;
+
+}
+
 	
 #content .pagination{
 	font-family: free_sans;
