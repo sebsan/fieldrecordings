@@ -67,6 +67,7 @@ usort($events, 'sortEvent');
 
 
 $all_start = new DateTime($events[0]->event_date_start[0]);
+$all_start->setDate($all_start->format('Y'), $all_start->format('n'), 1);
 //error_log('START0: '.$all_start->format('d.m.y'));
 $all_last = $all_start;
 
@@ -129,7 +130,7 @@ echo '</tr>
 echo '<tr>';
 for($i = 0; $i <= $colsCount; $i++)
 {
-	echo '<td class="month_row">'.$n->format('F').'</td>';
+	echo '<td class="month_row">'.$n->format('F (n)').'</td>';
 	$n->add($mi);
 }
 echo '</tr>
@@ -142,6 +143,12 @@ echo '</tr>
 
 $patterns = explode(' ', 'krol wave sinuz curl losange chevron');
 
+$log = array();
+
+$cells = array();
+
+$minGap = 0;
+
 foreach($events as $event)
 {
 	$ed = new DateTime($event->event_date_start[0]);
@@ -149,6 +156,7 @@ foreach($events as $event)
 	//error_log($event->post_title .' => '.$all_start->format('d.m.y').s' / '.$ed->format('d.m.y') . ' # '.  $all_start->diff($ed, true)->format('%Y + %M'));
 	
 	$i0 =  (12 * $all_start->diff($ed, true)->y) + $all_start->diff($ed, true)->m;
+	$init0 = $i0;
 	$i1 = (12 * $ed->diff($all_last, true)->y) + $ed->diff($all_last, true)->m;
 	
 	$p1 = 1;
@@ -157,19 +165,52 @@ foreach($events as $event)
 		$de =  new DateTime($event->event_date_end[0]);
 		$p1 = (12 * $ed->diff($de, true)->y) + $ed->diff($de, true)->m + 1;
 	}
-	echo '
-	<tr>
-	'. ($i0 > 0 ? '<td  class="pattern_row" colspan="'.$i0.'"></td>' : '').'
-	<td class="pattern_row '.$pat.'" colspan="'.$p1.'"></td>
-	</tr>
-	<tr>
-	'. ($i0 > 0 ? '<td  class="presentation_row" colspan="'.$i0.'"></td>' : '').'
-	<td class="presentation_row" colspan="'.$i1.'"><a href="'.get_permalink($event->ID).'">'.$event->post_title.'</a></td>
-	</tr>
-	';
-	
-	
+	$row = -1;
+	foreach($log as $r=>$l)
+	{
+		if($i0 > $l)
+		{
+// 			error_log($event->post_title. ' ['.$ed->format('c').'] '.$r.' '. $i0.' '.$l);
+			$row = $r;
+			$i0 -= ($l  - $minGap);
+			break;
+		}
+	}
+	if($row < 0)
+	{
+		$row = count($log);
+		$cells[$row] = array();
+	}
+	$log[$row] = $i0 + $p1 + $minGap;
+// 	error_log('LOG:'.$event->post_title. ' ['.$ed->format('c').'] '.$row.' '. $log[$row]);
+	$cells[$row][] = (object)array('i0' => $i0, 
+					'pat' => $pat, 
+					'p1' => $p1, 
+					'i1' => $i1 , 
+					'link' => get_permalink($event->ID), 
+					'title' => /*$init0.'||'.$i0.'||'.$ed->format('n')*/ $event->post_title);
+
+
 }
+
+
+foreach($cells as $row)
+{
+	$patRow = '';
+	$presRow = '';
+	foreach($row as $e)
+	{
+		$patRow .= '
+		'. ($e->i0 > 0 ? '<td  class="pattern_row" colspan="'.$e->i0.'"></td>' : '').'
+		<td class="pattern_row '.$e->pat.'" colspan="'.$e->p1.'"></td>';
+		$presRow .= '
+		'. ($e->i0 > 0 ? '<td  class="presentation_row" colspan="'.$e->i0.'"></td>' : '').'
+		<td class="presentation_row" colspan="'.$e->p1.'"><a href="'.$e->link.'">'.$e->title.'</a></td>
+		';
+	}
+	echo '<tr>'.$patRow.'</tr><tr>'.$presRow.'</tr>';
+}
+
 echo '</table></div>';
 
 
