@@ -194,24 +194,25 @@ elseif($postType == 'soe_city')
 	$bWidth = 202;
 	$bYoffset = 120;
 	$bXoffset = 60;
-	foreach($soe_types as $st)
+	$sOrder = array('soe_eblog','soe_artist','soe_organisation','soe_event');
+	foreach($sOrder as $st)
 	{
-		if(isset($oposts[$st->WP_type()]))
+		if(isset($oposts[$st]))
 		{
 			$boxtype = 'BLOG';
-			if($st->WP_type() == 'soe_event')
+			if($st == 'soe_event')
 				$boxtype = 'EVENTS';
-			if($st->WP_type() == 'soe_artist')
+			if($st == 'soe_artist')
 				$boxtype = 'ARTISTS';
-			if($st->WP_type() == 'soe_organisation')
+			if($st == 'soe_organisation')
 				$boxtype = 'ORGANISATIONS';
-			if($st->WP_type() == 'soe_writing')
+			if($st == 'soe_writing')
 				continue;
 // 				$boxtype = 'WRITINGS';
 			echo '<div class="city_around_box" style="position:absolute;left:'.(($bCounter * $bWidth)+$bXoffset).'px;top:'.($bYoffset).'px">
 			<div class="city_around_title"><span>'.$boxtype.'</span></div>
 			';
-			foreach($oposts[$st->WP_type()] as $p)
+			foreach($oposts[$st] as $p)
 			{
 				echo '
 				<div class="closedBox_outer">
