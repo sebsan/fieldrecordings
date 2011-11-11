@@ -116,11 +116,11 @@ if($content != "")
 
 $regPage = get_page_by_title('Artist Registration');
 $regBlock = '
-<div class="index_col">
+<div class="index_col_2">
 <div class="menu_category">Sign up</div>
-<span class="menu_base"><p>If you want to sign up your organisation, 
+<span class="menu_base_2"><p>If you want to sign up your organisation, 
 you can send us an email with a short description of your organisation 
-and website &gt; <a href="mailto:info@soundsofeurope.eu">info@soundsofeurope.eu</a></p></span>
+and website at <a class="menu_base" href="mailto:info@soundsofeurope.eu">info@soundsofeurope.eu</a></p></span>
 </div>
 ';
 

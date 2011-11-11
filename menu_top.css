@@ -204,6 +204,16 @@ a.sow_by:hover{
 	
 	}
 	
+#menu_index  .menu_base_2 p{
+	display:block;
+	color:#18959A;
+	font-family: free_sans;
+	padding: 5px 25px 5px 0px;
+	
+	}
+	
+
+	
 #menu_index  .menu_base:hover p{
 	display:block;
 	color:grey;
@@ -211,6 +221,7 @@ a.sow_by:hover{
 	padding: 5px 25px 5px 0px;
 	
 	}
+	
 
 #menu_index a.menu_base:hover { 
 	text-decoration:none;
@@ -238,6 +249,11 @@ a.sow_by:hover{
 div.index_col {
 	float:left;
 	width:13%;
+	}
+	
+div.index_col_2 {
+	float:left;
+	width:183px;
 	}
 	
 div.writings_index_col{
@@ -275,10 +291,7 @@ div.writings_index_col{
 	position:relative;
 }
 #timeline_table td{
-	border-radius: none;
-	-moz-border-radius: none;
-	width:15px;
-/*	background-color: yellow;*/
+	width:100px;
 }
 
 .year_row {
@@ -392,9 +405,9 @@ div.writings_index_col{
 	background-color: #0066CC;
 }
 
-#timeline_box {
+/*#timeline_box {
 	height: 380px;
-	}
+	}*/
 	
 #bando {
 	position: fixed;

@@ -118,7 +118,7 @@ if($content != "")
 
 $regPage = get_page_by_title('Artist Registration');
 $regBlock = '
-<div class="index_col">
+<div class="index_col_2">
 <div class="menu_category">Join</div>
 <a class="menu_base" target="_blank" href="'.get_permalink($regPage->ID).'">'.apply_filters('the_content', $regPage->post_content).'</a>
 </div>
