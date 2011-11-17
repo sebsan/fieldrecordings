@@ -206,12 +206,27 @@ a.sow_by:hover{
 	
 #menu_index  .menu_base_2 p{
 	display:block;
+	color:black;
+	font-family: free_sans;
+	padding: 5px 25px 5px 0px;
+	
+	}
+	
+#menu_index  a.menu_base_2 {
+	display:block;
 	color:#18959A;
 	font-family: free_sans;
 	padding: 5px 25px 5px 0px;
 	
 	}
 	
+#menu_index  a.menu_base_2:hover {
+	display:block;
+	color:grey;
+	font-family: free_sans;
+	padding: 5px 25px 5px 0px;
+	
+	}
 
 	
 #menu_index  .menu_base:hover p{
