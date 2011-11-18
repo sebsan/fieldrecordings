@@ -143,8 +143,6 @@ function SOE_JSInit()
 	}
 	else
 	{
-		wp_register_style('datepicker', get_stylesheet_directory_uri() . '/js/datepicker.css');
-		wp_enqueue_style( 'datepicker');
 		wp_enqueue_script('jquery-ui-autocomplete',  get_stylesheet_directory_uri(). '/js/jquery-ui-autocomplete.js' , array('jquery-ui-core'));
 		wp_enqueue_script('jquery-ui-datepicker',  get_stylesheet_directory_uri(). '/js/jquery-ui-datepicker.js' , array('jquery-ui-core'));  
 		wp_enqueue_script('datepicker',  get_stylesheet_directory_uri(). '/js/datepicker.js' , array('jquery-ui-datepicker')); 
@@ -153,6 +151,9 @@ function SOE_JSInit()
 		wp_enqueue_script('thickbox');
 		wp_enqueue_style('thickbox');
 		wp_enqueue_script('tiny_mce');
+		
+		wp_register_style('soe_admin', get_stylesheet_directory_uri() . '/admin.css');
+		wp_enqueue_style( 'soe_admin');
 	}
 	
 }

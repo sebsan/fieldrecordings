@@ -23,7 +23,6 @@ class SOE_Event extends SOE_Type
 
 	public function admin_css()
 	{
-		wp_enqueue_style( 'datepicker', get_stylesheet_directory_uri(). '/css/jquery/datepicker.css');
 	}
 	
 	public function admin_init() 
@@ -56,9 +55,6 @@ class SOE_Event extends SOE_Type
 		
 		// date and time
 		echo '
-		<style>
-		@import url("'. get_stylesheet_directory_uri(). '/css/jquery/datepicker.css");
-		</style>
 		<script type="text/javascript">
 		jQuery(document).ready(function()
 		{
