@@ -552,7 +552,7 @@ function collides(obj, objList)
 
 function drawCursorLine(x)
 {
-	return;
+// 	return;
 	if(theCursorLine.line != undefined)
 	{
 		theCursorLine.line.remove();
@@ -675,11 +675,11 @@ function initMap(ttt)
 		city.scale(bscale).translate(btransx + cloc.lon - (citySize ), btransy + cloc.lat - (citySize ));
 		if(cloc.id == theCity)
 		{
-			city.stroke(country_stroke.toString()).fill(country_stroke.toString()).draw();
+			city.stroke(minimap_fill.toString()).fill(minimap_fill.toString()).draw();
 			
 			var surcity = new circle(raph, surcitySize);
 			surcity.scale(bscale).translate(btransx + cloc.lon - (surcitySize ), btransy + cloc.lat - (surcitySize ));
-			surcity.stroke(country_stroke.toString()).attr("stroke-width", "2").draw();
+			surcity.stroke(minimap_fill.toString()).attr("stroke-width", "2").draw();
 		}
 		else
 		{
