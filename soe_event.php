@@ -20,7 +20,7 @@ global $wpdb;
 $query = "
 SELECT * 
 FROM ".$wpdb->posts." AS p
-WHERE (p.post_type = 'soe_event');";
+WHERE (p.post_type = 'soe_event' AND p.post_status = 'publish');";
 
 $events = array();
 $result = $wpdb->get_results($query, OBJECT);
