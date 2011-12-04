@@ -97,7 +97,9 @@ $locs = $wpdb->get_results("
 SELECT * 
 FROM ". $wpdb->postmeta ." AS p 
 INNER JOIN cities15 AS c 
-ON (p.meta_key = 'location' AND p.meta_value = c.geonameid);" , OBJECT);
+ON (p.meta_key = 'location' AND p.meta_value = c.geonameid)
+LEFT JOIN ".$wpdb->posts." AS pp ON (p.post_id = pp.ID)
+WHERE (pp.post_type != 'soe_city' AND pp.post_status = 'publish');" , OBJECT);
 $wpcities = $wpdb->get_results("
 SELECT * FROM wp_posts AS p 
 INNER JOIN wp_postmeta AS m 
