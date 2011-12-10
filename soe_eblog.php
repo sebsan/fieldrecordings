@@ -26,7 +26,7 @@ $args = array(
 $the_query = new WP_Query( $args );
 
 $itCount = 0;
-$maxItems = 8;
+$maxItems = 4;
 $cCount = 0;
 $maxCols = 6;
 $startCol = '<span> <div class="index_col">';
@@ -62,7 +62,8 @@ while ( $the_query->have_posts() )
 			$content = "";
 			$cCount = 0;
 		}
-		$content .= $startCol;
+		$cCount++;
+		$content .= $endCol.$startCol;
 		$lastLoc = $loc;
 		$lObj = GetLocation($loc);
 		$content .= '<div class="menu_category">
