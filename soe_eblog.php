@@ -34,55 +34,53 @@ $endCol = '</div> </span>';
 $lastLoc = 0;
 $first = true;
 $pages = array();
+$columns = array();
+$rows = array();
 $content = "";
 while ( $the_query->have_posts() )
 {
 	if($cCount === $maxCols)
 	{
-		$pages[] = $content;
-		$content = "";
+		$pages[] = $columns;
+		$columns = array();
 		$cCount = 0;
 	}
-	if($itCount === 0 && $first === false)
-		$content .= $startCol;
 	$the_query->the_post();
 	$custom = get_post_custom($post->ID);
-	
 	$loc = $custom['location'][0];
 	if($loc != $lastLoc)
 	{
-		
 		$itCount = 0;
-		if($first === false)
-			$content .= $endCol;
-		$cCount++;
+		if(count($rows) > 0)
+		{
+			$columns[$cCount] = $rows;
+			$rows = array();
+			$cCount++;
+		}
 		if($cCount === $maxCols)
 		{
-			$pages[] = $content;
-			$content = "";
+			$pages[] = $columns;
+			$columns = array();
 			$cCount = 0;
 		}
-		$cCount++;
-		$content .= $endCol.$startCol;
 		$lastLoc = $loc;
 		$lObj = GetLocation($loc);
-		$content .= '<div class="menu_category">
-		'.GetCountryName($lObj->country_code).'
-		</div>';
+		$rows[] = ' <div class="menu_category">'.GetCountryName($lObj->country_code).'</div> ';
 	}
 	
-	$content .=  '<a class="menu_base" href="'.get_permalink($post->ID).'">'.get_the_title().'</a>';
+	$rows[] = '<a class="menu_base" href="'.get_permalink($post->ID).'">'.get_the_title().'</a> ';
 	
 	
 	if($itCount == $maxItems)
 	{
+		$columns[$cCount] = $rows;
+		$rows = array();
 		$itCount = 0;
-		$content .= $endCol;
 		$cCount++;
 		if($cCount === $maxCols)
 		{
-			$pages[] = $content;
-			$content = "";
+			$pages[] = $columns;
+			$columns = array();
 			$cCount = 0;
 		}
 	}
@@ -90,10 +88,14 @@ while ( $the_query->have_posts() )
 		$itCount++;
 }
 
-if($content != "")
-	$pages[] = $content . $endCol;
+if(count($rows) > 0)
+	$columns[$cCount] = $rows;
+if(count($columns) > 0)
+	$pages[] = $columns;
 
-foreach($pages as $idx=>$p)
+// var_dump($pages);
+
+foreach($pages as $idx=>$page)
 {
 	$visibility = "";
 	if($idx > 0)
@@ -107,8 +109,19 @@ foreach($pages as $idx=>$p)
 		$nav .= '<div class="menu_page_nav menu_page_next">next →</div>';
 	$nav = strlen($nav) == 0 ? '' : '<div class="menu_page_nav_box">' .$nav . '</div>';
 	echo '<div id="menu_page_'.$idx.'" class="page"'.$visibility.'>
-	'. $nav . $p  . '
-	</div>
+	'. $nav;
+	
+	foreach($page as $cols)
+	{
+		echo $startCol;
+		
+		foreach($cols as $row)
+			echo $row;
+		
+		echo $endCol;
+	}
+	
+	echo '</div>
 	';
 }
 
