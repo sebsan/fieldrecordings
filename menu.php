@@ -12,6 +12,7 @@ $about = get_page_by_title('About');
 
 $soundStr = '';
 $newsStr = '';
+$hasNews = false;
 
 global $wpdb;
 /// SOUND OF THE WEEK
@@ -51,11 +52,12 @@ if($sounds)
 }
 /// NEWS
 global $isEntryPoint;
-if(/*$isEntryPoint === */true)
+if($isEntryPoint === true)
 {
 	$news = get_option('soe_news', 0);
 	if($news > 0)
 	{
+		$hasNews = true;
 		$thenew = get_post($news);
 		$ncust = get_post_custom($thenew->ID);
 		$nloc = GetLocation($ncust['location'][0]);
@@ -82,10 +84,11 @@ if(/*$isEntryPoint === */true)
 	</div>
 	
 	<?php echo $soundStr; ?>
-	<?php echo $newsStr; ?>
+	<?php /*echo $newsStr;*/ ?>
 </div>
 
 <div id="menu_index" class="menu_closed"></div> <!--menu_index-->
+<?php echo $newsStr; ?>
 
 
 <div id="menu_item">
@@ -95,6 +98,6 @@ if(/*$isEntryPoint === */true)
 	<span id="menu_item_event" class="site_menu_item">Events</span>
 	<span id="menu_item_writing" class="site_menu_item">Writings</span>
 	<a href="<?php echo get_permalink($about->ID); ?>" id="menu_item_about" class="extra_menu_item">About</a>
-	
+	<?php if($hasNews){echo '<span id="menu_item_news" class="extra_menu_item">News</span>';} ?>
 
 </div>
