@@ -8,16 +8,19 @@
 
 #sow_player{
 	position:absolute;
+	max-width:250px;
+	height:57px;
 	z-index:13;
 	right:0;
 	top:0;
-	height: 57px;
 	color:#FC264A;
 	background-color:white;
-	border-left: 1px solid #18959A;
+	border: 1px solid #18959A;
 	padding-left: 21px;
-	padding-top: 30px;
+	padding-top: 15px;
 	padding-right: 20px;
+	padding-bottom: 15px;
+	border-top:0px;
 
 }
 #sow_label{
@@ -29,7 +32,7 @@
 }
 .sow_track_title{
 	font-family:free_sans;
-	font-size:12pt;
+	font-size:9pt;
 	color:#FC264A;
 }
 a.sow_by{
@@ -65,6 +68,7 @@ a.sow_by:hover{
 #latest_news {
 	font-size:10pt;
 	font-family:free_sans;
+	text-transform: uppercase;
 	letter-spacing: 0.09em;
 	margin: 0px 0px 10px 0px;
 	}
@@ -82,13 +86,13 @@ a.sow_by:hover{
 
 #newsContent{
 	position:absolute;
-	top:109px;
+	top:87px;
 	right:0;
-	max-width:250px;
 	z-index:9;
 	color:white;
 	background-color:#FC264A;
-	font-size:12pt;
+	font-size:9pt;
+	line-height:1.3em;
 	font-family:helvetica_serif;
 	padding:12px 12px 12px 12px;
 }
@@ -131,7 +135,6 @@ a.sow_by:hover{
 	background:white ;
 	border-bottom: 1px solid #18959A;
 	border-left: 1px solid #18959A;
-	border-right: 1px solid #18959A;
 	text-align:left;
 	}
 	
@@ -154,7 +157,7 @@ a.sow_by:hover{
 	}
 	
 #menu_item span{
-	padding: 0px 20px;
+	padding: 0px 15px;
 	cursor:pointer;
 	}
 	
@@ -433,7 +436,6 @@ div.writings_index_col{
 	padding:  0 0 0 2%;
 	border-bottom: solid 1px #18959A;
 	border-left: 1px solid #18959A;
-	border-right: 1px solid #18959A;
 	z-index: 12;
 	width: 90%;
 	}	
