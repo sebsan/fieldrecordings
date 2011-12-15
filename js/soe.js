@@ -688,6 +688,7 @@ function initMap(ttt)
 		var bb = city.bbox();
 		var cityPoint = new Point(bb.x + (bb.width / 2), bb.y + (bb.height / 2));
 		var CurCityClass = "";
+		var cityZIndex = 'z-index:100;';
 		if(cloc.id == theCity)
 		{
 			curCityPoint = cityPoint;
@@ -723,11 +724,13 @@ function initMap(ttt)
 				   });
 				   CurCityClass = " city_current";
 				   drawCursorLine(cityPoint.x);
+				   
+				   cityZIndex = 'z-index:200;';
 		}
 		
 		var labX = Math.floor(cityPoint.x + bb.width);
 		var labY = Math.floor(cityPoint.y + bb.height);
-		var citylink = jQuery('<div class="city_label' + CurCityClass +'" style="position:absolute;top:' + labY +'px;left:' + labX +'px;"><a href="' + cloc.url +'">' + cloc.name +'</a></div>');
+		var citylink = jQuery('<div class="city_label' + CurCityClass +'" style="position:absolute;top:' + labY +'px;left:' + labX +'px;'+ cityZIndex +'"><a href="' + cloc.url +'">' + cloc.name +'</a></div>');
 		labelsElem.append(citylink);
 		var labelRect = new Rect(labX, labY , citylink.outerWidth() , citylink.outerHeight() );
 		{
@@ -773,7 +776,7 @@ function initMap(ttt)
 						.attr("stroke-width", "1")
 						.toBack().draw();
 						
-						textureElem.toBack();
+						//textureElem.toBack();
 					}
 				});
 			
