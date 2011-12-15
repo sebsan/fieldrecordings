@@ -190,6 +190,66 @@ elseif($postType == 'soe_city')
 			$oposts[$p->post_type][] = $p;
 		}
 	}
+	
+	// find events connected to this city by the fact that orgas from this city are involved in events happening elsewhere
+	if(isset($oposts['soe_organisation']))
+	{
+		foreach($oposts['soe_organisation'] as $p)
+		{
+			$query = "
+			SELECT * FROM ".$wpdb->posts." AS p 
+			INNER JOIN ".$wpdb->postmeta." AS m 
+			ON p.ID = m.post_id 
+			WHERE (p.post_type = 'soe_event' AND m.meta_key = 'event_organization' AND m.meta_value = ".$p->ID." AND p.post_status = 'publish') 
+			ORDER BY p.post_date DESC;
+			";
+	echo $query;
+			$revents = $wpdb->get_results($query, OBJECT);
+			if(isset($oposts['soe_event']))
+			{
+				if($revent)
+				{
+					foreach($revents as $r)
+					{
+						// check if we already have this event
+						$hasEvent = FALSE;
+						$insertIdx = -1;
+						// $rCust = get_post_custom($r->ID);
+						$rd = strtotime($r->post_date);
+						foreach($oposts['soe_event'] as $idx=>$event)
+						{
+							if($event->ID == $r->ID)
+							{
+								$hasEvent = TRUE;
+								break;
+							}
+							$red = strtotime($event->post_date);
+							if($rd > $red)
+							{
+								$insertIdx = $idx;
+							}
+						}
+						if(!$hasEvent)
+						{
+							array_splice($oposts['soe_event'], $insertIdx, 0, $r);
+						}
+					}
+				}
+			}
+			else
+			{
+				$oposts['soe_event'] = array();
+				if($revent)
+				{
+					foreach($revents as $r)
+					{
+						$oposts['soe_event'][] = $r;
+					}
+				}
+			}
+		}
+	}
+	
 	$bCounter = 0;
 	$bWidth = 202;
 	$bYoffset = 120;

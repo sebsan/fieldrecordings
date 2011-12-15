@@ -17,7 +17,11 @@ class SOE_Artist extends SOE_Type
 			'artist_image' => 'Image',
 			'artist_sound' => 'Sound'));
 		
-		add_action( 'admin_init', array(&$this, 'admin_init') );
+		$post_type = false;
+		if(isset($_GET['post']))
+			$post_type = get_post_type($_GET['post']);
+		if ($post_type !== false && $post_type == $this->tname) 
+			add_action( 'admin_init', array(&$this, 'admin_init') );
 		add_filter('name_save_pre', array(&$this, 'prepare_to_save'));
 		add_filter('title_save_pre', array(&$this, 'prepare_to_save'));
 	}
@@ -37,6 +41,12 @@ class SOE_Artist extends SOE_Type
 	
 	public function admin_init() 
 	{
+		
+// 		wp_enqueue_script(array('jquery', 'editor', 'thickbox', 'media-upload'));
+// 		wp_enqueue_style('thickbox');
+// 		wp_tiny_mce( false , array( "editor_selector" => "artist_bio"));
+// 		wp_tiny_mce( false , array( "editor_selector" => "artist_use"));
+		
 		add_meta_box( 'mb_artist_name', 'Name', array( &$this, "meta_name" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_artist_location', 'Location', array( &$this, "location" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_artist_url', 'Website & E-mail', array( &$this, "meta_url" ), $this->tname, 'normal', 'high');
@@ -76,33 +86,16 @@ class SOE_Artist extends SOE_Type
 		<div class="inside">
 			<h4>'.$this->meta_fields['artist_bio'].'</h4>
 			<div id="artist_bio_box">
-				<textarea class="artist_bio" id="artist_bio" name="artist_bio" >'.$custom['artist_bio'][0].'</textarea>
+				<textarea style="width:100%;height:200px;" class="artist_bio" id="artist_bio" name="artist_bio" >'.$custom['artist_bio'][0].'</textarea>
 			</div>
 			<h4>'.$this->meta_fields['artist_use'].'</h4>
 			<div id="artist_use_box">
-				<textarea class="artist_use" id="artist_use" name="artist_use" >'.$custom['artist_use'][0].'</textarea>
+				<textarea style="width:100%;height:200px;" class="artist_use" id="artist_use" name="artist_use" >'.$custom['artist_use'][0].'</textarea>
 			</div>
 		</div>
 		
-		<script type="text/javascript">
-		jQuery(document).ready(function() 
-		{
-			if ( typeof( tinyMCE ) == "object" && typeof( tinyMCE.execCommand ) == "function" ) 
-			{
-				tinyMCE.execCommand("mceAddControl", false, "artist_bio");
-				tinyMCE.execCommand("mceAddControl", false, "artist_use");
-			}
-			else
-			{
-				var tf = typeof( tinyMCE );
-				var tfe = typeof( tinyMCE.execCommand );
-				alert("No TinyMCE around /" + tf + "/" + tfe +"/");
-			}
-	});
-	</script>
+		
 		';
-		// Dumb call to have a tinyMCE object
-		wp_tiny_mce( false , array( "editor_selector" => "a_nice_textarea" ) );
 		
 	}
 	

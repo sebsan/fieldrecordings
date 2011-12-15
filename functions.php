@@ -57,15 +57,9 @@ add_action('admin_init', 'SOE_AdminInit');
 add_action('init', 'SOE_customTypesInit');
 add_action('init', 'SOE_JSInit');
 
-
 function SOE_AdminInit()
 {
-// 	add_filter( 'audio_send_to_editor_url', 'sendAudioURL', 1, 3 );
-// 	add_filter( 'image_send_to_editor', 'sendImageURL', 1, 8 );
-// 	
-// 	
-// 	global $wp_filter, $merged_filters, $wp_current_filter;
-// 	print_r($wp_filter);
+	
 }
 
 function SOE_customTypesInit() 
@@ -150,7 +144,7 @@ function SOE_JSInit()
 		wp_enqueue_script('media-upload');
 		wp_enqueue_script('thickbox');
 		wp_enqueue_style('thickbox');
-		wp_enqueue_script('tiny_mce');
+// 		wp_enqueue_script('tiny_mce');
 		
 		wp_register_style('soe_admin', get_stylesheet_directory_uri() . '/admin.css');
 		wp_enqueue_style( 'soe_admin');
