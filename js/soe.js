@@ -776,7 +776,8 @@ function initMap(ttt)
 						.attr("stroke-width", "1")
 						.toBack().draw();
 						
-						//textureElem.toBack();
+						if(textureElem)
+							textureElem.toBack();
 					}
 				});
 			
