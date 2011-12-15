@@ -33,9 +33,9 @@ $organisationByCountry = array();
 foreach($organisations as $a)
 {
 	$aloc = GetLocation($a->meta_value);
-	if(!isset($organisationByCountry[$aloc->country_code]))
-		$organisationByCountry[$aloc->country_code] = array();
-	$organisationByCountry[$aloc->country_code][] = $a;
+	if(!isset($organisationByCountry[GetCountryName($aloc->country_code)]))
+		$organisationByCountry[GetCountryName($aloc->country_code)] = array();
+	$organisationByCountry[GetCountryName($aloc->country_code)][] = $a;
 	
 }
 ksort($organisationByCountry);
@@ -81,7 +81,7 @@ foreach ( $organisationByCountry as $countryCode => $arar )
 		}
 		$content .= $startCol;
 		$lastLoc = $loc;
-		$content .= '<div class="menu_category">'.GetCountryName($loc).'</div>';
+		$content .= '<div class="menu_category">'.$loc.'</div>';
 	}
 	$first = false;
 	ksort($arar);
