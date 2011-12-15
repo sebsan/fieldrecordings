@@ -24,11 +24,12 @@ $custom = get_post_custom($post->ID);
 if($postType == 'soe_eblog')
 {
 	
-	$__prologVV = 'This blog will travel to a different European country
+	$__prologVV = 'Welcome to Sounds of Europe, a platform for field
+recording. The blog of the website will travel to a different European country
 every month where a local organisation or artist will be responsible for
 maintaining it. Each country´s particular context and practices with regards to
 field recording will be explored and presented in a personal way.';
-	
+
 	echo '<div id="content_outer"> <div id="content"> <div id="eblog_prolog"><div><span>'.$__prologVV.'</span></div></div>';
 	$date = get_the_date();
 	$author = get_the_author();
