@@ -200,21 +200,21 @@ elseif($postType == 'soe_city')
 			SELECT * FROM ".$wpdb->posts." AS p 
 			INNER JOIN ".$wpdb->postmeta." AS m 
 			ON p.ID = m.post_id 
-			WHERE (p.post_type = 'soe_event' AND m.meta_key = 'event_organization' AND m.meta_value = ".$p->ID." AND p.post_status = 'publish') 
+			WHERE (p.post_type = 'soe_event' AND m.meta_key = 'event_organization' AND m.meta_value = '".$p->ID."' AND p.post_status = 'publish') 
 			ORDER BY p.post_date DESC;
 			";
-	echo $query;
+// // 	echo $p->post_title.' => '.$query;
 			$revents = $wpdb->get_results($query, OBJECT);
 			if(isset($oposts['soe_event']))
 			{
-				if($revent)
+				if($revents)
 				{
 					foreach($revents as $r)
 					{
 						// check if we already have this event
 						$hasEvent = FALSE;
 						$insertIdx = -1;
-						// $rCust = get_post_custom($r->ID);
+						$rCust = get_post_custom($r->ID);
 						$rd = strtotime($r->post_date);
 						foreach($oposts['soe_event'] as $idx=>$event)
 						{
@@ -229,9 +229,16 @@ elseif($postType == 'soe_city')
 								$insertIdx = $idx;
 							}
 						}
+						//$r->post_title .' => '.($hasEvent ? 'true' : 'false');
 						if(!$hasEvent)
 						{
-							array_splice($oposts['soe_event'], $insertIdx, 0, $r);
+// 							echo $r->post_title .' => '.$insertIdx."\n";
+// 							$rloc = GetLocation($rCust['location'][0]);
+// 							$r->{remote_event} = $rloc->name ;
+// 							$r->post_title .= ' (in '.$rloc->name.')';
+// 							print_r($oposts['soe_event']);
+							array_splice($oposts['soe_event'], $insertIdx, 0, array($r));
+// 							print_r($oposts['soe_event']);
 						}
 					}
 				}
@@ -261,7 +268,9 @@ elseif($postType == 'soe_city')
 		{
 			$boxtype = 'BLOG';
 			if($st == 'soe_event')
+			{
 				$boxtype = 'EVENTS';
+			}
 			if($st == 'soe_artist')
 				$boxtype = 'ARTISTS';
 			if($st == 'soe_organisation')
