@@ -63,7 +63,7 @@ function SOE_locationCallback()
 
 function SOE_SowSection()
 {
-	echo '<p>Sound of the week</p>';
+	echo '<p>Sound of the week (Freesound sound ID)</p>';
 }
 
 function SOE_SowCallback()
@@ -71,6 +71,12 @@ function SOE_SowCallback()
 	global $wpdb;
 	
 	$sowsetting = get_option('soe_sow', false);
+	$sstr = '
+	<input type="text" name="soe_sow" value="'.$sowsetting.'"/>
+	';
+	echo $sstr;
+	
+	/*
 	
 	$query = "
 	SELECT * 
@@ -93,7 +99,7 @@ function SOE_SowCallback()
 	}
 	$sstr .= '<select>';
 	
-	echo $sstr;
+	echo $sstr;*/
 }
 
 

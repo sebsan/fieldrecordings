@@ -17,32 +17,48 @@ $hasNews = false;
 global $wpdb;
 /// SOUND OF THE WEEK
 
-$sounds = get_option('soe_sow', false);
-if($sounds)
+$sound = get_option('soe_sow', false);
+if($sound)
 {
-	$s = get_post($sounds);
-	$at = wp_get_attachment_url($s->ID);
-	$mimetype = explode('/', get_post_mime_type($s->ID));
-	$audiotype = $mimetype[1];
-	$par = "";
-	if($s->post_parent)
-	{
-		$pp = get_post($s->post_parent);
-		$par = '<a class="sow_by" href="'.get_permalink($s->post_parent).'">By '.$pp->post_title.'</a>';
-	}
+// 	$s = get_post($sounds);
+// 	$at = wp_get_attachment_url($s->ID);
+// 	$mimetype = explode('/', get_post_mime_type($s->ID));
+// 	$audiotype = $mimetype[1];
+// 	$par = "";
+// 	if($s->post_parent)
+// 	{
+// 		$pp = get_post($s->post_parent);
+// 		$par = '<a class="sow_by" href="'.get_permalink($s->post_parent).'">By '.$pp->post_title.'</a>';
+// 	}
+
+	$fsSoundJSON = HTTP_GET('http://www.freesound.org/api/sounds/'.$sound.'/', array('api_key' => '27040bd2abb94a2fb141a19b963c9e93'));
+// 	print_r('http://www.freesound.org/api/sounds/'.$sound.'/');
+	
+	
+	$fsSoundJSON = strstr($fsSoundJSON, '{');
+	$fsSoundJSON = substr($fsSoundJSON, 0,  strrpos($fsSoundJSON, '}') + 1);
+	
+// 	print_r($fsSoundJSON);
+	$fs = json_decode($fsSoundJSON);
+// 	print_r($fs);
+	$audiotype = 'mp3';
+	
+	if(!isset($fs->url))
+		return;
+	
 	
 	$soundStr = '
 		<div id="sow_player">
-			<div class="audio-block audio-'.$audiotype.'" id="audio-'.$s->ID.'" title="'.$at.'">
+		<div class="audio-block audio-'.$audiotype.'" id="audio-'.$sound.'" title="'.$fs->{'preview-hq-mp3'}.'">
 			<span class="media-player" id="sow_media_player"></span>
-				<div id="jp_interface_'.$s->ID.'" class="player_symbols">
+			<div id="jp_interface_'.$sound.'" class="player_symbols">
 				<span id="sow_label">Sound of the week</span>
 					
 					
 					<div>
 					<img class="jp-play" src="'.get_bloginfo('template_directory').'/img/play-red.png" /> 
 					<img class="jp-pause" src="'.get_bloginfo('template_directory').'/img/pause-red.png" /> 
-					<span class="sow_track_title">'.$s->post_title.'</span>
+					<a class="sow_track_title" href="'.$fs->url.'">'.$fs->description.'</a>
 					
 					</div> 
 					
