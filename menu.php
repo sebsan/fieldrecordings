@@ -7,7 +7,6 @@
  %DATE%		2011-07-25
  
  */
-
 $about = get_page_by_title('About');
 
 $soundStr = '';
@@ -43,29 +42,33 @@ if($sound)
 // 	print_r($fs);
 	$audiotype = 'mp3';
 	
-	if(!isset($fs->url))
-		return;
-	
-	
-	$soundStr = '
-		<div id="sow_player">
-		<div class="audio-block audio-'.$audiotype.'" id="audio-'.$sound.'" title="'.$fs->{'preview-hq-mp3'}.'">
-			<span class="media-player" id="sow_media_player"></span>
-			<div id="jp_interface_'.$sound.'" class="player_symbols">
-				<span id="sow_label">Sound of the week</span>
-					
-					
-					<div>
-					<img class="jp-play" src="'.get_bloginfo('template_directory').'/img/play-red.png" /> 
-					<img class="jp-pause" src="'.get_bloginfo('template_directory').'/img/pause-red.png" /> 
-					<a class="sow_track_title" href="'.$fs->url.'">'.$fs->description.'</a>
-					
-					</div> 
-					
+	if(isset($fs->url))
+	{
+		$soundStr = '
+			<div id="sow_player">
+			<div class="audio-block audio-'.$audiotype.'" id="audio-'.$sound.'" title="'.$fs->{'preview-hq-mp3'}.'">
+				<span class="media-player" id="sow_media_player"></span>
+				<div id="jp_interface_'.$sound.'" class="player_symbols">
+					<span id="sow_label">Sound of the week</span>
+						
+						
+						<div>
+						<img class="jp-play" src="'.get_bloginfo('template_directory').'/img/play-red.png" /> 
+						<img class="jp-pause" src="'.get_bloginfo('template_directory').'/img/pause-red.png" /> 
+						<a class="sow_track_title" href="'.$fs->url.'">'.$fs->description.'</a>
+						
+						</div> 
+						
+					</div>
 				</div>
-			</div>
-		</div> <!-- sow_player -->';
+			</div> <!-- sow_player -->';
+	}
+	else
+	{
+		$soundStr = ' <div id="sow_player"> </div>';
+	}
 }
+
 /// NEWS
 global $isEntryPoint;
 if($isEntryPoint === true)

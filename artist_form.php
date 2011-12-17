@@ -10,9 +10,11 @@ Sounds of Europe
 */
 
 
+session_start();
 $failedToCreate = false;
+$regform = 'regform';
 
-if($_SESSION['REG'] != session_id())
+if(isset($_SESSION['REG']) && $_SESSION['REG'] != session_id())
 	return;
 
 function va($a)
@@ -38,127 +40,290 @@ function getMaxUploadSize()
 
 if(isset($_POST['regform']))
 {
-if(va('artistname') && va('location') && va('bio') && va('email') && va('use'))
-{
-	$artist = wp_insert_post(array(
-		'post_type' => 'soe_artist',
-		'post_title' => (mysql_real_escape_string($_POST['artistname'])),
-		'post_status' => 'publish',));
-	if($artist > 0)
+	if(va('artistname') && va('location') && va('bio') && va('email') && va('use'))
 	{
-		add_post_meta($artist, 'artist_name', mysql_real_escape_string($_POST['artistname']));
-		add_post_meta($artist, 'artist_bio', $_POST['bio']);
-		add_post_meta($artist, 'artist_use', $_POST['use']);
-		add_post_meta($artist, 'artist_url', $_POST['website']);
-		add_post_meta($artist, 'artist_email', $_POST['email']);
-		add_post_meta($artist, 'location', $_POST['location']);
-		$geonameid = $_POST['location'];
+		$artist = wp_insert_post(array(
+			'post_type' => 'soe_artist',
+			'post_title' => (mysql_real_escape_string($_POST['artistname'])),
+			'post_status' => 'publish',));
+		if($artist > 0)
 		{
-			global $wpdb;
-			$locs = $wpdb->get_results("
-			SELECT c.geonameid,c.name,c.country_code,a.name AS codename FROM cities15 AS c LEFT JOIN admin1codes AS a ON (a.admin = CONCAT(c.country_code,'.',c.admin1))
-			WHERE c.geonameid = ".$geonameid.";" , OBJECT);
-			if($locs != NULL)
+			add_post_meta($artist, 'artist_name', mysql_real_escape_string($_POST['artistname']));
+			add_post_meta($artist, 'artist_bio', $_POST['bio']);
+			add_post_meta($artist, 'artist_use', $_POST['use']);
+			add_post_meta($artist, 'artist_url', $_POST['website']);
+			add_post_meta($artist, 'artist_email', $_POST['email']);
+			add_post_meta($artist, 'location', $_POST['location']);
+			$geonameid = $_POST['location'];
 			{
-				$wplocs = $wpdb->get_results("
-				SELECT * FROM wp_posts AS p 
-				INNER JOIN wp_postmeta AS m 
-				ON p.ID = m.post_id 
-				WHERE (p.post_type = 'soe_city' AND m.meta_key = 'location' AND m.meta_value = '".$genonameid."') ;
-				", OBJECT);
-				if(count($wplocs) == 0)
+				global $wpdb;
+				$locs = $wpdb->get_results("
+				SELECT c.geonameid,c.name,c.country_code,a.name AS codename FROM cities15 AS c LEFT JOIN admin1codes AS a ON (a.admin = CONCAT(c.country_code,'.',c.admin1))
+				WHERE c.geonameid = ".$geonameid.";" , OBJECT);
+				if($locs != NULL)
 				{
-					$wplocdata = array(
-						'post_title' => $locs[0]->name,
-						'post_status' => 'publish', 
-						'post_type' => 'soe_city',
-					);
-					$wplocid =  wp_insert_post($wplocdata);
-					if($wplocid > 0)
+					$wplocs = $wpdb->get_results("
+					SELECT * FROM wp_posts AS p 
+					INNER JOIN wp_postmeta AS m 
+					ON p.ID = m.post_id 
+					WHERE (p.post_type = 'soe_city' AND m.meta_key = 'location' AND m.meta_value = '".$genonameid."') ;
+					", OBJECT);
+					if(count($wplocs) == 0)
 					{
-						add_post_meta($wplocid, 'location', $genonameid, true);
+						$wplocdata = array(
+							'post_title' => $locs[0]->name,
+							'post_status' => 'publish', 
+							'post_type' => 'soe_city',
+						);
+						$wplocid =  wp_insert_post($wplocdata);
+						if($wplocid > 0)
+						{
+							add_post_meta($wplocid, 'location', $genonameid, true);
+						}
 					}
 				}
 			}
-		}
-// 		print_r($_FILES);
-		if(isset($_FILES['artistmedia']) )
-		{
-			$mediafilename = $_FILES['artistmedia']['tmp_name'];
-			$medianame = slugify( $_FILES['artistmedia']['name']);
-			$mediatitle = preg_replace('/\.[^.]+$/', '', $_FILES['artistmedia']['name']);
-			$wp_filetype = explode('/', $_FILES['artistmedia']['type']);
-			error_log('MEDIA: '.$mediafilename.'[]'.$wp_filetype[0]);
-			if($wp_filetype[0] == 'audio')
+	// 		print_r($_FILES);
+			if(isset($_FILES['artistmedia']) )
 			{
-				$upload_dir = wp_upload_dir();
-				$uname = $upload_dir['path'].'/'. $medianame ;
-				if( move_uploaded_file ( $mediafilename , $uname))
+				$mediafilename = $_FILES['artistmedia']['tmp_name'];
+				$medianame = slugify( $_FILES['artistmedia']['name']);
+				$mediatitle = preg_replace('/\.[^.]+$/', '', $_FILES['artistmedia']['name']);
+				$wp_filetype = explode('/', $_FILES['artistmedia']['type']);
+				error_log('MEDIA: '.$mediafilename.'[]'.$wp_filetype[0]);
+				if($wp_filetype[0] == 'audio')
 				{
-					$attachment = array(
-						'post_mime_type' => $_FILES['artistmedia']['type'],
-						'post_title' => $mediatitle,
-						'post_content' => '',
-						'post_status' => 'publish'
-						);
-						$attach_id = wp_insert_attachment( $attachment, $uname, $artist);
-						error_log('ATTACHED AUDIO: '. $attach_id);
-						
-					add_post_meta($artist, 'artist_sound', $attach_id);
+					$upload_dir = wp_upload_dir();
+					$uname = $upload_dir['path'].'/'. $medianame ;
+					if( move_uploaded_file ( $mediafilename , $uname))
+					{
+						$attachment = array(
+							'post_mime_type' => $_FILES['artistmedia']['type'],
+							'post_title' => $mediatitle,
+							'post_content' => '',
+							'post_status' => 'publish'
+							);
+							$attach_id = wp_insert_attachment( $attachment, $uname, $artist);
+							error_log('ATTACHED AUDIO: '. $attach_id);
+							
+						add_post_meta($artist, 'artist_sound', $attach_id);
+					}
+					else
+						error_log('ERROR UNABLE TO MOVE: '. $mediafilename. ' ; '. $uname);
 				}
 				else
-					error_log('ERROR UNABLE TO MOVE: '. $mediafilename. ' ; '. $uname);
+					error_log('ERROR FILETYPE: '.$wp_filetype[0]);
 			}
-			else
-				error_log('ERROR FILETYPE: '.$wp_filetype[0]);
-		}
-		if(isset($_FILES['artistpicture']))
-		{
-			$mediafilename = $_FILES['artistpicture']['tmp_name'];
-			$medianame = slugify( $_FILES['artistpicture']['name']);
-			$mediatitle = preg_replace('/\.[^.]+$/', '', $_FILES['artistpicture']['name']);
-			$wp_filetype = explode('/', $_FILES['artistpicture']['type']);
-			error_log('MEDIA: '.$mediafilename.'[]'.$wp_filetype[0]);
-			if($wp_filetype[0] == 'image')
+			if(isset($_FILES['artistpicture']))
 			{
-				$upload_dir = wp_upload_dir();
-				$uname = $upload_dir['path'].'/'. $medianame;
-				if( move_uploaded_file ( $mediafilename , $uname))
+				$mediafilename = $_FILES['artistpicture']['tmp_name'];
+				$medianame = slugify( $_FILES['artistpicture']['name']);
+				$mediatitle = preg_replace('/\.[^.]+$/', '', $_FILES['artistpicture']['name']);
+				$wp_filetype = explode('/', $_FILES['artistpicture']['type']);
+				error_log('MEDIA: '.$mediafilename.'[]'.$wp_filetype[0]);
+				if($wp_filetype[0] == 'image')
 				{
-					$attachment = array(
-						'post_mime_type' => $_FILES['artistpicture']['type'],
-						'post_title' => $mediatitle,
-						'post_content' => '',
-						'post_status' => 'publish'
-						);
-						$attach_id = wp_insert_attachment( $attachment, $uname, $artist);
-						error_log('ATTACHED IMAGE: '. $attach_id);
-						require_once(ABSPATH . 'wp-admin/includes/image.php');
-						$attach_data = wp_generate_attachment_metadata( $attach_id,  $uname);
-						wp_update_attachment_metadata( $attach_id, $attach_data );
-						add_post_meta($artist, 'artist_image', $attach_id);
+					$upload_dir = wp_upload_dir();
+					$uname = $upload_dir['path'].'/'. $medianame;
+					if( move_uploaded_file ( $mediafilename , $uname))
+					{
+						$attachment = array(
+							'post_mime_type' => $_FILES['artistpicture']['type'],
+							'post_title' => $mediatitle,
+							'post_content' => '',
+							'post_status' => 'publish'
+							);
+							$attach_id = wp_insert_attachment( $attachment, $uname, $artist);
+							error_log('ATTACHED IMAGE: '. $attach_id);
+							require_once(ABSPATH . 'wp-admin/includes/image.php');
+							$attach_data = wp_generate_attachment_metadata( $attach_id,  $uname);
+							wp_update_attachment_metadata( $attach_id, $attach_data );
+							add_post_meta($artist, 'artist_image', $attach_id);
+					}
+					else
+						error_log('ERROR UNABLE TO MOVE: '. $mediafilename. ' ; '. $uname);
 				}
 				else
-					error_log('ERROR UNABLE TO MOVE: '. $mediafilename. ' ; '. $uname);
+					error_log('ERROR FILETYPE: '.$wp_filetype[0]);
 			}
-			else
-				error_log('ERROR FILETYPE: '.$wp_filetype[0]);
+			header('Location: '. get_permalink($artist));
 		}
-		header('Location: '. get_permalink($artist));
+		else
+			$failedToCreate = true;
 	}
 	else
 		$failedToCreate = true;
 }
-else
-	$failedToCreate = true;
-}
 	
+if(isset($_POST['regform_update']))
+{
+	if(va('artist_id') && va('artistname') && va('location') && va('bio') && va('email') && va('use'))
+	{
+		$artist = $_POST['artist_id'];
+			wp_update_post(array(
+			'ID' => $artist,
+			'post_title' => (mysql_real_escape_string($_POST['artistname'])),
+			'post_status' => 'publish',));
+			if($artist > 0)
+			{
+				update_post_meta($artist, 'artist_name', mysql_real_escape_string($_POST['artistname']));
+				update_post_meta($artist, 'artist_bio', $_POST['bio']);
+				update_post_meta($artist, 'artist_use', $_POST['use']);
+				update_post_meta($artist, 'artist_url', $_POST['website']);
+				update_post_meta($artist, 'artist_email', $_POST['email']);
+				update_post_meta($artist, 'location', $_POST['location']);
+				$geonameid = $_POST['location'];
+				{
+					global $wpdb;
+					$locs = $wpdb->get_results("
+					SELECT c.geonameid,c.name,c.country_code,a.name AS codename FROM cities15 AS c LEFT JOIN admin1codes AS a ON (a.admin = CONCAT(c.country_code,'.',c.admin1))
+					WHERE c.geonameid = ".$geonameid.";" , OBJECT);
+					if($locs != NULL)
+					{
+						$wplocs = $wpdb->get_results("
+						SELECT * FROM wp_posts AS p 
+						INNER JOIN wp_postmeta AS m 
+						ON p.ID = m.post_id 
+						WHERE (p.post_type = 'soe_city' AND m.meta_key = 'location' AND m.meta_value = '".$genonameid."') ;
+						", OBJECT);
+						if(count($wplocs) == 0)
+						{
+							$wplocdata = array(
+								'post_title' => $locs[0]->name,
+								'post_status' => 'publish', 
+								'post_type' => 'soe_city',
+							);
+							$wplocid =  wp_insert_post($wplocdata);
+							if($wplocid > 0)
+							{
+								add_post_meta($wplocid, 'location', $genonameid, true);
+							}
+						}
+					}
+				}
+				// 		print_r($_FILES);
+				if(isset($_FILES['artistmedia']) )
+				{
+					$mediafilename = $_FILES['artistmedia']['tmp_name'];
+					$medianame = slugify( $_FILES['artistmedia']['name']);
+					$mediatitle = preg_replace('/\.[^.]+$/', '', $_FILES['artistmedia']['name']);
+					$wp_filetype = explode('/', $_FILES['artistmedia']['type']);
+					error_log('MEDIA: '.$mediafilename.'[]'.$wp_filetype[0]);
+					if($wp_filetype[0] == 'audio')
+					{
+						$upload_dir = wp_upload_dir();
+						$uname = $upload_dir['path'].'/'. $medianame ;
+						if( move_uploaded_file ( $mediafilename , $uname))
+						{
+							$attachment = array(
+								'post_mime_type' => $_FILES['artistmedia']['type'],
+								'post_title' => $mediatitle,
+								'post_content' => '',
+								'post_status' => 'publish'
+							);
+							$attach_id = wp_insert_attachment( $attachment, $uname, $artist);
+							error_log('ATTACHED AUDIO: '. $attach_id);
+							
+							update_post_meta($artist, 'artist_sound', $attach_id);
+						}
+						else
+							error_log('ERROR UNABLE TO MOVE: '. $mediafilename. ' ; '. $uname);
+					}
+					else
+						error_log('ERROR FILETYPE: '.$wp_filetype[0]);
+				}
+				if(isset($_FILES['artistpicture']))
+				{
+					$mediafilename = $_FILES['artistpicture']['tmp_name'];
+					$medianame = slugify( $_FILES['artistpicture']['name']);
+					$mediatitle = preg_replace('/\.[^.]+$/', '', $_FILES['artistpicture']['name']);
+					$wp_filetype = explode('/', $_FILES['artistpicture']['type']);
+					error_log('MEDIA: '.$mediafilename.'[]'.$wp_filetype[0]);
+					if($wp_filetype[0] == 'image')
+					{
+						$upload_dir = wp_upload_dir();
+						$uname = $upload_dir['path'].'/'. $medianame;
+						if( move_uploaded_file ( $mediafilename , $uname))
+						{
+							$attachment = array(
+								'post_mime_type' => $_FILES['artistpicture']['type'],
+								'post_title' => $mediatitle,
+								'post_content' => '',
+								'post_status' => 'publish'
+							);
+							$attach_id = wp_insert_attachment( $attachment, $uname, $artist);
+							error_log('ATTACHED IMAGE: '. $attach_id);
+							require_once(ABSPATH . 'wp-admin/includes/image.php');
+							$attach_data = wp_generate_attachment_metadata( $attach_id,  $uname);
+							wp_update_attachment_metadata( $attach_id, $attach_data );
+							update_post_meta($artist, 'artist_image', $attach_id);
+						}
+						else
+							error_log('ERROR UNABLE TO MOVE: '. $mediafilename. ' ; '. $uname);
+					}
+					else
+						error_log('ERROR FILETYPE: '.$wp_filetype[0]);
+				}
+				header('Location: '. get_permalink($artist));
+			}
+			else
+				$failedToCreate = true;
+	}
+	else
+		$failedToCreate = true;
+}
+
+if(isset($_GET['a_edit']))
+{
+	global $wpdb;
+	
+	$email = mysql_real_escape_string($_GET['a_edit']);
+	
+	$query = "
+	SELECT * FROM ".$wpdb->posts." AS p 
+	INNER JOIN ".$wpdb->postmeta." AS m 
+	ON p.ID = m.post_id 
+	WHERE (p.post_type = 'soe_artist' AND m.meta_key = 'artist_email' AND m.meta_value = '".$email."');
+	";
+	// 	echo $query;
+	$artist = $wpdb->get_results($query, OBJECT);
+	
+	if($artist)
+	{
+		mt_srand();
+		$_SESSION['E_TOKEN'] = mt_rand(1111,9999);
+		$a = $artist[0];
+		mail($email, 'Sounds of Europe profile token', "Follow this url \n<".get_permalink($post->ID)."?a_id=".$a->ID."&a_tok=".$_SESSION['E_TOKEN'].">");
+		
+		echo '<h3>You should receive an e-mail shortly giving you access to your profile for editing.</h3>';
+		//."<a href=\"".get_permalink($post->ID)."?a_id=".$a->ID."&a_tok=".$_SESSION['E_TOKEN']."\">THE LINK</a>";
+		return;
+	}
+}
+$isEditing = false;
+if(isset($_GET['a_id']) && isset($_GET['a_tok']))
+{
+	if(isset($_SESSION['E_TOKEN']) && $_GET['a_tok'] == $_SESSION['E_TOKEN'])
+	{
+		$ep = get_post($_GET['a_id']);
+		$epc = get_post_custom($ep->ID);
+		$_POST['artistname'] = $ep->post_title;
+		$_POST['bio'] = $epc['artist_bio'][0];
+		$_POST['use'] = $epc['artist_use'][0];
+		$_POST['website'] = $epc['artist_url'][0];
+		$_POST['email'] = $epc['artist_email'][0];
+		$_POST['location'] = $epc['location'][0];
+		$_POST['location_name'] = GetLocation($epc['location'][0])->name;
+		
+		$isEditing = true;
+		$regform = 'regform_update';
+	}
+}
 	
 
 /// DISPLAY FORM
 /// V V V
 
-session_start();
 $_SESSION['REG'] = session_id();
 
 wp_deregister_script('raphael');
@@ -222,6 +387,21 @@ wp_head();
 .ui-autocomplete li a.ui-state-hover
 {
 	color:#000;
+}
+
+
+#reedit{
+	position:absolute;
+	bottom:0;
+	left:24px;
+	padding:12px;
+	border-left: 1px solid #18959A;
+	border-right: 1px solid #18959A;
+	border-top: 1px solid #18959A;
+	color:#fff;
+	font-family:helvetica_serif;
+	font-size:9pt;
+	background-color:#18959A;
 }
 
 
@@ -391,8 +571,9 @@ if($failedToCreate)
 	echo '<h4 style="position:absolute;top:0;left:0;color:#666">Failed to submit your informations, please try again.</h2>';
 ?>
 
-<form name="regform" method="post" action="" enctype="multipart/form-data">
-<input type="hidden" name="regform" value="1"/>
+<form name="theForm" method="post" action="" enctype="multipart/form-data">
+<input type="hidden" name="<?php echo $regform; ?>" value="1"/>
+<?php if($isEditing){ echo '<input type="hidden" name="artist_id" value="'.$_GET['a_id'].'"/>'; } ?>
 <div id="form_explain">
 <p>
 <strong>Sounds of Europe</strong> is a project that acknowledges and follows the increase of <strong>field recording</strong> activity in music, art and sciences in recent years.
@@ -480,6 +661,10 @@ You can always contact us if questions or problems arise > <a href="mailto:info@
 <img src="<?php echo get_bloginfo('stylesheet_directory') . '/sounds-of-eu_logo.png' ?>"/>
 </div>
 
+</form>
+
+<form name="reedit" id="reedit" action="<?php echo get_permalink($post->ID); ?>" method="get">
+<span>If you wish to edit your profile, enter your e-mail address here and submit:</span> <input type="text" name="a_edit"/><input type="submit" class="submit"/>
 </form>
 
 </body>
