@@ -7,6 +7,7 @@ require_once(get_stylesheet_directory() . '/post.class.inc');
 require_once(get_stylesheet_directory() . '/organisation.class.inc');
 require_once(get_stylesheet_directory() . '/city.class.inc');
 require_once(get_stylesheet_directory() . '/writing.class.inc');
+require_once(get_stylesheet_directory() . '/postit.class.inc');
 
 
 require_once(get_stylesheet_directory() . '/options.php');
@@ -145,13 +146,19 @@ function SOE_customTypesInit()
 				'name' => 'City',
 				'menu' => false,
 				'support' => array('post_tag') ) );
+				
+	$soe_postits = new SOE_Postit(array(
+				'name' => 'Postit',
+				'menu' => true,
+				'support' => array('title', 'editor') ) );
 	$soe_types = array( 
 				$soe_posts,
 				$soe_artists,
 				$soe_events ,
 				$soe_writings,
 				$soe_organisations,
-				$soe_cities
+				$soe_cities,
+				$soe_postits
 				);
 				
 	$tnames = array();

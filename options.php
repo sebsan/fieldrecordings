@@ -105,7 +105,7 @@ function SOE_SowCallback()
 
 function SOE_NewsSection()
 {
-	echo '<p>Highlight Event</p>';
+	echo '<p>Highlight News</p>';
 }
 
 function SOE_NewsCallback()
@@ -117,20 +117,20 @@ function SOE_NewsCallback()
 	$query = "
 	SELECT * 
 	FROM ".$wpdb->posts." AS p
-	WHERE (p.post_type = 'soe_event');
+	WHERE (p.post_type = 'soe_postit' AND p.post_status = 'publish');
 	";
 	$result = $wpdb->get_results($query, OBJECT);
 	$sstr = '<select name="soe_news">';
 	if(0 == $newssetting)
-		$sstr .= '<option value="0"  selected="selected">No Latest News</option>';
+		$sstr .= '<option value="0"  selected="selected">No News</option>';
 	else
-		$sstr .= '<option value="0" >No Latest News</option>';
+		$sstr .= '<option value="0" >No News</option>';
 	foreach($result as $r)
 	{
 		if($r->ID == $newssetting)
-				$sstr .= '<option value="'.$r->ID.'" selected="selected">'.$r->post_title.'</option>';
+			$sstr .= '<option value="'.$r->ID.'" selected="selected">['.$r->post_title.'] '.substr($r->post_content, 0 , 64).'</option>';
 			else
-				$sstr .= '<option value="'.$r->ID.'">'.$r->post_title.'</option>';
+				$sstr .= '<option value="'.$r->ID.'">['.$r->post_title.'] '.substr($r->post_content, 0, 64).'</option>';
 	}
 	$sstr .= '<select>';
 	
@@ -138,18 +138,18 @@ function SOE_NewsCallback()
 }
 function SOE_NewsTitleSection()
 {
-	echo '<p>Highlight Event Title</p>';
+// 	echo '<p>Highlight Event Title</p>';
 }
 
 function SOE_NewsTitleCallback()
 {
-	global $wpdb;
-	
-	$newstitle = get_option('soe_news_title', 'Latest News');
-	$sstr = '
-	<input type="text" name="soe_news_title" value="'.$newstitle.'"/>
-	';
-	echo $sstr;
+// 	global $wpdb;
+// 	
+// 	$newstitle = get_option('soe_news_title', 'Latest News');
+// 	$sstr = '
+// 	<input type="text" name="soe_news_title" value="'.$newstitle.'"/>
+// 	';
+// 	echo $sstr;
 }
 
 
