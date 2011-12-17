@@ -34,12 +34,12 @@ $ps = array();
 foreach($artists as $a)
 {
 	$aloc = GetLocation($a->meta_value);
-	if(!isset($artistByCountry[$aloc->country_code]))
-		$artistByCountry[$aloc->country_code] = array();
+	if(!isset($artistByCountry[GetCountryName($aloc->country_code)]))
+		$artistByCountry[GetCountryName($aloc->country_code)] = array();
 	if(!in_array($a->ID , $ps))
 	{
 		$ps[] = $a->ID;
-		$artistByCountry[$aloc->country_code][] = $a;
+		$artistByCountry[GetCountryName($aloc->country_code)][] = $a;
 	}
 }
 ksort($artistByCountry);
@@ -85,7 +85,7 @@ foreach ( $artistByCountry as $countryCode => $arar )
 		}
 		$content .= $startCol;
 		$lastLoc = $loc;
-		$content .= '<div class="menu_category">'.GetCountryName($loc).'</div>';
+		$content .= '<div class="menu_category">'.$loc.'</div>';
 	}
 	$first = false;
 	ksort($arar);

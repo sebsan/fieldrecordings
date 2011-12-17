@@ -7,6 +7,7 @@ require_once(get_stylesheet_directory() . '/post.class.inc');
 require_once(get_stylesheet_directory() . '/organisation.class.inc');
 require_once(get_stylesheet_directory() . '/city.class.inc');
 require_once(get_stylesheet_directory() . '/writing.class.inc');
+require_once(get_stylesheet_directory() . '/postit.class.inc');
 
 
 require_once(get_stylesheet_directory() . '/options.php');
@@ -51,21 +52,64 @@ function GetCountryName($isocode)
 	return "";
 }
 
+function HTTP_GET($uri , $getdata = array(), $port = 80, $cookie = array(),  $custom_headers = array(), $timeout = 1000, $req_hdr = false,  $res_hdr = false)
+{
+	$ret = ''; 
+	$puri = parse_url($uri);
+	$ip = $puri['host'];
+	$cookie_str = ''; 
+	$getdata_str = count($getdata) ? '?' : ''; 
+	
+	foreach ($getdata as $k => $v) 
+		$getdata_str .= urlencode($k) .'='. urlencode($v) . '&'; 
+	
+	foreach ($cookie as $k => $v) 
+		$cookie_str .= urlencode($k) .'='. urlencode($v) .'; '; 
+	
+	$crlf = "\r\n"; 
+	$req = 'GET '. $uri . $getdata_str .' HTTP/1.1' . $crlf; 
+	$req .= 'Host: '. $ip . $crlf; 
+	$req .= 'User-Agent: Mozilla/5.0 Firefox/3.6.12' . $crlf; 
+	$req .= 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' . $crlf; 
+	$req .= 'Accept-Language: en-us,en;q=0.5' . $crlf; 
+	$req .= 'Accept-Encoding: deflate' . $crlf; 
+	$req .= 'Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7' . $crlf; 
+	
+	foreach ($custom_headers as $k => $v) 
+		$req .= $k .': '. $v . $crlf; 
+	
+	if (!empty($cookie_str)) 
+		$req .= 'Cookie: '. substr($cookie_str, 0, -2) . $crlf; 
+	
+	$req .= $crlf; 
+	
+	if ($req_hdr) 
+		$ret .= $req; 
+	
+	if (($fp = @fsockopen($ip, $port, $errno, $errstr)) == false) 
+		return "Error $errno: $errstr\n"; 
+	
+	stream_set_timeout($fp, 0, $timeout * 1000); 
+	
+	fputs($fp, $req); 
+	while ($line = fgets($fp)) $ret .= $line; 
+	fclose($fp); 
+	
+	if (!$res_hdr) 
+		$ret = substr($ret, strpos($ret, "\r\n\r\n") + 4); 
+	
+	return $ret; 
+}
+
 ///
 
 add_action('admin_init', 'SOE_AdminInit');
 add_action('init', 'SOE_customTypesInit');
 add_action('init', 'SOE_JSInit');
 
-
 function SOE_AdminInit()
 {
-// 	add_filter( 'audio_send_to_editor_url', 'sendAudioURL', 1, 3 );
-// 	add_filter( 'image_send_to_editor', 'sendImageURL', 1, 8 );
-// 	
-// 	
-// 	global $wp_filter, $merged_filters, $wp_current_filter;
-// 	print_r($wp_filter);
+	
 }
 
 function SOE_customTypesInit() 
@@ -102,13 +146,19 @@ function SOE_customTypesInit()
 				'name' => 'City',
 				'menu' => false,
 				'support' => array('post_tag') ) );
+				
+	$soe_postits = new SOE_Postit(array(
+				'name' => 'Postit',
+				'menu' => true,
+				'support' => array('title', 'editor') ) );
 	$soe_types = array( 
 				$soe_posts,
 				$soe_artists,
 				$soe_events ,
 				$soe_writings,
 				$soe_organisations,
-				$soe_cities
+				$soe_cities,
+				$soe_postits
 				);
 				
 	$tnames = array();
@@ -150,7 +200,7 @@ function SOE_JSInit()
 		wp_enqueue_script('media-upload');
 		wp_enqueue_script('thickbox');
 		wp_enqueue_style('thickbox');
-		wp_enqueue_script('tiny_mce');
+// 		wp_enqueue_script('tiny_mce');
 		
 		wp_register_style('soe_admin', get_stylesheet_directory_uri() . '/admin.css');
 		wp_enqueue_style( 'soe_admin');

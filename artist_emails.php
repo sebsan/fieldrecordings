@@ -34,7 +34,7 @@ Please contact '.get_bloginfo('admin_email').' if you think you should be grante
 
 		foreach($artists as $artist)
 		{
-			echo $artist->meta_value . "\n";
+			echo $artist->post_title. ' <'.$artist->meta_value . ">\n";
 		}
 	}
 	else

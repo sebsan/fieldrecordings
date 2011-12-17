@@ -24,11 +24,12 @@ $custom = get_post_custom($post->ID);
 if($postType == 'soe_eblog')
 {
 	
-	$__prologVV = 'This blog will travel to a different European country
+	$__prologVV = 'Welcome to Sounds of Europe, a platform for field
+recording. The blog of the website will travel to a different European country
 every month where a local organisation or artist will be responsible for
 maintaining it. Each country´s particular context and practices with regards to
 field recording will be explored and presented in a personal way.';
-	
+
 	echo '<div id="content_outer"> <div id="content"> <div id="eblog_prolog"><div><span>'.$__prologVV.'</span></div></div>';
 	$date = get_the_date();
 	$author = get_the_author();
@@ -190,6 +191,73 @@ elseif($postType == 'soe_city')
 			$oposts[$p->post_type][] = $p;
 		}
 	}
+	
+	// find events connected to this city by the fact that orgas from this city are involved in events happening elsewhere
+	if(isset($oposts['soe_organisation']))
+	{
+		foreach($oposts['soe_organisation'] as $p)
+		{
+			$query = "
+			SELECT * FROM ".$wpdb->posts." AS p 
+			INNER JOIN ".$wpdb->postmeta." AS m 
+			ON p.ID = m.post_id 
+			WHERE (p.post_type = 'soe_event' AND m.meta_key = 'event_organization' AND m.meta_value = '".$p->ID."' AND p.post_status = 'publish') 
+			ORDER BY p.post_date DESC;
+			";
+// // 	echo $p->post_title.' => '.$query;
+			$revents = $wpdb->get_results($query, OBJECT);
+			if(isset($oposts['soe_event']))
+			{
+				if($revents)
+				{
+					foreach($revents as $r)
+					{
+						// check if we already have this event
+						$hasEvent = FALSE;
+						$insertIdx = -1;
+						$rCust = get_post_custom($r->ID);
+						$rd = strtotime($r->post_date);
+						foreach($oposts['soe_event'] as $idx=>$event)
+						{
+							if($event->ID == $r->ID)
+							{
+								$hasEvent = TRUE;
+								break;
+							}
+							$red = strtotime($event->post_date);
+							if($rd > $red)
+							{
+								$insertIdx = $idx;
+							}
+						}
+						//$r->post_title .' => '.($hasEvent ? 'true' : 'false');
+						if(!$hasEvent)
+						{
+// 							echo $r->post_title .' => '.$insertIdx."\n";
+// 							$rloc = GetLocation($rCust['location'][0]);
+// 							$r->{remote_event} = $rloc->name ;
+// 							$r->post_title .= ' (in '.$rloc->name.')';
+// 							print_r($oposts['soe_event']);
+							array_splice($oposts['soe_event'], $insertIdx, 0, array($r));
+// 							print_r($oposts['soe_event']);
+						}
+					}
+				}
+			}
+			else
+			{
+				$oposts['soe_event'] = array();
+				if($revent)
+				{
+					foreach($revents as $r)
+					{
+						$oposts['soe_event'][] = $r;
+					}
+				}
+			}
+		}
+	}
+	
 	$bCounter = 0;
 	$bWidth = 202;
 	$bYoffset = 120;
@@ -201,7 +269,9 @@ elseif($postType == 'soe_city')
 		{
 			$boxtype = 'BLOG';
 			if($st == 'soe_event')
+			{
 				$boxtype = 'EVENTS';
+			}
 			if($st == 'soe_artist')
 				$boxtype = 'ARTISTS';
 			if($st == 'soe_organisation')

@@ -30,11 +30,27 @@
 	font-size:9pt;
 	line-height:20pt;
 }
-.sow_track_title{
+/*.sow_track_title{
 	font-family:free_sans;
 	font-size:9pt;
 	color:#FC264A;
+}*/
+
+a.sow_track_title{
+	vertical-align:text-top;
+	font-family:free_sans;
+	font-size:9pt;
+	color:#18959A;
 }
+
+a.sow_track_title:hover{
+	font-family:free_sans;
+	font-size:9pt;
+	color:#18959A;
+	text-decoration:underline;
+}
+
+
 a.sow_by{
 	color:white;
 	background-color:#FC264A;

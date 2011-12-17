@@ -16,7 +16,11 @@ class SOE_Organisation extends SOE_Type
 			'organisation_sound' => 'Sound',
 			'organisation_user' => 'Wordpress user conected to this organisation'));
 		
-		add_action( 'admin_init', array(&$this, 'admin_init') );
+		$post_type = false;
+		if(isset($_GET['post']))
+			$post_type = get_post_type($_GET['post']);
+		if ($post_type !== false && $post_type == $this->tname)
+			add_action( 'admin_init', array(&$this, 'admin_init') );
 		add_filter('name_save_pre', array(&$this, 'prepare_to_save'));
 		add_filter('title_save_pre', array(&$this, 'prepare_to_save'));
 	}
@@ -36,9 +40,13 @@ class SOE_Organisation extends SOE_Type
 	
 	public function admin_init() 
 	{
+		wp_enqueue_script(array('jquery', 'editor', 'thickbox', 'media-upload'));
+		wp_enqueue_style('thickbox');
+		wp_tiny_mce( false );
+		
 		add_meta_box( 'mb_organisation_name', 'Name', array( &$this, "meta_name" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_organisation_user', 'User', array( &$this, "meta_user" ), $this->tname, 'normal', 'high');
-		add_meta_box( 'mb_organisation_mission', 'Information', array( &$this, "meta_content" ), $this->tname, 'normal', 'high');
+		add_meta_box( 'mb_organisation_mission', $this->meta_fields['organisation_mission'], array( &$this, "meta_content" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_organisation_url', 'Website', array( &$this, "meta_url" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_organisation_media', 'Media', array( &$this, "meta_media" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_organisation_location', 'Location', array( &$this, "location" ), $this->tname, 'normal', 'high');
@@ -89,32 +97,35 @@ class SOE_Organisation extends SOE_Type
 	
 	public function meta_content($post, $metabox)
 	{
-		$custom = get_post_custom($post->ID);
-		echo '
-		<div class="inside">
-			<h4>'.$this->meta_fields['organisation_mission'].'</h4>
-			<div id="organisation_mission_box">
-				<textarea class="organisation_mission" id="organisation_mission" name="organisation_mission" >'.$custom['organisation_mission'][0].'</textarea>
-			</div>
-		</div>
-		
-		<script type="text/javascript">
-		jQuery(document).ready(function() 
-		{
-			if ( typeof( tinyMCE ) == "object" && typeof( tinyMCE.execCommand ) == "function" ) 
-			{
-				tinyMCE.execCommand("mceAddControl", false, "organisation_mission");
-			}
-			else
-			{
-				var tf = typeof( tinyMCE );
-				alert("No TinyMCE around /" + tf +"/");
-			}
-	});
-	</script>
-	';
 		// Dumb call to have a tinyMCE object
-		wp_tiny_mce( false , array( "editor_selector" => "a_nice_textarea" ) );
+// 		wp_tiny_mce( false , array( "editor_selector" => "theEditor" ) );
+		
+		$custom = get_post_custom($post->ID);
+		the_editor($custom['organisation_mission'][0], "organisation_mission");
+// 		return;
+// 		echo '
+// 		<div class="inside">
+// 			<h4>'.$this->meta_fields['organisation_mission'].'</h4>
+// 			<div id="organisation_mission_box">
+// 				<textarea class="organisation_mission" id="organisation_mission" name="organisation_mission" >'.$custom['organisation_mission'][0].'</textarea>
+// 			</div>
+// 		</div>
+// 		
+// 		<script type="text/javascript">
+// 		jQuery(document).ready(function() 
+// 		{
+// 			if ( typeof( tinyMCE ) == "object" && typeof( tinyMCE.execCommand ) == "function" ) 
+// 			{
+// 				tinyMCE.execCommand("mceAddControl", false, "organisation_mission");
+// 			}
+// 			else
+// 			{
+// 				var tf = typeof( tinyMCE );
+// 				alert("No TinyMCE around /" + tf +"/");
+// 			}
+// 	});
+// 	</script>
+// 	';
 		
 	}
 	
