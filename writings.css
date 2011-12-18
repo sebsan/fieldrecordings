@@ -11,13 +11,14 @@
 	font-size: 8pt;
 	line-height: 10pt;
 	padding: 15px 0px 5px 0px;
+	margin-right:15px;
 	}
  .writings_author{
 	color: black;
 	font-family: free_sans;
 	font-weight: bold;
-	font-size: 9pt;
-	padding: 0px 0px 10px 0px;
+	font-size: 7pt;
+	padding: 3px 0px 10px 0px;
 	}
 .writings_excerpt{
 	color:black;
