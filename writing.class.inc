@@ -8,7 +8,7 @@ class SOE_Writing extends SOE_Type
 	public function __construct($args)
 	{
 	parent::__construct($args);
-		$this->addMetaFields(array( 'writing_pdf' => 'Attached PDF.' ));
+		$this->addMetaFields(array( 'writing_pdf' => 'Attached PDF.' , 'writing_author' => 'Author'));
 		
 		$post_type = false;
 		if(isset($_GET['post']))
@@ -19,7 +19,17 @@ class SOE_Writing extends SOE_Type
 	
 	public function admin_init() 
 	{
+		add_meta_box( 'mb_writing_author', 'Author', array( &$this, "author" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_writing_pdf', 'Media', array( &$this, "meta_media" ), $this->tname, 'normal', 'high');
+	}
+	
+	public function author($post, $metabox)
+	{
+		$custom = get_post_custom($post->ID);
+		echo '
+		<div class="inside">
+		<input type="text" name="writing_author" style="width:98%;" value="'.$custom['writing_author'][0].'" id="writing_author">
+		<!-- <p>'.$this->meta_fields['writing_author'].'</p> --> </div>';
 	}
 	
 	public function meta_media($post, $metabox)

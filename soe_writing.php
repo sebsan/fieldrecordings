@@ -46,18 +46,19 @@ while ( $the_query->have_posts() )
 		$content .= $startCol;
 	$the_query->the_post();
 	$pm = get_permalink($post->ID);
+	$wc = get_post_custom($post->ID);
+	
+	$author = $wc['writing_author'][0];
+	$pdf_url = '#';
+	if(isset($custom['writing_pdf']))
+	{
+		$pdf_url = wp_get_attachment_url( $custom['writing_pdf'][0] );
+	}
+	
 	$content .= '
-<!--	<div class="menu_writings_wrapper"> -->
 	<div class="writings_titre">
-	<a class="menu_writings" href="'.$pm.'">'.get_the_title().'</a>
+	<span class="writings_author">'.$author.'</span> <a class="menu_writings" href="'.$pdf_url.'">'.get_the_title().'</a>
 	</div>
-<!--	<div class="writings_author">
-	<a class="menu_writings" href="'.$pm.'">'.get_the_author().'</a> <span class ="writings_day">'.get_the_date().'</span>
-</div> -->
-	<a class="writings_excerpt" href="'.$pm.'">
-	'.get_the_excerpt().'
-	</a>
-	<!--</div>-->
 	';
 	
 	

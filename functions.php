@@ -125,7 +125,7 @@ function SOE_customTypesInit()
 	$soe_writings = new SOE_Writing(array(
 				'name' => 'Writing',
 				'menu' => true,
-				'support' => array('title', 'editor', 'author', 'excerpt') ) );
+				'support' => array('title') ) );
 		
 	$soe_events = new SOE_Event( array(
 				'name' => 'Event',
