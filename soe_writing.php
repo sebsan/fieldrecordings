@@ -50,14 +50,15 @@ while ( $the_query->have_posts() )
 	
 	$author = $wc['writing_author'][0];
 	$pdf_url = '#';
-	if(isset($custom['writing_pdf']))
+	if(isset($wc['writing_pdf']))
 	{
-		$pdf_url = wp_get_attachment_url( $custom['writing_pdf'][0] );
+		$pdf_url = wp_get_attachment_url( $wc['writing_pdf'][0] );
 	}
 	
 	$content .= '
 	<div class="writings_titre">
-	<span class="writings_author">'.$author.'</span> <a class="menu_writings" href="'.$pdf_url.'">'.get_the_title().'</a>
+	<a class="menu_writings" href="'.$pdf_url.'">'.get_the_title().'</a>
+	<div class="writings_author">'.$author.'</div> 
 	</div>
 	';
 	
