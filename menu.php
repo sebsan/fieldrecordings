@@ -84,7 +84,7 @@ if($isEntryPoint === true)
 		<div id="newsContent">
 			<div id="latest_news">
 				<span>'.get_the_title($thenew->ID).'</span>
-				<span class="title">'.apply_filters('the_content',$thenew->post_content).'</span>
+				<span id="title">'.apply_filters('the_content',$thenew->post_content).'</span>
 			</div> 
 		</div> <!-- newsContent -->';
 	}
