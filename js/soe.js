@@ -406,6 +406,8 @@ function toggleMenu()
 	jQuery('.site_menu_item').removeClass('menu_item_active');
 	jQuery('#carte').unbind('click', mapClick);
 	
+	toggleNews(true);
+	
 	var that = jQuery(this);
 	var menu = jQuery('#menu_index');
 	var id = that.attr('id');
@@ -584,25 +586,29 @@ function drawCursorLine(x)
 	
 }
 
-function toggleNews()
+function toggleNews(inst)
 {
 	var n = jQuery('#newsContent');
 	var mn = jQuery('#menu_item_news');
+	if(inst.hasOwnProperty('type') && inst.type == 'click')
+		inst = n.is(':visible');
 // 	alert(parseInt(mn.css('padding-left')));
-	if(n.is(':visible'))
+	if(inst)
 	{
-		n.hide();
+// 		n.hide();
+		n.slideUp(tmenu_duration);
 		mn.removeClass('news-active');
 	}
 	else
 	{
-		n.show();
+		jQuery('.menu_item_active').click();
+		//n.show();
+		n.slideDown(tmenu_duration);
 // 		n.css({ 
 // 			position : 'fixed',
 // 			left : (mn.offset().left) + "px" ,
 // 			top: (mn.offset().top + mn.outerHeight()) + "px" 
 // 		});
-		n.offset({ top: mn.offset().top + mn.outerHeight(), left: mn.offset().left });
 		mn.addClass('news-active');
 	}
 }
@@ -878,6 +884,9 @@ function initSOE()
 	var menuIndex = jQuery('#menu_index');
 	menuIndex.hide();
 	jQuery('#menu_item span.site_menu_item').click(toggleMenu);
+	if(!jQuery('#menu_item_news').hasClass('news-active'))
+		jQuery('#newsContent').hide();
+	jQuery('#menu_item_news').click(toggleNews);
 	paginateMenu();
 	
 	jQuery('#timeline-nav-prev').live('click',timelinePrev);

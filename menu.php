@@ -45,8 +45,8 @@ if($sound)
 	if(isset($fs->url))
 	{
 		$fsdesc = $fs->description;
-		if(strlen($fsdesc) > 60)
-			$fsdesc = substr($fs->description, 0, 60). '…';
+		if(strlen($fsdesc) > 68)
+			$fsdesc = substr($fs->description, 0, 68). '…';
 		$soundStr = '
 			<div id="sow_player">
 			<div class="audio-block audio-'.$audiotype.'" id="audio-'.$sound.'" title="'.$fs->{'preview-hq-mp3'}.'">
@@ -74,24 +74,22 @@ if($sound)
 
 /// NEWS
 global $isEntryPoint;
-if($isEntryPoint === true)
+$news = get_option('soe_news', 0);
+$newsOpen = $isEntryPoint;
+if($news > 0)
 {
-	$news = get_option('soe_news', 0);
-	if($news > 0)
-	{
-		$hasNews = true;
-		$thenew = get_post($news);
-// 		$ncust = get_post_custom($thenew->ID);
-// 		$nloc = GetLocation($ncust['location'][0]);
-		$newsStr =  '
-		<div id="newsContent">
-			<div id="latest_news">
-				<span id="latest_news_title">'.get_the_title($thenew->ID).'</span>
-				<span id="latest_news_content">'.apply_filters('the_content',$thenew->post_content).'</span>
-			</div> 
-		</div> <!-- newsContent -->';
-	}
+	$hasNews = true;
+	$thenew = get_post($news);
+	$newsStr =  '
+	<div id="newsContent">
+		<div id="latest_news">
+			<span id="latest_news_title">'.get_the_title($thenew->ID).'</span>
+			<span id="latest_news_content">'.apply_filters('the_content',$thenew->post_content).'</span>
+		</div> 
+	</div> <!-- newsContent -->';
+		
 }
+
 
 ?>
 
@@ -120,6 +118,6 @@ if($isEntryPoint === true)
 	<span id="menu_item_event" class="site_menu_item">Events</span>
 	<span id="menu_item_writing" class="site_menu_item">Writings</span>
 	<a href="<?php echo get_permalink($about->ID); ?>" id="menu_item_about" class="extra_menu_item">About</a>
-	<?php if($hasNews){echo '<span id="menu_item_news" class="extra_menu_item">News</span>';} ?>
+	<?php if($hasNews){echo '<span id="menu_item_news" class="extra_menu_item '.($newsOpen == true ? 'news-active' : '').'">News</span>';} ?>
 
 </div>
