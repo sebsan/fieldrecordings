@@ -98,6 +98,7 @@ a.sow_by:hover{
 .news-active{
 	border: 1px solid #18959A;
 	border-bottom: 1px solid #fff;
+	background-color: white;
 }
 
 #newsContent{
