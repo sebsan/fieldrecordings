@@ -7,9 +7,9 @@
 	padding:10px;
 }
  .writings_titre{
-	font-family: helvetica_serif;
-	font-size: 12pt;
-	line-height: 14pt;
+	font-family: free_sans;
+	font-size: 8pt;
+	line-height: 10pt;
 	padding: 15px 0px 5px 0px;
 	}
  .writings_author{
@@ -78,11 +78,11 @@
 }
 	
 #menu_index .writings_titre > a.menu_writings{
-	color: #18959A;
+	color: black;
 	}
 	
 #menu_index .writings_titre > a.menu_writings:hover{
-	color: red;
+	color: grey;
 	text-decoration: none;
 	}
 	
@@ -99,7 +99,7 @@
 	color: red;
 	}
 #menu_index .menu_writings_wrapper:hover .writings_titre a{
-	color: red;
+	color: grey;
 	}
 	
 
