@@ -44,6 +44,9 @@ if($sound)
 	
 	if(isset($fs->url))
 	{
+		$fsdesc = $fs->description;
+		if(strlen($fsdesc) > 60)
+			$fsdesc = substr($fs->description, 0, 60). '…';
 		$soundStr = '
 			<div id="sow_player">
 			<div class="audio-block audio-'.$audiotype.'" id="audio-'.$sound.'" title="'.$fs->{'preview-hq-mp3'}.'">
@@ -55,7 +58,7 @@ if($sound)
 						<div>
 						<img class="jp-play" src="'.get_bloginfo('template_directory').'/img/play-red.png" /> 
 						<img class="jp-pause" src="'.get_bloginfo('template_directory').'/img/pause-red.png" /> 
-						<a class="sow_track_title" href="'.$fs->url.'">'.$fs->description.'</a>
+						<a class="sow_track_title" target="_blank" href="'.$fs->url.'">'.$fsdesc.'</a>
 						
 						</div> 
 						
