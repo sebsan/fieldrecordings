@@ -29,7 +29,7 @@ $cCount = 0;
 $maxCols = 4;
 if($the_query->found_posts < $maxCols)
 	$maxItems = 0;
-$startCol = '<span> <div class="writings_index_col">';
+$startCol = '<span> <div class="index_col">';
 $endCol = '</div> </span>';
 $first = true;
 $pages = array();
@@ -47,17 +47,17 @@ while ( $the_query->have_posts() )
 	$the_query->the_post();
 	$pm = get_permalink($post->ID);
 	$content .= '
-	<div class="menu_writings_wrapper">
+<!--	<div class="menu_writings_wrapper"> -->
 	<div class="writings_titre">
 	<a class="menu_writings" href="'.$pm.'">'.get_the_title().'</a>
 	</div>
-	<div class="writings_author">
+<!--	<div class="writings_author">
 	<a class="menu_writings" href="'.$pm.'">'.get_the_author().'</a> <span class ="writings_day">'.get_the_date().'</span>
-	</div>
+</div> -->
 	<a class="writings_excerpt" href="'.$pm.'">
 	'.get_the_excerpt().'
 	</a>
-	</div>
+	<!--</div>-->
 	';
 	
 	
