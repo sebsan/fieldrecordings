@@ -93,10 +93,9 @@ a.sow_by:hover{
 	}
 	
 	
-#latest_news span {
-	padding: 0px 0px; 
-	display:inline;
-	}
+#latest_news_title {
+	
+}
 
 .news-active{
 	color:white;
@@ -116,18 +115,19 @@ a.sow_by:hover{
 	background-color:white;
 	border: 1px solid #18959A;
 	padding:15px 12px 12px 12px;
-	display:inline;
 }
 
-#title{
+#latest_news_content{
 	font-size:9pt;
 	line-height:1.3em;
 	font-family:free_sans;
 	color:#18959A;
 	text-transform: lowercase;
 	letter-spacing: 0em;
-	display:inline;
 }	
+#latest_news_content * {
+	display:inline;
+}
 
 #newsContent a{
 	color:white;

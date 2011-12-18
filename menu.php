@@ -83,8 +83,8 @@ if($isEntryPoint === true)
 		$newsStr =  '
 		<div id="newsContent">
 			<div id="latest_news">
-				<span>'.get_the_title($thenew->ID).'</span>
-				<span id="title">'.apply_filters('the_content',$thenew->post_content).'</span>
+				<span id="latest_news_title">'.get_the_title($thenew->ID).'</span>
+				<span id="latest_news_content">'.apply_filters('the_content',$thenew->post_content).'</span>
 			</div> 
 		</div> <!-- newsContent -->';
 	}
