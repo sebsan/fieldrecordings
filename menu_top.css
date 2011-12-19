@@ -85,7 +85,7 @@ a.sow_by:hover{
 	float:left;
 	font-size:10pt;
 /* 	padding: 0px 15px; */
-	color: black;
+	color: #FC264A;
 	font-family:free_sans;
 	margin: 0px 0px 10px 0px;
 	}
@@ -93,6 +93,8 @@ a.sow_by:hover{
 	
 #latest_news_title {
 	font-weight: bold;
+	text-transform:uppercase;
+	margin-right:5px;
 }
 
 .news-active{
