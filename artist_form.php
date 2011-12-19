@@ -293,9 +293,12 @@ if(isset($_GET['a_edit']))
 		mt_srand();
 		$_SESSION['E_TOKEN'] = mt_rand(1111,9999);
 		$a = $artist[0];
-		mail($email, 'Sounds of Europe profile token', "Follow this url \n<".get_permalink($post->ID)."?a_id=".$a->ID."&a_tok=".$_SESSION['E_TOKEN'].">");
+		$mret = mail($email, 'Sounds of Europe profile token', "Follow this url \n<".get_permalink($post->ID)."?a_id=".$a->ID."&a_tok=".$_SESSION['E_TOKEN'].">");
 		
-		echo '<h3>You should receive an e-mail shortly giving you access to your profile for editing.</h3>';
+		if($mret === true)
+			echo '<h3>You should receive an e-mail shortly giving you access to your profile for editing.</h3>';
+		else
+			echo '<h3>Something went wrong when tried to send an e-mail to: '.$email.'</h3>';
 		//."<a href=\"".get_permalink($post->ID)."?a_id=".$a->ID."&a_tok=".$_SESSION['E_TOKEN']."\">THE LINK</a>";
 		return;
 	}
