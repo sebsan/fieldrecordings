@@ -30,7 +30,7 @@ if($sound)
 // 		$par = '<a class="sow_by" href="'.get_permalink($s->post_parent).'">By '.$pp->post_title.'</a>';
 // 	}
 
-	$fsSoundJSON = HTTP_GET('http://www.freesound.org/api/sounds/'.$sound.'/', array('api_key' => '27040bd2abb94a2fb141a19b963c9e93'));
+	$fsSoundJSON = SOE_HTTP_GET('http://www.freesound.org/api/sounds/'.$sound.'/', array('api_key' => '27040bd2abb94a2fb141a19b963c9e93'));
 // 	print_r('http://www.freesound.org/api/sounds/'.$sound.'/');
 	
 	

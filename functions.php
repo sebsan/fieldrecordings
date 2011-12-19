@@ -52,7 +52,7 @@ function GetCountryName($isocode)
 	return "";
 }
 
-function HTTP_GET($uri , $getdata = array(), $port = 80, $cookie = array(),  $custom_headers = array(), $timeout = 1000, $req_hdr = false,  $res_hdr = false)
+function SOE_HTTP_GET($uri , $getdata = array(), $port = 80, $cookie = array(),  $custom_headers = array(), $timeout = 1000, $req_hdr = false,  $res_hdr = false)
 {
 	$ret = ''; 
 	$puri = parse_url($uri);
