@@ -122,7 +122,6 @@ a.sow_by:hover{
 	line-height:1.3em;
 	font-family:free_sans;
 	color:black;
-	text-transform: lowercase;
 	letter-spacing: 0em;
 }	
 
@@ -135,7 +134,7 @@ a.sow_by:hover{
 #newsContent a{
 	color:#18959A;
 	display:inline;
-	text-decoration:underline;
+	text-decoration:none;
 
 }
 
