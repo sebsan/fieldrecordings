@@ -84,6 +84,9 @@ elseif($postType == 'soe_event')
 	}
 // 	$ap = get_post($custom['event_organization'][0] , OBJECT );
 	$l = GetLocation($custom['location'][0]);
+	$lName = '';
+	if(count($custom['event_organization']) == 1)
+		$lName = ', '. $l->name;
 // 	print_r($l);
 	echo '
 	<div id="content_outer"> 
@@ -91,7 +94,7 @@ elseif($postType == 'soe_event')
 		<div class="content_category">EVENT</div>
 		<div class="title">'.get_the_title().'</div>
 		<div class="blog_details"> 
-		'.$date->format('d/m/Y').', '.$l->name.' - '.$orgas.' 
+		'.$date->format('d/m/Y').$lName .' - ' . $orgas .' 
 		</div>
 		<div class="section">
 		<div class="section_par">'.get_the_content().'</div>
@@ -155,7 +158,7 @@ elseif($postType == 'soe_organisation')
 	<div class="section">
 	<div class="section_title">Mission statement</div>
 	<div class="section_par">
-	'.$custom['organisation_mission'][0].'
+	'.apply_filters('the_content', $custom['organisation_mission'][0]).'
 	</div>
 	
 	<div class="general_url"><a href="http://'.$custom['organisation_url'][0].'">'.$custom['organisation_url'][0].'</a></div>

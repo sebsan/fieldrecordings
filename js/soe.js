@@ -642,7 +642,7 @@ function initMap(ttt)
 	x = T/s - W
 	*/
 	var targetX = 500; // at the right of content_outer
-	var targetY = wh * .6 // vertical center of the viewport
+	var targetY = wh * .7 // vertical center of the viewport
 	
 	var btransx = (targetX / bscale) + 10;
 	var btransy = (targetY/ bscale) + 45;
