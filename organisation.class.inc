@@ -16,11 +16,11 @@ class SOE_Organisation extends SOE_Type
 			'organisation_sound' => 'Sound',
 			'organisation_user' => 'Wordpress user conected to this organisation'));
 		
-		$post_type = false;
-		if(isset($_GET['post']))
-			$post_type = get_post_type($_GET['post']);
-		if ($post_type !== false && $post_type == $this->tname)
+		if($this->isSelfAdmin())
+		{ 
 			add_action( 'admin_init', array(&$this, 'admin_init') );
+		}
+		
 		add_filter('name_save_pre', array(&$this, 'prepare_to_save'));
 		add_filter('title_save_pre', array(&$this, 'prepare_to_save'));
 	}

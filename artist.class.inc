@@ -17,11 +17,10 @@ class SOE_Artist extends SOE_Type
 			'artist_image' => 'Image',
 			'artist_sound' => 'Sound'));
 		
-		$post_type = false;
-		if(isset($_GET['post']))
-			$post_type = get_post_type($_GET['post']);
-		if ($post_type !== false && $post_type == $this->tname) 
+		if($this->isSelfAdmin())
+		{ 
 			add_action( 'admin_init', array(&$this, 'admin_init') );
+		}
 		add_filter('name_save_pre', array(&$this, 'prepare_to_save'));
 		add_filter('title_save_pre', array(&$this, 'prepare_to_save'));
 	}
@@ -41,6 +40,8 @@ class SOE_Artist extends SOE_Type
 	
 	public function admin_init() 
 	{
+		
+		error_log("admin_init (artist)");
 		
 // 		wp_enqueue_script(array('jquery', 'editor', 'thickbox', 'media-upload'));
 // 		wp_enqueue_style('thickbox');

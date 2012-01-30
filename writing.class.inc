@@ -10,11 +10,10 @@ class SOE_Writing extends SOE_Type
 	parent::__construct($args);
 		$this->addMetaFields(array( 'writing_pdf' => 'Attached PDF.' , 'writing_author' => 'Author'));
 		
-		$post_type = false;
-		if(isset($_GET['post']))
-			$post_type = get_post_type($_GET['post']);
-		if ($post_type !== false && $post_type == $this->tname) 
+		if($this->isSelfAdmin())
+		{ 
 			add_action( 'admin_init', array(&$this, 'admin_init') );
+		}
 	}
 	
 	public function admin_init() 

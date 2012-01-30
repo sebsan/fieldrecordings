@@ -13,12 +13,11 @@ class SOE_Event extends SOE_Type
 			'event_date_end' => 'Date of the end of the event, if it runs on severals days',
 			'event_time_start' => 'Time, if any.',
 			'event_organization' => 'Organization'));
-		// Initialize the methods
-		$post_type = false;
-		if(isset($_GET['post']))
-			$post_type = get_post_type($_GET['post']);
-		if ($post_type !== false && $post_type == $this->tname)
+		
+		if($this->isSelfAdmin())
+		{ 
 			add_action( 'admin_init', array(&$this, 'admin_init') );
+		}
 		
 		register_taxonomy_for_object_type('category', $this->tname);
 	

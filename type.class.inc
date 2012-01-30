@@ -53,6 +53,28 @@ class SOE_Type
 		add_action( 'wp_insert_post', array(&$this, 'wp_insert_post'), 10, 2 );
 	}
 	
+	public function isSelfAdmin()
+	{
+		$post_type = false;
+		
+		// When request the new form
+		if(isset($_GET['post_type']))
+			$post_type = $_GET['post_type'];
+		
+		// When edit a post 
+		elseif(isset($_GET['post']))
+			$post_type = get_post_type($_GET['post']);
+		
+		error_log('PT: '. $post_type . ' ; ' . $this->tname);
+		if(is_admin() 
+			&& $post_type !== false 
+			&& $post_type == $this->tname)
+		{ 
+			return true;
+		}
+		return false;
+	}
+	
 	public function wp_insert_post($post_id, $post = null) 
 	{
 		error_log( 'wp_insert_post => '. $post->post_type);

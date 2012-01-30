@@ -14,11 +14,11 @@ class SOE_Location extends SOE_Type
 			'location_lat' => 'Latitude',
 			'location_lon' => 'longitude'));
 		
-		$post_type = false;
-		if(isset($_GET['post']))
-			$post_type = get_post_type($_GET['post']);
-		if ($post_type !== false && $post_type == $this->tname)
-			add_action('admin_init', array(&$this, 'admin_init') );
+		if($this->isSelfAdmin())
+		{ 
+			add_action( 'admin_init', array(&$this, 'admin_init') );
+		}
+		
 		add_filter('name_save_pre', array(&$this, 'prepare_to_save'));
 		add_filter('title_save_pre', array(&$this, 'prepare_to_save'));
 	}
