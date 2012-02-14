@@ -131,24 +131,26 @@ if(count($pages) == 0)
 	</div>
 	';
 }
-
-foreach($pages as $idx=>$p)
+else
 {
-	$visibility = "";
-	if($idx > 0)
-	{
-		$visibility = ' style="display:none;"';
-	}
-	$nav = '';
-	if($idx > 0)
-			$nav .= '<span class="menu_page_nav menu_page_prev">← previous</span>';
-	if(($idx + 1) < count($pages))
-			$nav .= '<span class="menu_page_nav menu_page_next">next →</span>';
-	$nav = strlen($nav) == 0 ? '' : '<div class="menu_page_nav_box">' .$nav . '</div>';
-	echo '<div id="menu_page_'.$idx.'" class="page"'.$visibility.'>
-	'. $regBlock  . $nav . $p . '
-	</div>
-	';
+    foreach($pages as $idx=>$p)
+    {
+            $visibility = "";
+            if($idx > 0)
+            {
+                    $visibility = ' style="display:none;"';
+            }
+            $nav = '';
+            if($idx > 0)
+                    $nav .= '<span class="menu_page_nav menu_page_prev">← previous</span>';
+            if(($idx + 1) < count($pages))
+                    $nav .= '<span class="menu_page_nav menu_page_next">next →</span>';
+            $nav = strlen($nav) == 0 ? '' : '<div class="menu_page_nav_box">' .$nav . '</div>';
+            echo '<div id="menu_page_'.$idx.'" class="page"'.$visibility.'>
+            '. $regBlock  . $nav . $p . '
+            </div>
+            ';
+    }
 }
 
 ?>
