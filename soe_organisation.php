@@ -48,6 +48,7 @@ ksort($organisationByCountry);
 
 <?php 
 
+// print_r($organisationByCountry);
 
 $itCount = 0;
 $maxItems = 8;
@@ -104,7 +105,7 @@ foreach ( $organisationByCountry as $countryCode => $arar )
 			}
 			$content .= $startCol;
 		}
-		else
+// 		else
 			$itCount++;
 		
 		$content .= ' <a class="menu_base" href="'.get_permalink($a->ID).'">'.get_the_title($a->ID).'</a> ';
@@ -116,7 +117,7 @@ if($content != "")
 	$pages[] = $content . $endCol;
 }
 
-// print_r($pages);
+
 
 $regPage = get_page_by_title('Artist Registration');
 $regBlock = '

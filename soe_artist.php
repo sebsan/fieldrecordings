@@ -104,7 +104,7 @@ foreach ( $artistByCountry as $countryCode => $arar )
 			}
 			$content .= $startCol;
 		}
-		else
+// 		else
 			$itCount++;
 		
 		$content .= '<a class="menu_base" href="'.get_permalink($a->ID).'">'.get_the_title($a->ID).'</a>';
