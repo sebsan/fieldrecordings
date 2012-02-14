@@ -81,7 +81,9 @@ foreach ( $organisationByCountry as $countryCode => $arar )
 		}
 		$content .= $startCol;
 		$lastLoc = $loc;
-		$content .= '<div class="menu_category">'.$loc.'</div>';
+		$content .= '
+		<div class="menu_category">'.$loc.'</div>
+		';
 	}
 	$first = false;
 	ksort($arar);
@@ -103,7 +105,9 @@ foreach ( $organisationByCountry as $countryCode => $arar )
 		else
 			$itCount++;
 		
-		$content .= '<a class="menu_base" href="'.get_permalink($a->ID).'">'.get_the_title($a->ID).'</a>';
+		$content .= '
+		<a class="menu_base" href="'.get_permalink($a->ID).'">'.get_the_title($a->ID).'</a>
+		';
 	}
 }
 
