@@ -28,14 +28,18 @@ ORDER BY p.post_title;
 
 $organisations = $wpdb->get_results($query, OBJECT);
 
-
 $organisationByCountry = array();
+$ps = array();
 foreach($organisations as $a)
 {
 	$aloc = GetLocation($a->meta_value);
-	if(!isset($organisationByCountry[GetCountryName($aloc->country_code)]))
-		$organisationByCountry[GetCountryName($aloc->country_code)] = array();
-	$organisationByCountry[GetCountryName($aloc->country_code)][] = $a;
+        if(!isset($organisationByCountry[GetCountryName($aloc->country_code)]))
+                $organisationByCountry[GetCountryName($aloc->country_code)] = array();
+        if(!in_array($a->ID , $ps))
+        {
+                $ps[] = $a->ID;
+                $organisationByCountry[GetCountryName($aloc->country_code)][] = $a;
+        }
 	
 }
 ksort($organisationByCountry);
@@ -81,9 +85,7 @@ foreach ( $organisationByCountry as $countryCode => $arar )
 		}
 		$content .= $startCol;
 		$lastLoc = $loc;
-		$content .= '
-		<div class="menu_category">'.$loc.'</div>
-		';
+		$content .= ' <div class="menu_category">'.$loc.'</div> ';
 	}
 	$first = false;
 	ksort($arar);
@@ -105,9 +107,7 @@ foreach ( $organisationByCountry as $countryCode => $arar )
 		else
 			$itCount++;
 		
-		$content .= '
-		<a class="menu_base" href="'.get_permalink($a->ID).'">'.get_the_title($a->ID).'</a>
-		';
+		$content .= ' <a class="menu_base" href="'.get_permalink($a->ID).'">'.get_the_title($a->ID).'</a> ';
 	}
 }
 
