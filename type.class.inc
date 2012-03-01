@@ -65,7 +65,7 @@ class SOE_Type
 		elseif(isset($_GET['post']))
 			$post_type = get_post_type($_GET['post']);
 		
-		error_log('PT: '. $post_type . ' ; ' . $this->tname);
+// 		error_log('PT: '. $post_type . ' ; ' . $this->tname);
 		if(is_admin() 
 			&& $post_type !== false 
 			&& $post_type == $this->tname)

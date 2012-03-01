@@ -153,7 +153,6 @@ foreach($events as $event)
 {
 	$ed = new DateTime($event->event_date_start[0]);
 	$pat = $patterns[mt_rand(0, count($patterns) -1)];
-	//error_log($event->post_title .' => '.$all_start->format('d.m.y').s' / '.$ed->format('d.m.y') . ' # '.  $all_start->diff($ed, true)->format('%Y + %M'));
 	
 	$i0 =  (12 * $all_start->diff($ed, true)->y) + $all_start->diff($ed, true)->m;
 	$init0 = $i0;
@@ -170,25 +169,25 @@ foreach($events as $event)
 	{
 		if($i0 > $l)
 		{
-// 			error_log($event->post_title. ' ['.$ed->format('c').'] '.$r.' '. $i0.' '.$l);
 			$row = $r;
-			$i0 -= ($l  - $minGap);
+			$i0 -= $l;
+                        $log[$row] = $l + $i0 + $p1 ;
 			break;
 		}
 	}
 	if($row < 0)
 	{
 		$row = count($log);
+                $log[$row] = $i0 + $p1 ;
 		$cells[$row] = array();
 	}
-	$log[$row] = $i0 + $p1 + $minGap;
-// 	error_log('LOG:'.$event->post_title. ' ['.$ed->format('c').'] '.$row.' '. $log[$row]);
 	$cells[$row][] = (object)array('i0' => $i0, 
 					'pat' => $pat, 
 					'p1' => $p1, 
 					'i1' => $i1 , 
 					'link' => get_permalink($event->ID), 
-					'title' => /*$init0.'||'.$i0.'||'.$ed->format('n')*/ $event->post_title);
+					'title' => /*$init0.'||'.$i0.'||'.$ed->format('n')*/ $event->post_title,
+					'start' => $ed->format('M'));
 
 
 }
@@ -205,7 +204,7 @@ foreach($cells as $row)
 		<td class="pattern_row '.$e->pat.'" colspan="'.$e->p1.'"></td>';
 		$presRow .= '
 		'. ($e->i0 > 0 ? '<td  class="presentation_row" colspan="'.$e->i0.'"></td>' : '').'
-		<td class="presentation_row" colspan="'.$e->p1.'"><a href="'.$e->link.'">'.$e->title.'</a></td>
+		<td class="presentation_row" colspan="'.$e->p1.'"><a href="'.$e->link.'">'.$e->title /*$e->start*/.'</a></td>
 		';
 	}
 	echo '<tr>'.$patRow.'</tr><tr>'.$presRow.'</tr>';
