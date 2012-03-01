@@ -294,6 +294,7 @@ if(isset($_GET['a_edit']))
 		$_SESSION['E_TOKEN'] = mt_rand(1111,9999);
 		$a = $artist[0];
 		$mret = mail($email, 'Sounds of Europe profile token', "Follow this url \n<".get_permalink($post->ID)."?a_id=".$a->ID."&a_tok=".$_SESSION['E_TOKEN'].">");
+// 		error_log(get_permalink($post->ID)."?a_id=".$a->ID."&a_tok=".$_SESSION['E_TOKEN']);
 		
 		if($mret === true)
 			echo '<h3>You should receive an e-mail shortly giving you access to your profile for editing.</h3>';
