@@ -51,7 +51,7 @@ field recording will be explored and presented in a personal way.';
 	<div class="content_category">BLOG</div>
 	<div class="title">'.get_the_title().'</div>
 	<div class="blog_details"> 
-	'.$date.' · <a'.$authorLink.'"> '.$author.'</a>
+	'.$date.' · <a'.$authorLink.'> '.$author.'</a>
 	</div>
 	<div class="section">
 	<div class="section_par">'.apply_filters('the_content',get_the_content()).'</div>
@@ -69,7 +69,7 @@ field recording will be explored and presented in a personal way.';
 		echo '<div id="next_post"><a class="post_nav_link" href="'.get_permalink($np['next']->ID).'">'.apply_filters('the_title', $np['next']->post_title).' →</a></div> ';
 	}
 	echo '</div></div>';
-	echo '</div></div>';
+	echo '</div>';
 }
 elseif($postType == 'soe_event')
 {

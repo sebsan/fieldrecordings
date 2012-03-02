@@ -224,8 +224,8 @@ function mediaPlayer($id)
 		<span class="audio-block audio-'.$audiotype.'" id="audio-'.$audio->ID.'" title="'.$at.'">
 		<span class="media-player"></span>
 		<span id="jp_interface_'.$audio->ID.'">
-		<img class="jp-play" src="'.get_bloginfo('template_directory').'/img/play.png" /> 
-		<img class="jp-pause" src="'.get_bloginfo('template_directory').'/img/pause.png" />  
+		<img class="jp-play" src="'.get_bloginfo('template_directory').'/img/play.png" alt="play" /> 
+		<img class="jp-pause" src="'.get_bloginfo('template_directory').'/img/pause.png" alt="pause" />  
 		<span class="audio_title">'.$audio->post_title.'</span> 
 		</span>
 		</span>';
@@ -347,8 +347,13 @@ function insertMediaPlayer($html)
 add_filter('the_content', 'insertMediaPlayer');
 
 
+function xhtmlHelper($html)
+{
+        $ret = str_ireplace('<BR>', '<br />', $html);
+        return $ret;
+}
 
-
+add_filter('the_content', 'xhtmlHelper');
 
 
 

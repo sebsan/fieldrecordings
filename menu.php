@@ -56,8 +56,8 @@ if($sound)
 						
 						
 						<div>
-						<img class="jp-play" src="'.get_bloginfo('template_directory').'/img/play-red.png" /> 
-						<img class="jp-pause" src="'.get_bloginfo('template_directory').'/img/pause-red.png" /> 
+						<img class="jp-play" src="'.get_bloginfo('template_directory').'/img/play-red.png" alt="play" /> 
+						<img class="jp-pause" src="'.get_bloginfo('template_directory').'/img/pause-red.png" alt="pause" /> 
 						<a class="sow_track_title" target="_blank" href="'.$fs->url.'">'.$fsdesc.'</a>
 						
 						</div> 
@@ -84,7 +84,7 @@ if($news > 0)
 	<div id="newsContent">
 		<div id="latest_news">
 			<span id="latest_news_title">'.get_the_title($thenew->ID).'</span>
-			<span id="latest_news_content">'.apply_filters('the_content',$thenew->post_content).'</span>
+			<div id="latest_news_content">'.apply_filters('the_content',$thenew->post_content).'</div>
 		</div> 
 	</div> <!-- newsContent -->';
 		
@@ -97,10 +97,10 @@ if($news > 0)
 
 <div id="bando">
 	<div id="bando_logo1">
-		<a href="<?php echo get_bloginfo('wpurl'); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/soe-logo-menu2.png"/></a>
+		<a href="<?php echo get_bloginfo('wpurl'); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/soe-logo-menu2.png" alt="soe-logo" /></a>
 	</div>
 	<div id="bando_logo2">
-		<a href="http://ec.europa.eu/culture/our-programmes-and-actions/doc411_en.htm"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/eu-logo.png"/></a>
+		<a href="http://ec.europa.eu/culture/our-programmes-and-actions/doc411_en.htm"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/eu-logo.png" alt="eu-logo" /></a>
 	</div>
 	
 	<?php echo $soundStr; ?>
