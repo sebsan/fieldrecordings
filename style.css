@@ -2,29 +2,34 @@
 
 @font-face {
   font-family:helvetica_serif;
+  src:url("OSP_helvetica_serif.woff");
   src:url("OSP_helvetica_serif.ttf");
 }
 
 @font-face {
   font-family:free_sans;
   font-weight:normal;
+  src:url("FreeSans.woff");
   src:url("FreeSans.ttf");
 }
 
 @font-face {
   font-family:free_sans;
   font-weight:bold;
+  src:url("FreeSansBold.woff");
   src:url("FreeSansBold.ttf");
 }
 
 @font-face {
   font-family:free_sans;
   font-style:italic;
+  src:url("FreeSansOblique.woff");
   src:url("FreeSansOblique.ttf");
 }
 
 @font-face {
   font-family:Fanwood;
+  src:url("Fanwood.woff");
   src:url("Fanwood.otf");
 }
 *{
