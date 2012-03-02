@@ -182,9 +182,9 @@ function SOE_JSInit()
 		array(),
 		'2.0.0' );
 		wp_enqueue_script('raphael',
-		get_bloginfo('template_directory') . '/js/raphael.js',
+		get_bloginfo('template_directory') . '/js/raphael-min.js',
 		array(),
-		'1.0' );
+		'2.0' );
 		
 		wp_enqueue_script('soe',
 		get_bloginfo('template_directory') . '/js/soe.js',

@@ -232,22 +232,32 @@ function Path(R, p)
 		path : this._pdata
 	});
 	this._path.hide();
-	this._scale = "1 1";
-	this._rotation = "0";
-	this._translation = "0 0";
+	this._scale = {sx:1,sy:1};
+// 	this._rotation = "0";
+	this._translation = {dx:0,dy:0};
 }
 
 Path.prototype._updateAttrs = function()
 {
-	this._path.attr(
-	{
-		path : this._pdata,
-		stroke : this._stroke,
-		fill : this._fill,
-		rotation : this._rotation,
-		translation : this._translation,
-		scale : this._scale
-	});
+// 	this._path.attr(
+// 	{
+// 		path : this._pdata,
+// 		stroke : this._stroke,
+// 		fill : this._fill,
+// 		rotation : this._rotation,
+// 		translation : this._translation,
+// 		scale : this._scale
+// 	});
+//         
+        this._path.attr('path', this._pdata);
+        this._path.attr('stroke',this._stroke );
+        this._path.attr('fill', this._fill);
+//         this._path.translate(this._translation.dx * this._scale.sx, this._translation.dy * this._scale.sy);
+//         this._path.scale(this._scale.sx, this._scale.sy);
+//         this._path.rotate(this._rotation);
+	var mat = 'matrix('+this._scale.sx+',0,0,'+this._scale.sy+','+(this._translation.dx * this._scale.sx)+','+(this._translation.dy * this._scale.sy)+')';
+// 	this._path.attr('transform', mat);
+	this._path.node.setAttribute('transform', mat);
 }
 
 Path.prototype.simplify = function()
@@ -257,7 +267,12 @@ Path.prototype.simplify = function()
 
 Path.prototype.bbox = function()
 {
-	return this._path.getBBox();
+	var ret = this._path.getBBox(false);
+	ret.x = (ret.x + this._translation.dx) * this._scale.sx;
+	ret.y = (ret.y + this._translation.dy) * this._scale.sy;
+	ret.height *= this._scale.sy;
+	ret.width *= this._scale.sx;
+	return ret;
 // 	return (new Point(bb.x, bb.y));
 }
 
@@ -324,13 +339,15 @@ Path.prototype.scale = function(sx, sy)
 	var gsx = sy;
 	if(sy == undefined)
 		gsx = sx
-	this._scale = sx + " " + gsx + " 0 0";
+// 	this._scale = sx + " " + gsx + " 0 0";
+        this._scale = {sx:sx,sy:gsx};
 	return this;
 }
 
 Path.prototype.translate = function(dx, dy)
 {
-	this._translation = dx + " " + dy;
+// 	this._translation = dx + " " + dy;
+        this._translation = {dx:dx, dy:dy};
 	return this;
 }
 
@@ -648,6 +665,10 @@ function toggleNews(inst)
 var curCityPoint = undefined;
 var countryCode = '';
 
+var bscale = 1;
+var btransx = 0;
+var btransy = 0;
+
 function initMap(ttt)
 {
 	if(ttt == false)
@@ -664,7 +685,7 @@ function initMap(ttt)
 	var cityColor = new Color(0xFC,0x26,0x4A);
 	var white = new Color(255,255,255);
 	
-	var bscale = wh * 20 / 1000;
+	bscale = wh * 20 / 1000;
 	/*
 	 -10 is ~ our most West longitude
 	 -45 is ~ the latitude at which we wish to center the map
@@ -676,8 +697,8 @@ function initMap(ttt)
 	var targetX = 500; // at the right of content_outer
 	var targetY = wh * .7 // vertical center of the viewport
 	
-	var btransx = (targetX / bscale) + 10;
-	var btransy = (targetY/ bscale) + 45;
+	btransx = (targetX / bscale) + 10;
+	btransy = (targetY/ bscale) + 45;
 	
 	var scale = 4;
 	var trh = ww * 0.85 * (1/scale);
@@ -697,7 +718,7 @@ function initMap(ttt)
 	var dCountries = new Array();
 	var labelsElem = jQuery('#labels');
 	var theCountry = '';
-	var textureElem = null;
+// 	var textureElem = null;
 	for(var ci = 0; ci < locations.length ; ci++)
 	{
 		if(locations[ci].id == theCity)
@@ -713,15 +734,15 @@ function initMap(ttt)
 		city.scale(bscale).translate(btransx + cloc.lon - (citySize ), btransy + cloc.lat - (citySize ));
 		if(cloc.id == theCity)
 		{
-			city.stroke(minimap_fill.toString()).fill(minimap_fill.toString()).draw();
+			city.stroke(minimap_fill.toString()).fill(minimap_fill.toString()).attr("stroke-width", 1 / bscale).draw();
 			
 			var surcity = new circle(raph, surcitySize);
 			surcity.scale(bscale).translate(btransx + cloc.lon - (surcitySize ), btransy + cloc.lat - (surcitySize ));
-			surcity.stroke(minimap_fill.toString()).attr("stroke-width", "2").draw();
+			surcity.stroke(minimap_fill.toString()).attr("stroke-width", 2 / bscale).draw();
 		}
 		else
 		{
-			city.fill(white.toString()).stroke(cityColor.toString()).draw();
+			city.fill(white.toString()).stroke(cityColor.toString()).attr("stroke-width", 1 / bscale).draw();
 		}
 		var bb = city.bbox();
 		var cityPoint = new Point(bb.x + (bb.width / 2), bb.y + (bb.height / 2));
@@ -735,29 +756,36 @@ function initMap(ttt)
 			jQuery.get(templateUrl + "svg_path.php", { id: cloc.country },
 				   function(data)
 				   {
-					   var curCountryData = json_parse(data);
-					   var curCountryPath = new Path(raph, curCountryData.p);
-					   curCountryPath.scale(bscale)
-					   .translate(btransx, btransy)
-					   .stroke('transparent')
-			.fill(country_stroke.toString())
-			.draw().toBack();
+					var curCountryData = json_parse(data);
+					var curCountryPath = new Path(raph, curCountryData.p);
+					curCountryPath.scale(bscale)
+					.translate(btransx, btransy)
+					.stroke('transparent')
+					.fill(country_stroke.toString())
+					.draw().toBack();
 			
-			curCountryPath.simplify();
-			
-			// Insert texture;
-			var ctx =  curCityPoint.x ;
-			var cty =  0 ;
-			var iW = ww ;
-			var iH = wh;
-			
-			textureElem = raph.image(templateUrl 
-			+'texture/texture.php?'
-			+'cx='+  Math.floor(curCityPoint.x / 10) * Math.floor(curCityPoint.x / 10)
-			+'&cy='+ Math.floor(curCityPoint.y / 7) * Math.floor(curCityPoint.y / 7)
-			+'&w='+  Math.floor(iW)
-			+'&h='+  Math.floor(iH)
-			, 0, cty, iW, iH).toBack();
+					curCountryPath.simplify();
+					
+					// Insert texture;
+					var ctx =  curCityPoint.x ;
+					var cty =  0 ;
+					var iW = ww ;
+					var iH = wh;
+					
+// 					textureElem = raph.image(templateUrl 
+// 					+'texture/texture.php?'
+// 					+'cx='+  Math.floor(curCityPoint.x / 10) * Math.floor(curCityPoint.x / 10)
+// 					+'&cy='+ Math.floor(curCityPoint.y / 7) * Math.floor(curCityPoint.y / 7)
+// 					+'&w='+  Math.floor(iW)
+// 					+'&h='+  Math.floor(iH)
+// 					, 0, cty, iW, iH).toBack();
+					var cityImgURL = templateUrl 
+					+'texture/texture.php?'
+					+'cx='+  Math.floor(curCityPoint.x / 10) * Math.floor(curCityPoint.x / 10)
+					+'&cy='+ Math.floor(curCityPoint.y / 7) * Math.floor(curCityPoint.y / 7)
+					+'&w='+  Math.floor(iW)
+					+'&h='+  Math.floor(iH);
+					jQuery('#texture').css('background-image', 'url("'+cityImgURL+'")');
 			
 				   });
 				   CurCityClass = " city_current";
@@ -766,11 +794,11 @@ function initMap(ttt)
 				   cityZIndex = 'z-index:200;';
 		}
 		
-		var labX = Math.floor(cityPoint.x + bb.width);
-		var labY = Math.floor(cityPoint.y + bb.height);
+		var labX = Math.floor(cityPoint.x /*+ bb.width*/);
+		var labY = Math.floor(cityPoint.y /*+ bb.height*/);
 		var citylink = jQuery('<div class="city_label' + CurCityClass +'" style="position:absolute;top:' + labY +'px;left:' + labX +'px;'+ cityZIndex +'"><a href="' + cloc.url +'">' + cloc.name +'</a></div>');
 		labelsElem.append(citylink);
-		var labelRect = new Rect(labX, labY , citylink.outerWidth() , citylink.outerHeight() );
+		var labelRect = new Rect(labX, labY , citylink.width() , citylink.height()/*citylink.outerWidth() , citylink.outerHeight()*/ );
 		{
 			var r = 0;
 			var t = 0;
@@ -806,16 +834,16 @@ function initMap(ttt)
 					var countryData = json_parse(data);
 					if(countryData.status == 0)
 					{
-						countryPath = new Path(raph, countryData.p);
+						var countryPath = new Path(raph, countryData.p);
 						countryPath.scale(bscale)
 						.translate(btransx , btransy)
 						.stroke(minimap_stroke.toString())
 						.fill(country_fill.toString())
-						.attr("stroke-width", "1")
+						.attr("stroke-width", 1 / bscale)
 						.toBack().draw();
 						
-						if(textureElem)
-							textureElem.toBack();
+// 						if(textureElem)
+// 							textureElem.toBack();
 					}
 				});
 			
