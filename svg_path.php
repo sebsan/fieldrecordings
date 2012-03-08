@@ -258,7 +258,7 @@ $id = get("id");
 
 $sp = new SVGPath($file);
 // header('Content-Type: text/javascript; charset=utf8');
-header('Content-Type: text/plain; charset=utf8');
+header('Content-Type: text/plain; charset=utf-8');
 // header('Content-Type: application/json; charset=utf8');
 // echo '('. $sp->getPath($id) .')';
 // if($p != NULL)
