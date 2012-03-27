@@ -18,12 +18,12 @@ SELECT *
 FROM ".$wpdb->posts." AS p 
 INNER JOIN ".$wpdb->postmeta." AS m 
 ON p.ID = m.post_id 
-WHERE (p.post_type = 'soe_eblog' AND p.post_status = 'publish')
+WHERE (p.post_type = 'soe_eblog' AND p.post_status = 'publish' AND m.meta_key = 'location')
 ORDER BY p.post_date DESC;
 ";
 
-// echo $query;
-$eblogByCountry = getPostsByLocation($wpdb->get_results($query, OBJECT));
+$eblogs = $wpdb->get_results($query, OBJECT);
+$eblogByCountry = getPostsByLocation($eblogs);
 $pages = makeIndexPages($eblogByCountry, 6,6);
 
 if(count($pages) == 0)

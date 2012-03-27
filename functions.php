@@ -363,6 +363,8 @@ function getPostsByLocation($posts)
 	foreach($posts as $a)
 	{
 		$aloc = GetLocation($a->meta_value);
+		if($aloc === NULL)
+			continue;
 		if(!isset($postsByCountry[GetCountryName($aloc->country_code)]))
 			$postsByCountry[GetCountryName($aloc->country_code)] = array();
 		if(!in_array($a->ID , $ps))
