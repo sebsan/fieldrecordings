@@ -40,9 +40,9 @@ class SOE_Organisation extends SOE_Type
 	
 	public function admin_init() 
 	{
-		wp_enqueue_script(array('jquery', 'editor', 'thickbox', 'media-upload'));
-		wp_enqueue_style('thickbox');
-		wp_tiny_mce( false );
+// 		wp_enqueue_script(array('jquery', 'thickbox', 'media-upload'));
+// 		wp_enqueue_style('thickbox');
+// 		wp_tiny_mce( false );
 		
 		add_meta_box( 'mb_organisation_name', 'Name', array( &$this, "meta_name" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_organisation_user', 'User', array( &$this, "meta_user" ), $this->tname, 'normal', 'high');
