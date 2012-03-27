@@ -24,18 +24,11 @@ ORDER BY p.post_date DESC;
 
 // echo $query;
 $eblogByCountry = getPostsByLocation($wpdb->get_results($query, OBJECT));
-
-// $maxItems = 6;
-// $maxCols = 6;
-
 $pages = makeIndexPages($eblogByCountry, 6,6);
 
 if(count($pages) == 0)
 {
-	echo '
-<div id="menu_page_0" class="page">
-</div>
-	';
+	echo ' <div id="menu_page_0" class="page"> </div> ';
 }
 else
 {

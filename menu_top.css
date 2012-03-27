@@ -294,8 +294,13 @@ a.sow_by:hover{
 	padding: 0px 0px 0px 0px;
 	}
 #menu_index .menu_category_follow{
-	color:#ddf;
-	}
+	color:#bbe;
+	font-weight: normal;
+	font-style:italic;
+}
+#menu_index .menu_category_follow:after{
+	content:"…";
+}
 	
 #menu-logi{
 	position: fixed;
