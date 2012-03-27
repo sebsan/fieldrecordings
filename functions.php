@@ -356,9 +356,122 @@ function xhtmlHelper($html)
 add_filter('the_content', 'xhtmlHelper');
 
 
+function getPostsByLocation($posts)
+{
+	$postsByCountry = array();
+	$ps = array();
+	foreach($posts as $a)
+	{
+		$aloc = GetLocation($a->meta_value);
+		if(!isset($postsByCountry[GetCountryName($aloc->country_code)]))
+			$postsByCountry[GetCountryName($aloc->country_code)] = array();
+		if(!in_array($a->ID , $ps))
+		{
+			$ps[] = $a->ID;
+			$postsByCountry[GetCountryName($aloc->country_code)][] = $a;
+		}
+		
+	}
+	return $postsByCountry;
+}
 
 
+function makeIndexCol($posts, &$idx, $options)
+{
+	if($idx >= count($posts))
+		return FALSE;
+	
+	$ret = $options['start_col'];
+	
+	$ret .= '
+	<div class="'.implode(' ', $options['title_class']).'">'.$options['title'].'</div>
+	';
+	
+	$base = $idx;
+	for($i = $idx ;$i < count($posts); $i++)
+	{
+		$post = $posts[$i];
+		$idx++;
+		$ret .= '
+		<a class="menu_base" href="'.get_permalink($post->ID).'">'.get_the_title($post->ID).'</a>
+		';
+		if(($i - $base)  >= ($options['max_items'] - 1))
+			break;
+	}
+	$ret .= $options['end_col'];
+	return $ret;
+}
 
+function makeIndexPages($postsByLocation, $maxItems, $maxCols, $announce = FALSE)
+{
+	$startCol = '
+	<span>
+		<div class="index_col">';
+	$endCol = '
+			</div>
+		</span>';
+	$pages = array();
+	$columns = array();
+
+	foreach ($postsByLocation as $countryCode => $arar )
+	{
+		$idx = 0;
+		$options = array();
+		$options['start_col'] = $startCol;
+		$options['end_col'] = $endCol;
+		$options['max_items'] = $maxItems;
+		$options['title'] = $countryCode;
+		$options['title_class'] = array('menu_category');
+		$col = makeIndexCol($arar, $idx, $options);
+		while($col !== FALSE)
+		{
+			$columns[] = $col;
+			$options['title_class'] = array('menu_category', 'menu_category_follow');
+			$col = makeIndexCol($arar, $idx, $options);
+		}
+		
+	}
+
+	$pidx = 0;
+	for($i = 0 ; $i < count($columns); $i += $maxCols)
+	{
+		$pages[$pidx] = "";
+		if($announce !== FALSE)
+		{
+			$pages[$pidx] .= $startCol . $announce . $endCol;
+		}
+		$maxj = min($i + $maxCols, count($columns));
+		for($j = $i; $j < $maxj; $j++)
+			$pages[$pidx] .= $columns[$j];
+		
+		$pidx++;
+	}
+	return $pages;
+}
+
+function displayIndexPages($pages)
+{
+	foreach($pages as $idx=>$p)
+	{
+		$visibility = "";
+		if($idx > 0)
+		{
+			$visibility = ' style="display:none;"';
+		}
+		$nav = '';
+		if($idx > 0)
+			$nav .= '<span class="menu_page_nav menu_page_prev">← previous</span>';
+		if(($idx + 1) < count($pages))
+			$nav .= '<span class="menu_page_nav menu_page_next">next →</span>';
+		$nav = strlen($nav) == 0 ? '' : '<div class="menu_page_nav_box">' .$nav . '</div>';
+		
+		echo '
+	<div id="menu_page_'.$idx.'" class="page"'.$visibility.'>
+	'. $nav . $p . '
+	</div>
+		';
+	}
+}
 
 
 ?>

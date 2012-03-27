@@ -293,7 +293,10 @@ a.sow_by:hover{
 	line-height: 15pt;
 	padding: 0px 0px 0px 0px;
 	}
-
+#menu_index .menu_category_follow{
+	color:#ddf;
+	}
+	
 #menu-logi{
 	position: fixed;
 	right: 0;
