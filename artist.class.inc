@@ -40,14 +40,6 @@ class SOE_Artist extends SOE_Type
 	
 	public function admin_init() 
 	{
-		
-		error_log("admin_init (artist)");
-		
-// 		wp_enqueue_script(array('jquery', 'editor', 'thickbox', 'media-upload'));
-// 		wp_enqueue_style('thickbox');
-// 		wp_tiny_mce( false , array( "editor_selector" => "artist_bio"));
-// 		wp_tiny_mce( false , array( "editor_selector" => "artist_use"));
-		
 		add_meta_box( 'mb_artist_name', 'Name', array( &$this, "meta_name" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_artist_location', 'Location', array( &$this, "location" ), $this->tname, 'normal', 'high');
 		add_meta_box( 'mb_artist_url', 'Website & E-mail', array( &$this, "meta_url" ), $this->tname, 'normal', 'high');
