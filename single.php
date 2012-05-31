@@ -76,12 +76,15 @@ elseif($postType == 'soe_event')
 	$date = new DateTime($custom['event_date_start'][0]);
 	$orgas = '';
 	$sep = '';
-	foreach($custom['event_organization'] as $o)
-	{
-		$ap = get_post($o , OBJECT );
-		$orgas .= $sep  . '<a href="'.get_permalink($ap->ID).'""> '.$ap->post_title.'</a>';
-		$sep = ', ';
-	}
+	if($custom['event_organization'])
+        {
+            foreach($custom['event_organization'] as $o)
+            {
+                    $ap = get_post($o , OBJECT );
+                    $orgas .= $sep  . '<a href="'.get_permalink($ap->ID).'""> '.$ap->post_title.'</a>';
+                    $sep = ', ';
+            }
+        }
 // 	$ap = get_post($custom['event_organization'][0] , OBJECT );
 	$l = GetLocation($custom['location'][0]);
 	$lName = '';
