@@ -50,7 +50,7 @@ class SOE_Event extends SOE_Type
 		$eos = $custom['event_organization'];
 		foreach($result as $r)
 		{
-			if(in_array($r->ID, $eos))// == $custom['event_organization'][0])
+			if($eos && in_array($r->ID, $eos))// == $custom['event_organization'][0])
 				$orgas .= '<option value="'.$r->ID.'" selected="selected">'.$r->post_title.'</option>';
 			else
 				$orgas .= '<option value="'.$r->ID.'">'.$r->post_title.'</option>';
