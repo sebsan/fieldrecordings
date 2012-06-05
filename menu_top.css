@@ -23,6 +23,10 @@
 	border-top:0px;
 
 }
+
+#sow_media_player{
+    display:block;
+}
 #sow_label{
 	font-family:helvetica_serif;
 	text-transform: uppercase;
