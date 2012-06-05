@@ -40,22 +40,41 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
 	<?php do_action('rss2_head'); ?>
 	<?php while( have_posts()) : the_post(); ?>
 	<item>
-		<title><?php the_title_rss() ?></title>
+	<?php
+	$custom = get_post_custom($post->ID);
+	$loc = GetLocation($custom['location'][0]);
+// 	print_r($post);
+	if($post->post_type == 'soe_artist')
+        {
+            echo '<title>'.get_the_title_rss().' — '.$loc->name.', '.GetCountryName($loc->country_code).'</title>';
+        }
+        else
+        {
+		echo '<title>'.get_the_title_rss().'</title>';
+        }
+		
+	?>
 		<link><?php the_permalink_rss() ?></link>
 		<pubDate><?php echo mysql2date('D, d M Y H:i:s +0000', get_post_time('Y-m-d H:i:s', true), false); ?></pubDate>
 		<?php the_category_rss('rss2') ?>
 
 		<guid isPermaLink="false"><?php the_guid(); ?></guid>
-<?php if (get_option('rss_use_excerpt')) : ?>
-		<description><![CDATA[<?php the_excerpt_rss() ?>]]></description>
-<?php else : ?>
-		<description><![CDATA[<?php the_excerpt_rss() ?>]]></description>
-	<?php if ( strlen( $post->post_content ) > 0 ) : ?>
-		<content:encoded><![CDATA[<?php the_content_feed('rss2') ?>]]></content:encoded>
-	<?php else : ?>
-		<content:encoded><![CDATA[<?php the_excerpt_rss() ?>]]></content:encoded>
-	<?php endif; ?>
-<?php endif; ?>
+<?php
+        if($post->post_type == 'soe_artist')
+        {
+                $content = apply_filters('the_content', $custom['artist_bio'][0]);
+                $content = str_replace(']]>', ']]&gt;', $content);
+                echo '<description><![CDATA['.apply_filters('the_excerpt_rss', $custom['artist_use'][0]).']]></description>';
+                echo '<content:encoded><![CDATA[' .apply_filters('the_content_feed', $content,'rss2') .']]></content:encoded>';
+        }
+        else
+        {
+                echo '<description><![CDATA['.apply_filters('the_excerpt_rss', get_the_excerpt()).']]></description>';
+                echo '<content:encoded><![CDATA[' .get_the_content_feed('rss2') .']]></content:encoded>';
+        }
+		
+	
+?>
 <?php rss_enclosure(); ?>
 	<?php do_action('rss2_item'); ?>
 	</item>
