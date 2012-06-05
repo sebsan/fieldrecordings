@@ -208,6 +208,15 @@ function SOE_JSInit()
 	
 }
 
+remove_all_actions( 'do_feed_rss2' );
+add_action( 'do_feed_rss2', 'soe_feed_rss2', 10, 1 );
+
+function soe_feed_rss2( $for_comments ) 
+{
+    $rss_template = get_template_directory() . '/feed-rss2.php';
+    load_template( $rss_template );
+}
+
 function mediaPlayer($id)
 {
 	if($id > 0)
