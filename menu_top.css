@@ -11,7 +11,7 @@
 	max-width:250px;
 	height:57px;
 	z-index:13;
-	right:0;
+	right:75px;
 	top:0;
 	color:#FC264A;
 	background-color:white;
@@ -80,6 +80,29 @@ a.sow_by:hover{
 #sow_player_outer:hover .sow_details{
 	display:block;
 }*/
+
+
+#social_box{
+        position:absolute;
+        width:75px;
+        height:57px;
+        z-index:13;
+        right:0;
+        top:0;
+        color:#FC264A;
+        background-color:white;
+        border: 1px solid #18959A;
+        padding-left: 10px;
+        padding-top: 15px;
+        padding-right: 10px;
+        padding-bottom: 15px;
+        border-top:0px;
+
+}
+
+.social_item{
+    display:inline;
+}
 
 #latest_news {
 	float:left;

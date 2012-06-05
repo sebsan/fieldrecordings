@@ -104,7 +104,16 @@ if($news > 0)
 	</div>
 	
 	<?php echo $soundStr; ?>
-	<?php /*echo $newsStr;*/ ?>
+	<div id="social_box">
+            <div class="social_item"><a title="on facebook" href="http://XXXX">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/soe-facebook.png" alt="facebook" /></a></div>
+            <div class="social_item"><a title="rss feed" href="">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/soe-rss.png" alt="feed" /></a></div>
+            <div class="social_item"><a title="follow us on twitter" href="http://XXXX">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/soe-twitter.png" alt="twitter" /></a></div>
+            <div class="social_item"><a title="contact us by e-mail" href="mailto:info@soundsofeurope.eu">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/soe-mail.png" alt="e-mail" /></a></div>
+	</div>
 </div>
 
 <div id="menu_index" class="menu_closed"></div> <!--menu_index-->
