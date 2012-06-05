@@ -27,6 +27,11 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
 	<title><?php bloginfo_rss('name'); wp_title_rss(); ?></title>
 	<atom:link href="<?php self_link(); ?>" rel="self" type="application/rss+xml" />
 	<link><?php bloginfo_rss('url') ?></link>
+	<image>
+            <url><?php echo get_stylesheet_directory_uri();?>/img/soe-logo-menu.png</url>
+            <title>Sounds of Europe</title>
+            <link><?php echo site_url(); ?></link>
+        </image>
 	<description><?php bloginfo_rss("description") ?></description>
 	<lastBuildDate><?php echo mysql2date('D, d M Y H:i:s +0000', get_lastpostmodified('GMT'), false); ?></lastBuildDate>
 	<language><?php echo get_option('rss_language'); ?></language>
