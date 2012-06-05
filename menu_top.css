@@ -102,6 +102,9 @@ a.sow_by:hover{
 
 .social_item{
     display:inline;
+    padding-right:3px;
+    margin-right:3px;
+    margin-top:6px;
 }
 
 #latest_news {
